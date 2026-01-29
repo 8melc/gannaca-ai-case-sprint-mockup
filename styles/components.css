@@ -39,7 +39,7 @@
 
 /* gannaca LOGO (GROß!) */
 .gannaca-logo {
-  height: 56px;
+  height: 84px;
   width: auto;
   flex-shrink: 0;
 }
@@ -79,7 +79,7 @@
 }
 
 .client-logo {
-  height: 48px;
+  height: 72px;
   width: auto;
 }
 
