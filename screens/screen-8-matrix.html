@@ -106,40 +106,183 @@
       <div class="page-header">
         <div class="page-header-inner">
           <h1 class="page-title">📈 KI-gestützte Priorisierungs-Matrix</h1>
-          <p class="page-subtitle">17 Cases analysiert – Top-3 Empfehlungen identifiziert</p>
+          <p class="page-subtitle">Cases analysiert – Top-3 Empfehlungen identifiziert</p>
         </div>
       </div>
       
       <div class="container">
         
         <!-- WARNING: Nicht im Workshop zeigen! -->
-        <div class="info-box" style="margin-bottom: var(--space-10); border-left-color: var(--text-darkest);">
+        <div class="info-box" style="margin-bottom: var(--space-10); border-left-color: var(--orange); background: #FEF9F5;">
           <div class="info-box-icon">⚠️</div>
-          <div class="info-box-title">WICHTIG: NICHT IM WORKSHOP ZEIGEN!</div>
+          <div class="info-box-title" style="color: var(--orange);">WICHTIG: POST-WORKSHOP SCREEN</div>
           <div class="info-box-text">
             <p style="margin: 0;">
               Dieser Screen wird <strong>NICHT</strong> während des Workshops präsentiert.<br>
-              Die KI-gestützte Analyse erfolgt erst 2-3 Tage nach dem Workshop.
+              Die KI-gestützte Analyse erfolgt erst 2-3 Tage nach dem Workshop und wird per E-Mail geteilt.
             </p>
           </div>
         </div>
         
-        <div class="info-box" style="text-align: center;">
-          <div class="info-box-icon">🚧</div>
-          <div class="info-box-title">SCREEN IN ENTWICKLUNG (PHASE 2)</div>
+        <!-- 2D MATRIX VISUALISIERUNG -->
+        <div class="card" style="margin-bottom: var(--space-10);">
+          <h3 style="margin-bottom: var(--space-6); color: var(--navy);">Nutzen × Machbarkeit Matrix</h3>
+          
+          <div style="position: relative; height: 400px; background: var(--off-white); border-radius: var(--border-radius-md); padding: var(--space-6);">
+            
+            <!-- Y-ACHSE Label -->
+            <div style="position: absolute; left: -10px; top: 50%; transform: rotate(-90deg) translateX(-50%); font-weight: bold; color: var(--text-dark);">
+              NUTZEN →
+            </div>
+            
+            <!-- X-ACHSE Label -->
+            <div style="position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); font-weight: bold; color: var(--text-dark);">
+              MACHBARKEIT →
+            </div>
+            
+            <!-- QUADRANTEN -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; height: 100%; gap: 2px;">
+              
+              <!-- Quadrant: Hoher Nutzen / Niedrige Machbarkeit -->
+              <div style="background: rgba(102, 102, 102, 0.1); padding: var(--space-4); position: relative; border-radius: var(--border-radius-md) 0 0 0;">
+                <span style="font-size: var(--text-xs); color: var(--text-light);">Strategisch prüfen</span>
+                <!-- Beispiel-Punkt -->
+                <div style="position: absolute; top: 30%; left: 40%; width: 32px; height: 32px; background: var(--text-medium); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: var(--text-xs); font-weight: bold;" title="Case #05">5</div>
+              </div>
+              
+              <!-- Quadrant: Hoher Nutzen / Hohe Machbarkeit = SWEET SPOT -->
+              <div style="background: rgba(26, 58, 92, 0.15); padding: var(--space-4); position: relative; border: 3px solid var(--navy); border-radius: 0 var(--border-radius-md) 0 0;">
+                <span style="font-size: var(--text-xs); color: var(--navy); font-weight: bold;">⭐ SWEET SPOT</span>
+                <!-- Beispiel-Punkte -->
+                <div style="position: absolute; top: 25%; left: 60%; width: 36px; height: 36px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: var(--text-sm); font-weight: bold; box-shadow: 0 2px 8px rgba(0,0,0,0.2);" title="Case #01 - TOP EMPFEHLUNG">1</div>
+                <div style="position: absolute; top: 45%; left: 35%; width: 36px; height: 36px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: var(--text-sm); font-weight: bold; box-shadow: 0 2px 8px rgba(0,0,0,0.2);" title="Case #02">2</div>
+                <div style="position: absolute; top: 35%; left: 75%; width: 36px; height: 36px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: var(--text-sm); font-weight: bold; box-shadow: 0 2px 8px rgba(0,0,0,0.2);" title="Case #03">3</div>
+              </div>
+              
+              <!-- Quadrant: Niedriger Nutzen / Niedrige Machbarkeit -->
+              <div style="background: rgba(153, 153, 153, 0.1); padding: var(--space-4); position: relative; border-radius: 0 0 0 var(--border-radius-md);">
+                <span style="font-size: var(--text-xs); color: var(--text-light);">Niedrige Priorität</span>
+                <div style="position: absolute; top: 60%; left: 30%; width: 28px; height: 28px; background: var(--text-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: var(--text-xs);" title="Case #07">7</div>
+                <div style="position: absolute; top: 40%; left: 55%; width: 28px; height: 28px; background: var(--text-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: var(--text-xs);" title="Case #08">8</div>
+              </div>
+              
+              <!-- Quadrant: Niedriger Nutzen / Hohe Machbarkeit -->
+              <div style="background: rgba(232, 116, 59, 0.1); padding: var(--space-4); position: relative; border-radius: 0 0 var(--border-radius-md) 0;">
+                <span style="font-size: var(--text-xs); color: var(--text-medium);">Quick Wins</span>
+                <div style="position: absolute; top: 50%; left: 45%; width: 30px; height: 30px; background: var(--orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: var(--text-xs); font-weight: bold;" title="Case #04">4</div>
+                <div style="position: absolute; top: 65%; left: 70%; width: 30px; height: 30px; background: var(--orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: var(--text-xs); font-weight: bold;" title="Case #06">6</div>
+              </div>
+              
+            </div>
+            
+          </div>
+          
+          <!-- LEGENDE -->
+          <div style="display: flex; gap: var(--space-8); margin-top: var(--space-6); justify-content: center; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: var(--space-2);">
+              <div style="width: 20px; height: 20px; background: var(--navy); border-radius: 50%;"></div>
+              <span style="font-size: var(--text-sm);">Top-3 Empfehlungen</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: var(--space-2);">
+              <div style="width: 20px; height: 20px; background: var(--orange); border-radius: 50%;"></div>
+              <span style="font-size: var(--text-sm);">Quick Wins</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: var(--space-2);">
+              <div style="width: 20px; height: 20px; background: var(--text-medium); border-radius: 50%;"></div>
+              <span style="font-size: var(--text-sm);">Strategisch prüfen</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: var(--space-2);">
+              <div style="width: 20px; height: 20px; background: var(--text-light); border-radius: 50%;"></div>
+              <span style="font-size: var(--text-sm);">Niedrige Priorität</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- TOP-3 EMPFEHLUNGEN -->
+        <h3 style="margin-bottom: var(--space-6); color: var(--text-darkest);">⭐ Top-3 Empfehlungen</h3>
+        <div class="grid grid-3" style="gap: var(--space-6); margin-bottom: var(--space-10);">
+          
+          <!-- EMPFEHLUNG 1 -->
+          <div class="card" style="border-top: 4px solid var(--navy);">
+            <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4);">
+              <div style="background: var(--navy); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">1</div>
+              <span style="font-size: var(--text-sm); color: var(--navy); font-weight: bold;">TOP EMPFEHLUNG</span>
+            </div>
+            <h4 style="margin-bottom: var(--space-3);">[Case-Titel wird eingefügt]</h4>
+            <p style="font-size: var(--text-sm); color: var(--text-medium); margin-bottom: var(--space-4);">
+              Höchster Nutzen-Score bei gleichzeitig guter Machbarkeit. Ideal als Pilot-Projekt.
+            </p>
+            <div style="background: var(--off-white); padding: var(--space-3); border-radius: var(--border-radius-md);">
+              <div style="display: flex; justify-content: space-between; font-size: var(--text-sm);">
+                <span>Nutzen:</span>
+                <strong>■■■■■ 5/5</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: var(--text-sm);">
+                <span>Machbarkeit:</span>
+                <strong>■■■■□ 4/5</strong>
+              </div>
+            </div>
+          </div>
+          
+          <!-- EMPFEHLUNG 2 -->
+          <div class="card" style="border-top: 4px solid var(--navy);">
+            <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4);">
+              <div style="background: var(--navy); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">2</div>
+              <span style="font-size: var(--text-sm); color: var(--text-medium); font-weight: bold;">EMPFEHLUNG</span>
+            </div>
+            <h4 style="margin-bottom: var(--space-3);">[Case-Titel wird eingefügt]</h4>
+            <p style="font-size: var(--text-sm); color: var(--text-medium); margin-bottom: var(--space-4);">
+              Hoher strategischer Wert. Gute Synergie mit Case #1.
+            </p>
+            <div style="background: var(--off-white); padding: var(--space-3); border-radius: var(--border-radius-md);">
+              <div style="display: flex; justify-content: space-between; font-size: var(--text-sm);">
+                <span>Nutzen:</span>
+                <strong>■■■■□ 4/5</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: var(--text-sm);">
+                <span>Machbarkeit:</span>
+                <strong>■■■■■ 5/5</strong>
+              </div>
+            </div>
+          </div>
+          
+          <!-- EMPFEHLUNG 3 -->
+          <div class="card" style="border-top: 4px solid var(--navy);">
+            <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4);">
+              <div style="background: var(--navy); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">3</div>
+              <span style="font-size: var(--text-sm); color: var(--text-medium); font-weight: bold;">EMPFEHLUNG</span>
+            </div>
+            <h4 style="margin-bottom: var(--space-3);">[Case-Titel wird eingefügt]</h4>
+            <p style="font-size: var(--text-sm); color: var(--text-medium); margin-bottom: var(--space-4);">
+              Schnelle Umsetzung möglich. Guter ROI bei moderatem Aufwand.
+            </p>
+            <div style="background: var(--off-white); padding: var(--space-3); border-radius: var(--border-radius-md);">
+              <div style="display: flex; justify-content: space-between; font-size: var(--text-sm);">
+                <span>Nutzen:</span>
+                <strong>■■■■□ 4/5</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: var(--text-sm);">
+                <span>Machbarkeit:</span>
+                <strong>■■■■□ 4/5</strong>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+        <!-- HINWEIS -->
+        <div class="info-box">
+          <div class="info-box-icon">📧</div>
+          <div class="info-box-title">NÄCHSTE SCHRITTE</div>
           <div class="info-box-text">
-            <p>Dieser Screen wird bis 5. Februar 2026 fertiggestellt.</p>
-            <p style="margin-top: var(--space-4);">
-              <strong>Geplanter Inhalt:</strong><br>
-              2D-Matrix (Nutzen x Machbarkeit)<br>
-              Punkte für alle 17 Cases<br>
-              Top-3 Empfehlungen mit Begründung<br>
-              Bewertungs-Balken für jede Dimension
+            <p style="margin: 0;">
+              Diese Analyse wird innerhalb von <strong>48 Stunden</strong> nach dem Workshop per E-Mail an alle Teilnehmer versendet, zusammen mit der Empfehlung für den finalen Case.
             </p>
           </div>
         </div>
         
-        <div style="display: flex; justify-content: center; gap: var(--spacing-lg); margin-top: var(--spacing-2xl);">
+        <!-- NAVIGATION -->
+        <div style="display: flex; justify-content: space-between; margin-top: var(--space-12);">
           <a href="screen-7-results.html" class="btn btn-secondary">← Zurück zu den Ergebnissen</a>
           <a href="screen-0-workshop-process.html" class="btn btn-primary">Zum Anfang →</a>
         </div>

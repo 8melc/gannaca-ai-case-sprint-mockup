@@ -111,22 +111,110 @@
       </div>
       
       <div class="container">
-        <div class="info-box" style="text-align: center;">
-          <div class="info-box-icon">🚧</div>
-          <div class="info-box-title">SCREEN IN ENTWICKLUNG</div>
-          <div class="info-box-text">
-            <p>Dieser Screen wird in Phase 2 fertiggestellt (bis 5. Februar 2026).</p>
-            <p style="margin-top: var(--space-4);">
-              <strong>Geplanter Inhalt:</strong><br>
-              4-Säulen-Darstellung: Zeit, Kosten, Qualität, Risiko<br>
-              + Abgrenzungs-Box ("Was dieser Case NICHT ist")
+        
+        <!-- 4-SÄULEN KPI GRID -->
+        <div class="grid grid-4" style="gap: var(--space-6); margin-bottom: var(--space-12);">
+          
+          <!-- SÄULE 1: ZEIT -->
+          <div class="card" style="text-align: center; border-top: 4px solid var(--navy);">
+            <div style="font-size: 48px; margin-bottom: var(--space-4);">⏱️</div>
+            <h3 style="color: var(--navy); margin-bottom: var(--space-4);">ZEIT</h3>
+            <p style="font-size: var(--text-sm); color: var(--text-medium); margin-bottom: var(--space-4);">
+              Wie viel Zeit wird aktuell aufgewendet? Wie viel könnte eingespart werden?
             </p>
+            <div style="background: var(--off-white); padding: var(--space-4); border-radius: var(--border-radius-md);">
+              <strong style="display: block; margin-bottom: var(--space-2);">Beispiel-Metriken:</strong>
+              <ul style="text-align: left; font-size: var(--text-sm); margin: 0; padding-left: var(--space-4);">
+                <li>Stunden pro Vorgang</li>
+                <li>Durchlaufzeit (Tage)</li>
+                <li>Wartezeit (Stunden)</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- SÄULE 2: KOSTEN -->
+          <div class="card" style="text-align: center; border-top: 4px solid var(--navy);">
+            <div style="font-size: 48px; margin-bottom: var(--space-4);">💰</div>
+            <h3 style="color: var(--navy); margin-bottom: var(--space-4);">KOSTEN</h3>
+            <p style="font-size: var(--text-sm); color: var(--text-medium); margin-bottom: var(--space-4);">
+              Welche direkten und indirekten Kosten entstehen durch den aktuellen Prozess?
+            </p>
+            <div style="background: var(--off-white); padding: var(--space-4); border-radius: var(--border-radius-md);">
+              <strong style="display: block; margin-bottom: var(--space-2);">Beispiel-Metriken:</strong>
+              <ul style="text-align: left; font-size: var(--text-sm); margin: 0; padding-left: var(--space-4);">
+                <li>Personalkosten/Jahr</li>
+                <li>Externe Beratung</li>
+                <li>Opportunitätskosten</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- SÄULE 3: QUALITÄT -->
+          <div class="card" style="text-align: center; border-top: 4px solid var(--navy);">
+            <div style="font-size: 48px; margin-bottom: var(--space-4);">✓</div>
+            <h3 style="color: var(--navy); margin-bottom: var(--space-4);">QUALITÄT</h3>
+            <p style="font-size: var(--text-sm); color: var(--text-medium); margin-bottom: var(--space-4);">
+              Wie konsistent und fehlerfrei ist der aktuelle Output?
+            </p>
+            <div style="background: var(--off-white); padding: var(--space-4); border-radius: var(--border-radius-md);">
+              <strong style="display: block; margin-bottom: var(--space-2);">Beispiel-Metriken:</strong>
+              <ul style="text-align: left; font-size: var(--text-sm); margin: 0; padding-left: var(--space-4);">
+                <li>Fehlerquote (%)</li>
+                <li>Nacharbeits-Quote</li>
+                <li>Konsistenz-Score</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- SÄULE 4: RISIKO -->
+          <div class="card" style="text-align: center; border-top: 4px solid var(--navy);">
+            <div style="font-size: 48px; margin-bottom: var(--space-4);">⚠️</div>
+            <h3 style="color: var(--navy); margin-bottom: var(--space-4);">RISIKO</h3>
+            <p style="font-size: var(--text-sm); color: var(--text-medium); margin-bottom: var(--space-4);">
+              Welche Risiken bestehen bei Nicht-Handlung oder bei fehlerhafter Bearbeitung?
+            </p>
+            <div style="background: var(--off-white); padding: var(--space-4); border-radius: var(--border-radius-md);">
+              <strong style="display: block; margin-bottom: var(--space-2);">Beispiel-Metriken:</strong>
+              <ul style="text-align: left; font-size: var(--text-sm); margin: 0; padding-left: var(--space-4);">
+                <li>Compliance-Verstöße</li>
+                <li>Audit-Findings</li>
+                <li>Reputationsrisiko</li>
+              </ul>
+            </div>
+          </div>
+          
+        </div>
+        
+        <!-- ABGRENZUNGS-BOX -->
+        <div class="info-box" style="border-left-color: var(--text-darkest);">
+          <div class="info-box-icon">🚫</div>
+          <div class="info-box-title">WAS DIESER CASE NICHT IST</div>
+          <div class="info-box-text">
+            <div class="grid grid-2" style="gap: var(--space-8); margin-top: var(--space-4);">
+              <div>
+                <strong>KEIN vollautomatisiertes System:</strong>
+                <p style="margin-top: var(--space-2);">KI trifft keine finalen Entscheidungen. Jede Bewertung wird von Menschen validiert.</p>
+              </div>
+              <div>
+                <strong>KEINE Ersetzung von Expertenwissen:</strong>
+                <p style="margin-top: var(--space-2);">KI unterstützt, ersetzt aber nicht die Fachexpertise der Mitarbeiter.</p>
+              </div>
+              <div>
+                <strong>KEINE Blackbox-Lösung:</strong>
+                <p style="margin-top: var(--space-2);">Alle KI-Vorschläge sind nachvollziehbar und erklärbar (Explainability).</p>
+              </div>
+              <div>
+                <strong>KEIN "One-Size-Fits-All":</strong>
+                <p style="margin-top: var(--space-2);">Jeder Case wird individuell bewertet, nicht pauschal kategorisiert.</p>
+              </div>
+            </div>
           </div>
         </div>
         
-        <div style="display: flex; justify-content: center; gap: var(--spacing-lg); margin-top: var(--spacing-2xl);">
-          <a href="screen-1-overview.html" class="btn btn-secondary">← Zurück</a>
-          <a href="screen-6-form.html" class="btn btn-primary">Zur Case-Erfassung →</a>
+        <!-- NAVIGATION -->
+        <div style="display: flex; justify-content: space-between; margin-top: var(--space-12);">
+          <a href="screen-1-overview.html" class="btn btn-secondary">← Zurück zur Übersicht</a>
+          <a href="screen-3-governance.html" class="btn btn-primary">Weiter zu Governance →</a>
         </div>
       </div>
     </main>

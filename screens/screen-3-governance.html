@@ -111,23 +111,111 @@
       </div>
       
       <div class="container">
-        <div class="info-box" style="text-align: center;">
-          <div class="info-box-icon">🚧</div>
-          <div class="info-box-title">SCREEN IN ENTWICKLUNG</div>
-          <div class="info-box-text">
-            <p>Dieser Screen wird in Phase 2 fertiggestellt (bis 5. Februar 2026).</p>
-            <p style="margin-top: var(--space-4);">
-              <strong>Geplanter Inhalt:</strong><br>
-              Mensch vs. KI Tabelle<br>
-              Governance-Prinzipien (Explainability, Human-in-Loop, Audit-Trail)<br>
-              Eskalations-Matrix
-            </p>
+        
+        <!-- MENSCH VS. KI TABELLE -->
+        <div class="card" style="margin-bottom: var(--space-10);">
+          <h3 style="margin-bottom: var(--space-6); color: var(--navy);">Aufgabenverteilung: Mensch vs. KI</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width: 30%;">Dimension</th>
+                  <th style="width: 35%; background: rgba(26, 58, 92, 0.1);">🤖 KI übernimmt</th>
+                  <th style="width: 35%;">👤 Mensch entscheidet</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Datenerfassung</strong></td>
+                  <td style="background: rgba(26, 58, 92, 0.05);">Automatische Extraktion aus Dokumenten, Strukturierung</td>
+                  <td>Validierung der Vollständigkeit, Korrektur von Fehlern</td>
+                </tr>
+                <tr>
+                  <td><strong>Vorprüfung</strong></td>
+                  <td style="background: rgba(26, 58, 92, 0.05);">Regelbasierte Checks, Plausibilitätsprüfung</td>
+                  <td>Bewertung von Ausnahmen, Kontext-Entscheidungen</td>
+                </tr>
+                <tr>
+                  <td><strong>Risiko-Flagging</strong></td>
+                  <td style="background: rgba(26, 58, 92, 0.05);">Markierung auffälliger Fälle, Scoring</td>
+                  <td>Finale Risikobewertung, Eskalationsentscheidung</td>
+                </tr>
+                <tr>
+                  <td><strong>Dokumentation</strong></td>
+                  <td style="background: rgba(26, 58, 92, 0.05);">Automatische Protokollierung, Audit-Trail</td>
+                  <td>Freigabe, Unterschrift, Verantwortungsübernahme</td>
+                </tr>
+                <tr>
+                  <td><strong>Entscheidung</strong></td>
+                  <td style="background: rgba(26, 58, 92, 0.05);">Vorschläge mit Begründung</td>
+                  <td><strong style="color: var(--navy);">FINALE ENTSCHEIDUNG – IMMER MENSCH!</strong></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
         
-        <div style="display: flex; justify-content: center; gap: var(--spacing-lg); margin-top: var(--spacing-2xl);">
-          <a href="screen-2-kpi.html" class="btn btn-secondary">← Zurück</a>
-          <a href="screen-6-form.html" class="btn btn-primary">Zur Case-Erfassung →</a>
+        <!-- GOVERNANCE-PRINZIPIEN -->
+        <h3 style="margin-bottom: var(--space-6); color: var(--text-darkest);">Governance-Prinzipien</h3>
+        <div class="grid grid-4" style="gap: var(--space-6); margin-bottom: var(--space-10);">
+          
+          <div class="box box-highlight">
+            <h4 style="color: var(--navy); margin-bottom: var(--space-3);">🔍 Explainability</h4>
+            <p style="font-size: var(--text-sm); margin: 0;">
+              Jede KI-Empfehlung muss nachvollziehbar begründet sein. Keine "Black Box"-Entscheidungen.
+            </p>
+          </div>
+          
+          <div class="box box-highlight">
+            <h4 style="color: var(--navy); margin-bottom: var(--space-3);">👤 Human-in-the-Loop</h4>
+            <p style="font-size: var(--text-sm); margin: 0;">
+              Menschen bleiben in kritischen Entscheidungspunkten eingebunden. KI unterstützt, ersetzt nicht.
+            </p>
+          </div>
+          
+          <div class="box box-highlight">
+            <h4 style="color: var(--navy); margin-bottom: var(--space-3);">📋 Audit-Trail</h4>
+            <p style="font-size: var(--text-sm); margin: 0;">
+              Lückenlose Dokumentation aller Schritte für Compliance und Revision.
+            </p>
+          </div>
+          
+          <div class="box box-highlight">
+            <h4 style="color: var(--navy); margin-bottom: var(--space-3);">🔒 DSGVO-Konformität</h4>
+            <p style="font-size: var(--text-sm); margin: 0;">
+              Datenschutz by Design. Keine Verarbeitung personenbezogener Daten ohne Rechtsgrundlage.
+            </p>
+          </div>
+          
+        </div>
+        
+        <!-- ESKALATIONS-HINWEIS -->
+        <div class="info-box" style="background: var(--off-white);">
+          <div class="info-box-icon">⚡</div>
+          <div class="info-box-title">ESKALATIONS-LOGIK</div>
+          <div class="info-box-text">
+            <p style="margin-bottom: var(--space-4);">Bei folgenden Situationen wird automatisch eskaliert:</p>
+            <div style="display: flex; gap: var(--space-6); flex-wrap: wrap;">
+              <div style="display: flex; align-items: center; gap: var(--space-2);">
+                <span style="display: inline-block; width: 12px; height: 12px; background: var(--text-darkest); border-radius: 50%;"></span>
+                <span>Risiko-Score ≥ 4 → Teamleiter</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: var(--space-2);">
+                <span style="display: inline-block; width: 12px; height: 12px; background: var(--text-dark); border-radius: 50%;"></span>
+                <span>Compliance-Relevanz → Compliance-Beauftragter</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: var(--space-2);">
+                <span style="display: inline-block; width: 12px; height: 12px; background: var(--text-medium); border-radius: 50%;"></span>
+                <span>KI unsicher (< 70% Confidence) → Manueller Review</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- NAVIGATION -->
+        <div style="display: flex; justify-content: space-between; margin-top: var(--space-12);">
+          <a href="screen-2-kpi.html" class="btn btn-secondary">← Zurück zu KPI-Rahmen</a>
+          <a href="screen-4-process.html" class="btn btn-primary">Weiter zu Zielprozess →</a>
         </div>
       </div>
     </main>

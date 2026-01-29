@@ -111,27 +111,127 @@
       </div>
       
       <div class="container">
-        <div class="info-box" style="text-align: center;">
-          <div class="info-box-icon">🚧</div>
-          <div class="info-box-title">SCREEN IN ENTWICKLUNG</div>
+        
+        <!-- PROZESS-FLOW -->
+        <div style="max-width: 800px; margin: 0 auto;">
+          
+          <!-- SCHRITT 1 -->
+          <div class="card" style="margin-bottom: var(--space-4); border-left: 4px solid var(--navy);">
+            <div style="display: flex; gap: var(--space-6); align-items: flex-start;">
+              <div style="background: var(--navy); color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--text-xl); font-weight: bold; flex-shrink: 0;">1</div>
+              <div style="flex: 1;">
+                <h3 style="margin-bottom: var(--space-2); color: var(--navy);">📥 Auslöser & Ingestion</h3>
+                <p style="color: var(--text-medium); margin-bottom: var(--space-3);">Mitarbeiter reicht Reisekostenabrechnung ein (E-Mail, Portal, etc.)</p>
+                <div style="background: var(--off-white); padding: var(--space-3); border-radius: var(--border-radius-md); font-size: var(--text-sm);">
+                  <strong>KI:</strong> Automatische Dokumentenerkennung, Extraktion relevanter Daten
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- PFEIL -->
+          <div style="text-align: center; font-size: 24px; color: var(--text-light); margin: var(--space-2) 0;">↓</div>
+          
+          <!-- SCHRITT 2 -->
+          <div class="card" style="margin-bottom: var(--space-4); border-left: 4px solid var(--navy);">
+            <div style="display: flex; gap: var(--space-6); align-items: flex-start;">
+              <div style="background: var(--navy); color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--text-xl); font-weight: bold; flex-shrink: 0;">2</div>
+              <div style="flex: 1;">
+                <h3 style="margin-bottom: var(--space-2); color: var(--navy);">🤖 KI-Vorprüfung</h3>
+                <p style="color: var(--text-medium); margin-bottom: var(--space-3);">Automatischer Abgleich mit Richtlinien, Plausibilitätschecks</p>
+                <div style="background: var(--off-white); padding: var(--space-3); border-radius: var(--border-radius-md); font-size: var(--text-sm);">
+                  <strong>KI:</strong> Vollständigkeitsprüfung, Kostensatz-Abgleich, Richtlinien-Check
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- PFEIL -->
+          <div style="text-align: center; font-size: 24px; color: var(--text-light); margin: var(--space-2) 0;">↓</div>
+          
+          <!-- SCHRITT 3 -->
+          <div class="card" style="margin-bottom: var(--space-4); border-left: 4px solid var(--navy);">
+            <div style="display: flex; gap: var(--space-6); align-items: flex-start;">
+              <div style="background: var(--navy); color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--text-xl); font-weight: bold; flex-shrink: 0;">3</div>
+              <div style="flex: 1;">
+                <h3 style="margin-bottom: var(--space-2); color: var(--navy);">📊 Ergebnisübersicht</h3>
+                <p style="color: var(--text-medium); margin-bottom: var(--space-3);">Dashboard mit Ampel-Status für jeden Prüfpunkt</p>
+                <div style="background: var(--off-white); padding: var(--space-3); border-radius: var(--border-radius-md); font-size: var(--text-sm);">
+                  <strong>KI:</strong> Visualisierung der Ergebnisse, Risiko-Scoring, Handlungsempfehlungen
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- PFEIL -->
+          <div style="text-align: center; font-size: 24px; color: var(--text-light); margin: var(--space-2) 0;">↓</div>
+          
+          <!-- SCHRITT 4 - MENSCH -->
+          <div class="card" style="margin-bottom: var(--space-4); border-left: 4px solid var(--orange); background: #FEF9F5;">
+            <div style="display: flex; gap: var(--space-6); align-items: flex-start;">
+              <div style="background: var(--orange); color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--text-xl); font-weight: bold; flex-shrink: 0;">4</div>
+              <div style="flex: 1;">
+                <h3 style="margin-bottom: var(--space-2); color: var(--orange);">👤 Menschliche Bewertung</h3>
+                <p style="color: var(--text-medium); margin-bottom: var(--space-3);">Sachbearbeiter prüft kritische Fälle, entscheidet bei Ausnahmen</p>
+                <div style="background: white; padding: var(--space-3); border-radius: var(--border-radius-md); font-size: var(--text-sm); border: 1px solid var(--orange);">
+                  <strong style="color: var(--orange);">⚠️ MENSCH ENTSCHEIDET:</strong> Finale Bewertung, Ausnahme-Genehmigung, Kontext-Beurteilung
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- PFEIL -->
+          <div style="text-align: center; font-size: 24px; color: var(--text-light); margin: var(--space-2) 0;">↓</div>
+          
+          <!-- SCHRITT 5 -->
+          <div class="card" style="margin-bottom: var(--space-4); border-left: 4px solid var(--navy);">
+            <div style="display: flex; gap: var(--space-6); align-items: flex-start;">
+              <div style="background: var(--navy); color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--text-xl); font-weight: bold; flex-shrink: 0;">5</div>
+              <div style="flex: 1;">
+                <h3 style="margin-bottom: var(--space-2); color: var(--navy);">✅ Governance-Freigabe</h3>
+                <p style="color: var(--text-medium); margin-bottom: var(--space-3);">Freigabe-Workflow mit digitalem Unterschriftsfeld</p>
+                <div style="background: var(--off-white); padding: var(--space-3); border-radius: var(--border-radius-md); font-size: var(--text-sm);">
+                  <strong>System:</strong> Dokumentation der Freigabe, Eskalation bei Bedarf
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- PFEIL -->
+          <div style="text-align: center; font-size: 24px; color: var(--text-light); margin: var(--space-2) 0;">↓</div>
+          
+          <!-- SCHRITT 6 -->
+          <div class="card" style="margin-bottom: var(--space-4); border-left: 4px solid var(--navy);">
+            <div style="display: flex; gap: var(--space-6); align-items: flex-start;">
+              <div style="background: var(--navy); color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--text-xl); font-weight: bold; flex-shrink: 0;">6</div>
+              <div style="flex: 1;">
+                <h3 style="margin-bottom: var(--space-2); color: var(--navy);">📋 Audit-Trail</h3>
+                <p style="color: var(--text-medium); margin-bottom: var(--space-3);">Lückenlose Dokumentation für Revision und Compliance</p>
+                <div style="background: var(--off-white); padding: var(--space-3); border-radius: var(--border-radius-md); font-size: var(--text-sm);">
+                  <strong>System:</strong> Automatische Protokollierung aller Schritte, Export für Betriebsprüfung
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+        <!-- WICHTIGER HINWEIS -->
+        <div class="info-box" style="margin-top: var(--space-10);">
+          <div class="info-box-icon">💡</div>
+          <div class="info-box-title">KERNPRINZIP</div>
           <div class="info-box-text">
-            <p>Dieser Screen wird in Phase 2 fertiggestellt (bis 5. Februar 2026).</p>
-            <p style="margin-top: var(--space-4);">
-              <strong>Geplanter Inhalt:</strong><br>
-              6-Schritt-Flowchart (vertikal mit Pfeilen)<br>
-              1. Auslöser & Ingestion<br>
-              2. KI-Vorprüfung<br>
-              3. Ergebnisübersicht<br>
-              4. Menschliche Bewertung<br>
-              5. Governance-Freigabe<br>
-              6. Audit-Trail
+            <p style="font-size: var(--text-lg); margin: 0;">
+              <strong>KI trifft KEINE finale Entscheidung.</strong><br>
+              KI bereitet vor, strukturiert und empfiehlt – der Mensch validiert, bewertet und entscheidet.
             </p>
           </div>
         </div>
         
-        <div style="display: flex; justify-content: center; gap: var(--spacing-lg); margin-top: var(--spacing-2xl);">
-          <a href="screen-3-governance.html" class="btn btn-secondary">← Zurück</a>
-          <a href="screen-6-form.html" class="btn btn-primary">Zur Case-Erfassung →</a>
+        <!-- NAVIGATION -->
+        <div style="display: flex; justify-content: space-between; margin-top: var(--space-12);">
+          <a href="screen-3-governance.html" class="btn btn-secondary">← Zurück zu Governance</a>
+          <a href="screen-5-mockup.html" class="btn btn-primary">Weiter zu Visualisierung →</a>
         </div>
       </div>
     </main>

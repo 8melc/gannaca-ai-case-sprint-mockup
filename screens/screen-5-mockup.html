@@ -111,22 +111,109 @@
       </div>
       
       <div class="container">
-        <div class="info-box" style="text-align: center;">
-          <div class="info-box-icon">🚧</div>
-          <div class="info-box-title">SCREEN IN ENTWICKLUNG (PHASE 3)</div>
+        
+        <!-- HINWEIS -->
+        <div class="info-box" style="margin-bottom: var(--space-10);">
+          <div class="info-box-icon">💡</div>
+          <div class="info-box-title">KONZEPTIONELLE WIREFRAMES</div>
           <div class="info-box-text">
-            <p>Dieser Screen wird nach dem Workshop fertiggestellt (optional).</p>
-            <p style="margin-top: var(--space-4);">
-              <strong>Geplanter Inhalt:</strong><br>
-              5 klickbare Interface-Mockups:<br>
-              Dashboard, Detailansicht, Entscheidungs-Panel, Audit-Trail, Export
+            <p style="margin: 0;">Die folgenden Screens zeigen, wie ein KI-unterstütztes System aussehen <strong>könnte</strong>. Dies sind konzeptionelle Wireframes, keine finalen Designs.</p>
+          </div>
+        </div>
+        
+        <!-- 5 MOCKUP PREVIEW CARDS -->
+        <div class="grid grid-3" style="gap: var(--space-6); margin-bottom: var(--space-10);">
+          
+          <!-- MOCKUP 1: Dashboard -->
+          <div class="card" style="cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='var(--shadow-lg)';" onmouseout="this.style.transform=''; this.style.boxShadow='';">
+            <div style="background: var(--light-gray); height: 160px; border-radius: var(--border-radius-md); margin-bottom: var(--space-4); display: flex; align-items: center; justify-content: center;">
+              <div style="text-align: center; color: var(--text-medium);">
+                <div style="font-size: 48px; margin-bottom: var(--space-2);">📊</div>
+                <span style="font-size: var(--text-sm);">Dashboard-Ansicht</span>
+              </div>
+            </div>
+            <h4 style="margin-bottom: var(--space-2);">1. Dashboard</h4>
+            <p style="font-size: var(--text-sm); color: var(--text-medium); margin: 0;">
+              Übersicht aller offenen Vorgänge mit Ampel-Status und Prioritätsanzeige.
+            </p>
+          </div>
+          
+          <!-- MOCKUP 2: Detailansicht -->
+          <div class="card" style="cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='var(--shadow-lg)';" onmouseout="this.style.transform=''; this.style.boxShadow='';">
+            <div style="background: var(--light-gray); height: 160px; border-radius: var(--border-radius-md); margin-bottom: var(--space-4); display: flex; align-items: center; justify-content: center;">
+              <div style="text-align: center; color: var(--text-medium);">
+                <div style="font-size: 48px; margin-bottom: var(--space-2);">📄</div>
+                <span style="font-size: var(--text-sm);">Detail-Ansicht</span>
+              </div>
+            </div>
+            <h4 style="margin-bottom: var(--space-2);">2. Detailansicht</h4>
+            <p style="font-size: var(--text-sm); color: var(--text-medium); margin: 0;">
+              Einzelner Vorgang mit allen Dokumenten, Prüfergebnissen und Kommentaren.
+            </p>
+          </div>
+          
+          <!-- MOCKUP 3: Entscheidungs-Panel -->
+          <div class="card" style="cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='var(--shadow-lg)';" onmouseout="this.style.transform=''; this.style.boxShadow='';">
+            <div style="background: var(--light-gray); height: 160px; border-radius: var(--border-radius-md); margin-bottom: var(--space-4); display: flex; align-items: center; justify-content: center;">
+              <div style="text-align: center; color: var(--text-medium);">
+                <div style="font-size: 48px; margin-bottom: var(--space-2);">⚖️</div>
+                <span style="font-size: var(--text-sm);">Entscheidungs-Panel</span>
+              </div>
+            </div>
+            <h4 style="margin-bottom: var(--space-2);">3. Entscheidungs-Panel</h4>
+            <p style="font-size: var(--text-sm); color: var(--text-medium); margin: 0;">
+              KI-Empfehlung mit Begründung und Buttons für menschliche Entscheidung.
+            </p>
+          </div>
+          
+          <!-- MOCKUP 4: Audit-Trail -->
+          <div class="card" style="cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='var(--shadow-lg)';" onmouseout="this.style.transform=''; this.style.boxShadow='';">
+            <div style="background: var(--light-gray); height: 160px; border-radius: var(--border-radius-md); margin-bottom: var(--space-4); display: flex; align-items: center; justify-content: center;">
+              <div style="text-align: center; color: var(--text-medium);">
+                <div style="font-size: 48px; margin-bottom: var(--space-2);">📋</div>
+                <span style="font-size: var(--text-sm);">Audit-Trail</span>
+              </div>
+            </div>
+            <h4 style="margin-bottom: var(--space-2);">4. Audit-Trail</h4>
+            <p style="font-size: var(--text-sm); color: var(--text-medium); margin: 0;">
+              Chronologische Übersicht aller Aktionen mit Zeitstempeln und Verantwortlichen.
+            </p>
+          </div>
+          
+          <!-- MOCKUP 5: Export -->
+          <div class="card" style="cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='var(--shadow-lg)';" onmouseout="this.style.transform=''; this.style.boxShadow='';">
+            <div style="background: var(--light-gray); height: 160px; border-radius: var(--border-radius-md); margin-bottom: var(--space-4); display: flex; align-items: center; justify-content: center;">
+              <div style="text-align: center; color: var(--text-medium);">
+                <div style="font-size: 48px; margin-bottom: var(--space-2);">📤</div>
+                <span style="font-size: var(--text-sm);">Export-Optionen</span>
+              </div>
+            </div>
+            <h4 style="margin-bottom: var(--space-2);">5. Export & Reporting</h4>
+            <p style="font-size: var(--text-sm); color: var(--text-medium); margin: 0;">
+              PDF-Export für Revision, Excel für Analysen, API für Systeme.
+            </p>
+          </div>
+          
+          <!-- LEER-KARTE für symmetrisches Layout -->
+          <div></div>
+          
+        </div>
+        
+        <!-- HINWEIS ZU PHASE 3 -->
+        <div class="info-box" style="background: var(--off-white); border-left-color: var(--text-medium);">
+          <div class="info-box-icon">🚧</div>
+          <div class="info-box-title">PHASE 3: DETAILLIERTE MOCKUPS</div>
+          <div class="info-box-text">
+            <p style="margin: 0;">
+              Detaillierte, klickbare Wireframes werden nach dem Workshop in Phase 3 erstellt – basierend auf dem im Workshop ausgewählten finalen Case.
             </p>
           </div>
         </div>
         
-        <div style="display: flex; justify-content: center; gap: var(--spacing-lg); margin-top: var(--spacing-2xl);">
-          <a href="screen-4-process.html" class="btn btn-secondary">← Zurück</a>
-          <a href="screen-6-form.html" class="btn btn-primary">Zur Case-Erfassung →</a>
+        <!-- NAVIGATION -->
+        <div style="display: flex; justify-content: space-between; margin-top: var(--space-12);">
+          <a href="screen-4-process.html" class="btn btn-secondary">← Zurück zu Zielprozess</a>
+          <a href="screen-6-form.html" class="btn btn-primary">Zur Case-Erfassung ⭐ →</a>
         </div>
       </div>
     </main>

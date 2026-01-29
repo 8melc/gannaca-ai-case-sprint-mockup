@@ -477,7 +477,16 @@ nav.header-nav a.active {
 
 .info-box-icon {
   font-size: var(--text-xl);
-  margin-bottom: var(--space-3);
+  margin-right: var(--space-2);
+}
+
+.info-box-header {
+  display: flex;
+  align-items: center;
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  margin-bottom: var(--space-4);
+  color: var(--text-darkest);
 }
 
 .info-box-title {
@@ -485,6 +494,18 @@ nav.header-nav a.active {
   font-weight: var(--font-semibold);
   margin-bottom: var(--space-3);
   color: var(--text-darkest);
+}
+
+.info-box-list {
+  list-style: disc;
+  margin: 0;
+  padding-left: var(--space-6);
+}
+
+.info-box-list li {
+  padding: var(--space-1) 0;
+  color: var(--text-medium);
+  line-height: var(--line-relaxed);
 }
 
 .info-box-text {
@@ -524,6 +545,31 @@ nav.header-nav a.active {
 
 .danger-box .info-box-title {
   color: var(--text-darkest);
+}
+
+/* ============================================
+   PHASE LISTS & SECTION TITLES
+   ============================================ */
+
+.phase-list {
+  list-style: disc;
+  margin: 0;
+  padding-left: var(--space-6);
+}
+
+.phase-list li {
+  padding: var(--space-1) 0;
+  color: var(--text-medium);
+  line-height: var(--line-relaxed);
+}
+
+.phase-section-title {
+  color: var(--navy);
+  margin-bottom: var(--space-2);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* ============================================
