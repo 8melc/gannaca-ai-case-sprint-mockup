@@ -151,11 +151,11 @@
                 PHASE 1: PROBLEM-IDENTIFIKATION
                 <span class="timeline-badge">★ WIR SIND JETZT HIER</span>
               </h2>
-              <p style="color: var(--color-text-medium); margin-bottom: var(--spacing-md);">
+              <p class="phase-duration">
                 <strong>Workshop, ca. 3 Stunden</strong>
               </p>
               
-              <div class="grid grid-2" style="gap: var(--spacing-xl);">
+              <div class="grid grid-2 phase-grid">
                 <div>
                   <h3 class="phase-section-title">WAS PASSIERT:</h3>
                   <ul class="phase-list">
@@ -168,14 +168,14 @@
                 <div>
                   <h3 class="phase-section-title">METHODE:</h3>
                   <div class="box box-highlight">
-                    <p style="margin: 0;">
+                    <p>
                       <strong>Strukturiertes Formular mit 11 Standardfragen pro Case</strong><br>
                       → Sichert Einheitlichkeit & ermöglicht spätere Bewertung
                     </p>
                   </div>
                   
                   <h3 class="phase-section-title mt-lg">ERGEBNIS:</h3>
-                  <div class="badge badge-success" style="font-size: var(--font-size-md); padding: var(--spacing-sm) var(--spacing-md);">
+                  <div class="badge badge-success badge-lg">
                     📋 Liste von 15-30 dokumentierten Cases
                   </div>
                 </div>
@@ -193,11 +193,11 @@
               <h2 class="timeline-title">
                 PHASE 2: KI-GESTÜTZTE ANALYSE
               </h2>
-              <p style="color: var(--color-text-medium); margin-bottom: var(--spacing-md);">
+              <p class="phase-duration">
                 <strong>Nach dem Workshop (2-3 Tage später)</strong>
               </p>
               
-              <div class="grid grid-2" style="gap: var(--spacing-xl);">
+              <div class="grid grid-2 phase-grid">
                 <div>
                   <h3 class="phase-section-title">WAS PASSIERT:</h3>
                   <ul class="phase-list">
@@ -210,7 +210,7 @@
                 <div>
                   <h3 class="phase-section-title">METHODE:</h3>
                   <div class="box">
-                    <p style="margin: 0;">
+                    <p>
                       <strong>Multi-Kriterien-Bewertung</strong><br>
                       Zeit, Kosten, Qualität, Risiko<br>
                       → Matrix visualisiert die strategisch sinnvollsten Cases
@@ -218,7 +218,7 @@
                   </div>
                   
                   <h3 class="phase-section-title mt-lg">ERGEBNIS:</h3>
-                  <div class="badge badge-info" style="font-size: var(--font-size-md); padding: var(--spacing-sm) var(--spacing-md);">
+                  <div class="badge badge-info badge-lg">
                     📊 Priorisierte Shortlist mit Top-3 Empfehlungen
                   </div>
                 </div>
@@ -235,11 +235,11 @@
               <h2 class="timeline-title">
                 PHASE 3: CASE-AUSARBEITUNG
               </h2>
-              <p style="color: var(--color-text-medium); margin-bottom: var(--spacing-md);">
+              <p class="phase-duration">
                 <strong>Folgewoche (ca. 1 Woche später)</strong>
               </p>
               
-              <div class="grid grid-2" style="gap: var(--spacing-xl);">
+              <div class="grid grid-2 phase-grid">
                 <div>
                   <h3 class="phase-section-title">WAS PASSIERT:</h3>
                   <ul class="phase-list">
@@ -252,7 +252,7 @@
                 <div>
                   <h3 class="phase-section-title">METHODE:</h3>
                   <div class="box">
-                    <p style="margin: 0;">
+                    <p>
                       <strong>Standardisiertes Template</strong><br>
                       Ist/Soll, Rollen, KPIs<br>
                       → Wiederverwendbar für zukünftige Cases
@@ -260,7 +260,7 @@
                   </div>
                   
                   <h3 class="phase-section-title mt-lg">ERGEBNIS:</h3>
-                  <div class="badge badge-success" style="font-size: var(--font-size-md); padding: var(--spacing-sm) var(--spacing-md);">
+                  <div class="badge badge-success badge-lg">
                     🎯 Management-Entscheidungsvorlage + Mockup
                   </div>
                 </div>
@@ -284,11 +284,11 @@
         </aside>
         
         <!-- NAVIGATION BUTTON -->
-        <div style="text-align: right; margin-top: var(--spacing-2xl);">
+        <nav class="nav-actions" aria-label="Seitennavigation">
           <a href="screen-1-overview.html" class="btn btn-primary btn-lg">
             Weiter zur Übersicht →
           </a>
-        </div>
+        </nav>
         
       </div><!-- /container -->
       
@@ -308,12 +308,14 @@
   
   <!-- Active Tab Highlighting -->
   <script>
-    // Markiere aktuellen Tab als "active"
+    // Markiere aktuellen Tab als "active" mit aria-current
     const currentPage = window.location.pathname.split('/').pop();
     document.querySelectorAll('.nav-tab').forEach(tab => {
       tab.classList.remove('active');
+      tab.removeAttribute('aria-current');
       if (tab.getAttribute('href') === currentPage) {
         tab.classList.add('active');
+        tab.setAttribute('aria-current', 'page');
       }
     });
   </script>

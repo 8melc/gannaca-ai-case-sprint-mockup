@@ -572,6 +572,34 @@ nav.header-nav a.active {
   letter-spacing: 0.5px;
 }
 
+/* Phase Duration Text */
+.phase-duration {
+  color: var(--text-medium);
+  margin-bottom: var(--space-4);
+}
+
+/* Phase Grid with larger gap */
+.phase-grid {
+  gap: var(--space-8);
+}
+
+/* Badge large variant */
+.badge-lg {
+  font-size: var(--text-lg);
+  padding: var(--space-2) var(--space-4);
+}
+
+/* Box paragraph reset */
+.box p:last-child {
+  margin-bottom: 0;
+}
+
+/* Navigation button container */
+.nav-actions {
+  text-align: right;
+  margin-top: var(--space-10);
+}
+
 /* ============================================
    TIMELINE / PROZESS-STEPS
    ============================================ */
@@ -606,8 +634,25 @@ nav.header-nav a.active {
   font-size: var(--text-lg);
   font-weight: var(--font-bold);
   border-radius: 50%;
+  transition: all 0.2s ease;
 }
 
+/* Phase Status Styles - data attribute based */
+.timeline-step[data-status="current"] .timeline-number {
+  background: var(--text-darkest);
+  box-shadow: 0 0 0 4px var(--light-gray);
+}
+
+.timeline-step[data-status="completed"] .timeline-number {
+  background: var(--text-dark);
+}
+
+.timeline-step[data-status="upcoming"] .timeline-number {
+  background: var(--navy);
+  opacity: 0.7;
+}
+
+/* Legacy class support */
 .timeline-step.active .timeline-number {
   background: var(--text-darkest);
   box-shadow: 0 0 0 4px var(--light-gray);
@@ -630,8 +675,25 @@ nav.header-nav a.active {
   border: 1px solid var(--border-gray);
   border-radius: var(--border-radius-md);
   padding: var(--space-6);
+  transition: all 0.2s ease;
 }
 
+/* Phase Status Styles - data attribute based */
+.timeline-step[data-status="current"] .timeline-content {
+  border-color: var(--text-dark);
+  box-shadow: 0 0 0 2px var(--light-gray);
+}
+
+.timeline-step[data-status="completed"] .timeline-content {
+  border-left: 4px solid var(--text-dark);
+  opacity: 0.85;
+}
+
+.timeline-step[data-status="upcoming"] .timeline-content {
+  opacity: 0.75;
+}
+
+/* Legacy class support */
 .timeline-step.active .timeline-content {
   border-color: var(--text-dark);
   box-shadow: 0 0 0 2px var(--light-gray);
