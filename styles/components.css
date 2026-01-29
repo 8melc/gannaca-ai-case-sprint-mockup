@@ -4,247 +4,98 @@
    ============================================ */
 
 /* ============================================
-   FAKE BROWSER CHROME (für Präsentation)
-   Versteckt localhost:8080 und wirkt professionell
+   MAIN HEADER (Neu, ohne Fake Browser Chrome)
    ============================================ */
 
-.browser-chrome-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background: #E8E8EA;
-}
-
-.browser-chrome {
-  background: linear-gradient(to bottom, #FFFFFF, #F7F7F8);
-  border-bottom: 1px solid #D0D0D0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+.main-header {
+  background: #FFFFFF;
+  border-bottom: 1px solid #DDDDDD;
+  padding: 24px 60px;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100; /* Reduziert von 9999 - Browser-Chrome ist nur visueller Rahmen */
-  height: 48px;
-}
-
-.browser-header {
-  display: flex;
-  align-items: center;
-  height: 48px;
-  padding: 0 12px;
-  gap: 8px;
-  user-select: none;
-}
-
-.browser-window-controls {
-  display: flex;
-  gap: 8px;
-  margin-right: 8px;
-}
-
-.browser-control {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: none;
-  cursor: default;
-}
-
-.browser-control.close {
-  background: #FF5F56;
-}
-
-.browser-control.minimize {
-  background: #FFBD2E;
-}
-
-.browser-control.maximize {
-  background: #27C93F;
-}
-
-.browser-nav-buttons {
-  display: flex;
-  gap: 4px;
-}
-
-.browser-btn {
-  width: 28px;
-  height: 28px;
-  border: 1px solid #D0D0D0;
-  background: white;
-  border-radius: 4px;
-  cursor: default;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #888;
-  transition: all 0.15s ease;
-}
-
-.browser-btn:hover {
-  background: #F0F0F0;
-  border-color: #BBB;
-}
-
-.browser-btn svg {
-  width: 14px;
-  height: 14px;
-  fill: currentColor;
-}
-
-.browser-address-bar {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  background: white;
-  border: 1px solid #D0D0D0;
-  border-radius: 20px;
-  padding: 6px 14px;
-  margin: 0 8px;
-  gap: 8px;
-  height: 32px;
-  max-width: 600px;
-}
-
-.browser-address-bar:focus-within {
-  border-color: #1A3A5C;
-  box-shadow: 0 0 0 2px rgba(26, 58, 92, 0.1);
-}
-
-.lock-icon {
-  flex-shrink: 0;
-  color: #27AE60;
-}
-
-.lock-icon svg {
-  width: 14px;
-  height: 14px;
-  fill: #27AE60;
-}
-
-.address-text {
-  font-size: 13px;
-  color: #333;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.browser-actions {
-  display: flex;
-  gap: 4px;
-}
-
-/* Content unterhalb des Browser Chrome */
-.browser-content {
-  flex: 1;
-  margin-top: 48px; /* Höhe des Browser Chrome */
-  background: var(--white);
-  overflow: auto;
-}
-
-/* Anpassung der festen Header-Positionen */
-.browser-chrome-wrapper .header {
-  top: 48px; /* Browser Chrome Höhe */
-}
-
-.browser-chrome-wrapper .data-protection-banner {
-  top: calc(48px + var(--header-height));
-}
-
-.browser-chrome-wrapper .nav-tabs {
-  top: calc(48px + var(--header-height) + var(--banner-height));
-}
-
-.browser-chrome-wrapper .main-content {
-  padding-top: calc(48px + var(--header-height) + var(--banner-height) + var(--nav-height));
-}
-
-/* ============================================
-   HEADER (Minimalistisch, Option B)
-   ============================================ */
-
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: var(--header-height);
-  background: var(--white);
-  border-bottom: 1px solid var(--border-gray);
   z-index: 600;
 }
 
-.header-inner {
-  max-width: var(--container-width);
+.header-container {
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 var(--container-padding);
-  height: 100%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: var(--space-8);
-}
-
-/* Brand: Logo + Title in einer Zeile */
-.header-brand {
-  display: flex;
   align-items: center;
-  gap: var(--space-3);
 }
 
-.header-logo {
-  height: 88px;
-  width: auto;
-  flex-shrink: 0;
-}
-
-.header-title {
-  font-size: var(--text-xl);
-  font-weight: var(--font-semibold);
-  color: var(--text-darkest);
-  white-space: nowrap;
-}
-
-/* Meta: Client Logo + Version */
-.header-meta {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-  flex-shrink: 0;
-}
-
-.header-client-logo {
-  height: 88px;
-  width: auto;
-}
-
-.header-version {
-  font-size: var(--text-xs);
-  color: var(--text-light);
-  font-weight: var(--font-normal);
-  white-space: nowrap;
-}
-
-/* Legacy support - falls noch verwendet */
+/* LINKE SEITE */
 .header-left {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
+  flex: 1;
 }
 
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* gannaca LOGO (GROß!) */
+.gannaca-logo {
+  height: 56px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+/* AI-CASE SPRINT TITEL (BÜNDIG mit Logo!) */
+.title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+}
+
+.main-title {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #1A1A1A;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #999999;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* RECHTE SEITE */
 .header-right {
   display: flex;
   align-items: center;
-  gap: var(--space-8);
+  gap: 20px;
   flex-shrink: 0;
 }
 
-.header-badge {
-  font-size: var(--text-xs);
-  color: var(--text-light);
-  font-weight: var(--font-normal);
+.client-logo {
+  height: 48px;
+  width: auto;
+}
+
+.version-badge {
+  font-size: 11px;
+  color: #666666;
+  background: #F5F5F6;
+  padding: 8px 14px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+/* Legacy support für alte Header-Struktur */
+.header {
+  display: none; /* Alte Header verstecken */
 }
 
 /* Header CTA Button */
