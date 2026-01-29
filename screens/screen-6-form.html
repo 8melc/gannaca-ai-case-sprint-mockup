@@ -20,7 +20,50 @@
   <script src="../js/storage.js"></script>
 </head>
 <body>
-  <div class="page-wrapper">
+  <!-- FAKE BROWSER CHROME für professionelle Präsentation -->
+  <div class="browser-chrome-wrapper">
+    <div class="browser-chrome">
+      <div class="browser-header">
+        <!-- Window Controls (macOS Style) -->
+        <div class="browser-window-controls">
+          <span class="browser-control close"></span>
+          <span class="browser-control minimize"></span>
+          <span class="browser-control maximize"></span>
+        </div>
+        
+        <!-- Navigation Buttons -->
+        <div class="browser-nav-buttons">
+          <button class="browser-btn" title="Zurück">
+            <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+          </button>
+          <button class="browser-btn" title="Vorwärts">
+            <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          </button>
+          <button class="browser-btn" title="Aktualisieren">
+            <svg viewBox="0 0 24 24"><path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+          </button>
+        </div>
+        
+        <!-- Address Bar (FAKE URL) -->
+        <div class="browser-address-bar">
+          <span class="lock-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 1C8.676 1 6 3.676 6 7v2H4v14h16V9h-2V7c0-3.324-2.676-6-6-6zm0 2c2.276 0 4 1.724 4 4v2H8V7c0-2.276 1.724-4 4-4zm-6 8h12v10H6V11z"/></svg>
+          </span>
+          <span class="address-text">gannaca-ai-case-sprint.app/workshop/case-erfassung</span>
+        </div>
+        
+        <!-- Browser Actions -->
+        <div class="browser-actions">
+          <button class="browser-btn" title="Lesezeichen">
+            <svg viewBox="0 0 24 24"><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- CONTENT -->
+    <div class="browser-content">
+      <div class="page-wrapper">
     
     <!-- HEADER -->
     <header class="header">
@@ -232,7 +275,8 @@
                   </div>
                   <div>
                     <label class="form-label">Gesamtaufwand/Jahr (geschätzt)</label>
-                    <input type="text" class="form-input" id="gesamtaufwand" placeholder="Wird berechnet..." readonly style="background: var(--color-bg-light);">
+                    <input type="text" class="form-input" id="gesamtaufwand" placeholder="Wird berechnet..." readonly style="background: var(--color-bg-light); font-weight: 700; transition: background-color 0.3s ease;">
+                    <span class="form-hint" id="gesamtaufwandHint" style="display: none; color: #28a745; margin-top: 4px;">✓ Automatisch berechnet</span>
                   </div>
                 </div>
               </div>
@@ -272,7 +316,12 @@
                 <span class="form-hint" style="margin-top: var(--spacing-sm);">1 = unkritisch | 5 = sehr kritisch</span>
                 <div style="margin-top: var(--spacing-lg);">
                   <label class="form-label">Kurze Begründung (optional)</label>
-                  <input type="text" class="form-input" id="risikoBegruendung" placeholder="z.B. Audit-Findings, Reputationsrisiko, Bußgelder...">
+                  <textarea 
+                    class="form-textarea" 
+                    id="risikoBegruendung" 
+                    rows="3"
+                    placeholder="z.B.: Betriebsprüfung: Fehler nicht nachzuvollziehen. Compliance-Risiko. Reputationsschaden bei Kunden. Audit-Findings, Bußgelder..."
+                  ></textarea>
                 </div>
               </div>
             </div>
@@ -320,9 +369,25 @@
                 KI-Potenzial (Optional)
               </h3>
               <div class="form-group">
-                <label class="form-label">Wo könnte KI theoretisch unterstützen?</label>
-                <textarea class="form-textarea" id="kiPotenzial" rows="2" placeholder="z.B. Automatische Kategorisierung, Textanalyse..." style="background: var(--color-bg-white);"></textarea>
-                <span class="form-hint">ℹ️ Keine Bewertung erforderlich. Dient nur der späteren Analyse.</span>
+                <label class="form-label">
+                  Wo könnte KI theoretisch unterstützen?
+                </label>
+                <textarea 
+                  class="form-textarea" 
+                  id="kiPotenzial" 
+                  rows="5"
+                  placeholder="z.B. KI könnte automatisch:
+• Belege-Vollständigkeit prüfen
+• Kostensätze abgleichen
+• Richtlinien-Regeln prüfen
+• Abweichungen flaggen
+• Textanalyse durchführen
+• Kategorisierung vornehmen
+
+Tippe hier - das Feld wächst automatisch mit!"
+                  style="background: var(--color-bg-white); min-height: 150px;"
+                ></textarea>
+                <span class="form-hint">ℹ️ Keine Bewertung erforderlich. Dient nur der späteren Analyse. Das Feld wächst automatisch beim Tippen!</span>
               </div>
             </div>
             
@@ -376,7 +441,9 @@
       </div>
     </footer>
     
-  </div><!-- /page-wrapper -->
+      </div><!-- /page-wrapper -->
+    </div><!-- /browser-content -->
+  </div><!-- /browser-chrome-wrapper -->
   
   <!-- ============================================
        JAVASCRIPT
@@ -386,6 +453,15 @@
     document.addEventListener('DOMContentLoaded', function() {
       updateUI();
       updateTime();
+      
+      // Markiere aktuellen Tab als "active"
+      const currentPage = window.location.pathname.split('/').pop();
+      document.querySelectorAll('.nav-tab').forEach(tab => {
+        tab.classList.remove('active');
+        if (tab.getAttribute('href') === currentPage) {
+          tab.classList.add('active');
+        }
+      });
       setInterval(updateTime, 60000); // Zeit jede Minute aktualisieren
       
       // Rating Items klickbar machen
@@ -410,7 +486,203 @@
           }
         });
       });
+      
+      // ============================================
+      // GESAMTAUFWAND AUTO-BERECHNUNG (Schritt 5 + 6)
+      // ============================================
+      // Event-Listener für Häufigkeit (Radio-Buttons)
+      document.querySelectorAll('input[name="haeufigkeit"]').forEach(radio => {
+        radio.addEventListener('change', calculateYearlyEffort);
+      });
+      
+      // Event-Listener für numerische Eingaben
+      ['anzahlVorgaenge', 'zeitaufwandWert'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.addEventListener('input', calculateYearlyEffort);
+          el.addEventListener('change', calculateYearlyEffort);
+        }
+      });
+      
+      // Event-Listener für Zeiteinheit
+      const zeitEinheit = document.getElementById('zeitaufwandEinheit');
+      if (zeitEinheit) {
+        zeitEinheit.addEventListener('change', calculateYearlyEffort);
+      }
+      
+      // ============================================
+      // AUTO-EXPAND TEXTAREAS
+      // Textareas wachsen automatisch mit dem Inhalt!
+      // ============================================
+      initAutoExpandTextareas();
     });
+    
+    // ============================================
+    // AUTO-EXPAND TEXTAREA FUNKTION
+    // Keine scrollbaren Textareas - sie wachsen mit!
+    // ============================================
+    function autoExpandTextarea(textarea) {
+      // Höhe zurücksetzen, um echte Inhaltshöhe zu messen
+      textarea.style.height = 'auto';
+      
+      // Neue Höhe basierend auf scrollHeight (= echter Inhalt)
+      const newHeight = Math.max(textarea.scrollHeight, 120); // Mindestens 120px
+      textarea.style.height = newHeight + 'px';
+    }
+    
+    function initAutoExpandTextareas() {
+      // Alle Textareas auf der Seite finden
+      document.querySelectorAll('textarea').forEach(textarea => {
+        // Initiale Mindesthöhe
+        textarea.style.minHeight = '120px';
+        
+        // Event-Listener für Auto-Expand bei Eingabe
+        textarea.addEventListener('input', function() {
+          autoExpandTextarea(this);
+        });
+        
+        // Event-Listener für Paste (eingefügter Text)
+        textarea.addEventListener('paste', function() {
+          // Kurze Verzögerung, damit der Text erst eingefügt wird
+          setTimeout(() => autoExpandTextarea(this), 10);
+        });
+        
+        // Initiale Berechnung falls bereits Inhalt vorhanden
+        if (textarea.value) {
+          autoExpandTextarea(textarea);
+        }
+        
+        // Bullet-Point-Funktion aktivieren
+        enableBulletPoints(textarea);
+      });
+    }
+    
+    // ============================================
+    // BULLET-POINT AUTO-FORMATTING
+    // Bei Enter → automatisch "- " auf neuer Zeile
+    // ============================================
+    function enableBulletPoints(textarea) {
+      textarea.addEventListener('keydown', function(event) {
+        // Nur bei Enter-Taste
+        if (event.key === 'Enter') {
+          const start = this.selectionStart;
+          const end = this.selectionEnd;
+          const text = this.value;
+          
+          // Finde Anfang der aktuellen Zeile
+          let lineStart = text.lastIndexOf('\n', start - 1) + 1;
+          let currentLine = text.substring(lineStart, start);
+          
+          // Prüfe, ob aktuelle Zeile mit Bullet-Point beginnt (- oder •)
+          const bulletMatch = currentLine.match(/^(\s*)([-•])\s/);
+          
+          if (bulletMatch) {
+            // Aktuelle Zeile hat Bullet-Point
+            const indentation = bulletMatch[1];
+            const bulletChar = bulletMatch[2];
+            
+            // Prüfe, ob Zeile NUR aus Bullet-Point besteht (leer)
+            if (currentLine.trim() === '-' || currentLine.trim() === '•') {
+              // Leere Bullet-Zeile → Bullet entfernen, aus Liste aussteigen
+              event.preventDefault();
+              this.value = text.substring(0, lineStart) + text.substring(start);
+              this.selectionStart = this.selectionEnd = lineStart;
+            } else {
+              // Normale Bullet-Zeile → neue Zeile mit Bullet
+              event.preventDefault();
+              const newText = '\n' + indentation + bulletChar + ' ';
+              this.value = text.substring(0, start) + newText + text.substring(end);
+              this.selectionStart = this.selectionEnd = start + newText.length;
+            }
+          } else if (currentLine.trim() !== '') {
+            // Erste Zeile mit Inhalt, aber kein Bullet → Bullet hinzufügen
+            event.preventDefault();
+            this.value = text.substring(0, start) + '\n- ' + text.substring(end);
+            this.selectionStart = this.selectionEnd = start + 3;
+          }
+          // Sonst: Normale Enter-Taste (Standard-Verhalten)
+          
+          // Auto-Expand auslösen
+          autoExpandTextarea(this);
+        }
+      });
+    }
+    
+    // ============================================
+    // GESAMTAUFWAND BERECHNUNG
+    // Formel: (Häufigkeit × Anzahl pro Zeiteinheit) × Zeitaufwand pro Fall
+    // ============================================
+    function calculateYearlyEffort() {
+      const gesamtaufwandField = document.getElementById('gesamtaufwand');
+      const hintField = document.getElementById('gesamtaufwandHint');
+      
+      // Häufigkeit auslesen
+      const haeufigkeitRadio = document.querySelector('input[name="haeufigkeit"]:checked');
+      const haeufigkeit = haeufigkeitRadio ? haeufigkeitRadio.value : '';
+      
+      // Anzahl Vorgänge auslesen
+      const anzahl = parseFloat(document.getElementById('anzahlVorgaenge').value) || 0;
+      
+      // Zeitaufwand auslesen
+      const zeitWert = parseFloat(document.getElementById('zeitaufwandWert').value) || 0;
+      const zeitEinheit = document.getElementById('zeitaufwandEinheit').value; // 'minutes' oder 'hours'
+      
+      // Prüfen ob genug Daten vorhanden
+      if (!haeufigkeit || anzahl <= 0 || zeitWert <= 0) {
+        gesamtaufwandField.value = '';
+        gesamtaufwandField.placeholder = 'Wird berechnet...';
+        gesamtaufwandField.style.backgroundColor = 'var(--color-bg-light)';
+        hintField.style.display = 'none';
+        return;
+      }
+      
+      // Visuelles Feedback: Gelb während Berechnung
+      gesamtaufwandField.style.backgroundColor = '#FFF3CD';
+      
+      // Multiplikator basierend auf Häufigkeit (auf Jahresbasis)
+      let multiplier = 1;
+      switch(haeufigkeit) {
+        case 'Täglich':
+          multiplier = 365;
+          break;
+        case 'Wöchentlich':
+          multiplier = 52;
+          break;
+        case 'Monatlich':
+          multiplier = 12;
+          break;
+        case 'Quartalsweise':
+          multiplier = 4;
+          break;
+      }
+      
+      // Berechnung: Anzahl × Zeitaufwand × Multiplikator
+      let totalMinutesPerYear = anzahl * zeitWert * multiplier;
+      
+      // Falls Eingabe in Stunden, in Minuten umrechnen für einheitliche Basis
+      if (zeitEinheit === 'hours') {
+        totalMinutesPerYear = totalMinutesPerYear * 60;
+      }
+      
+      // In Stunden umrechnen für Anzeige
+      const totalHoursPerYear = totalMinutesPerYear / 60;
+      
+      // Nach 500ms: Visuelles Feedback zeigen
+      setTimeout(() => {
+        // Ergebnis formatieren und anzeigen
+        if (totalHoursPerYear >= 1) {
+          gesamtaufwandField.value = totalHoursPerYear.toLocaleString('de-DE', {maximumFractionDigits: 0}) + ' Stunden/Jahr';
+        } else {
+          gesamtaufwandField.value = totalMinutesPerYear.toLocaleString('de-DE', {maximumFractionDigits: 0}) + ' Minuten/Jahr';
+        }
+        
+        // Grüner Hintergrund = Berechnung fertig
+        gesamtaufwandField.style.backgroundColor = '#D4EDDA';
+        
+        // Hinweis anzeigen
+        hintField.style.display = 'block';
+      }, 300);
+    }
     
     // UI aktualisieren
     function updateUI() {
@@ -444,6 +716,7 @@
         betroffenePersonen: document.getElementById('betroffenePersonen').value,
         zeitaufwandWert: document.getElementById('zeitaufwandWert').value,
         zeitaufwandEinheit: document.getElementById('zeitaufwandEinheit').value,
+        gesamtaufwandJahr: document.getElementById('gesamtaufwand').value, // Berechneter Wert
         strategischeRelevanz: document.querySelector('input[name="relevanz"]:checked')?.value || '',
         risiko: document.querySelector('input[name="risiko"]:checked')?.value || '',
         risikoBegruendung: document.getElementById('risikoBegruendung').value,
@@ -510,6 +783,15 @@
     function clearForm() {
       document.getElementById('caseForm').reset();
       document.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
+      
+      // Gesamtaufwand-Feld zurücksetzen
+      const gesamtaufwandField = document.getElementById('gesamtaufwand');
+      const hintField = document.getElementById('gesamtaufwandHint');
+      gesamtaufwandField.value = '';
+      gesamtaufwandField.placeholder = 'Wird berechnet...';
+      gesamtaufwandField.style.backgroundColor = 'var(--color-bg-light)';
+      hintField.style.display = 'none';
+      
       window.scrollTo(0, 0);
       updateUI();
     }

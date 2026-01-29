@@ -4,6 +4,164 @@
    ============================================ */
 
 /* ============================================
+   FAKE BROWSER CHROME (für Präsentation)
+   Versteckt localhost:8080 und wirkt professionell
+   ============================================ */
+
+.browser-chrome-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #E8E8EA;
+}
+
+.browser-chrome {
+  background: linear-gradient(to bottom, #FFFFFF, #F7F7F8);
+  border-bottom: 1px solid #D0D0D0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100; /* Reduziert von 9999 - Browser-Chrome ist nur visueller Rahmen */
+  height: 48px;
+}
+
+.browser-header {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 12px;
+  gap: 8px;
+  user-select: none;
+}
+
+.browser-window-controls {
+  display: flex;
+  gap: 8px;
+  margin-right: 8px;
+}
+
+.browser-control {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  cursor: default;
+}
+
+.browser-control.close {
+  background: #FF5F56;
+}
+
+.browser-control.minimize {
+  background: #FFBD2E;
+}
+
+.browser-control.maximize {
+  background: #27C93F;
+}
+
+.browser-nav-buttons {
+  display: flex;
+  gap: 4px;
+}
+
+.browser-btn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #D0D0D0;
+  background: white;
+  border-radius: 4px;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  transition: all 0.15s ease;
+}
+
+.browser-btn:hover {
+  background: #F0F0F0;
+  border-color: #BBB;
+}
+
+.browser-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.browser-address-bar {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  background: white;
+  border: 1px solid #D0D0D0;
+  border-radius: 20px;
+  padding: 6px 14px;
+  margin: 0 8px;
+  gap: 8px;
+  height: 32px;
+  max-width: 600px;
+}
+
+.browser-address-bar:focus-within {
+  border-color: #1A3A5C;
+  box-shadow: 0 0 0 2px rgba(26, 58, 92, 0.1);
+}
+
+.lock-icon {
+  flex-shrink: 0;
+  color: #27AE60;
+}
+
+.lock-icon svg {
+  width: 14px;
+  height: 14px;
+  fill: #27AE60;
+}
+
+.address-text {
+  font-size: 13px;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.browser-actions {
+  display: flex;
+  gap: 4px;
+}
+
+/* Content unterhalb des Browser Chrome */
+.browser-content {
+  flex: 1;
+  margin-top: 48px; /* Höhe des Browser Chrome */
+  background: var(--white);
+  overflow: auto;
+}
+
+/* Anpassung der festen Header-Positionen */
+.browser-chrome-wrapper .header {
+  top: 48px; /* Browser Chrome Höhe */
+}
+
+.browser-chrome-wrapper .data-protection-banner {
+  top: calc(48px + var(--header-height));
+}
+
+.browser-chrome-wrapper .nav-tabs {
+  top: calc(48px + var(--header-height) + var(--banner-height));
+}
+
+.browser-chrome-wrapper .main-content {
+  padding-top: calc(48px + var(--header-height) + var(--banner-height) + var(--nav-height));
+}
+
+/* ============================================
    HEADER (Weißer Hintergrund, elegant)
    ============================================ */
 
@@ -15,7 +173,7 @@
   height: var(--header-height);
   background: var(--white);
   border-bottom: 1px solid var(--border-gray);
-  z-index: var(--z-fixed);
+  z-index: 600; /* Erhöht für sichtbare Navigation */
 }
 
 .header-inner {
@@ -121,7 +279,7 @@
   height: var(--banner-height);
   background: var(--banner-bg);
   border-bottom: 2px solid var(--banner-border);
-  z-index: var(--z-sticky);
+  z-index: 500; /* Erhöht für sichtbare Navigation */
   display: flex;
   align-items: center;
   padding: var(--space-6) var(--container-padding);
@@ -180,7 +338,8 @@
   height: var(--nav-height);
   background: var(--white);
   border-bottom: 1px solid var(--border-gray);
-  z-index: var(--z-sticky);
+  z-index: 500; /* Erhöht für klickbare Navigation */
+  pointer-events: auto; /* Sicherstellen, dass Klicks durchkommen */
 }
 
 .nav-tabs-inner {
@@ -210,6 +369,7 @@
   white-space: nowrap;
   text-decoration: none;
   position: relative;
+  pointer-events: auto; /* Sicherstellen, dass Links klickbar sind */
 }
 
 .nav-tab:hover {

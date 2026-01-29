@@ -164,7 +164,7 @@ input[type="date"]:focus {
 }
 
 /* ============================================
-   TEXTAREA - BEAMER-OPTIMIERT
+   TEXTAREA - BEAMER-OPTIMIERT + AUTO-EXPAND
    ============================================ */
 
 .form-textarea,
@@ -177,10 +177,11 @@ textarea {
   background: var(--white);
   border: 2px solid var(--border-gray);
   border-radius: var(--border-radius-md);
-  transition: all 0.2s ease;
-  resize: vertical;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  resize: none;  /* Kein manuelles Resizing - Auto-Expand übernimmt! */
   min-height: 120px;
   line-height: var(--line-relaxed);
+  overflow: hidden;  /* Kein Scrollbar - Textarea wächst automatisch! */
 }
 
 .form-textarea::placeholder,
