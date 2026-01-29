@@ -147,15 +147,61 @@
     body.focus-mode-active .form-section.focus-visible {
       display: block !important;
       animation: fadeInUp 0.3s ease;
+      /* Bessere Darstellung im Fokus-Modus */
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 32px 40px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
     }
     body.focus-mode-active .focus-nav {
       display: block;
     }
-    body.focus-mode-active .form-actions {
-      display: none;
+    body.focus-mode-active .form-actions,
+    body.focus-mode-active .form-disclaimer,
+    body.focus-mode-active .form-progress,
+    body.focus-mode-active .form-header {
+      display: none !important;
     }
     body.focus-mode-active .main-content {
       padding-bottom: 120px;
+      padding-top: calc(var(--header-height) + var(--nav-height) + 40px);
+    }
+    body.focus-mode-active .form-container {
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+    }
+    body.focus-mode-active .page-header {
+      margin-bottom: 24px;
+    }
+    body.focus-mode-active .page-title {
+      font-size: 20px;
+    }
+    body.focus-mode-active .page-subtitle {
+      display: none;
+    }
+    /* Schritt-Nummer größer im Fokus */
+    body.focus-mode-active .form-section-number {
+      width: 48px;
+      height: 48px;
+      font-size: 20px;
+    }
+    body.focus-mode-active .form-section-title {
+      font-size: 22px;
+      margin-bottom: 24px;
+    }
+    body.focus-mode-active .form-input,
+    body.focus-mode-active .form-textarea,
+    body.focus-mode-active .form-select {
+      font-size: 16px;
+      padding: 14px 16px;
+    }
+    body.focus-mode-active .form-radio-item,
+    body.focus-mode-active .form-checkbox-item {
+      padding: 14px 18px;
+      font-size: 15px;
     }
     
     @keyframes fadeInUp {
@@ -486,15 +532,15 @@ Tippe hier - das Feld wächst automatisch mit!"
             </div>
             
             <!-- DISCLAIMER BOX -->
-            <div class="form-disclaimer">
+            <div class="form-disclaimer" style="padding: 12px 16px;">
               <div class="form-disclaimer-icon"><i data-lucide="info"></i></div>
-              <div class="form-disclaimer-title">WICHTIG ZU VERSTEHEN:</div>
-              <ul class="form-disclaimer-list">
-                <li>Dieses Formular dient NUR der strukturierten Erfassung.</li>
-                <li>KEINE KI-Bewertung während des Workshops!</li>
-                <li>Alle Eingaben werden für alle Teilnehmer sichtbar auf dem Beamer angezeigt.</li>
-                <li>Die erfassten Metriken ermöglichen später eine KI-gestützte Priorisierung.</li>
-              </ul>
+              <div class="form-disclaimer-content">
+                <div class="form-disclaimer-title" style="font-size: 13px;">So funktioniert's:</div>
+                <p style="font-size: 12px; color: #777; margin: 0; line-height: 1.5;">
+                  Live-Dokumentation Ihrer Cases nach den 11 Standardfragen. 
+                  Keine Bewertung jetzt – KI-Priorisierung erfolgt nach dem Workshop.
+                </p>
+              </div>
             </div>
             
             <!-- FORM ACTIONS -->
