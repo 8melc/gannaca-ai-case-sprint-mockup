@@ -21,6 +21,154 @@
   
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  
+  <!-- Fokus-Modus Styles -->
+  <style>
+    /* FOKUS-MODUS BUTTON */
+    .btn-focus-mode {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: var(--off-white);
+      border: 2px solid var(--navy);
+      border-radius: 8px;
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-focus-mode:hover {
+      background: var(--navy);
+      color: white;
+    }
+    .btn-focus-mode.active {
+      background: var(--navy);
+      color: white;
+    }
+    .btn-focus-mode i[data-lucide] {
+      width: 16px;
+      height: 16px;
+    }
+    
+    /* FOKUS-MODUS NAVIGATION */
+    .focus-nav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      border-top: 2px solid var(--navy);
+      padding: 16px 40px;
+      z-index: 1000;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+    }
+    .focus-nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .focus-nav-progress {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .focus-nav-step {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .focus-nav-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .focus-nav-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ddd;
+      transition: all 0.2s;
+    }
+    .focus-nav-dot.active {
+      background: var(--navy);
+      transform: scale(1.2);
+    }
+    .focus-nav-dot.completed {
+      background: #28a745;
+    }
+    .focus-nav-buttons {
+      display: flex;
+      gap: 12px;
+    }
+    .focus-nav-btn {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .focus-nav-btn-prev {
+      background: white;
+      border: 2px solid var(--navy);
+      color: var(--navy);
+    }
+    .focus-nav-btn-prev:hover {
+      background: var(--off-white);
+    }
+    .focus-nav-btn-prev:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .focus-nav-btn-next {
+      background: var(--navy);
+      border: 2px solid var(--navy);
+      color: white;
+    }
+    .focus-nav-btn-next:hover {
+      background: #0d2840;
+    }
+    .focus-nav-btn i[data-lucide] {
+      width: 18px;
+      height: 18px;
+    }
+    
+    /* FOKUS-MODUS AKTIV */
+    body.focus-mode-active .form-section {
+      display: none !important;
+    }
+    body.focus-mode-active .form-section.focus-visible {
+      display: block !important;
+      animation: fadeInUp 0.3s ease;
+    }
+    body.focus-mode-active .focus-nav {
+      display: block;
+    }
+    body.focus-mode-active .form-actions {
+      display: none;
+    }
+    body.focus-mode-active .main-content {
+      padding-bottom: 120px;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="page-wrapper">
@@ -106,7 +254,7 @@
                   <span id="currentTime">--:-- Uhr</span>
                 </div>
               </div>
-              <div class="form-meta">
+              <div class="form-meta" style="display: flex; align-items: center; gap: var(--spacing-lg);">
                 <div class="form-meta-item">
                   <span class="form-meta-label">Teilnehmer:</span>
                   <select class="form-select" id="teilnehmer" style="width: auto; min-height: 40px; padding: 8px 40px 8px 12px;">
@@ -119,6 +267,11 @@
                     <option value="Lisa Wagner (HR)">Lisa Wagner (HR)</option>
                   </select>
                 </div>
+                <!-- FOKUS-MODUS TOGGLE -->
+                <button type="button" class="btn btn-focus-mode" id="focusModeToggle" onclick="toggleFocusMode()" title="Fokus-Modus für Beamer-Präsentation">
+                  <i data-lucide="maximize-2" id="focusModeIcon"></i>
+                  <span id="focusModeLabel">Fokus</span>
+                </button>
               </div>
             </div>
           </div>
@@ -826,6 +979,137 @@ Tippe hier - das Feld wächst automatisch mit!"
     function closeModal() {
       document.getElementById('successModal').style.display = 'none';
     }
+  </script>
+  
+  <!-- FOKUS-MODUS NAVIGATION BAR -->
+  <div class="focus-nav" id="focusNav">
+    <div class="focus-nav-inner">
+      <div class="focus-nav-progress">
+        <span class="focus-nav-step" id="focusStepLabel">Schritt 1 von 11</span>
+        <div class="focus-nav-dots" id="focusDots"></div>
+      </div>
+      <div class="focus-nav-buttons">
+        <button class="focus-nav-btn focus-nav-btn-prev" id="focusPrevBtn" onclick="focusPrevStep()">
+          <i data-lucide="arrow-left"></i> Zurück
+        </button>
+        <button class="focus-nav-btn focus-nav-btn-next" id="focusNextBtn" onclick="focusNextStep()">
+          Weiter <i data-lucide="arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- FOKUS-MODUS JAVASCRIPT -->
+  <script>
+    let focusModeActive = false;
+    let currentFocusStep = 0;
+    const totalSteps = 11;
+    
+    function toggleFocusMode() {
+      focusModeActive = !focusModeActive;
+      const body = document.body;
+      const btn = document.getElementById('focusModeToggle');
+      const icon = document.getElementById('focusModeIcon');
+      const label = document.getElementById('focusModeLabel');
+      
+      if (focusModeActive) {
+        body.classList.add('focus-mode-active');
+        btn.classList.add('active');
+        icon.setAttribute('data-lucide', 'minimize-2');
+        label.textContent = 'Beenden';
+        currentFocusStep = 0;
+        initFocusDots();
+        showFocusStep(currentFocusStep);
+      } else {
+        body.classList.remove('focus-mode-active');
+        btn.classList.remove('active');
+        icon.setAttribute('data-lucide', 'maximize-2');
+        label.textContent = 'Fokus';
+        showAllSteps();
+      }
+      lucide.createIcons();
+    }
+    
+    function initFocusDots() {
+      const dotsContainer = document.getElementById('focusDots');
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < totalSteps; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'focus-nav-dot' + (i === 0 ? ' active' : '');
+        dot.onclick = () => showFocusStep(i);
+        dot.style.cursor = 'pointer';
+        dotsContainer.appendChild(dot);
+      }
+    }
+    
+    function showFocusStep(stepIndex) {
+      currentFocusStep = stepIndex;
+      const sections = document.querySelectorAll('.form-section');
+      
+      sections.forEach((section, i) => {
+        section.classList.remove('focus-visible');
+        if (i === stepIndex) {
+          section.classList.add('focus-visible');
+          section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+      
+      // Update label
+      document.getElementById('focusStepLabel').textContent = `Schritt ${stepIndex + 1} von ${totalSteps}`;
+      
+      // Update dots
+      const dots = document.querySelectorAll('.focus-nav-dot');
+      dots.forEach((dot, i) => {
+        dot.classList.remove('active');
+        if (i === stepIndex) dot.classList.add('active');
+        if (i < stepIndex) dot.classList.add('completed');
+        else dot.classList.remove('completed');
+      });
+      
+      // Update buttons
+      document.getElementById('focusPrevBtn').disabled = stepIndex === 0;
+      const nextBtn = document.getElementById('focusNextBtn');
+      if (stepIndex === totalSteps - 1) {
+        nextBtn.innerHTML = '<i data-lucide="check"></i> Fertig';
+      } else {
+        nextBtn.innerHTML = 'Weiter <i data-lucide="arrow-right"></i>';
+      }
+      lucide.createIcons();
+    }
+    
+    function focusPrevStep() {
+      if (currentFocusStep > 0) {
+        showFocusStep(currentFocusStep - 1);
+      }
+    }
+    
+    function focusNextStep() {
+      if (currentFocusStep < totalSteps - 1) {
+        showFocusStep(currentFocusStep + 1);
+      } else {
+        // Letzter Schritt -> Fokus-Modus beenden
+        toggleFocusMode();
+      }
+    }
+    
+    function showAllSteps() {
+      const sections = document.querySelectorAll('.form-section');
+      sections.forEach(section => {
+        section.classList.remove('focus-visible');
+      });
+    }
+    
+    // Keyboard Navigation im Fokus-Modus
+    document.addEventListener('keydown', (e) => {
+      if (!focusModeActive) return;
+      if (e.key === 'ArrowRight' || e.key === 'Enter') {
+        focusNextStep();
+      } else if (e.key === 'ArrowLeft') {
+        focusPrevStep();
+      } else if (e.key === 'Escape') {
+        toggleFocusMode();
+      }
+    });
   </script>
   
   <!-- Initialize Lucide Icons -->
