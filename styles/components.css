@@ -10,7 +10,7 @@
 .main-header {
   background: #FFFFFF;
   border-bottom: 1px solid #DDDDDD;
-  padding: 24px 60px;
+  padding: 16px 60px;
   position: fixed;
   top: 0;
   left: 0;
@@ -274,8 +274,8 @@ nav.header-nav a.active {
 .page-header {
   background: var(--white);
   border-bottom: 1px solid var(--border-gray);
-  padding: var(--space-16) 0;
-  margin-bottom: var(--space-10);
+  padding: var(--space-8) 0;
+  margin-bottom: var(--space-6);
 }
 
 .page-header-inner {
