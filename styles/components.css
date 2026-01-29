@@ -83,6 +83,13 @@
   width: auto;
 }
 
+.header-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
 .version-badge {
   font-size: 11px;
   color: #666666;
@@ -91,6 +98,12 @@
   border-radius: 6px;
   white-space: nowrap;
   font-weight: 500;
+}
+
+.header-disclaimer {
+  font-size: 10px;
+  color: #999999;
+  white-space: nowrap;
 }
 
 /* Legacy support für alte Header-Struktur */
@@ -168,14 +181,14 @@
 
 .nav-tabs {
   position: fixed;
-  top: calc(var(--header-height) + var(--banner-height));
+  top: var(--header-height);
   left: 0;
   right: 0;
   height: var(--nav-height);
   background: var(--white);
   border-bottom: 1px solid var(--border-gray);
-  z-index: 500; /* Erhöht für klickbare Navigation */
-  pointer-events: auto; /* Sicherstellen, dass Klicks durchkommen */
+  z-index: 500;
+  pointer-events: auto;
 }
 
 .nav-tabs-inner {
