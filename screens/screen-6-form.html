@@ -283,6 +283,18 @@
         <!-- Form Container -->
         <div class="form-container">
           
+          <!-- INFO BOX (nur sichtbar wenn NICHT im Fokus-Modus) -->
+          <div class="form-disclaimer" style="padding: 12px 16px; margin-bottom: 16px;">
+            <div class="form-disclaimer-icon"><i data-lucide="info"></i></div>
+            <div class="form-disclaimer-content">
+              <div class="form-disclaimer-title" style="font-size: 13px;">So funktioniert's:</div>
+              <p style="font-size: 12px; color: #777; margin: 0; line-height: 1.5;">
+                Live-Dokumentation Ihrer Cases nach den 11 Standardfragen. 
+                Keine Bewertung jetzt – KI-Priorisierung erfolgt nach dem Workshop.
+              </p>
+            </div>
+          </div>
+          
           <!-- Form Header / Meta Info -->
           <div class="form-header">
             <div class="form-header-row">
@@ -528,18 +540,6 @@ Tippe hier - das Feld wächst automatisch mit!"
                   style="background: var(--color-bg-white); min-height: 150px;"
                 ></textarea>
                 <span class="form-hint"><i data-lucide="info" class="icon-sm icon-info"></i> Keine Bewertung erforderlich. Dient nur der späteren Analyse. Das Feld wächst automatisch beim Tippen!</span>
-              </div>
-            </div>
-            
-            <!-- DISCLAIMER BOX -->
-            <div class="form-disclaimer" style="padding: 12px 16px;">
-              <div class="form-disclaimer-icon"><i data-lucide="info"></i></div>
-              <div class="form-disclaimer-content">
-                <div class="form-disclaimer-title" style="font-size: 13px;">So funktioniert's:</div>
-                <p style="font-size: 12px; color: #777; margin: 0; line-height: 1.5;">
-                  Live-Dokumentation Ihrer Cases nach den 11 Standardfragen. 
-                  Keine Bewertung jetzt – KI-Priorisierung erfolgt nach dem Workshop.
-                </p>
               </div>
             </div>
             
@@ -1121,8 +1121,11 @@ Tippe hier - das Feld wächst automatisch mit!"
       if (currentFocusStep < totalSteps - 1) {
         showFocusStep(currentFocusStep + 1);
       } else {
-        // Letzter Schritt -> Fokus-Modus beenden
+        // Nach Schritt 11: Fokus-Modus beenden und zu Speichern-Buttons scrollen
         toggleFocusMode();
+        setTimeout(() => {
+          document.querySelector('.form-actions')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 300);
       }
     }
     
@@ -1133,12 +1136,16 @@ Tippe hier - das Feld wächst automatisch mit!"
       });
     }
     
-    // Keyboard Navigation im Fokus-Modus
+    // Keyboard Navigation im Fokus-Modus (NUR Pfeiltasten!)
     document.addEventListener('keydown', (e) => {
       if (!focusModeActive) return;
-      if (e.key === 'ArrowRight' || e.key === 'Enter') {
+      
+      // Enter NICHT abfangen - wird für Zeilenumbruch in Textfeldern gebraucht!
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
         focusNextStep();
       } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
         focusPrevStep();
       } else if (e.key === 'Escape') {
         toggleFocusMode();
