@@ -255,18 +255,6 @@
                 </div>
               </div>
               <div class="form-meta" style="display: flex; align-items: center; gap: var(--spacing-lg);">
-                <div class="form-meta-item">
-                  <span class="form-meta-label">Teilnehmer:</span>
-                  <select class="form-select" id="teilnehmer" style="width: auto; min-height: 40px; padding: 8px 40px 8px 12px;">
-                    <option value="">-- Name auswählen --</option>
-                    <option value="Dr. Thomas Müller (Legal)">Dr. Thomas Müller (Legal)</option>
-                    <option value="Anna Schmidt (Compliance)">Anna Schmidt (Compliance)</option>
-                    <option value="Peter Weber (Revision)">Peter Weber (Revision)</option>
-                    <option value="Maria Koch (IT)">Maria Koch (IT)</option>
-                    <option value="Stefan Braun (Finance)">Stefan Braun (Finance)</option>
-                    <option value="Lisa Wagner (HR)">Lisa Wagner (HR)</option>
-                  </select>
-                </div>
                 <!-- FOKUS-MODUS TOGGLE -->
                 <button type="button" class="btn btn-focus-mode" id="focusModeToggle" onclick="toggleFocusMode()" title="Fokus-Modus für Beamer-Präsentation">
                   <i data-lucide="maximize-2" id="focusModeIcon"></i>
@@ -873,7 +861,7 @@ Tippe hier - das Feld wächst automatisch mit!"
     // Formular-Daten sammeln
     function collectFormData() {
       const data = {
-        teilnehmer: document.getElementById('teilnehmer').value,
+        erfasstVon: 'Melissa Conrads', // Statisch - kein Dropdown nötig
         problemTitel: document.getElementById('problemTitel').value,
         abteilungen: Array.from(document.querySelectorAll('input[name="abteilung"]:checked')).map(cb => cb.value),
         ausgangslage: document.getElementById('ausgangslage').value,
