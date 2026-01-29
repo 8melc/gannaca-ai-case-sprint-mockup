@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gannaca AI-Case Sprint Framework</title>
+  
+  <!-- Redirect to Screen 0 -->
+  <meta http-equiv="refresh" content="0; url=screens/screen-0-workshop-process.html">
+  
+  <!-- Styles (fallback) -->
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/main.css">
+  
+  <!-- Google Fonts (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #FFFFFF;
+      color: #1A1A1A;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .loading-container {
+      text-align: center;
+      padding: 60px 40px;
+      max-width: 480px;
+    }
+    
+    .loading-logo {
+      max-width: 180px;
+      margin-bottom: 32px;
+    }
+    
+    .loading-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #1A1A1A;
+    }
+    
+    .loading-subtitle {
+      font-size: 16px;
+      color: #666666;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+    
+    .loading-text {
+      font-size: 14px;
+      color: #999999;
+    }
+    
+    .loading-spinner {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 3px solid #DDDDDD;
+      border-top-color: #1a3a5c;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 16px;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .manual-link {
+      display: inline-block;
+      margin-top: 32px;
+      padding: 14px 32px;
+      background: #000000;
+      border: none;
+      border-radius: 9999px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    
+    .manual-link:hover {
+      opacity: 0.85;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="loading-container">
+    <img src="assets/gannaca-logo.png" alt="gannaca" class="loading-logo">
+    <h1 class="loading-title">AI-Case Sprint Framework</h1>
+    <p class="loading-subtitle">Standardisiertes Framework für KI-Use-Case-Entwicklung</p>
+    
+    <div class="loading-spinner"></div>
+    <p class="loading-text">Wird geladen...</p>
+    
+    <a href="screens/screen-0-workshop-process.html" class="manual-link">
+      Falls die Weiterleitung nicht funktioniert, hier klicken →
+    </a>
+  </div>
+  
+</body>
+</html>

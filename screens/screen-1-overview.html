@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Übersicht | gannaca AI-Case Sprint</title>
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/components.css">
+  
+  <!-- Google Fonts (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="page-wrapper">
+    
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-inner">
+        <div class="header-left">
+          <img src="../assets/gannaca-logo.png" alt="gannaca" class="header-logo">
+          <div>
+            <div class="header-title">AI-Case Sprint</div>
+            <div class="header-subtitle">Standardisiertes Framework für KI-Use-Case-Entwicklung</div>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-client">
+            <img src="../assets/trianel-logo.png" alt="Trianel" class="header-client-logo">
+          </div>
+          <span class="header-badge">Konzeptioneller Mockup v2.4</span>
+        </div>
+      </div>
+    </header>
+    
+    <!-- DATENSCHUTZ-BANNER -->
+    <div class="data-protection-banner">
+      <div class="data-protection-banner-inner">
+        <span class="data-protection-icon">🔒</span>
+        <div class="data-protection-text">
+          <strong>DATENSCHUTZ-KONFORM | KEINE PRODUKTIVDATEN</strong>
+          Dieses Mockup dient ausschließlich zur Visualisierung. Alle gezeigten Beispiele sind fiktiv.
+        </div>
+      </div>
+    </div>
+    
+    <!-- NAVIGATION -->
+    <nav class="nav-tabs">
+      <div class="nav-tabs-inner">
+        <a href="screen-0-workshop-process.html" class="nav-tab">
+          <span class="nav-tab-number">0</span> Workshop-Prozess
+        </a>
+        <a href="screen-1-overview.html" class="nav-tab active">
+          <span class="nav-tab-number">1</span> Übersicht
+        </a>
+        <a href="screen-2-kpi.html" class="nav-tab">
+          <span class="nav-tab-number">2</span> KPI-Rahmen
+        </a>
+        <a href="screen-3-governance.html" class="nav-tab">
+          <span class="nav-tab-number">3</span> Governance
+        </a>
+        <a href="screen-4-process.html" class="nav-tab">
+          <span class="nav-tab-number">4</span> Zielprozess
+        </a>
+        <a href="screen-5-mockup.html" class="nav-tab">
+          <span class="nav-tab-number">5</span> Visualisierung
+        </a>
+        <a href="screen-6-form.html" class="nav-tab">
+          <span class="nav-tab-number">6</span> Case-Erfassung ⭐
+        </a>
+        <a href="screen-7-results.html" class="nav-tab">
+          <span class="nav-tab-number">7</span> Ergebnis
+        </a>
+        <a href="screen-8-matrix.html" class="nav-tab">
+          <span class="nav-tab-number">8</span> Matrix
+        </a>
+      </div>
+    </nav>
+    
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      
+      <!-- Page Header -->
+      <div class="page-header">
+        <div class="page-header-inner">
+          <h1 class="page-title">🎯 Das gannaca AI-Case Sprint Framework</h1>
+          <p class="page-subtitle">Ein standardisiertes Denkmodell für strukturierte KI-Use-Case-Entwicklung</p>
+        </div>
+      </div>
+      
+      <div class="container">
+        
+        <!-- 2-Spalten-Layout -->
+        <div class="grid grid-2" style="gap: var(--spacing-2xl); align-items: start;">
+          
+          <!-- LINKE SPALTE: Ausgangslage -->
+          <div>
+            <div class="card">
+              <div class="card-header">
+                <h3 style="display: flex; align-items: center; gap: var(--spacing-sm); margin: 0;">
+                  <span style="font-size: 1.5em;">⚠️</span>
+                  AUSGANGSLAGE (IST-PROBLEM)
+                </h3>
+              </div>
+              
+              <p style="color: var(--color-text-medium); margin-bottom: var(--spacing-lg);">
+                Ein typisches Beispiel aus regulierten Unternehmen:
+              </p>
+              
+              <!-- Problem 1 -->
+              <div class="box" style="border-left: 4px solid var(--text-darkest); margin-bottom: var(--space-4);">
+                <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+                  <span style="font-size: 1.5em;">■</span>
+                  <div>
+                    <h4 style="margin-bottom: var(--space-1); color: var(--text-darkest);">HOHER MANUELLER AUFWAND</h4>
+                    <p style="margin: 0; color: var(--text-dark);">
+                      Sachbearbeiter prüfen 50-200 Reisekostenabrechnungen pro Monat manuell gegen interne Richtlinien.
+                      <strong>Jede Abrechnung: 15-30 Minuten Prüfzeit.</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Problem 2 -->
+              <div class="box" style="border-left: 4px solid var(--text-dark); margin-bottom: var(--space-4);">
+                <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+                  <span style="font-size: 1.5em;">▪</span>
+                  <div>
+                    <h4 style="margin-bottom: var(--space-1); color: var(--text-dark);">ÜBERSEHENS-RISIKO & INKONSISTENZ</h4>
+                    <p style="margin: 0; color: var(--text-dark);">
+                      Wissen ist bei Einzelpersonen konzentriert. Ermüdung und unterschiedliche Interpretationen führen zu Fehlern bei der Identifikation von Richtlinien-Verstößen.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Problem 3 -->
+              <div class="box" style="border-left: 4px solid var(--text-medium); margin-bottom: var(--space-6);">
+                <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
+                  <span style="font-size: 1.5em;">○</span>
+                  <div>
+                    <h4 style="margin-bottom: var(--space-1); color: var(--text-medium);">DOKUMENTATIONSLÜCKEN</h4>
+                    <p style="margin: 0; color: var(--text-dark);">
+                      Audit-Trails für Betriebsprüfungen müssen oft mühsam aus E-Mails, Notizen und Freigabe-Workflows rekonstruiert werden.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Engpass-Zusammenfassung -->
+              <div style="background: var(--color-bg-light); padding: var(--spacing-md); border-radius: var(--border-radius-md); text-align: center;">
+                <strong style="color: var(--color-primary);">👉 ENGPASS:</strong>
+                <span style="color: var(--color-text-dark);">Zeit, Fehleranfälligkeit, mangelnde Nachvollziehbarkeit</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- RECHTE SPALTE: Denkmodell -->
+          <div>
+            <div class="card" style="background: var(--off-white); border: 2px solid var(--navy);">
+              <div class="card-header" style="border-bottom-color: var(--navy);">
+                <h3 style="display: flex; align-items: center; gap: var(--space-2); margin: 0; color: var(--text-darkest);">
+                  <span style="font-size: 1.5em;">💡</span>
+                  DAS DENKMODELL
+                </h3>
+              </div>
+              
+              <p style="font-size: var(--font-size-md); margin-bottom: var(--spacing-lg);">
+                Dieses Projekt ist <strong>KEIN lauffähiges Produkt</strong>, sondern eine <strong>konzeptionelle Blaupause</strong>.
+              </p>
+              
+              <p style="margin-bottom: var(--spacing-xl);">
+                Es zeigt, wie KI als <strong>"Second Eye"</strong> fungiert, um die menschliche Expertise dort einzusetzen, wo sie am wichtigsten ist: <strong>bei der finalen Risikobewertung</strong>.
+              </p>
+              
+              <!-- KI → Mensch Visualisierung -->
+              <div style="display: flex; align-items: center; justify-content: center; gap: var(--spacing-xl); margin-bottom: var(--spacing-xl);">
+                <div style="text-align: center; padding: var(--spacing-lg); background: var(--color-bg-white); border-radius: var(--border-radius-md); box-shadow: var(--shadow-sm); min-width: 140px;">
+                  <div style="font-size: 2em; margin-bottom: var(--spacing-sm);">🤖</div>
+                  <div style="font-weight: var(--font-weight-bold); color: var(--color-primary);">KI</div>
+                  <div style="font-size: var(--font-size-sm); color: var(--color-text-medium); margin-top: var(--spacing-xs);">Strukturiert<br>& Markiert</div>
+                </div>
+                
+                <div style="font-size: 2em; color: var(--color-accent);">→</div>
+                
+                <div style="text-align: center; padding: var(--spacing-lg); background: var(--color-bg-white); border-radius: var(--border-radius-md); box-shadow: var(--shadow-sm); min-width: 140px;">
+                  <div style="font-size: 2em; margin-bottom: var(--spacing-sm);">👤</div>
+                  <div style="font-weight: var(--font-weight-bold); color: var(--color-primary);">MENSCH</div>
+                  <div style="font-size: var(--font-size-sm); color: var(--color-text-medium); margin-top: var(--spacing-xs);">Bewertet &<br>Entscheidet</div>
+                </div>
+              </div>
+              
+              <!-- Framework-Hinweis -->
+              <div style="background: var(--color-bg-white); border: 2px dashed var(--color-accent); border-radius: var(--border-radius-md); padding: var(--spacing-lg); text-align: center;">
+                <h4 style="color: var(--color-accent); margin-bottom: var(--spacing-sm);">
+                  📦 WIEDERVERWENDBARES FRAMEWORK
+                </h4>
+                <p style="margin-bottom: var(--spacing-sm);">
+                  <strong>Heute angewendet für:</strong> Trianel
+                </p>
+                <p style="margin: 0; color: var(--color-text-medium);">
+                  <strong>Morgen einsetzbar für:</strong> RWE, Eon, Vattenfall, ...
+                </p>
+                <p style="margin-top: var(--spacing-md); font-size: var(--font-size-sm); color: var(--color-text-medium);">
+                  Die Methode bleibt gleich, nur die Cases ändern sich.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+        </div><!-- /grid -->
+        
+        <!-- ZIELBILD BOX -->
+        <div class="success-box info-box" style="margin-top: var(--spacing-2xl);">
+          <div class="info-box-icon">✓</div>
+          <div class="info-box-title" style="color: var(--color-success);">ZIELBILD: KI-UNTERSTÜTZTE PROZESSE</div>
+          <div class="info-box-text">
+            <p style="font-size: var(--font-size-md); margin-bottom: var(--spacing-md);">
+              <strong>Statt manueller Komplett-Prüfung:</strong>
+            </p>
+            <div style="display: flex; gap: var(--spacing-xl); flex-wrap: wrap;">
+              <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                <span style="color: var(--color-success); font-size: 1.2em;">→</span>
+                <span>KI übernimmt Vor-Screening & Strukturierung</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                <span style="color: var(--color-success); font-size: 1.2em;">→</span>
+                <span>Mensch fokussiert sich auf kritische Fälle & Entscheidungen</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                <span style="color: var(--color-success); font-size: 1.2em;">→</span>
+                <span>Lückenlose Dokumentation für Audits automatisch generiert</span>
+              </div>
+            </div>
+            <p style="margin-top: var(--spacing-lg); margin-bottom: 0; font-weight: var(--font-weight-semibold); color: var(--color-success);">
+              ERGEBNIS: Höhere Qualität, weniger Zeit, bessere Compliance
+            </p>
+          </div>
+        </div>
+        
+        <!-- NAVIGATION BUTTONS -->
+        <div style="display: flex; justify-content: space-between; margin-top: var(--spacing-2xl);">
+          <a href="screen-0-workshop-process.html" class="btn btn-secondary">
+            ← Zurück zum Workshop-Prozess
+          </a>
+          <a href="screen-6-form.html" class="btn btn-primary btn-lg">
+            Zur Case-Erfassung ⭐ →
+          </a>
+        </div>
+        
+      </div><!-- /container -->
+      
+    </main>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <span>© 2026 gannaca AI-Case Sprint Framework</span>
+        <span>Konzeptioneller Mockup – Keine Produktivdaten</span>
+      </div>
+    </footer>
+    
+  </div><!-- /page-wrapper -->
+  
+</body>
+</html>

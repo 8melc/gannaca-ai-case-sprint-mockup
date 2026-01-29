@@ -1,0 +1,849 @@
+/* ============================================
+   GANNACA AI-CASE SPRINT - FORM STYLES
+   Beamer-optimiert! Elegant & minimalistisch
+   ============================================ */
+
+/* ============================================
+   FORM CONTAINER
+   ============================================ */
+
+.form-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.form-header {
+  background: var(--off-white);
+  border: 1px solid var(--border-gray);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.form-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.form-meta {
+  display: flex;
+  gap: var(--space-8);
+  font-size: var(--text-base);
+  color: var(--text-medium);
+}
+
+.form-meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.form-meta-label {
+  font-weight: var(--font-medium);
+  color: var(--text-dark);
+}
+
+/* ============================================
+   FORM SECTIONS
+   ============================================ */
+
+.form-section {
+  background: var(--white);
+  border: 1px solid var(--border-gray);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-8);
+  margin-bottom: var(--space-6);
+}
+
+.form-section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+  color: var(--text-darkest);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border-gray);
+}
+
+.form-section-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--navy);
+  color: var(--white);
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  border-radius: 50%;
+}
+
+/* ============================================
+   FORM GROUPS
+   ============================================ */
+
+.form-group {
+  margin-bottom: var(--space-12);
+  padding-bottom: var(--space-12);
+  border-bottom: 1px solid var(--border-gray);
+}
+
+.form-group:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* ============================================
+   LABELS - BEAMER-OPTIMIERT (18px!)
+   ============================================ */
+
+.form-label {
+  display: block;
+  font-size: var(--text-lg);  /* 18px - gut lesbar auf Beamer! */
+  font-weight: var(--font-semibold);
+  color: var(--text-dark);
+  margin-bottom: var(--space-3);
+  line-height: var(--line-normal);
+}
+
+.form-label-required::after {
+  content: '*';
+  color: var(--orange);
+  margin-left: var(--space-1);
+}
+
+.form-hint {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--text-light);
+  margin-top: var(--space-2);
+  font-weight: var(--font-normal);
+}
+
+/* ============================================
+   TEXT INPUTS - BEAMER-OPTIMIERT (18px!)
+   ============================================ */
+
+.form-input,
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"] {
+  width: 100%;
+  font-size: var(--text-lg);  /* 18px - gut lesbar! */
+  padding: 14px 16px;
+  font-family: var(--font-sans);
+  color: var(--text-dark);
+  background: var(--white);
+  border: 2px solid var(--border-gray);
+  border-radius: var(--border-radius-md);
+  transition: all 0.2s ease;
+  line-height: var(--line-normal);
+  min-height: 52px;
+}
+
+.form-input::placeholder,
+input::placeholder {
+  color: var(--text-light);
+}
+
+.form-input:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus {
+  outline: none;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(26, 58, 92, 0.1);
+}
+
+/* ============================================
+   TEXTAREA - BEAMER-OPTIMIERT
+   ============================================ */
+
+.form-textarea,
+textarea {
+  width: 100%;
+  font-size: var(--text-lg);  /* 18px - gut lesbar! */
+  padding: 14px 16px;
+  font-family: var(--font-sans);
+  color: var(--text-dark);
+  background: var(--white);
+  border: 2px solid var(--border-gray);
+  border-radius: var(--border-radius-md);
+  transition: all 0.2s ease;
+  resize: vertical;
+  min-height: 120px;
+  line-height: var(--line-relaxed);
+}
+
+.form-textarea::placeholder,
+textarea::placeholder {
+  color: var(--text-light);
+}
+
+.form-textarea:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(26, 58, 92, 0.1);
+}
+
+/* ============================================
+   SELECT / DROPDOWN - BEAMER-OPTIMIERT
+   ============================================ */
+
+.form-select,
+select {
+  width: 100%;
+  font-size: var(--text-lg);
+  padding: 14px 16px;
+  font-family: var(--font-sans);
+  color: var(--text-dark);
+  background: var(--white);
+  border: 2px solid var(--border-gray);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 20px;
+  min-height: 52px;
+  transition: all 0.2s ease;
+}
+
+.form-select:focus,
+select:focus {
+  outline: none;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(26, 58, 92, 0.1);
+}
+
+/* ============================================
+   CHECKBOXES - BEAMER-OPTIMIERT (große Klickfläche)
+   ============================================ */
+
+.form-checkbox-group,
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.form-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--off-white);
+  border: 2px solid var(--border-gray);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 52px;
+}
+
+.form-checkbox-item:hover {
+  border-color: var(--navy);
+  background: var(--white);
+}
+
+.form-checkbox-item.selected {
+  border-color: var(--navy);
+  background: rgba(26, 58, 92, 0.05);
+}
+
+.form-checkbox,
+input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  accent-color: var(--navy);
+  flex-shrink: 0;
+}
+
+.form-checkbox-label {
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  color: var(--text-dark);
+  cursor: pointer;
+}
+
+/* Checkbox Group Labels */
+.checkbox-group label,
+.radio-group label {
+  display: flex;
+  align-items: center;
+  font-size: var(--text-base);
+  color: var(--text-dark);
+  cursor: pointer;
+  gap: var(--space-3);
+}
+
+.checkbox-group label:hover,
+.radio-group label:hover {
+  color: var(--text-darkest);
+}
+
+/* ============================================
+   RADIO BUTTONS - BEAMER-OPTIMIERT
+   ============================================ */
+
+.form-radio-group,
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.form-radio-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-6);
+  background: var(--off-white);
+  border: 2px solid var(--border-gray);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 52px;
+}
+
+.form-radio-item:hover {
+  border-color: var(--navy);
+  background: var(--white);
+}
+
+.form-radio-item.selected {
+  border-color: var(--navy);
+  background: rgba(26, 58, 92, 0.05);
+}
+
+.form-radio,
+input[type="radio"] {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  accent-color: var(--navy);
+  flex-shrink: 0;
+}
+
+.form-radio-label {
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  color: var(--text-dark);
+  cursor: pointer;
+}
+
+/* ============================================
+   RATING SCALE (1-5)
+   ============================================ */
+
+.form-rating-group {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.form-rating-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  background: var(--off-white);
+  border: 2px solid var(--border-gray);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text-dark);
+}
+
+.form-rating-item:hover {
+  border-color: var(--navy);
+  background: var(--white);
+}
+
+.form-rating-item.selected {
+  border-color: var(--navy);
+  background: var(--navy);
+  color: var(--white);
+}
+
+.form-rating-item input {
+  display: none;
+}
+
+/* Rating Scale Labels */
+.rating-scale-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-light);
+}
+
+/* ============================================
+   FORM PROGRESS BAR
+   ============================================ */
+
+.form-progress {
+  margin-bottom: var(--space-8);
+}
+
+.form-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-3);
+}
+
+.form-progress-label {
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  color: var(--text-dark);
+}
+
+.form-progress-count {
+  font-size: var(--text-base);
+  font-weight: var(--font-bold);
+  color: var(--navy);
+}
+
+.form-progress-bar {
+  height: 10px;
+  background: var(--light-gray);
+  border-radius: var(--border-radius-full);
+  overflow: hidden;
+}
+
+.form-progress-fill {
+  height: 100%;
+  background: var(--navy);
+  border-radius: var(--border-radius-full);
+  transition: width 0.3s ease;
+}
+
+/* ============================================
+   FORM ACTIONS (BUTTONS)
+   ============================================ */
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-8);
+  background: var(--off-white);
+  border: 1px solid var(--border-gray);
+  border-radius: var(--border-radius-lg);
+  margin-top: var(--space-8);
+}
+
+.form-actions-left {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.form-actions-right {
+  display: flex;
+  gap: var(--space-4);
+}
+
+/* Button overrides for forms - extra large for Beamer */
+.form-actions .btn {
+  min-height: 56px;
+  padding: var(--space-4) var(--space-10);
+  font-size: var(--text-lg);
+}
+
+.form-actions .btn-primary {
+  min-width: 200px;
+}
+
+/* ============================================
+   FORM NOTICE BOX (Hinweise)
+   ============================================ */
+
+.form-notice,
+.form-disclaimer {
+  background: var(--banner-bg);
+  border: 2px solid var(--banner-border);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-6);
+  margin-top: var(--space-12);
+  display: flex;
+  gap: var(--space-4);
+}
+
+.form-notice-icon,
+.form-disclaimer-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.form-notice-content,
+.form-disclaimer-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.form-notice-title,
+.form-disclaimer-title {
+  font-weight: var(--font-bold);
+  color: var(--text-darkest);
+  font-size: var(--text-base);
+}
+
+.form-notice-text,
+.form-disclaimer-text {
+  font-size: var(--text-sm);
+  color: var(--text-medium);
+  line-height: var(--line-relaxed);
+}
+
+.form-notice ul,
+.form-disclaimer-list {
+  margin-left: var(--space-6);
+  font-size: var(--text-sm);
+  list-style: none;
+  padding: 0;
+}
+
+.form-notice li,
+.form-disclaimer-list li {
+  margin-bottom: var(--space-2);
+  color: var(--text-medium);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-1) 0;
+}
+
+.form-disclaimer-list li::before {
+  content: '\2022';
+  color: var(--orange);
+  font-weight: bold;
+}
+
+/* ============================================
+   INLINE NUMBER INPUT
+   ============================================ */
+
+.form-inline-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.form-inline-label {
+  font-size: var(--text-base);
+  color: var(--text-dark);
+}
+
+.form-input-small {
+  width: 120px;
+  text-align: center;
+}
+
+/* ============================================
+   VALIDATION STATES
+   ============================================ */
+
+.form-input.error,
+.form-textarea.error,
+.form-select.error,
+input.error,
+textarea.error,
+select.error {
+  border-color: var(--text-darkest);
+}
+
+.form-input.success,
+.form-textarea.success,
+.form-select.success,
+input.success,
+textarea.success,
+select.success {
+  border-color: var(--text-dark);
+}
+
+.form-error-message {
+  color: var(--text-darkest);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  margin-top: var(--space-2);
+}
+
+.form-success-message {
+  color: var(--text-dark);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  margin-top: var(--space-2);
+}
+
+/* ============================================
+   FILE UPLOAD
+   ============================================ */
+
+.form-file-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-12);
+  background: var(--off-white);
+  border: 2px dashed var(--border-gray);
+  border-radius: var(--border-radius-lg);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.form-file-upload:hover {
+  border-color: var(--navy);
+  background: var(--white);
+}
+
+.form-file-upload.dragover {
+  border-color: var(--navy);
+  background: rgba(26, 58, 92, 0.05);
+}
+
+.form-file-upload-icon {
+  font-size: 48px;
+  margin-bottom: var(--space-4);
+}
+
+.form-file-upload-text {
+  font-size: var(--text-base);
+  color: var(--text-dark);
+  margin-bottom: var(--space-2);
+}
+
+.form-file-upload-hint {
+  font-size: var(--text-sm);
+  color: var(--text-light);
+}
+
+.form-file-upload input[type="file"] {
+  display: none;
+}
+
+/* ============================================
+   FORM STEPS / WIZARD
+   ============================================ */
+
+.form-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-12);
+  position: relative;
+}
+
+.form-steps::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  right: 40px;
+  height: 2px;
+  background: var(--border-gray);
+  z-index: 0;
+}
+
+.form-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  position: relative;
+  z-index: 1;
+}
+
+.form-step-number {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--light-gray);
+  border: 2px solid var(--border-gray);
+  border-radius: 50%;
+  font-size: var(--text-base);
+  font-weight: var(--font-bold);
+  color: var(--text-medium);
+}
+
+.form-step.active .form-step-number {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--white);
+}
+
+.form-step.completed .form-step-number {
+  background: var(--text-dark);
+  border-color: var(--text-dark);
+  color: var(--white);
+}
+
+.form-step-label {
+  font-size: var(--text-sm);
+  color: var(--text-light);
+  font-weight: var(--font-medium);
+}
+
+.form-step.active .form-step-label,
+.form-step.completed .form-step-label {
+  color: var(--text-dark);
+}
+
+/* ============================================
+   BEAMER MODE - Extra large text
+   ============================================ */
+
+@media screen and (min-width: 1920px) {
+  .form-label {
+    font-size: var(--text-2xl);
+  }
+  
+  .form-hint {
+    font-size: var(--text-base);
+  }
+  
+  .form-input,
+  .form-textarea,
+  .form-select,
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  input[type="date"],
+  textarea,
+  select {
+    font-size: var(--text-xl);
+    padding: 16px 20px;
+    min-height: 60px;
+  }
+  
+  .form-checkbox-label,
+  .form-radio-label {
+    font-size: var(--text-lg);
+  }
+  
+  .form-checkbox,
+  .form-radio,
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .form-rating-item {
+    width: 72px;
+    height: 72px;
+    font-size: var(--text-2xl);
+  }
+  
+  .form-actions .btn {
+    min-height: 64px;
+    font-size: var(--text-xl);
+    padding: var(--space-5) var(--space-12);
+  }
+  
+  .form-section-title {
+    font-size: var(--text-2xl);
+  }
+  
+  .form-section-number {
+    width: 44px;
+    height: 44px;
+    font-size: var(--text-xl);
+  }
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media screen and (max-width: 768px) {
+  .form-section {
+    padding: var(--space-6);
+  }
+  
+  .form-group {
+    margin-bottom: var(--space-8);
+    padding-bottom: var(--space-8);
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    padding: var(--space-6);
+  }
+  
+  .form-actions-left,
+  .form-actions-right {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .form-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .form-rating-group {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .form-steps {
+    flex-direction: column;
+    gap: var(--space-4);
+    align-items: flex-start;
+  }
+  
+  .form-steps::before {
+    display: none;
+  }
+  
+  .form-step {
+    flex-direction: row;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  .form-section {
+    border: 1px solid #ccc;
+    box-shadow: none;
+    page-break-inside: avoid;
+  }
+  
+  .form-actions {
+    display: none;
+  }
+  
+  .form-input,
+  .form-textarea,
+  .form-select {
+    border: 1px solid #ccc;
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case-Erfassung | gannaca AI-Case Sprint</title>
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/components.css">
+  <link rel="stylesheet" href="../styles/forms.css">
+  
+  <!-- Google Fonts (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Storage Script -->
+  <script src="../js/storage.js"></script>
+</head>
+<body>
+  <div class="page-wrapper">
+    
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-inner">
+        <div class="header-left">
+          <img src="../assets/gannaca-logo.png" alt="gannaca" class="header-logo">
+          <div>
+            <div class="header-title">AI-Case Sprint</div>
+            <div class="header-subtitle">Standardisiertes Framework für KI-Use-Case-Entwicklung</div>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-client">
+            <img src="../assets/trianel-logo.png" alt="Trianel" class="header-client-logo">
+          </div>
+          <span class="header-badge">Konzeptioneller Mockup v2.4</span>
+        </div>
+      </div>
+    </header>
+    
+    <!-- DATENSCHUTZ-BANNER -->
+    <div class="data-protection-banner">
+      <div class="data-protection-banner-inner">
+        <span class="data-protection-icon">🔒</span>
+        <div class="data-protection-text">
+          <strong>DATENSCHUTZ-KONFORM | KEINE PRODUKTIVDATEN</strong>
+          Dieses Mockup dient ausschließlich zur Visualisierung. Alle gezeigten Beispiele sind fiktiv.
+        </div>
+      </div>
+    </div>
+    
+    <!-- NAVIGATION -->
+    <nav class="nav-tabs">
+      <div class="nav-tabs-inner">
+        <a href="screen-0-workshop-process.html" class="nav-tab"><span class="nav-tab-number">0</span> Workshop-Prozess</a>
+        <a href="screen-1-overview.html" class="nav-tab"><span class="nav-tab-number">1</span> Übersicht</a>
+        <a href="screen-2-kpi.html" class="nav-tab"><span class="nav-tab-number">2</span> KPI-Rahmen</a>
+        <a href="screen-3-governance.html" class="nav-tab"><span class="nav-tab-number">3</span> Governance</a>
+        <a href="screen-4-process.html" class="nav-tab"><span class="nav-tab-number">4</span> Zielprozess</a>
+        <a href="screen-5-mockup.html" class="nav-tab"><span class="nav-tab-number">5</span> Visualisierung</a>
+        <a href="screen-6-form.html" class="nav-tab active"><span class="nav-tab-number">6</span> Case-Erfassung ⭐</a>
+        <a href="screen-7-results.html" class="nav-tab"><span class="nav-tab-number">7</span> Ergebnis</a>
+        <a href="screen-8-matrix.html" class="nav-tab"><span class="nav-tab-number">8</span> Matrix</a>
+      </div>
+    </nav>
+    
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      
+      <!-- Page Header -->
+      <div class="page-header">
+        <div class="page-header-inner">
+          <h1 class="page-title">📝 Live-Erfassung: Ihre Cases strukturiert dokumentiert</h1>
+          <p class="page-subtitle">Für alle Teilnehmer sichtbar – Eingabe durch gannaca-Team</p>
+        </div>
+      </div>
+      
+      <div class="container">
+        
+        <!-- Progress Bar -->
+        <div class="form-progress">
+          <div class="form-progress-header">
+            <span class="form-progress-label">Erfasste Cases</span>
+            <span class="form-progress-count" id="progressCount">0 von ~20 (Ziel)</span>
+          </div>
+          <div class="form-progress-bar">
+            <div class="form-progress-fill" id="progressFill" style="width: 0%;"></div>
+          </div>
+        </div>
+        
+        <!-- Form Container -->
+        <div class="form-container">
+          
+          <!-- Form Header / Meta Info -->
+          <div class="form-header">
+            <div class="form-header-row">
+              <div class="form-meta">
+                <div class="form-meta-item">
+                  <span class="form-meta-label">Case-Nummer:</span>
+                  <strong style="color: var(--color-accent);" id="caseNumber">#01</strong>
+                </div>
+                <div class="form-meta-item">
+                  <span class="form-meta-label">Erfasst von:</span>
+                  <span>Melissa Conrads</span>
+                </div>
+                <div class="form-meta-item">
+                  <span class="form-meta-label">Zeitstempel:</span>
+                  <span id="currentTime">--:-- Uhr</span>
+                </div>
+              </div>
+              <div class="form-meta">
+                <div class="form-meta-item">
+                  <span class="form-meta-label">Teilnehmer:</span>
+                  <select class="form-select" id="teilnehmer" style="width: auto; min-height: 40px; padding: 8px 40px 8px 12px;">
+                    <option value="">-- Name auswählen --</option>
+                    <option value="Dr. Thomas Müller (Legal)">Dr. Thomas Müller (Legal)</option>
+                    <option value="Anna Schmidt (Compliance)">Anna Schmidt (Compliance)</option>
+                    <option value="Peter Weber (Revision)">Peter Weber (Revision)</option>
+                    <option value="Maria Koch (IT)">Maria Koch (IT)</option>
+                    <option value="Stefan Braun (Finance)">Stefan Braun (Finance)</option>
+                    <option value="Lisa Wagner (HR)">Lisa Wagner (HR)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- FORMULAR -->
+          <form id="caseForm">
+            
+            <!-- FELD 1: Problem-Titel -->
+            <div class="form-section">
+              <h3 class="form-section-title">
+                <span class="form-section-number">1</span>
+                Problem-Titel
+              </h3>
+              <div class="form-group">
+                <label class="form-label form-label-required">Kurzer, prägnanter Titel (5-10 Wörter)</label>
+                <input type="text" class="form-input" id="problemTitel" placeholder="z.B. Manuelle Prüfung von Vertragsänderungen zeitaufwendig" maxlength="100" required>
+                <span class="form-hint">Beschreiben Sie das Problem in einem Satz.</span>
+              </div>
+            </div>
+            
+            <!-- FELD 2: Betroffene Abteilung(en) -->
+            <div class="form-section">
+              <h3 class="form-section-title">
+                <span class="form-section-number">2</span>
+                Betroffene Abteilung(en)
+              </h3>
+              <div class="form-group">
+                <label class="form-label form-label-required">Welche Abteilungen sind betroffen?</label>
+                <div class="form-checkbox-group" id="abteilungen">
+                  <label class="form-checkbox-item"><input type="checkbox" class="form-checkbox" name="abteilung" value="Legal"><span class="form-checkbox-label">Legal</span></label>
+                  <label class="form-checkbox-item"><input type="checkbox" class="form-checkbox" name="abteilung" value="Compliance"><span class="form-checkbox-label">Compliance</span></label>
+                  <label class="form-checkbox-item"><input type="checkbox" class="form-checkbox" name="abteilung" value="Revision"><span class="form-checkbox-label">Revision</span></label>
+                  <label class="form-checkbox-item"><input type="checkbox" class="form-checkbox" name="abteilung" value="IT"><span class="form-checkbox-label">IT</span></label>
+                  <label class="form-checkbox-item"><input type="checkbox" class="form-checkbox" name="abteilung" value="HR"><span class="form-checkbox-label">HR</span></label>
+                  <label class="form-checkbox-item"><input type="checkbox" class="form-checkbox" name="abteilung" value="Finance"><span class="form-checkbox-label">Finance</span></label>
+                </div>
+              </div>
+            </div>
+            
+            <!-- FELD 3: Ausgangslage / Ist-Zustand -->
+            <div class="form-section">
+              <h3 class="form-section-title">
+                <span class="form-section-number">3</span>
+                Ausgangslage / Ist-Zustand
+              </h3>
+              <div class="form-group">
+                <label class="form-label form-label-required">Wie läuft der Prozess aktuell? Was sind die einzelnen Schritte?</label>
+                <textarea class="form-textarea" id="ausgangslage" rows="4" placeholder="Beschreiben Sie den aktuellen Ablauf Schritt für Schritt..." required></textarea>
+              </div>
+            </div>
+            
+            <!-- FELD 4: Konkretes Problem / Engpass -->
+            <div class="form-section">
+              <h3 class="form-section-title">
+                <span class="form-section-number">4</span>
+                Konkretes Problem / Engpass
+              </h3>
+              <div class="form-group">
+                <label class="form-label form-label-required">Was genau ist das Problem? Wo liegt der Flaschenhals?</label>
+                <textarea class="form-textarea" id="problem" rows="3" placeholder="z.B. Hoher Zeitaufwand, Fehleranfälligkeit, mangelnde Dokumentation..." required></textarea>
+              </div>
+            </div>
+            
+            <!-- FELD 5: Häufigkeit / Volumen -->
+            <div class="form-section">
+              <h3 class="form-section-title">
+                <span class="form-section-number">5</span>
+                Häufigkeit / Volumen
+              </h3>
+              <div class="form-group">
+                <label class="form-label form-label-required">Wie oft tritt das Problem auf?</label>
+                <div class="form-radio-group" id="haeufigkeit">
+                  <label class="form-radio-item"><input type="radio" class="form-radio" name="haeufigkeit" value="Täglich"><span class="form-radio-label">Täglich</span></label>
+                  <label class="form-radio-item"><input type="radio" class="form-radio" name="haeufigkeit" value="Wöchentlich"><span class="form-radio-label">Wöchentlich</span></label>
+                  <label class="form-radio-item"><input type="radio" class="form-radio" name="haeufigkeit" value="Monatlich"><span class="form-radio-label">Monatlich</span></label>
+                  <label class="form-radio-item"><input type="radio" class="form-radio" name="haeufigkeit" value="Quartalsweise"><span class="form-radio-label">Quartalsweise</span></label>
+                </div>
+                <div class="form-inline-group" style="margin-top: var(--spacing-lg);">
+                  <span class="form-inline-label">Anzahl Vorgänge pro Zeiteinheit:</span>
+                  <input type="number" class="form-input form-input-small" id="anzahlVorgaenge" placeholder="z.B. 50" min="1">
+                </div>
+              </div>
+            </div>
+            
+            <!-- FELD 6: Betroffene Personen & Zeitaufwand -->
+            <div class="form-section">
+              <h3 class="form-section-title">
+                <span class="form-section-number">6</span>
+                Betroffene Personen & Zeitaufwand
+              </h3>
+              <div class="form-group">
+                <div class="grid grid-3" style="gap: var(--spacing-xl);">
+                  <div>
+                    <label class="form-label form-label-required">Anzahl betroffener Mitarbeiter</label>
+                    <input type="number" class="form-input" id="betroffenePersonen" placeholder="z.B. 3" min="1">
+                  </div>
+                  <div>
+                    <label class="form-label form-label-required">Zeitaufwand pro Fall</label>
+                    <div class="form-inline-group">
+                      <input type="number" class="form-input" id="zeitaufwandWert" placeholder="z.B. 25" min="1" style="width: 100px;">
+                      <select class="form-select" id="zeitaufwandEinheit" style="width: auto;">
+                        <option value="minutes">Minuten</option>
+                        <option value="hours">Stunden</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div>
+                    <label class="form-label">Gesamtaufwand/Jahr (geschätzt)</label>
+                    <input type="text" class="form-input" id="gesamtaufwand" placeholder="Wird berechnet..." readonly style="background: var(--color-bg-light);">
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- FELD 7: Strategische Relevanz -->
+            <div class="form-section">
+              <h3 class="form-section-title">
+                <span class="form-section-number">7</span>
+                Strategische Relevanz
+              </h3>
+              <div class="form-group">
+                <label class="form-label form-label-required">Erste Einschätzung durch Teilnehmer</label>
+                <div class="form-radio-group" id="relevanz">
+                  <label class="form-radio-item" style="flex: 1; justify-content: center;"><input type="radio" class="form-radio" name="relevanz" value="Hoch"><span class="form-radio-label">■ Hoch</span></label>
+                  <label class="form-radio-item" style="flex: 1; justify-content: center;"><input type="radio" class="form-radio" name="relevanz" value="Mittel"><span class="form-radio-label">▪ Mittel</span></label>
+                  <label class="form-radio-item" style="flex: 1; justify-content: center;"><input type="radio" class="form-radio" name="relevanz" value="Niedrig"><span class="form-radio-label">○ Niedrig</span></label>
+                </div>
+              </div>
+            </div>
+            
+            <!-- FELD 8: Risiko bei Nicht-Handlung -->
+            <div class="form-section">
+              <h3 class="form-section-title">
+                <span class="form-section-number">8</span>
+                Risiko bei Nicht-Handlung
+              </h3>
+              <div class="form-group">
+                <label class="form-label form-label-required">Was passiert, wenn das Problem NICHT gelöst wird? (Skala 1-5)</label>
+                <div class="form-rating-group" id="risikoGroup">
+                  <label class="form-rating-item"><input type="radio" name="risiko" value="1">1</label>
+                  <label class="form-rating-item"><input type="radio" name="risiko" value="2">2</label>
+                  <label class="form-rating-item"><input type="radio" name="risiko" value="3">3</label>
+                  <label class="form-rating-item"><input type="radio" name="risiko" value="4">4</label>
+                  <label class="form-rating-item"><input type="radio" name="risiko" value="5">5</label>
+                </div>
+                <span class="form-hint" style="margin-top: var(--spacing-sm);">1 = unkritisch | 5 = sehr kritisch</span>
+                <div style="margin-top: var(--spacing-lg);">
+                  <label class="form-label">Kurze Begründung (optional)</label>
+                  <input type="text" class="form-input" id="risikoBegruendung" placeholder="z.B. Audit-Findings, Reputationsrisiko, Bußgelder...">
+                </div>
+              </div>
+            </div>
+            
+            <!-- FELD 9: Vorhandene Lösungsansätze -->
+            <div class="form-section">
+              <h3 class="form-section-title">
+                <span class="form-section-number">9</span>
+                Vorhandene Lösungsansätze
+              </h3>
+              <div class="form-group">
+                <label class="form-label">Gibt es bereits Tools, Workarounds oder Teilautomatisierungen?</label>
+                <div class="form-radio-group">
+                  <label class="form-radio-item"><input type="radio" class="form-radio" name="vorhandeneLoesung" value="yes"><span class="form-radio-label">Ja</span></label>
+                  <label class="form-radio-item"><input type="radio" class="form-radio" name="vorhandeneLoesung" value="no"><span class="form-radio-label">Nein</span></label>
+                </div>
+                <div style="margin-top: var(--spacing-lg);">
+                  <label class="form-label">Falls ja, bitte beschreiben:</label>
+                  <input type="text" class="form-input" id="vorhandeneLösungBeschreibung" placeholder="z.B. Excel-Makro, SharePoint-Workflow...">
+                </div>
+              </div>
+            </div>
+            
+            <!-- FELD 10: Daten-Verfügbarkeit -->
+            <div class="form-section">
+              <h3 class="form-section-title">
+                <span class="form-section-number">10</span>
+                Daten-Verfügbarkeit
+              </h3>
+              <div class="form-group">
+                <label class="form-label form-label-required">Liegen die relevanten Daten digital vor?</label>
+                <div class="form-radio-group" id="datenVerfuegbarkeit">
+                  <label class="form-radio-item"><input type="radio" class="form-radio" name="datenVerfuegbarkeit" value="full_digital"><span class="form-radio-label">✅ Ja, vollständig digital</span></label>
+                  <label class="form-radio-item"><input type="radio" class="form-radio" name="datenVerfuegbarkeit" value="partial"><span class="form-radio-label">⚠️ Teilweise digital</span></label>
+                  <label class="form-radio-item"><input type="radio" class="form-radio" name="datenVerfuegbarkeit" value="paper"><span class="form-radio-label">📄 Überwiegend Papier</span></label>
+                  <label class="form-radio-item"><input type="radio" class="form-radio" name="datenVerfuegbarkeit" value="unclear"><span class="form-radio-label">❓ Unklar</span></label>
+                </div>
+              </div>
+            </div>
+            
+            <!-- FELD 11: KI-Potenzial -->
+            <div class="form-section" style="background: var(--color-bg-light);">
+              <h3 class="form-section-title">
+                <span class="form-section-number">11</span>
+                KI-Potenzial (Optional)
+              </h3>
+              <div class="form-group">
+                <label class="form-label">Wo könnte KI theoretisch unterstützen?</label>
+                <textarea class="form-textarea" id="kiPotenzial" rows="2" placeholder="z.B. Automatische Kategorisierung, Textanalyse..." style="background: var(--color-bg-white);"></textarea>
+                <span class="form-hint">ℹ️ Keine Bewertung erforderlich. Dient nur der späteren Analyse.</span>
+              </div>
+            </div>
+            
+            <!-- DISCLAIMER BOX -->
+            <div class="form-disclaimer">
+              <div class="form-disclaimer-icon">ℹ️</div>
+              <div class="form-disclaimer-title">WICHTIG ZU VERSTEHEN:</div>
+              <ul class="form-disclaimer-list">
+                <li>Dieses Formular dient NUR der strukturierten Erfassung.</li>
+                <li>KEINE KI-Bewertung während des Workshops!</li>
+                <li>Alle Eingaben werden für alle Teilnehmer sichtbar auf dem Beamer angezeigt.</li>
+                <li>Die erfassten Metriken ermöglichen später eine KI-gestützte Priorisierung.</li>
+              </ul>
+            </div>
+            
+            <!-- FORM ACTIONS -->
+            <div class="form-actions">
+              <div class="form-actions-left">
+                <button type="button" class="btn btn-secondary" onclick="goToPreviousCase()">← Vorheriger Case</button>
+                <button type="button" class="btn btn-tertiary" onclick="clearForm()">🗑️ Formular leeren</button>
+              </div>
+              <div class="form-actions-right">
+                <button type="button" class="btn btn-secondary" onclick="saveAndStay()">💾 Zwischenspeichern</button>
+                <button type="button" class="btn btn-primary btn-lg" onclick="saveAndNext()">Speichern & Nächster Case →</button>
+              </div>
+            </div>
+            
+          </form>
+          
+        </div><!-- /form-container -->
+        
+        <!-- SUCCESS MODAL -->
+        <div id="successModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); z-index: 1000; align-items: center; justify-content: center;">
+          <div style="background: var(--white); padding: var(--space-10); border-radius: var(--border-radius-xl); text-align: center; max-width: 400px; border: 1px solid var(--border-gray); box-shadow: var(--shadow-lg);">
+            <div style="font-size: 48px; margin-bottom: var(--space-4);">✅</div>
+            <h2 style="margin-bottom: var(--space-2); color: var(--text-darkest);" id="modalTitle">Case #01 gespeichert!</h2>
+            <p style="color: var(--text-medium); margin-bottom: var(--space-6);" id="modalText">Das Formular wurde geleert. Bereit für den nächsten Case.</p>
+            <button class="btn btn-primary" onclick="closeModal()">Weiter</button>
+          </div>
+        </div>
+        
+      </div><!-- /container -->
+      
+    </main>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <span>© 2026 gannaca AI-Case Sprint Framework</span>
+        <span>Konzeptioneller Mockup – Keine Produktivdaten</span>
+      </div>
+    </footer>
+    
+  </div><!-- /page-wrapper -->
+  
+  <!-- ============================================
+       JAVASCRIPT
+       ============================================ -->
+  <script>
+    // Beim Laden der Seite
+    document.addEventListener('DOMContentLoaded', function() {
+      updateUI();
+      updateTime();
+      setInterval(updateTime, 60000); // Zeit jede Minute aktualisieren
+      
+      // Rating Items klickbar machen
+      document.querySelectorAll('.form-rating-item').forEach(item => {
+        item.addEventListener('click', function() {
+          this.parentElement.querySelectorAll('.form-rating-item').forEach(i => i.classList.remove('selected'));
+          this.classList.add('selected');
+          this.querySelector('input').checked = true;
+        });
+      });
+      
+      // Checkbox/Radio Styling
+      document.querySelectorAll('.form-checkbox, .form-radio').forEach(input => {
+        input.addEventListener('change', function() {
+          if (this.type === 'checkbox') {
+            this.closest('.form-checkbox-item').classList.toggle('selected', this.checked);
+          } else {
+            document.querySelectorAll(`input[name="${this.name}"]`).forEach(r => {
+              r.closest('.form-radio-item').classList.remove('selected');
+            });
+            this.closest('.form-radio-item').classList.add('selected');
+          }
+        });
+      });
+    });
+    
+    // UI aktualisieren
+    function updateUI() {
+      const cases = getAllCases();
+      const nextNumber = cases.length + 1;
+      
+      // Case-Nummer
+      document.getElementById('caseNumber').textContent = '#' + nextNumber.toString().padStart(2, '0');
+      
+      // Fortschritt
+      document.getElementById('progressCount').textContent = `${cases.length} von ~20 (Ziel)`;
+      document.getElementById('progressFill').style.width = `${(cases.length / 20) * 100}%`;
+    }
+    
+    // Zeit aktualisieren
+    function updateTime() {
+      const now = new Date();
+      document.getElementById('currentTime').textContent = now.toLocaleTimeString('de-DE', {hour: '2-digit', minute: '2-digit'}) + ' Uhr';
+    }
+    
+    // Formular-Daten sammeln
+    function collectFormData() {
+      const data = {
+        teilnehmer: document.getElementById('teilnehmer').value,
+        problemTitel: document.getElementById('problemTitel').value,
+        abteilungen: Array.from(document.querySelectorAll('input[name="abteilung"]:checked')).map(cb => cb.value),
+        ausgangslage: document.getElementById('ausgangslage').value,
+        problem: document.getElementById('problem').value,
+        haeufigkeit: document.querySelector('input[name="haeufigkeit"]:checked')?.value || '',
+        anzahlVorgaenge: document.getElementById('anzahlVorgaenge').value,
+        betroffenePersonen: document.getElementById('betroffenePersonen').value,
+        zeitaufwandWert: document.getElementById('zeitaufwandWert').value,
+        zeitaufwandEinheit: document.getElementById('zeitaufwandEinheit').value,
+        strategischeRelevanz: document.querySelector('input[name="relevanz"]:checked')?.value || '',
+        risiko: document.querySelector('input[name="risiko"]:checked')?.value || '',
+        risikoBegruendung: document.getElementById('risikoBegruendung').value,
+        vorhandeneLoesung: document.querySelector('input[name="vorhandeneLoesung"]:checked')?.value || '',
+        vorhandeneLösungBeschreibung: document.getElementById('vorhandeneLösungBeschreibung').value,
+        datenVerfuegbarkeit: document.querySelector('input[name="datenVerfuegbarkeit"]:checked')?.value || '',
+        kiPotenzial: document.getElementById('kiPotenzial').value
+      };
+      return data;
+    }
+    
+    // Validierung
+    function validateForm() {
+      const titel = document.getElementById('problemTitel').value.trim();
+      const ausgangslage = document.getElementById('ausgangslage').value.trim();
+      const problem = document.getElementById('problem').value.trim();
+      
+      if (!titel) {
+        alert('⚠️ Bitte geben Sie einen Problem-Titel ein.');
+        document.getElementById('problemTitel').focus();
+        return false;
+      }
+      if (!ausgangslage) {
+        alert('⚠️ Bitte beschreiben Sie die Ausgangslage.');
+        document.getElementById('ausgangslage').focus();
+        return false;
+      }
+      if (!problem) {
+        alert('⚠️ Bitte beschreiben Sie das konkrete Problem.');
+        document.getElementById('problem').focus();
+        return false;
+      }
+      return true;
+    }
+    
+    // Speichern und weiter
+    function saveAndNext() {
+      if (!validateForm()) return;
+      
+      const data = collectFormData();
+      const caseNum = saveCase(data);
+      
+      // Modal zeigen
+      document.getElementById('modalTitle').textContent = `Case #${(caseNum).toString().padStart(2, '0')} gespeichert!`;
+      document.getElementById('successModal').style.display = 'flex';
+      
+      // Formular leeren
+      clearForm();
+      updateUI();
+    }
+    
+    // Speichern und bleiben
+    function saveAndStay() {
+      if (!validateForm()) return;
+      
+      const data = collectFormData();
+      const caseNum = saveCase(data);
+      
+      alert(`✅ Case #${caseNum.toString().padStart(2, '0')} gespeichert!\n\nSie können nun Änderungen vornehmen oder zur Ergebnis-Übersicht wechseln.`);
+      updateUI();
+    }
+    
+    // Formular leeren
+    function clearForm() {
+      document.getElementById('caseForm').reset();
+      document.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
+      window.scrollTo(0, 0);
+      updateUI();
+    }
+    
+    // Zum vorherigen Case
+    function goToPreviousCase() {
+      const cases = getAllCases();
+      if (cases.length === 0) {
+        alert('Es gibt noch keine gespeicherten Cases.');
+        return;
+      }
+      
+      // Zur Ergebnis-Seite wechseln
+      window.location.href = 'screen-7-results.html';
+    }
+    
+    // Modal schließen
+    function closeModal() {
+      document.getElementById('successModal').style.display = 'none';
+    }
+  </script>
+  
+</body>
+</html>

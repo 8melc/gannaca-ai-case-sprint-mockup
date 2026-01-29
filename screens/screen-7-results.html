@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workshop-Ergebnis | gannaca AI-Case Sprint</title>
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/components.css">
+  
+  <!-- Google Fonts (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Storage Script -->
+  <script src="../js/storage.js"></script>
+  
+  <style>
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: var(--space-6);
+      margin: var(--space-10) 0;
+    }
+    
+    .case-card {
+      background: var(--white);
+      border-radius: var(--border-radius-lg);
+      padding: var(--space-6);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid var(--border-gray);
+    }
+    
+    .case-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--text-light);
+    }
+    
+    .case-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: var(--space-3);
+    }
+    
+    .case-number {
+      font-size: var(--text-sm);
+      font-weight: var(--font-bold);
+      color: var(--navy);
+    }
+    
+    .case-timestamp {
+      font-size: var(--text-xs);
+      color: var(--text-light);
+    }
+    
+    .case-title {
+      font-size: var(--text-lg);
+      font-weight: var(--font-semibold);
+      margin-bottom: var(--space-3);
+      color: var(--text-darkest);
+      line-height: var(--line-tight);
+    }
+    
+    .case-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+    
+    .case-abteilung {
+      background: var(--off-white);
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--border-radius-sm);
+      font-size: var(--text-xs);
+      color: var(--text-medium);
+    }
+    
+    .case-relevanz {
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--border-radius-full);
+      font-size: var(--text-xs);
+      font-weight: var(--font-semibold);
+    }
+    
+    /* Gedämpfte Status-Farben (keine Ampel!) */
+    .relevanz-hoch {
+      background: var(--medium-gray);
+      color: var(--text-darkest);
+    }
+    
+    .relevanz-mittel {
+      background: var(--light-gray);
+      color: var(--text-dark);
+    }
+    
+    .relevanz-niedrig {
+      background: var(--off-white);
+      color: var(--text-medium);
+    }
+    
+    .case-problem {
+      font-size: var(--text-sm);
+      color: var(--text-medium);
+      margin-bottom: var(--space-4);
+      line-height: var(--line-relaxed);
+    }
+    
+    .case-footer {
+      display: flex;
+      justify-content: space-between;
+      padding-top: var(--space-3);
+      border-top: 1px solid var(--border-gray);
+      font-size: var(--text-sm);
+      color: var(--text-medium);
+    }
+    
+    .case-footer span {
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+    }
+    
+    .empty-state {
+      text-align: center;
+      padding: var(--space-20) var(--space-10);
+      background: var(--off-white);
+      border-radius: var(--border-radius-lg);
+      margin: var(--space-10) 0;
+      border: 1px solid var(--border-gray);
+    }
+    
+    .empty-state-icon {
+      font-size: 64px;
+      margin-bottom: var(--space-4);
+    }
+    
+    .empty-state h3 {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-2);
+      color: var(--text-darkest);
+    }
+    
+    .empty-state p {
+      color: var(--text-medium);
+      margin-bottom: var(--space-6);
+    }
+    
+    .stats-row {
+      display: flex;
+      gap: var(--space-6);
+      margin-bottom: var(--space-8);
+    }
+    
+    .stat-card {
+      background: var(--white);
+      padding: var(--space-6);
+      border-radius: var(--border-radius-lg);
+      text-align: center;
+      flex: 1;
+      border: 1px solid var(--border-gray);
+    }
+    
+    .stat-number {
+      font-size: var(--text-5xl);
+      font-weight: var(--font-bold);
+      color: var(--navy);
+      display: block;
+    }
+    
+    .stat-label {
+      font-size: var(--text-sm);
+      color: var(--text-medium);
+    }
+    
+    .export-bar {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-4);
+      padding: var(--space-6);
+      background: var(--off-white);
+      border-radius: var(--border-radius-lg);
+      margin-top: var(--space-10);
+      border: 1px solid var(--border-gray);
+    }
+    
+    .demo-banner {
+      background: var(--banner-bg);
+      border: 2px solid var(--banner-border);
+      color: var(--text-darkest);
+      padding: var(--space-4) var(--space-6);
+      border-radius: var(--border-radius-lg);
+      margin-bottom: var(--space-6);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .demo-banner p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-inner">
+        <div class="header-left">
+          <img src="../assets/gannaca-logo.png" alt="gannaca" class="header-logo">
+          <div>
+            <div class="header-title">AI-Case Sprint</div>
+            <div class="header-subtitle">Standardisiertes Framework für KI-Use-Case-Entwicklung</div>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-client">
+            <img src="../assets/trianel-logo.png" alt="Trianel" class="header-client-logo">
+          </div>
+          <span class="header-badge">Konzeptioneller Mockup v2.4</span>
+        </div>
+      </div>
+    </header>
+    
+    <!-- DATENSCHUTZ-BANNER -->
+    <div class="data-protection-banner">
+      <div class="data-protection-banner-inner">
+        <span class="data-protection-icon">🔒</span>
+        <div class="data-protection-text">
+          <strong>DATENSCHUTZ-KONFORM | KEINE PRODUKTIVDATEN</strong>
+          Dieses Mockup dient ausschließlich zur Visualisierung. Alle gezeigten Beispiele sind fiktiv.
+        </div>
+      </div>
+    </div>
+    
+    <!-- NAVIGATION -->
+    <nav class="nav-tabs">
+      <div class="nav-tabs-inner">
+        <a href="screen-0-workshop-process.html" class="nav-tab"><span class="nav-tab-number">0</span> Workshop-Prozess</a>
+        <a href="screen-1-overview.html" class="nav-tab"><span class="nav-tab-number">1</span> Übersicht</a>
+        <a href="screen-2-kpi.html" class="nav-tab"><span class="nav-tab-number">2</span> KPI-Rahmen</a>
+        <a href="screen-3-governance.html" class="nav-tab"><span class="nav-tab-number">3</span> Governance</a>
+        <a href="screen-4-process.html" class="nav-tab"><span class="nav-tab-number">4</span> Zielprozess</a>
+        <a href="screen-5-mockup.html" class="nav-tab"><span class="nav-tab-number">5</span> Visualisierung</a>
+        <a href="screen-6-form.html" class="nav-tab"><span class="nav-tab-number">6</span> Case-Erfassung ⭐</a>
+        <a href="screen-7-results.html" class="nav-tab active"><span class="nav-tab-number">7</span> Ergebnis</a>
+        <a href="screen-8-matrix.html" class="nav-tab"><span class="nav-tab-number">8</span> Matrix</a>
+      </div>
+    </nav>
+    
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      
+      <!-- Page Header -->
+      <div class="page-header">
+        <div class="page-header-inner">
+          <h1 class="page-title">📊 Workshop-Ergebnis: <span id="caseCountTitle">0</span> Cases strukturiert erfasst</h1>
+          <p class="page-subtitle">Vollständige Dokumentation – Priorisierung erfolgt im nächsten Schritt</p>
+        </div>
+      </div>
+      
+      <div class="container">
+        
+        <!-- Demo-Daten Banner (nur wenn leer) -->
+        <div class="demo-banner" id="demoBanner" style="display: none;">
+          <p>💡 <strong>Keine Cases vorhanden.</strong> Möchten Sie Demo-Daten laden, um die Ansicht zu testen?</p>
+          <button class="btn btn-primary" onclick="loadDemo()">Demo-Daten laden</button>
+        </div>
+        
+        <!-- Statistics -->
+        <div class="stats-row" id="statsRow">
+          <div class="stat-card">
+            <span class="stat-number" id="totalCases">0</span>
+            <span class="stat-label">Erfasste Cases</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" id="totalDepartments">0</span>
+            <span class="stat-label">Abteilungen beteiligt</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" id="highPriority">0</span>
+            <span class="stat-label">Hohe Relevanz</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" id="avgRisk">-</span>
+            <span class="stat-label">Ø Risiko-Score</span>
+          </div>
+        </div>
+        
+        <!-- SUCCESS BOX (nur wenn Cases vorhanden) -->
+        <div class="success-box info-box" id="successBox" style="margin-bottom: 32px; display: none;">
+          <div class="info-box-icon">✅</div>
+          <div class="info-box-title" style="color: var(--color-success);">WORKSHOP ERFOLGREICH DOKUMENTIERT</div>
+          <div class="info-box-text">
+            <p style="margin: 0;">Alle Cases wurden strukturiert erfasst und sind bereit für die KI-gestützte Analyse. Die Priorisierungs-Matrix wird in den nächsten 2-3 Tagen erstellt.</p>
+          </div>
+        </div>
+        
+        <!-- CASES GRID -->
+        <div id="casesContainer"></div>
+        
+        <!-- EMPTY STATE -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+          <div class="empty-state-icon">📋</div>
+          <h3>Noch keine Cases erfasst</h3>
+          <p>Starten Sie mit der Case-Erfassung im Workshop.</p>
+          <a href="screen-6-form.html" class="btn btn-primary btn-lg">Zur Case-Erfassung →</a>
+        </div>
+        
+        <!-- NEXT STEPS -->
+        <div class="info-box" id="nextStepsBox" style="margin-top: 40px; display: none;">
+          <div class="info-box-icon">📋</div>
+          <div class="info-box-title">NÄCHSTE SCHRITTE</div>
+          <div class="info-box-text">
+            <p style="margin-bottom: 12px;"><strong>Diese Cases werden jetzt KI-gestützt analysiert:</strong></p>
+            <ol style="margin: 0; padding-left: 24px;">
+              <li style="padding: 4px 0;">Nutzen-Risiko-Bewertung (automatisiert)</li>
+              <li style="padding: 4px 0;">Machbarkeits-Einschätzung</li>
+              <li style="padding: 4px 0;">Identifikation Top-3 Cases</li>
+              <li style="padding: 4px 0;">Empfehlung für finalen Case</li>
+            </ol>
+            <p style="margin-top: 16px; margin-bottom: 0;"><strong style="color: var(--color-accent);">ERGEBNIS folgt in 48 Stunden per E-Mail.</strong></p>
+          </div>
+        </div>
+        
+        <!-- EXPORT BAR -->
+        <div class="export-bar" id="exportBar" style="display: none;">
+          <span style="color: var(--color-text-medium); margin-right: 16px;">Export-Optionen:</span>
+          <button class="btn btn-secondary" onclick="exportAsJSON()">📄 Als JSON speichern</button>
+          <button class="btn btn-secondary" onclick="window.print()">🖨️ Drucken / PDF</button>
+          <button class="btn btn-tertiary" onclick="confirmClearAll()">🗑️ Alle Cases löschen</button>
+        </div>
+        
+        <!-- NAVIGATION -->
+        <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+          <a href="screen-6-form.html" class="btn btn-primary">+ Neuen Case erfassen</a>
+          <a href="screen-8-matrix.html" class="btn btn-secondary">Zur Priorisierungs-Matrix →</a>
+        </div>
+        
+      </div><!-- /container -->
+      
+    </main>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <span>© 2026 gannaca AI-Case Sprint Framework</span>
+        <span>Konzeptioneller Mockup – Keine Produktivdaten</span>
+      </div>
+    </footer>
+    
+  </div><!-- /page-wrapper -->
+  
+  <!-- JAVASCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      renderCases();
+    });
+    
+    function renderCases() {
+      const cases = getAllCases();
+      const container = document.getElementById('casesContainer');
+      
+      // Update title
+      document.getElementById('caseCountTitle').textContent = cases.length;
+      document.getElementById('totalCases').textContent = cases.length;
+      
+      if (cases.length === 0) {
+        document.getElementById('emptyState').style.display = 'block';
+        document.getElementById('demoBanner').style.display = 'flex';
+        document.getElementById('successBox').style.display = 'none';
+        document.getElementById('nextStepsBox').style.display = 'none';
+        document.getElementById('exportBar').style.display = 'none';
+        document.getElementById('statsRow').style.display = 'none';
+        container.innerHTML = '';
+        return;
+      }
+      
+      // Show elements
+      document.getElementById('emptyState').style.display = 'none';
+      document.getElementById('demoBanner').style.display = 'none';
+      document.getElementById('successBox').style.display = 'block';
+      document.getElementById('nextStepsBox').style.display = 'block';
+      document.getElementById('exportBar').style.display = 'flex';
+      document.getElementById('statsRow').style.display = 'flex';
+      
+      // Calculate stats
+      const allDepartments = new Set();
+      let highPriorityCount = 0;
+      let totalRisk = 0;
+      let riskCount = 0;
+      
+      cases.forEach(c => {
+        if (c.abteilungen) {
+          c.abteilungen.forEach(a => allDepartments.add(a));
+        }
+        if (c.strategischeRelevanz === 'Hoch') highPriorityCount++;
+        if (c.risiko) {
+          totalRisk += parseInt(c.risiko);
+          riskCount++;
+        }
+      });
+      
+      document.getElementById('totalDepartments').textContent = allDepartments.size;
+      document.getElementById('highPriority').textContent = highPriorityCount;
+      document.getElementById('avgRisk').textContent = riskCount > 0 ? (totalRisk / riskCount).toFixed(1) : '-';
+      
+      // Render cards
+      let html = '<div class="cases-grid">';
+      
+      cases.forEach((caseItem, index) => {
+        const relevanzClass = caseItem.strategischeRelevanz ? `relevanz-${caseItem.strategischeRelevanz.toLowerCase()}` : '';
+        const abteilungen = caseItem.abteilungen ? caseItem.abteilungen.join(', ') : 'Nicht angegeben';
+        const problemText = caseItem.problem ? (caseItem.problem.length > 120 ? caseItem.problem.substring(0, 120) + '...' : caseItem.problem) : 'Keine Beschreibung';
+        
+        html += `
+          <div class="case-card">
+            <div class="case-card-header">
+              <span class="case-number">CASE #${caseItem.caseNumber.toString().padStart(2, '0')}</span>
+              <span class="case-timestamp">${caseItem.timestamp || ''}</span>
+            </div>
+            <h4 class="case-title">${caseItem.problemTitel || 'Kein Titel'}</h4>
+            <div class="case-meta">
+              <span class="case-abteilung">📍 ${abteilungen}</span>
+              ${caseItem.strategischeRelevanz ? `<span class="case-relevanz ${relevanzClass}">${caseItem.strategischeRelevanz}</span>` : ''}
+            </div>
+            <p class="case-problem">${problemText}</p>
+            <div class="case-footer">
+              <span>⚠️ Risiko: ${caseItem.risiko || '-'}/5</span>
+              <span>📅 ${caseItem.haeufigkeit || '-'}</span>
+              <span>👤 ${caseItem.betroffenePersonen || '-'} Pers.</span>
+            </div>
+          </div>
+        `;
+      });
+      
+      html += '</div>';
+      container.innerHTML = html;
+    }
+    
+    function loadDemo() {
+      if (confirm('Demo-Daten laden? Dies überschreibt keine vorhandenen Daten.')) {
+        loadDemoData();
+        renderCases();
+      }
+    }
+    
+    function confirmClearAll() {
+      if (confirm('⚠️ ACHTUNG: Wirklich ALLE Cases löschen?\n\nDiese Aktion kann nicht rückgängig gemacht werden!')) {
+        if (confirm('Sind Sie sicher? Alle erfassten Daten gehen verloren.')) {
+          clearAllCases();
+          renderCases();
+        }
+      }
+    }
+    
+    function exportAsJSON() {
+      const data = exportCasesAsJSON();
+      const blob = new Blob([data], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `gannaca-cases-${new Date().toISOString().split('T')[0]}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+  
+</body>
+</html>
