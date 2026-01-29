@@ -484,61 +484,71 @@ input[type="radio"] {
    FORM NOTICE BOX (Hinweise)
    ============================================ */
 
+/* SUBTILE WICHTIG-BOX (nicht zu aufdringlich) */
 .form-notice,
 .form-disclaimer {
-  background: var(--banner-bg);
-  border: 2px solid var(--banner-border);
-  border-radius: var(--border-radius-lg);
-  padding: var(--space-6);
-  margin-top: var(--space-12);
+  background: linear-gradient(to right, #FEF8F3 0%, #FAFBFC 100%);
+  border-left: 3px solid var(--orange);
+  border-top: 1px solid #E8E8EA;
+  border-right: 1px solid #E8E8EA;
+  border-bottom: 1px solid #E8E8EA;
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin-top: var(--space-10);
   display: flex;
-  gap: var(--space-4);
+  gap: var(--space-3);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .form-notice-icon,
 .form-disclaimer-icon {
-  font-size: 24px;
+  font-size: 18px;
   flex-shrink: 0;
-  margin-top: 4px;
+  margin-top: 2px;
+  color: var(--orange);
+  opacity: 0.75;
 }
 
 .form-notice-content,
 .form-disclaimer-content {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: var(--space-2);
 }
 
 .form-notice-title,
 .form-disclaimer-title {
-  font-weight: var(--font-bold);
-  color: var(--text-darkest);
-  font-size: var(--text-base);
+  font-weight: 600;
+  color: #4A4A4A;
+  font-size: 14px;
 }
 
 .form-notice-text,
 .form-disclaimer-text {
-  font-size: var(--text-sm);
-  color: var(--text-medium);
-  line-height: var(--line-relaxed);
+  font-size: 13px;
+  color: #777777;
+  line-height: 1.5;
 }
 
 .form-notice ul,
 .form-disclaimer-list {
-  margin-left: var(--space-6);
-  font-size: var(--text-sm);
+  margin-left: var(--space-5);
+  font-size: 13px;
   list-style: none;
   padding: 0;
+  margin-top: var(--space-1);
 }
 
 .form-notice li,
 .form-disclaimer-list li {
-  margin-bottom: var(--space-2);
-  color: var(--text-medium);
+  margin-bottom: var(--space-1);
+  color: #777777;
   display: flex;
   align-items: flex-start;
   gap: var(--space-2);
-  padding: var(--space-1) 0;
+  padding: 2px 0;
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .form-disclaimer-list li::before {
