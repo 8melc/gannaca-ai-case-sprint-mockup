@@ -483,7 +483,7 @@ nav.header-nav a.active {
 }
 
 .page-header-inner {
-  max-width: var(--container-width);
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 var(--container-padding);
 }
@@ -508,11 +508,12 @@ nav.header-nav a.active {
 
 .info-box {
   background: var(--off-white);
-  border: 1px solid var(--border-gray);
-  border-left: 4px solid var(--navy);
+  border: 2px solid var(--border-gray);
+  border-left: 5px solid var(--navy);
   border-radius: var(--border-radius-md);
   padding: var(--space-6);
   margin: var(--space-6) 0;
+  box-shadow: var(--shadow-sm);
 }
 
 .info-box-icon {

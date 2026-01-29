@@ -79,7 +79,7 @@
         
         <!-- 2D MATRIX VISUALISIERUNG -->
         <div class="card" style="margin-bottom: var(--space-10);">
-          <h3 style="margin-bottom: var(--space-6); color: var(--navy);">Nutzen × Machbarkeit Matrix</h3>
+          <h3 style="margin-bottom: var(--space-6); color: var(--navy);">Nutzen-Risiko-Matrix</h3>
           
           <div style="position: relative; height: 420px; background: var(--off-white); border-radius: var(--border-radius-md); padding: var(--space-6); margin-left: 40px; margin-bottom: 40px;">
             
@@ -90,7 +90,7 @@
             
             <!-- X-ACHSE Label -->
             <div style="position: absolute; bottom: -35px; left: 50%; transform: translateX(-50%); font-weight: 600; color: var(--navy); font-size: var(--text-sm); letter-spacing: 1px; display: flex; align-items: center; gap: 6px;">
-              MACHBARKEIT <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+              NIEDRIGES RISIKO <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
             </div>
             
             <!-- QUADRANTEN -->
@@ -147,6 +147,36 @@
             <div style="display: flex; align-items: center; gap: var(--space-2);">
               <div style="width: 20px; height: 20px; background: var(--text-light); border-radius: 50%;"></div>
               <span style="font-size: var(--text-sm);">Niedrige Priorität</span>
+            </div>
+          </div>
+          
+          <!-- BEWERTUNGSKRITERIEN (aus PDF Seite 5-6: KI-Eignungsprüfung) -->
+          <div style="margin-top: var(--space-8); padding: var(--space-6); background: var(--off-white); border-radius: var(--border-radius-md);">
+            <h4 style="margin-bottom: var(--space-4); color: var(--navy); font-size: var(--text-sm);">
+              <i data-lucide="clipboard-list" class="icon-sm icon-with-text"></i>
+              Bewertungskriterien (laut gannaca AI Case Sprint Methodik):
+            </h4>
+            <div class="grid grid-5" style="gap: var(--space-4);">
+              <div style="text-align: center;">
+                <strong style="display: block; font-size: var(--text-xs); color: var(--navy);">Automatisierbarkeit</strong>
+                <span style="font-size: var(--text-xs); color: var(--text-medium);">Wie gut lässt sich der Prozess automatisieren?</span>
+              </div>
+              <div style="text-align: center;">
+                <strong style="display: block; font-size: var(--text-xs); color: var(--navy);">Datenverfügbarkeit</strong>
+                <span style="font-size: var(--text-xs); color: var(--text-medium);">Sind relevante Daten digital vorhanden?</span>
+              </div>
+              <div style="text-align: center;">
+                <strong style="display: block; font-size: var(--text-xs); color: var(--navy);">Regulatorische Risiken</strong>
+                <span style="font-size: var(--text-xs); color: var(--text-medium);">DSGVO, KRITIS, EU AI Act</span>
+              </div>
+              <div style="text-align: center;">
+                <strong style="display: block; font-size: var(--text-xs); color: var(--navy);">Explainability</strong>
+                <span style="font-size: var(--text-xs); color: var(--text-medium);">Ist KI-Logik nachvollziehbar?</span>
+              </div>
+              <div style="text-align: center;">
+                <strong style="display: block; font-size: var(--text-xs); color: var(--navy);">Wirtschaftlicher Hebel</strong>
+                <span style="font-size: var(--text-xs); color: var(--text-medium);">Zeit-/Kosteneinsparung vs. Aufwand</span>
+              </div>
             </div>
           </div>
         </div>

@@ -290,14 +290,15 @@ li {
 
 .card {
   background: var(--white);
-  border: 1px solid var(--border-gray);
+  border: 2px solid var(--border-gray);
   border-radius: var(--border-radius-lg);
   padding: var(--space-8);
   transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
 }
 
 .card:hover {
-  border-color: var(--text-light);
+  border-color: var(--text-medium);
   box-shadow: var(--shadow-md);
 }
 
@@ -338,9 +339,10 @@ li {
 
 .box {
   background: var(--white);
-  border: 1px solid var(--border-gray);
+  border: 2px solid var(--border-gray);
   border-radius: var(--border-radius-md);
   padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
 }
 
 .box-highlight {
