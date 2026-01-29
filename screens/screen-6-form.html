@@ -18,6 +18,9 @@
   
   <!-- Storage Script -->
   <script src="../js/storage.js"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
   <div class="page-wrapper">
@@ -53,7 +56,7 @@
         <a href="screen-3-governance.html" class="nav-tab"><span class="nav-tab-number">3</span> Governance</a>
         <a href="screen-4-process.html" class="nav-tab"><span class="nav-tab-number">4</span> Zielprozess</a>
         <a href="screen-5-mockup.html" class="nav-tab"><span class="nav-tab-number">5</span> Visualisierung</a>
-        <a href="screen-6-form.html" class="nav-tab active"><span class="nav-tab-number">6</span> Case-Erfassung ⭐</a>
+        <a href="screen-6-form.html" class="nav-tab active"><span class="nav-tab-number">6</span> Case-Erfassung <i data-lucide="star" class="icon-sm"></i></a>
         <a href="screen-7-results.html" class="nav-tab"><span class="nav-tab-number">7</span> Ergebnis</a>
         <a href="screen-8-matrix.html" class="nav-tab"><span class="nav-tab-number">8</span> Matrix</a>
       </div>
@@ -65,7 +68,7 @@
       <!-- Page Header -->
       <div class="page-header">
         <div class="page-header-inner">
-          <h1 class="page-title">📝 Live-Erfassung: Ihre Cases strukturiert dokumentiert</h1>
+          <h1 class="page-title"><i data-lucide="clipboard-edit" class="icon-with-text"></i>Live-Erfassung: Ihre Cases strukturiert dokumentiert</h1>
           <p class="page-subtitle">Für alle Teilnehmer sichtbar – Eingabe durch gannaca-Team</p>
         </div>
       </div>
@@ -225,7 +228,7 @@
                   <div>
                     <label class="form-label">Gesamtaufwand/Jahr (geschätzt)</label>
                     <input type="text" class="form-input" id="gesamtaufwand" placeholder="Wird berechnet..." readonly style="background: var(--color-bg-light); font-weight: 700; transition: background-color 0.3s ease;">
-                    <span class="form-hint" id="gesamtaufwandHint" style="display: none; color: #28a745; margin-top: 4px;">✓ Automatisch berechnet</span>
+                    <span class="form-hint" id="gesamtaufwandHint" style="display: none; color: #28a745; margin-top: 4px;"><i data-lucide="check" class="icon-sm icon-success"></i> Automatisch berechnet</span>
                   </div>
                 </div>
               </div>
@@ -303,9 +306,9 @@
               <div class="form-group">
                 <label class="form-label form-label-required">Liegen die relevanten Daten digital vor?</label>
                 <div class="form-radio-group" id="datenVerfuegbarkeit">
-                  <label class="form-radio-item"><input type="radio" class="form-radio" name="datenVerfuegbarkeit" value="full_digital"><span class="form-radio-label">✅ Ja, vollständig digital</span></label>
-                  <label class="form-radio-item"><input type="radio" class="form-radio" name="datenVerfuegbarkeit" value="partial"><span class="form-radio-label">⚠️ Teilweise digital</span></label>
-                  <label class="form-radio-item"><input type="radio" class="form-radio" name="datenVerfuegbarkeit" value="paper"><span class="form-radio-label">📄 Überwiegend Papier</span></label>
+                  <label class="form-radio-item"><input type="radio" class="form-radio" name="datenVerfuegbarkeit" value="full_digital"><span class="form-radio-label"><i data-lucide="check-circle" class="icon-sm icon-success"></i> Ja, vollständig digital</span></label>
+                  <label class="form-radio-item"><input type="radio" class="form-radio" name="datenVerfuegbarkeit" value="partial"><span class="form-radio-label"><i data-lucide="alert-triangle" class="icon-sm icon-warning"></i> Teilweise digital</span></label>
+                  <label class="form-radio-item"><input type="radio" class="form-radio" name="datenVerfuegbarkeit" value="paper"><span class="form-radio-label"><i data-lucide="file-text" class="icon-sm icon-muted"></i> Überwiegend Papier</span></label>
                   <label class="form-radio-item"><input type="radio" class="form-radio" name="datenVerfuegbarkeit" value="unclear"><span class="form-radio-label">❓ Unklar</span></label>
                 </div>
               </div>
@@ -336,13 +339,13 @@
 Tippe hier - das Feld wächst automatisch mit!"
                   style="background: var(--color-bg-white); min-height: 150px;"
                 ></textarea>
-                <span class="form-hint">ℹ️ Keine Bewertung erforderlich. Dient nur der späteren Analyse. Das Feld wächst automatisch beim Tippen!</span>
+                <span class="form-hint"><i data-lucide="info" class="icon-sm icon-info"></i> Keine Bewertung erforderlich. Dient nur der späteren Analyse. Das Feld wächst automatisch beim Tippen!</span>
               </div>
             </div>
             
             <!-- DISCLAIMER BOX -->
             <div class="form-disclaimer">
-              <div class="form-disclaimer-icon">ℹ️</div>
+              <div class="form-disclaimer-icon"><i data-lucide="info"></i></div>
               <div class="form-disclaimer-title">WICHTIG ZU VERSTEHEN:</div>
               <ul class="form-disclaimer-list">
                 <li>Dieses Formular dient NUR der strukturierten Erfassung.</li>
@@ -356,10 +359,10 @@ Tippe hier - das Feld wächst automatisch mit!"
             <div class="form-actions">
               <div class="form-actions-left">
                 <button type="button" class="btn btn-secondary" onclick="goToPreviousCase()">← Vorheriger Case</button>
-                <button type="button" class="btn btn-tertiary" onclick="clearForm()">🗑️ Formular leeren</button>
+                <button type="button" class="btn btn-tertiary" onclick="clearForm()"><i data-lucide="trash-2" class="icon-sm"></i> Formular leeren</button>
               </div>
               <div class="form-actions-right">
-                <button type="button" class="btn btn-secondary" onclick="saveAndStay()">💾 Zwischenspeichern</button>
+                <button type="button" class="btn btn-secondary" onclick="saveAndStay()"><i data-lucide="save" class="icon-sm"></i> Zwischenspeichern</button>
                 <button type="button" class="btn btn-primary btn-lg" onclick="saveAndNext()">Speichern & Nächster Case →</button>
               </div>
             </div>
@@ -371,7 +374,7 @@ Tippe hier - das Feld wächst automatisch mit!"
         <!-- SUCCESS MODAL -->
         <div id="successModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); z-index: 1000; align-items: center; justify-content: center;">
           <div style="background: var(--white); padding: var(--space-10); border-radius: var(--border-radius-xl); text-align: center; max-width: 400px; border: 1px solid var(--border-gray); box-shadow: var(--shadow-lg);">
-            <div style="font-size: 48px; margin-bottom: var(--space-4);">✅</div>
+            <div style="margin-bottom: var(--space-4);"><i data-lucide="check-circle" class="icon-2xl icon-success"></i></div>
             <h2 style="margin-bottom: var(--space-2); color: var(--text-darkest);" id="modalTitle">Case #01 gespeichert!</h2>
             <p style="color: var(--text-medium); margin-bottom: var(--space-6);" id="modalText">Das Formular wurde geleert. Bereit für den nächsten Case.</p>
             <button class="btn btn-primary" onclick="closeModal()">Weiter</button>
@@ -810,5 +813,7 @@ Tippe hier - das Feld wächst automatisch mit!"
     }
   </script>
   
+  <!-- Initialize Lucide Icons -->
+  <script>lucide.createIcons();</script>
 </body>
 </html>

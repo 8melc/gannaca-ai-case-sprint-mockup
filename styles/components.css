@@ -4,6 +4,53 @@
    ============================================ */
 
 /* ============================================
+   LUCIDE ICONS (Professionelle SVG-Icons)
+   ============================================ */
+
+i[data-lucide] {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2;
+  vertical-align: middle;
+  color: inherit;
+  display: inline-block;
+}
+
+.icon-sm { width: 16px; height: 16px; }
+.icon-md { width: 20px; height: 20px; }
+.icon-lg { width: 24px; height: 24px; }
+.icon-xl { width: 32px; height: 32px; }
+.icon-2xl { width: 48px; height: 48px; }
+
+.icon-with-text {
+  margin-right: 8px;
+}
+
+h1 i[data-lucide],
+h2 i[data-lucide],
+h3 i[data-lucide] {
+  margin-right: 12px;
+}
+
+.btn i[data-lucide] {
+  margin-right: 6px;
+  width: 18px;
+  height: 18px;
+}
+
+.info-box-icon i[data-lucide] {
+  width: 24px;
+  height: 24px;
+}
+
+/* Icon Colors */
+.icon-success { color: #28A745; }
+.icon-warning { color: #FFC107; }
+.icon-danger { color: #DC3545; }
+.icon-info { color: #1a3a5c; }
+.icon-muted { color: #999999; }
+
+/* ============================================
    MAIN HEADER (Neu, ohne Fake Browser Chrome)
    ============================================ */
 

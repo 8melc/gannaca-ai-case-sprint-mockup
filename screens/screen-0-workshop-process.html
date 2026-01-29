@@ -14,6 +14,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
   <div class="page-wrapper">
@@ -62,7 +65,7 @@
           <span class="nav-tab-number">5</span> Visualisierung
         </a>
         <a href="screen-6-form.html" class="nav-tab">
-          <span class="nav-tab-number">6</span> Case-Erfassung ⭐
+          <span class="nav-tab-number">6</span> Case-Erfassung <i data-lucide="star" class="icon-sm"></i>
         </a>
         <a href="screen-7-results.html" class="nav-tab">
           <span class="nav-tab-number">7</span> Ergebnis
@@ -79,7 +82,7 @@
       <!-- Page Header -->
       <div class="page-header">
         <div class="page-header-inner">
-          <h1 class="page-title">🗺️ Workshop-Ablauf: Vom Problem zum Use-Case-Mockup</h1>
+          <h1 class="page-title"><i data-lucide="map" class="icon-with-text"></i>Workshop-Ablauf: Vom Problem zum Use-Case-Mockup</h1>
           <p class="page-subtitle">Wo befinden wir uns gerade im Prozess?</p>
         </div>
       </div>
@@ -125,7 +128,7 @@
                   
                   <h3 class="phase-section-title mt-lg">ERGEBNIS:</h3>
                   <div class="badge badge-success badge-lg">
-                    📋 Liste von 15-30 dokumentierten Cases
+                    <i data-lucide="clipboard-list" class="icon-with-text"></i>Liste von 15-30 dokumentierten Cases
                   </div>
                 </div>
               </div>
@@ -168,7 +171,7 @@
                   
                   <h3 class="phase-section-title mt-lg">ERGEBNIS:</h3>
                   <div class="badge badge-info badge-lg">
-                    📊 Priorisierte Shortlist mit Top-3 Empfehlungen
+                    <i data-lucide="bar-chart-3" class="icon-with-text"></i>Priorisierte Shortlist mit Top-3 Empfehlungen
                   </div>
                 </div>
               </div>
@@ -210,7 +213,7 @@
                   
                   <h3 class="phase-section-title mt-lg">ERGEBNIS:</h3>
                   <div class="badge badge-success badge-lg">
-                    🎯 Management-Entscheidungsvorlage + Mockup
+                    <i data-lucide="target" class="icon-with-text"></i>Management-Entscheidungsvorlage + Mockup
                   </div>
                 </div>
               </div>
@@ -222,7 +225,7 @@
         <!-- WICHTIGER HINWEIS -->
         <aside class="info-box mt-3xl" role="note" aria-label="Wichtige Information">
           <h3 class="info-box-header">
-            <span class="info-box-icon" aria-hidden="true">ℹ️</span>
+            <span class="info-box-icon" aria-hidden="true"><i data-lucide="info"></i></span>
             WICHTIG ZU VERSTEHEN:
           </h3>
           <ul class="info-box-list">
@@ -266,5 +269,8 @@
       }
     });
   </script>
+  
+  <!-- Initialize Lucide Icons -->
+  <script>lucide.createIcons();</script>
 </body>
 </html>

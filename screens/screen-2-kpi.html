@@ -10,6 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
   <div class="page-wrapper">
@@ -45,7 +48,7 @@
         <a href="screen-3-governance.html" class="nav-tab"><span class="nav-tab-number">3</span> Governance</a>
         <a href="screen-4-process.html" class="nav-tab"><span class="nav-tab-number">4</span> Zielprozess</a>
         <a href="screen-5-mockup.html" class="nav-tab"><span class="nav-tab-number">5</span> Visualisierung</a>
-        <a href="screen-6-form.html" class="nav-tab"><span class="nav-tab-number">6</span> Case-Erfassung ⭐</a>
+        <a href="screen-6-form.html" class="nav-tab"><span class="nav-tab-number">6</span> Case-Erfassung <i data-lucide="star" class="icon-sm"></i></a>
         <a href="screen-7-results.html" class="nav-tab"><span class="nav-tab-number">7</span> Ergebnis</a>
         <a href="screen-8-matrix.html" class="nav-tab"><span class="nav-tab-number">8</span> Matrix</a>
       </div>
@@ -55,7 +58,7 @@
     <main class="main-content">
       <div class="page-header">
         <div class="page-header-inner">
-          <h1 class="page-title">📊 Strategischer KPI-Rahmen</h1>
+          <h1 class="page-title"><i data-lucide="bar-chart-3" class="icon-with-text"></i>Strategischer KPI-Rahmen</h1>
           <p class="page-subtitle">Diese vier Dimensionen bilden den Bewertungsrahmen für jeden Use Case</p>
         </div>
       </div>
@@ -67,7 +70,7 @@
           
           <!-- SÄULE 1: ZEIT -->
           <div class="card" style="text-align: center; border-top: 4px solid var(--navy);">
-            <div style="font-size: 48px; margin-bottom: var(--space-4);">⏱️</div>
+            <div style="margin-bottom: var(--space-4);"><i data-lucide="clock" class="icon-2xl icon-info"></i></div>
             <h3 style="color: var(--navy); margin-bottom: var(--space-4);">ZEIT</h3>
             <p style="font-size: var(--text-sm); color: var(--text-medium); margin-bottom: var(--space-4);">
               Wie viel Zeit wird aktuell aufgewendet? Wie viel könnte eingespart werden?
@@ -84,7 +87,7 @@
           
           <!-- SÄULE 2: KOSTEN -->
           <div class="card" style="text-align: center; border-top: 4px solid var(--navy);">
-            <div style="font-size: 48px; margin-bottom: var(--space-4);">💰</div>
+            <div style="margin-bottom: var(--space-4);"><i data-lucide="coins" class="icon-2xl icon-info"></i></div>
             <h3 style="color: var(--navy); margin-bottom: var(--space-4);">KOSTEN</h3>
             <p style="font-size: var(--text-sm); color: var(--text-medium); margin-bottom: var(--space-4);">
               Welche direkten und indirekten Kosten entstehen durch den aktuellen Prozess?
@@ -101,7 +104,7 @@
           
           <!-- SÄULE 3: QUALITÄT -->
           <div class="card" style="text-align: center; border-top: 4px solid var(--navy);">
-            <div style="font-size: 48px; margin-bottom: var(--space-4);">✓</div>
+            <div style="margin-bottom: var(--space-4);"><i data-lucide="check-circle" class="icon-2xl icon-success"></i></div>
             <h3 style="color: var(--navy); margin-bottom: var(--space-4);">QUALITÄT</h3>
             <p style="font-size: var(--text-sm); color: var(--text-medium); margin-bottom: var(--space-4);">
               Wie konsistent und fehlerfrei ist der aktuelle Output?
@@ -118,7 +121,7 @@
           
           <!-- SÄULE 4: RISIKO -->
           <div class="card" style="text-align: center; border-top: 4px solid var(--navy);">
-            <div style="font-size: 48px; margin-bottom: var(--space-4);">⚠️</div>
+            <div style="margin-bottom: var(--space-4);"><i data-lucide="alert-triangle" class="icon-2xl icon-warning"></i></div>
             <h3 style="color: var(--navy); margin-bottom: var(--space-4);">RISIKO</h3>
             <p style="font-size: var(--text-sm); color: var(--text-medium); margin-bottom: var(--space-4);">
               Welche Risiken bestehen bei Nicht-Handlung oder bei fehlerhafter Bearbeitung?
@@ -137,7 +140,7 @@
         
         <!-- ABGRENZUNGS-BOX -->
         <div class="info-box" style="border-left-color: var(--text-darkest);">
-          <div class="info-box-icon">🚫</div>
+          <div class="info-box-icon"><i data-lucide="ban"></i></div>
           <div class="info-box-title">WAS DIESER CASE NICHT IST</div>
           <div class="info-box-text">
             <div class="grid grid-2" style="gap: var(--space-8); margin-top: var(--space-4);">
@@ -188,5 +191,8 @@
       }
     });
   </script>
+  
+  <!-- Initialize Lucide Icons -->
+  <script>lucide.createIcons();</script>
 </body>
 </html>

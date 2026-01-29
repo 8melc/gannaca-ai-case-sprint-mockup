@@ -18,6 +18,9 @@
   <!-- Storage Script -->
   <script src="../js/storage.js"></script>
   
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  
   <style>
     .cases-grid {
       display: grid;
@@ -503,7 +506,7 @@
         <a href="screen-3-governance.html" class="nav-tab"><span class="nav-tab-number">3</span> Governance</a>
         <a href="screen-4-process.html" class="nav-tab"><span class="nav-tab-number">4</span> Zielprozess</a>
         <a href="screen-5-mockup.html" class="nav-tab"><span class="nav-tab-number">5</span> Visualisierung</a>
-        <a href="screen-6-form.html" class="nav-tab"><span class="nav-tab-number">6</span> Case-Erfassung ⭐</a>
+        <a href="screen-6-form.html" class="nav-tab"><span class="nav-tab-number">6</span> Case-Erfassung <i data-lucide="star" class="icon-sm"></i></a>
         <a href="screen-7-results.html" class="nav-tab active"><span class="nav-tab-number">7</span> Ergebnis</a>
         <a href="screen-8-matrix.html" class="nav-tab"><span class="nav-tab-number">8</span> Matrix</a>
       </div>
@@ -515,7 +518,7 @@
       <!-- Page Header -->
       <div class="page-header">
         <div class="page-header-inner">
-          <h1 class="page-title">📊 Workshop-Ergebnis: <span id="caseCountTitle">0</span> Cases strukturiert erfasst</h1>
+          <h1 class="page-title"><i data-lucide="bar-chart-3" class="icon-with-text"></i>Workshop-Ergebnis: <span id="caseCountTitle">0</span> Cases strukturiert erfasst</h1>
           <p class="page-subtitle">Vollständige Dokumentation – Priorisierung erfolgt im nächsten Schritt</p>
         </div>
       </div>
@@ -524,7 +527,7 @@
         
         <!-- Demo-Daten Banner (nur wenn leer) -->
         <div class="demo-banner" id="demoBanner" style="display: none;">
-          <p>💡 <strong>Keine Cases vorhanden.</strong> Möchten Sie Demo-Daten laden, um die Ansicht zu testen?</p>
+          <p><i data-lucide="lightbulb" class="icon-sm icon-info"></i> <strong>Keine Cases vorhanden.</strong> Möchten Sie Demo-Daten laden, um die Ansicht zu testen?</p>
           <button class="btn btn-primary" onclick="loadDemo()">Demo-Daten laden</button>
         </div>
         
@@ -550,7 +553,7 @@
         
         <!-- SUCCESS BOX (nur wenn Cases vorhanden) -->
         <div class="success-box info-box" id="successBox" style="margin-bottom: 32px; display: none;">
-          <div class="info-box-icon">✅</div>
+          <div class="info-box-icon"><i data-lucide="check-circle" class="icon-success"></i></div>
           <div class="info-box-title" style="color: var(--color-success);">WORKSHOP ERFOLGREICH DOKUMENTIERT</div>
           <div class="info-box-text">
             <p style="margin: 0;">Alle Cases wurden strukturiert erfasst und sind bereit für die KI-gestützte Analyse. Die Priorisierungs-Matrix wird in den nächsten 2-3 Tagen erstellt.</p>
@@ -562,7 +565,7 @@
         
         <!-- EMPTY STATE -->
         <div class="empty-state" id="emptyState" style="display: none;">
-          <div class="empty-state-icon">📋</div>
+          <div class="empty-state-icon"><i data-lucide="clipboard-list" class="icon-2xl icon-muted"></i></div>
           <h3>Noch keine Cases erfasst</h3>
           <p>Starten Sie mit der Case-Erfassung im Workshop.</p>
           <a href="screen-6-form.html" class="btn btn-primary btn-lg">Zur Case-Erfassung →</a>
@@ -570,7 +573,7 @@
         
         <!-- NEXT STEPS -->
         <div class="info-box" id="nextStepsBox" style="margin-top: 40px; display: none;">
-          <div class="info-box-icon">📋</div>
+          <div class="info-box-icon"><i data-lucide="clipboard-list"></i></div>
           <div class="info-box-title">NÄCHSTE SCHRITTE</div>
           <div class="info-box-text">
             <p style="margin-bottom: 12px;"><strong>Diese Cases werden jetzt KI-gestützt analysiert:</strong></p>
@@ -587,9 +590,9 @@
         <!-- EXPORT BAR -->
         <div class="export-bar" id="exportBar" style="display: none;">
           <span style="color: var(--color-text-medium); margin-right: 16px;">Export-Optionen:</span>
-          <button class="btn btn-secondary" onclick="exportAsJSON()">📄 Als JSON speichern</button>
+          <button class="btn btn-secondary" onclick="exportAsJSON()"><i data-lucide="file-text" class="icon-sm"></i> Als JSON speichern</button>
           <button class="btn btn-secondary" onclick="window.print()">🖨️ Drucken / PDF</button>
-          <button class="btn btn-tertiary" onclick="confirmClearAll()">🗑️ Alle Cases löschen</button>
+          <button class="btn btn-tertiary" onclick="confirmClearAll()"><i data-lucide="trash-2" class="icon-sm"></i> Alle Cases löschen</button>
         </div>
         
         <!-- NAVIGATION -->
@@ -735,9 +738,9 @@
         <div class="modal-form-group">
           <label>10. Daten-Verfügbarkeit</label>
           <div class="modal-radio-group">
-            <label class="modal-radio-item"><input type="radio" name="edit-datenVerfuegbarkeit" value="full_digital"> ✅ Vollständig digital</label>
-            <label class="modal-radio-item"><input type="radio" name="edit-datenVerfuegbarkeit" value="partial"> ⚠️ Teilweise digital</label>
-            <label class="modal-radio-item"><input type="radio" name="edit-datenVerfuegbarkeit" value="paper"> 📄 Überwiegend Papier</label>
+            <label class="modal-radio-item"><input type="radio" name="edit-datenVerfuegbarkeit" value="full_digital"><i data-lucide="check-circle" class="icon-sm icon-success"></i> Vollständig digital</label>
+            <label class="modal-radio-item"><input type="radio" name="edit-datenVerfuegbarkeit" value="partial"><i data-lucide="alert-triangle" class="icon-sm icon-warning"></i> Teilweise digital</label>
+            <label class="modal-radio-item"><input type="radio" name="edit-datenVerfuegbarkeit" value="paper"><i data-lucide="file-text" class="icon-sm icon-muted"></i> Überwiegend Papier</label>
             <label class="modal-radio-item"><input type="radio" name="edit-datenVerfuegbarkeit" value="unclear"> ❓ Unklar</label>
           </div>
         </div>
@@ -752,7 +755,7 @@
       
       <div class="modal-footer">
         <button class="btn btn-secondary" onclick="closeEditModal()">Abbrechen</button>
-        <button class="btn btn-primary" onclick="saveEditedCase()">💾 Speichern & Schließen</button>
+        <button class="btn btn-primary" onclick="saveEditedCase()"><i data-lucide="save" class="icon-sm"></i> Speichern & Schließen</button>
       </div>
       
     </div>
@@ -843,9 +846,9 @@
             </div>
             <p class="case-problem">${problemText}</p>
             <div class="case-footer">
-              <span>⚠️ Risiko: ${caseItem.risiko || '-'}/5</span>
-              <span>📅 ${caseItem.haeufigkeit || '-'}</span>
-              <span>👤 ${caseItem.betroffenePersonen || '-'} Pers.</span>
+              <span><i data-lucide="alert-triangle" class="icon-sm icon-warning"></i> Risiko: ${caseItem.risiko || '-'}/5</span>
+              <span><i data-lucide="calendar" class="icon-sm"></i> ${caseItem.haeufigkeit || '-'}</span>
+              <span><i data-lucide="users" class="icon-sm"></i> ${caseItem.betroffenePersonen || '-'} Pers.</span>
             </div>
           </div>
         `;
@@ -1022,5 +1025,7 @@
     });
   </script>
   
+  <!-- Initialize Lucide Icons -->
+  <script>lucide.createIcons();</script>
 </body>
 </html>

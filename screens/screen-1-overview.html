@@ -14,6 +14,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
   <div class="page-wrapper">
@@ -62,7 +65,7 @@
           <span class="nav-tab-number">5</span> Visualisierung
         </a>
         <a href="screen-6-form.html" class="nav-tab">
-          <span class="nav-tab-number">6</span> Case-Erfassung ⭐
+          <span class="nav-tab-number">6</span> Case-Erfassung <i data-lucide="star" class="icon-sm"></i>
         </a>
         <a href="screen-7-results.html" class="nav-tab">
           <span class="nav-tab-number">7</span> Ergebnis
@@ -79,7 +82,7 @@
       <!-- Page Header -->
       <div class="page-header">
         <div class="page-header-inner">
-          <h1 class="page-title">🎯 Das gannaca AI-Case Sprint Framework</h1>
+          <h1 class="page-title"><i data-lucide="target" class="icon-with-text"></i>Das gannaca AI-Case Sprint Framework</h1>
           <p class="page-subtitle">Ein standardisiertes Denkmodell für strukturierte KI-Use-Case-Entwicklung</p>
         </div>
       </div>
@@ -94,7 +97,7 @@
             <div class="card">
               <div class="card-header">
                 <h3 style="display: flex; align-items: center; gap: var(--spacing-sm); margin: 0;">
-                  <span style="font-size: 1.5em;">⚠️</span>
+                  <i data-lucide="alert-triangle" class="icon-lg icon-warning"></i>
                   AUSGANGSLAGE (IST-PROBLEM)
                 </h3>
               </div>
@@ -156,7 +159,7 @@
             <div class="card" style="background: var(--off-white); border: 2px solid var(--navy);">
               <div class="card-header" style="border-bottom-color: var(--navy);">
                 <h3 style="display: flex; align-items: center; gap: var(--space-2); margin: 0; color: var(--text-darkest);">
-                  <span style="font-size: 1.5em;">💡</span>
+                  <i data-lucide="lightbulb" class="icon-lg icon-info"></i>
                   DAS DENKMODELL
                 </h3>
               </div>
@@ -172,7 +175,7 @@
               <!-- KI → Mensch Visualisierung -->
               <div style="display: flex; align-items: center; justify-content: center; gap: var(--spacing-xl); margin-bottom: var(--spacing-xl);">
                 <div style="text-align: center; padding: var(--spacing-lg); background: var(--color-bg-white); border-radius: var(--border-radius-md); box-shadow: var(--shadow-sm); min-width: 140px;">
-                  <div style="font-size: 2em; margin-bottom: var(--spacing-sm);">🤖</div>
+                  <div style="margin-bottom: var(--spacing-sm);"><i data-lucide="cpu" class="icon-2xl icon-info"></i></div>
                   <div style="font-weight: var(--font-weight-bold); color: var(--color-primary);">KI</div>
                   <div style="font-size: var(--font-size-sm); color: var(--color-text-medium); margin-top: var(--spacing-xs);">Strukturiert<br>& Markiert</div>
                 </div>
@@ -180,7 +183,7 @@
                 <div style="font-size: 2em; color: var(--color-accent);">→</div>
                 
                 <div style="text-align: center; padding: var(--spacing-lg); background: var(--color-bg-white); border-radius: var(--border-radius-md); box-shadow: var(--shadow-sm); min-width: 140px;">
-                  <div style="font-size: 2em; margin-bottom: var(--spacing-sm);">👤</div>
+                  <div style="margin-bottom: var(--spacing-sm);"><i data-lucide="user" class="icon-2xl icon-info"></i></div>
                   <div style="font-weight: var(--font-weight-bold); color: var(--color-primary);">MENSCH</div>
                   <div style="font-size: var(--font-size-sm); color: var(--color-text-medium); margin-top: var(--spacing-xs);">Bewertet &<br>Entscheidet</div>
                 </div>
@@ -208,7 +211,7 @@
         
         <!-- ZIELBILD BOX -->
         <div class="success-box info-box" style="margin-top: var(--spacing-2xl);">
-          <div class="info-box-icon">✓</div>
+          <div class="info-box-icon"><i data-lucide="check-circle" class="icon-success"></i></div>
           <div class="info-box-title" style="color: var(--color-success);">ZIELBILD: KI-UNTERSTÜTZTE PROZESSE</div>
           <div class="info-box-text">
             <p style="font-size: var(--font-size-md); margin-bottom: var(--spacing-md);">
@@ -240,7 +243,7 @@
             ← Zurück zum Workshop-Prozess
           </a>
           <a href="screen-6-form.html" class="btn btn-primary btn-lg">
-            Zur Case-Erfassung ⭐ →
+            Zur Case-Erfassung <i data-lucide="star" class="icon-sm"></i> →
           </a>
         </div>
         
@@ -269,5 +272,8 @@
       }
     });
   </script>
+  
+  <!-- Initialize Lucide Icons -->
+  <script>lucide.createIcons();</script>
 </body>
 </html>
