@@ -515,7 +515,56 @@ Tippe hier - das Feld wächst automatisch mit!"
       // Textareas wachsen automatisch mit dem Inhalt!
       // ============================================
       initAutoExpandTextareas();
+      
+      // ============================================
+      // SMOOTH SCROLL-TO-FIELD
+      // Scrollt smooth zum Feld beim Fokus
+      // ============================================
+      setupSmoothScrollToField();
     });
+    
+    // ============================================
+    // SMOOTH SCROLL-TO-FIELD FUNKTION
+    // Zentriert das fokussierte Feld im Viewport
+    // ============================================
+    function setupSmoothScrollToField() {
+      const formFields = document.querySelectorAll(
+        'input[type="text"], input[type="number"], textarea, select'
+      );
+      
+      formFields.forEach(field => {
+        field.addEventListener('focus', function() {
+          // Kurze Verzögerung für bessere UX
+          setTimeout(() => {
+            scrollToFieldSmooth(this);
+          }, 150);
+        });
+      });
+    }
+    
+    function scrollToFieldSmooth(field) {
+      // Berechne Sticky-Header Offset
+      const browserChrome = 48; // Browser-Chrome Höhe
+      const header = document.querySelector('.header');
+      const banner = document.querySelector('.data-protection-banner');
+      const tabs = document.querySelector('.nav-tabs');
+      
+      let offset = browserChrome + 40; // Base + Extra Padding
+      if (header) offset += header.offsetHeight;
+      if (banner) offset += banner.offsetHeight;
+      if (tabs) offset += tabs.offsetHeight;
+      
+      // Berechne Position des Feldes
+      const rect = field.getBoundingClientRect();
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const targetY = rect.top + scrollTop - offset;
+      
+      // Smooth Scroll
+      window.scrollTo({
+        top: targetY,
+        behavior: 'smooth'
+      });
+    }
     
     // ============================================
     // AUTO-EXPAND TEXTAREA FUNKTION

@@ -343,23 +343,25 @@
 }
 
 .nav-tabs-inner {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
+  max-width: 100%; /* Volle Breite nutzen */
+  margin: 0;
+  padding: 0 var(--space-4);
   height: 100%;
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  overflow-x: auto;
+  justify-content: space-between; /* Gleichmäßig verteilen */
+  gap: 0;
+  overflow-x: hidden; /* KEIN Scrollen! */
 }
 
 .nav-tab {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-3) var(--space-4);
-  font-size: var(--text-sm);
-  font-weight: var(--font-normal);
+  justify-content: center;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-2);
+  font-size: 13px; /* Kompakter für alle 9 Tabs */
+  font-weight: var(--font-medium);
   color: var(--text-light);
   background: transparent;
   border: none;
@@ -369,7 +371,9 @@
   white-space: nowrap;
   text-decoration: none;
   position: relative;
-  pointer-events: auto; /* Sicherstellen, dass Links klickbar sind */
+  pointer-events: auto;
+  flex: 1; /* Gleichmäßig verteilen */
+  text-align: center;
 }
 
 .nav-tab:hover {
@@ -387,13 +391,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
-  font-size: var(--text-xs);
+  width: 18px;
+  height: 18px;
+  font-size: 11px;
   font-weight: var(--font-bold);
   background: var(--light-gray);
   border-radius: 50%;
   color: var(--text-medium);
+  flex-shrink: 0;
 }
 
 .nav-tab.active .nav-tab-number {
@@ -1523,13 +1528,20 @@ nav.header-nav a.active {
   }
   
   .nav-tabs-inner {
-    padding: 0 var(--space-4);
-    gap: var(--space-1);
+    padding: 0 var(--space-2);
+    gap: 0;
+    overflow-x: hidden;
   }
   
   .nav-tab {
-    padding: var(--space-2) var(--space-3);
-    font-size: var(--text-xs);
+    padding: var(--space-1) var(--space-1);
+    font-size: 10px;
+  }
+  
+  .nav-tab-number {
+    width: 16px;
+    height: 16px;
+    font-size: 9px;
   }
   
   .page-header {
@@ -1582,8 +1594,8 @@ nav.header-nav a.active {
   }
   
   .nav-tab {
-    font-size: var(--text-base);
-    padding: var(--space-4) var(--space-6);
+    font-size: 14px; /* Etwas größer auf Beamer, aber kompakt */
+    padding: var(--space-3) var(--space-3);
   }
   
   .info-box-title {

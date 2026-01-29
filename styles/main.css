@@ -19,6 +19,8 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  scroll-padding-top: 220px; /* Platz für Header + Banner + Tabs + Browser-Chrome */
+  scroll-snap-type: y proximity; /* Snap zum nächsten Abschnitt beim Scrollen */
 }
 
 body {
