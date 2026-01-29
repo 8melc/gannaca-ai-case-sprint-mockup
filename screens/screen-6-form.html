@@ -25,6 +25,14 @@
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   
+  <!-- Page-specific Styles -->
+  <style>
+    /* Extra padding für fixed Progress Bar */
+    .main-content {
+      padding-top: calc(var(--header-height) + var(--nav-height) + 48px) !important;
+    }
+  </style>
+  
   <!-- Fokus-Modus Styles -->
   <style>
     /* FOKUS-MODUS BUTTON */
@@ -164,6 +172,7 @@
     body.focus-mode-active .form-actions,
     body.focus-mode-active .form-disclaimer,
     body.focus-mode-active .form-progress,
+    body.focus-mode-active .form-progress-fixed,
     body.focus-mode-active .form-header {
       display: none !important;
     }
@@ -270,19 +279,18 @@
         </div>
       </div>
       
-      <div class="container">
-        
-        <!-- Progress Bar -->
-        <div class="form-progress">
-          <div class="form-progress-header">
-            <span class="form-progress-label">Erfasste Cases</span>
-            <span class="form-progress-count" id="progressCount">0 von ~20 (Ziel)</span>
-          </div>
-          <div class="form-progress-bar">
+      <!-- PROGRESS BAR - FIXED am oberen Rand -->
+      <div class="form-progress-fixed" id="progressBarFixed">
+        <div class="form-progress-inner">
+          <span class="form-progress-label">Erfasste Cases:</span>
+          <div class="form-progress-bar-inline">
             <div class="form-progress-fill" id="progressFill" style="width: 0%;"></div>
           </div>
+          <span class="form-progress-count" id="progressCount">0 von ~20</span>
         </div>
-        
+      </div>
+      
+      <div class="container">
         <!-- Form Container -->
         <div class="form-container">
           

@@ -173,7 +173,7 @@ li {
 }
 
 .section-inner {
-  max-width: var(--container-width);
+  max-width: 1600px;
   margin: 0 auto;
 }
 

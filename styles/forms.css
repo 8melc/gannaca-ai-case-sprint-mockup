@@ -406,43 +406,48 @@ input[type="radio"] {
    FORM PROGRESS BAR
    ============================================ */
 
-/* Progress Bar - STICKY, immer sichtbar */
-.form-progress {
-  position: sticky;
-  top: calc(var(--header-height) + var(--nav-height) + 10px);
-  z-index: 100;
+/* Progress Bar - FIXED unter Navigation */
+.form-progress-fixed {
+  position: fixed;
+  top: calc(var(--header-height) + var(--nav-height));
+  left: 0;
+  right: 0;
+  z-index: 500;
   background: white;
-  padding: 12px 16px;
-  margin: 0 -16px 16px -16px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #E8E8EA;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  border-radius: 0 0 8px 8px;
+  padding: 10px 40px;
 }
 
-.form-progress-header {
+.form-progress-inner {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  gap: 16px;
 }
 
 .form-progress-label {
   font-size: 13px;
   font-weight: 500;
-  color: var(--text-dark);
+  color: var(--text-medium);
+  white-space: nowrap;
 }
 
 .form-progress-count {
   font-size: 13px;
   font-weight: 700;
   color: var(--navy);
+  white-space: nowrap;
 }
 
-.form-progress-bar {
+.form-progress-bar-inline {
+  flex: 1;
   height: 8px;
   background: #E8E8EA;
   border-radius: 4px;
   overflow: hidden;
+  min-width: 200px;
 }
 
 .form-progress-fill {
@@ -450,6 +455,18 @@ input[type="radio"] {
   background: var(--navy);
   border-radius: 4px;
   transition: width 0.3s ease;
+}
+
+/* Legacy - falls noch verwendet */
+.form-progress {
+  display: none;
+}
+
+.form-progress-bar {
+  height: 8px;
+  background: #E8E8EA;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 /* ============================================
