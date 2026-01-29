@@ -48,6 +48,150 @@ h3 i[data-lucide] {
 .icon-warning { color: #FFC107; }
 .icon-danger { color: #DC3545; }
 .icon-info { color: #1a3a5c; }
+
+/* ============================================
+   TOAST NOTIFICATIONS (Einheitliches Design)
+   ============================================ */
+
+.toast-container {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+  max-width: 400px;
+  pointer-events: auto;
+  animation: toastSlideIn 0.3s ease;
+  border-left: 4px solid var(--navy);
+}
+
+.toast.toast-success {
+  border-left-color: #28A745;
+}
+
+.toast.toast-error {
+  border-left-color: #DC3545;
+}
+
+.toast.toast-warning {
+  border-left-color: #FFC107;
+}
+
+.toast.toast-info {
+  border-left-color: var(--navy);
+}
+
+.toast-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toast-icon i[data-lucide] {
+  width: 22px;
+  height: 22px;
+}
+
+.toast-success .toast-icon {
+  color: #28A745;
+}
+
+.toast-error .toast-icon {
+  color: #DC3545;
+}
+
+.toast-warning .toast-icon {
+  color: #FFC107;
+}
+
+.toast-info .toast-icon {
+  color: var(--navy);
+}
+
+.toast-content {
+  flex: 1;
+}
+
+.toast-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1A1A1A;
+  margin-bottom: 2px;
+}
+
+.toast-message {
+  font-size: 13px;
+  color: #666666;
+  line-height: 1.4;
+}
+
+.toast-close {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  color: #999;
+  transition: all 0.2s;
+  margin: -4px -8px -4px 0;
+}
+
+.toast-close:hover {
+  background: #F0F0F0;
+  color: #333;
+}
+
+.toast-close i[data-lucide] {
+  width: 16px;
+  height: 16px;
+}
+
+.toast.toast-exit {
+  animation: toastSlideOut 0.2s ease forwards;
+}
+
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes toastSlideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
 .icon-muted { color: #999999; }
 
 /* ============================================

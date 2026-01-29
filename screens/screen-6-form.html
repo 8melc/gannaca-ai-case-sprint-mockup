@@ -19,6 +19,9 @@
   <!-- Storage Script -->
   <script src="../js/storage.js"></script>
   
+  <!-- Toast Notification System -->
+  <script src="../js/toast.js"></script>
+  
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   
@@ -936,17 +939,17 @@ Tippe hier - das Feld wächst automatisch mit!"
       const problem = document.getElementById('problem').value.trim();
       
       if (!titel) {
-        alert('⚠️ Bitte geben Sie einen Problem-Titel ein.');
+        toastWarning('Pflichtfeld fehlt', 'Bitte geben Sie einen Problem-Titel ein.');
         document.getElementById('problemTitel').focus();
         return false;
       }
       if (!ausgangslage) {
-        alert('⚠️ Bitte beschreiben Sie die Ausgangslage.');
+        toastWarning('Pflichtfeld fehlt', 'Bitte beschreiben Sie die Ausgangslage.');
         document.getElementById('ausgangslage').focus();
         return false;
       }
       if (!problem) {
-        alert('⚠️ Bitte beschreiben Sie das konkrete Problem.');
+        toastWarning('Pflichtfeld fehlt', 'Bitte beschreiben Sie das konkrete Problem.');
         document.getElementById('problem').focus();
         return false;
       }
@@ -976,7 +979,7 @@ Tippe hier - das Feld wächst automatisch mit!"
       const data = collectFormData();
       const caseNum = saveCase(data);
       
-      alert(`✅ Case #${caseNum.toString().padStart(2, '0')} gespeichert!\n\nSie können nun Änderungen vornehmen oder zur Ergebnis-Übersicht wechseln.`);
+      toastSuccess(`Case #${caseNum.toString().padStart(2, '0')} gespeichert`, 'Sie können nun Änderungen vornehmen oder zur Ergebnis-Übersicht wechseln.');
       updateUI();
     }
     
@@ -1001,7 +1004,7 @@ Tippe hier - das Feld wächst automatisch mit!"
     function goToPreviousCase() {
       const cases = getAllCases();
       if (cases.length === 0) {
-        alert('Es gibt noch keine gespeicherten Cases.');
+        toastInfo('Keine Cases vorhanden', 'Es gibt noch keine gespeicherten Cases.');
         return;
       }
       

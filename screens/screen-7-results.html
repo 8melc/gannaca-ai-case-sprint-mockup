@@ -18,6 +18,9 @@
   <!-- Storage Script -->
   <script src="../js/storage.js"></script>
   
+  <!-- Toast Notification System -->
+  <script src="../js/toast.js"></script>
+  
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   
@@ -895,7 +898,7 @@
       const caseData = cases.find(c => c.caseNumber === caseNumber);
       
       if (!caseData) {
-        alert('Case nicht gefunden!');
+        toastError('Fehler', 'Case nicht gefunden!');
         return;
       }
       
@@ -976,7 +979,7 @@
       
       // Validierung
       if (!updatedData.problemTitel.trim()) {
-        alert('⚠️ Bitte geben Sie einen Problem-Titel ein.');
+        toastWarning('Pflichtfeld fehlt', 'Bitte geben Sie einen Problem-Titel ein.');
         document.getElementById('edit-problemTitel').focus();
         return;
       }
@@ -997,9 +1000,9 @@
         renderCases();
         
         // Erfolgsmeldung
-        alert(`✅ Case #${caseNumber.toString().padStart(2, '0')} wurde aktualisiert!`);
+        toastSuccess(`Case #${caseNumber.toString().padStart(2, '0')} aktualisiert`, 'Änderungen wurden gespeichert.');
       } else {
-        alert('Fehler: Case konnte nicht gefunden werden.');
+        toastError('Fehler', 'Case konnte nicht gefunden werden.');
       }
     }
     
