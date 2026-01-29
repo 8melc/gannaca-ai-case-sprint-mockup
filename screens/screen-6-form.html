@@ -229,6 +229,7 @@
                     <label class="form-label">Gesamtaufwand/Jahr (geschätzt)</label>
                     <input type="text" class="form-input" id="gesamtaufwand" placeholder="Wird berechnet..." readonly style="background: var(--color-bg-light); font-weight: 700; transition: background-color 0.3s ease;">
                     <span class="form-hint" id="gesamtaufwandHint" style="display: none; color: #28a745; margin-top: 4px;"><i data-lucide="check" class="icon-sm icon-success"></i> Automatisch berechnet</span>
+                    <span class="form-hint" id="gesamtaufwandFormel" style="margin-top: 4px; font-size: 11px; color: var(--text-light);"><i data-lucide="calculator" class="icon-sm"></i> = Vorgänge × Häufigkeit × Zeit × Personen</span>
                   </div>
                 </div>
               </div>
@@ -446,7 +447,7 @@ Tippe hier - das Feld wächst automatisch mit!"
       });
       
       // Event-Listener für numerische Eingaben
-      ['anzahlVorgaenge', 'zeitaufwandWert'].forEach(id => {
+      ['anzahlVorgaenge', 'zeitaufwandWert', 'betroffenePersonen'].forEach(id => {
         const el = document.getElementById(id);
         if (el) {
           el.addEventListener('input', calculateYearlyEffort);
@@ -609,29 +610,35 @@ Tippe hier - das Feld wächst automatisch mit!"
     
     // ============================================
     // GESAMTAUFWAND BERECHNUNG
-    // Formel: (Häufigkeit × Anzahl pro Zeiteinheit) × Zeitaufwand pro Fall
+    // Formel: Vorgänge × Häufigkeit × Zeit × Personen
     // ============================================
     function calculateYearlyEffort() {
       const gesamtaufwandField = document.getElementById('gesamtaufwand');
       const hintField = document.getElementById('gesamtaufwandHint');
+      const formelField = document.getElementById('gesamtaufwandFormel');
       
       // Häufigkeit auslesen
       const haeufigkeitRadio = document.querySelector('input[name="haeufigkeit"]:checked');
       const haeufigkeit = haeufigkeitRadio ? haeufigkeitRadio.value : '';
       
       // Anzahl Vorgänge auslesen
-      const anzahl = parseFloat(document.getElementById('anzahlVorgaenge').value) || 0;
+      const anzahlVorgaenge = parseFloat(document.getElementById('anzahlVorgaenge').value) || 0;
+      
+      // Anzahl betroffene Personen auslesen
+      const anzahlPersonen = parseFloat(document.getElementById('betroffenePersonen').value) || 1;
       
       // Zeitaufwand auslesen
       const zeitWert = parseFloat(document.getElementById('zeitaufwandWert').value) || 0;
-      const zeitEinheit = document.getElementById('zeitaufwandEinheit').value; // 'minutes' oder 'hours'
+      const zeitEinheit = document.getElementById('zeitaufwandEinheit').value;
       
-      // Prüfen ob genug Daten vorhanden
-      if (!haeufigkeit || anzahl <= 0 || zeitWert <= 0) {
+      // Prüfen ob genug Daten vorhanden (mindestens Häufigkeit + Vorgänge + Zeit)
+      if (!haeufigkeit || anzahlVorgaenge <= 0 || zeitWert <= 0) {
         gesamtaufwandField.value = '';
         gesamtaufwandField.placeholder = 'Wird berechnet...';
         gesamtaufwandField.style.backgroundColor = 'var(--color-bg-light)';
         hintField.style.display = 'none';
+        formelField.innerHTML = '<i data-lucide="calculator" class="icon-sm"></i> = Vorgänge × Häufigkeit × Zeit × Personen';
+        lucide.createIcons();
         return;
       }
       
@@ -640,25 +647,30 @@ Tippe hier - das Feld wächst automatisch mit!"
       
       // Multiplikator basierend auf Häufigkeit (auf Jahresbasis)
       let multiplier = 1;
+      let haeufigkeitLabel = '';
       switch(haeufigkeit) {
         case 'Täglich':
-          multiplier = 365;
+          multiplier = 250; // Arbeitstage
+          haeufigkeitLabel = '×250';
           break;
         case 'Wöchentlich':
           multiplier = 52;
+          haeufigkeitLabel = '×52';
           break;
         case 'Monatlich':
           multiplier = 12;
+          haeufigkeitLabel = '×12';
           break;
         case 'Quartalsweise':
           multiplier = 4;
+          haeufigkeitLabel = '×4';
           break;
       }
       
-      // Berechnung: Anzahl × Zeitaufwand × Multiplikator
-      let totalMinutesPerYear = anzahl * zeitWert * multiplier;
+      // Berechnung: Vorgänge × Multiplikator × Zeit × Personen
+      let totalMinutesPerYear = anzahlVorgaenge * multiplier * zeitWert * anzahlPersonen;
       
-      // Falls Eingabe in Stunden, in Minuten umrechnen für einheitliche Basis
+      // Falls Eingabe in Stunden, in Minuten umrechnen
       if (zeitEinheit === 'hours') {
         totalMinutesPerYear = totalMinutesPerYear * 60;
       }
@@ -666,20 +678,23 @@ Tippe hier - das Feld wächst automatisch mit!"
       // In Stunden umrechnen für Anzeige
       const totalHoursPerYear = totalMinutesPerYear / 60;
       
-      // Nach 500ms: Visuelles Feedback zeigen
+      // Nach 300ms: Ergebnis anzeigen
       setTimeout(() => {
-        // Ergebnis formatieren und anzeigen
+        // Ergebnis formatieren
         if (totalHoursPerYear >= 1) {
-          gesamtaufwandField.value = totalHoursPerYear.toLocaleString('de-DE', {maximumFractionDigits: 0}) + ' Stunden/Jahr';
+          gesamtaufwandField.value = totalHoursPerYear.toLocaleString('de-DE', {maximumFractionDigits: 0}) + ' Std/Jahr';
         } else {
-          gesamtaufwandField.value = totalMinutesPerYear.toLocaleString('de-DE', {maximumFractionDigits: 0}) + ' Minuten/Jahr';
+          gesamtaufwandField.value = totalMinutesPerYear.toLocaleString('de-DE', {maximumFractionDigits: 0}) + ' Min/Jahr';
         }
         
-        // Grüner Hintergrund = Berechnung fertig
+        // Grüner Hintergrund
         gesamtaufwandField.style.backgroundColor = '#D4EDDA';
-        
-        // Hinweis anzeigen
         hintField.style.display = 'block';
+        
+        // Formel mit konkreten Werten anzeigen
+        const zeitLabel = zeitEinheit === 'hours' ? 'Std' : 'Min';
+        formelField.innerHTML = `<i data-lucide="calculator" class="icon-sm"></i> ${anzahlVorgaenge}${haeufigkeitLabel} × ${zeitWert}${zeitLabel} × ${anzahlPersonen}Pers.`;
+        lucide.createIcons();
       }, 300);
     }
     
