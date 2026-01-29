@@ -19,48 +19,67 @@
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   
   <style>
-    /* Vollbild-Layout für diese Seite */
-    .overview-layout {
+    /* ============================================
+       BEAMER-OPTIMIERTES LAYOUT (1920×1080)
+       Alles auf einen Blick, ohne Scrollen
+       ============================================ */
+    
+    .screen-layout {
+      min-height: calc(100vh - var(--header-height) - var(--nav-height));
       display: flex;
       flex-direction: column;
-      height: calc(100vh - var(--header-height) - var(--nav-height));
-      padding: 16px 24px;
+      padding: 32px 80px 24px;
       box-sizing: border-box;
     }
     
-    .overview-title {
+    /* SCREEN HEADER */
+    .screen-header {
       text-align: center;
-      margin-bottom: 12px;
+      margin-bottom: 28px;
     }
     
-    .overview-title h1 {
-      font-size: 24px;
-      margin: 0 0 4px 0;
+    .screen-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-darkest);
+      margin: 0 0 8px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
     }
     
-    .overview-title p {
-      font-size: 14px;
+    .screen-header p {
+      font-size: 16px;
       color: var(--text-medium);
       margin: 0;
     }
     
-    .overview-grid {
+    /* 2-SPALTEN GRID */
+    .two-column-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 48px;
       flex: 1;
-      min-height: 0;
+      align-items: stretch;
     }
     
+    /* CARDS */
     .overview-card {
       background: var(--white);
       border: 2px solid var(--border-gray);
       border-radius: 12px;
-      padding: 16px 20px;
+      padding: 28px 32px;
       display: flex;
       flex-direction: column;
-      overflow: hidden;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: all 0.2s ease;
+      min-height: 420px;
+    }
+    
+    .overview-card:hover {
+      border-color: var(--text-light);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
     }
     
     .overview-card.highlight {
@@ -68,147 +87,324 @@
       border-color: var(--navy);
     }
     
-    .overview-card-header {
+    /* CARD HEADER */
+    .card-header {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding-bottom: 10px;
+      gap: 12px;
+      padding-bottom: 16px;
       border-bottom: 1px solid var(--border-gray);
-      margin-bottom: 12px;
+      margin-bottom: 20px;
     }
     
-    .overview-card-header h3 {
-      font-size: 15px;
+    .card-header h3 {
+      font-size: 16px;
       font-weight: 700;
       margin: 0;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      text-transform: none;
+      letter-spacing: 0;
+      color: var(--text-darkest);
     }
     
-    .overview-card-content {
+    .card-header i {
+      width: 22px;
+      height: 22px;
+    }
+    
+    /* CARD CONTENT */
+    .card-content {
       flex: 1;
-      overflow: hidden;
-      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .card-intro {
+      font-size: 14px;
+      color: var(--text-medium);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    
+    /* PROBLEM ITEMS */
+    .problem-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 16px;
     }
     
     .problem-item {
       display: flex;
-      gap: 10px;
-      padding: 8px 10px;
+      gap: 12px;
+      padding: 14px 16px;
       background: var(--white);
       border: 1px solid var(--border-gray);
-      border-left: 3px solid var(--text-darkest);
-      border-radius: 6px;
-      margin-bottom: 8px;
+      border-left: 4px solid var(--text-darkest);
+      border-radius: 8px;
     }
     
     .problem-item.medium { border-left-color: var(--text-dark); }
     .problem-item.low { border-left-color: var(--text-medium); }
     
     .problem-item h4 {
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 700;
-      margin: 0 0 2px 0;
-      text-transform: uppercase;
+      margin: 0 0 4px 0;
+      text-transform: none;
+      color: var(--text-darkest);
     }
     
     .problem-item p {
-      font-size: 12px;
+      font-size: 13px;
       margin: 0;
       color: var(--text-medium);
-      line-height: 1.4;
+      line-height: 1.45;
+    }
+    
+    /* ENGPASS TAGS */
+    .engpass-section {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-gray);
+    }
+    
+    .engpass-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
     }
     
     .engpass-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px solid var(--border-gray);
+      gap: 8px;
     }
     
     .engpass-tag {
       background: var(--light-gray);
-      padding: 3px 10px;
-      border-radius: 12px;
-      font-size: 11px;
+      padding: 5px 12px;
+      border-radius: 14px;
+      font-size: 12px;
       color: var(--text-dark);
+      font-weight: 500;
     }
     
+    /* DENKMODELL CONTENT */
+    .denkmodell-text {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    
+    .denkmodell-text strong {
+      color: var(--text-darkest);
+    }
+    
+    /* KI → MENSCH FLOW */
     .ki-mensch-flow {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 24px;
-      padding: 16px;
+      gap: 32px;
+      padding: 24px;
       background: var(--white);
-      border-radius: 8px;
-      margin-bottom: 12px;
+      border-radius: 10px;
+      margin-bottom: 20px;
     }
     
     .flow-box {
       text-align: center;
-      padding: 12px 20px;
-      min-width: 100px;
+      padding: 16px 24px;
     }
     
     .flow-box i {
-      width: 32px;
-      height: 32px;
+      width: 40px;
+      height: 40px;
       color: var(--navy);
+      margin-bottom: 8px;
     }
     
     .flow-box strong {
       display: block;
-      font-size: 13px;
-      margin-top: 4px;
+      font-size: 15px;
       color: var(--navy);
+      margin-bottom: 4px;
     }
     
     .flow-box span {
       display: block;
-      font-size: 11px;
+      font-size: 12px;
       color: var(--text-medium);
-      margin-top: 2px;
     }
     
     .flow-arrow {
-      font-size: 24px;
+      font-size: 28px;
       color: var(--navy);
+      font-weight: 300;
     }
     
+    /* FRAMEWORK BOX */
     .framework-box {
       background: var(--white);
       border: 2px dashed var(--navy);
-      border-radius: 8px;
-      padding: 12px;
+      border-radius: 10px;
+      padding: 16px 20px;
       text-align: center;
+      margin-top: auto;
     }
     
     .framework-box h4 {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--navy);
-      margin: 0 0 6px 0;
+      margin: 0 0 8px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
     }
     
     .framework-box p {
-      font-size: 12px;
+      font-size: 13px;
       margin: 0;
       color: var(--text-medium);
     }
     
-    .overview-footer {
+    /* ZIELBILD FOOTER */
+    .zielbild-footer {
+      margin-top: 24px;
+      padding: 20px 28px;
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      border: 2px solid #86efac;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .zielbild-icon {
+      width: 36px;
+      height: 36px;
+      color: #22c55e;
+      flex-shrink: 0;
+    }
+    
+    .zielbild-content {
+      flex: 1;
+    }
+    
+    .zielbild-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #166534;
+      margin: 0 0 6px 0;
+    }
+    
+    .zielbild-items {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    
+    .zielbild-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: #15803d;
+    }
+    
+    .zielbild-item span {
+      color: #22c55e;
+      font-weight: 600;
+    }
+    
+    /* NAVIGATION */
+    .screen-nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-top: 12px;
-      margin-top: auto;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-gray);
     }
     
-    .overview-footer .btn {
-      padding: 8px 16px;
-      font-size: 13px;
+    .screen-nav .btn {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+    
+    /* BEAMER OPTIMIERUNG (1920×1080) - Alles auf einen Blick! */
+    @media (min-width: 1920px) {
+      .screen-layout {
+        padding: 32px 100px 24px;
+        max-height: calc(100vh - var(--header-height) - var(--nav-height));
+      }
+      
+      .screen-header {
+        margin-bottom: 24px;
+      }
+      
+      .screen-header h1 {
+        font-size: 36px;
+      }
+      
+      .screen-header p {
+        font-size: 17px;
+      }
+      
+      .two-column-grid {
+        gap: 60px;
+      }
+      
+      .overview-card {
+        padding: 24px 32px;
+        min-height: 380px;
+      }
+      
+      .card-header h3 {
+        font-size: 18px;
+      }
+      
+      .problem-item {
+        padding: 12px 14px;
+        margin-bottom: 10px;
+      }
+      
+      .problem-item h4 {
+        font-size: 14px;
+      }
+      
+      .problem-item p {
+        font-size: 14px;
+      }
+      
+      .zielbild-footer {
+        margin-top: 20px;
+        padding: 16px 24px;
+      }
+      
+      .screen-nav {
+        margin-top: 16px;
+        padding-top: 12px;
+      }
+    }
+    
+    /* KLEINERE BILDSCHIRME */
+    @media (max-width: 1440px) {
+      .screen-layout {
+        padding: 24px 40px 20px;
+      }
+      
+      .two-column-grid {
+        gap: 32px;
+      }
+      
+      .overview-card {
+        padding: 20px 24px;
+      }
     }
   </style>
 </head>
@@ -270,73 +466,82 @@
       </div>
     </nav>
     
-    <!-- MAIN CONTENT - Vollbild ohne Scrollen -->
+    <!-- MAIN CONTENT -->
     <main class="main-content" style="padding-bottom: 0;">
-      <div class="overview-layout">
+      <div class="screen-layout">
         
-        <!-- Titel -->
-        <div class="overview-title">
-          <h1><i data-lucide="target" style="width:24px;height:24px;vertical-align:middle;margin-right:8px;"></i>Das gannaca AI-Case Sprint Framework</h1>
+        <!-- SCREEN HEADER -->
+        <div class="screen-header">
+          <h1>
+            <i data-lucide="target" style="width:28px;height:28px;"></i>
+            Das gannaca AI-Case Sprint Framework
+          </h1>
           <p>Ein standardisiertes Denkmodell für strukturierte KI-Use-Case-Entwicklung</p>
         </div>
         
-        <!-- 2-Spalten Grid -->
-        <div class="overview-grid">
+        <!-- 2-SPALTEN GRID -->
+        <div class="two-column-grid">
           
-          <!-- LINKE KARTE: Problem-Analyse -->
+          <!-- LINKE SPALTE: Problem-First-Analyse -->
           <div class="overview-card">
-            <div class="overview-card-header">
-              <i data-lucide="alert-triangle" style="width:20px;height:20px;color:#FFC107;"></i>
+            <div class="card-header">
+              <i data-lucide="alert-triangle" style="color:#FFC107;"></i>
               <h3>Problem-First-Analyse</h3>
             </div>
-            <div class="overview-card-content">
-              <p style="margin:0 0 10px;color:var(--text-medium);">
-                <strong>Methodik:</strong> Kein Tool-Push. Ausgangspunkt ist immer ein konkreter Engpass.
+            
+            <div class="card-content">
+              <p class="card-intro">
+                <strong>Methodik:</strong> Kein Tool-Push. Ausgangspunkt ist immer ein konkreter Engpass.<br>
+                Ein typisches Beispiel aus regulierten Unternehmen:
               </p>
               
-              <div class="problem-item">
-                <div>
-                  <h4>Hoher manueller Aufwand</h4>
-                  <p>50-200 Reisekostenabrechnungen/Monat manuell prüfen. <strong>15-30 Min pro Abrechnung.</strong></p>
+              <div class="problem-list">
+                <div class="problem-item">
+                  <div>
+                    <h4>Hoher manueller Aufwand</h4>
+                    <p>Sachbearbeiter prüfen 50-200 Reisekostenabrechnungen pro Monat manuell. <strong>Jede Abrechnung: 15-30 Min Prüfzeit.</strong></p>
+                  </div>
+                </div>
+                
+                <div class="problem-item medium">
+                  <div>
+                    <h4>Übersehens-Risiko & Inkonsistenz</h4>
+                    <p>Wissen bei Einzelpersonen konzentriert. Ermüdung und unterschiedliche Interpretationen führen zu Fehlern.</p>
+                  </div>
+                </div>
+                
+                <div class="problem-item low">
+                  <div>
+                    <h4>Dokumentationslücken</h4>
+                    <p>Audit-Trails müssen oft mühsam aus E-Mails, Notizen und Freigabe-Workflows rekonstruiert werden.</p>
+                  </div>
                 </div>
               </div>
               
-              <div class="problem-item medium">
-                <div>
-                  <h4>Übersehens-Risiko & Inkonsistenz</h4>
-                  <p>Wissen bei Einzelpersonen. Ermüdung führt zu Fehlern bei Richtlinien-Verstößen.</p>
+              <div class="engpass-section">
+                <div class="engpass-label">Engpass-Kategorien</div>
+                <div class="engpass-tags">
+                  <span class="engpass-tag">Manuelle Aufwände</span>
+                  <span class="engpass-tag">Medienbrüche</span>
+                  <span class="engpass-tag">Prüflast</span>
+                  <span class="engpass-tag">Risikoexposition</span>
+                  <span class="engpass-tag">Skalierungshemmnisse</span>
                 </div>
-              </div>
-              
-              <div class="problem-item low">
-                <div>
-                  <h4>Dokumentationslücken</h4>
-                  <p>Audit-Trails müssen aus E-Mails, Notizen und Workflows rekonstruiert werden.</p>
-                </div>
-              </div>
-              
-              <div class="engpass-tags">
-                <span class="engpass-tag">Manuelle Aufwände</span>
-                <span class="engpass-tag">Medienbrüche</span>
-                <span class="engpass-tag">Prüflast</span>
-                <span class="engpass-tag">Risikoexposition</span>
-                <span class="engpass-tag">Skalierungshemmnisse</span>
               </div>
             </div>
           </div>
           
-          <!-- RECHTE KARTE: Denkmodell -->
+          <!-- RECHTE SPALTE: Das Denkmodell -->
           <div class="overview-card highlight">
-            <div class="overview-card-header">
-              <i data-lucide="lightbulb" style="width:20px;height:20px;color:var(--navy);"></i>
+            <div class="card-header">
+              <i data-lucide="lightbulb" style="color:var(--navy);"></i>
               <h3>Das Denkmodell</h3>
             </div>
-            <div class="overview-card-content">
-              <p style="margin:0 0 12px;">
-                Dieses Projekt ist <strong>KEIN lauffähiges Produkt</strong>, sondern eine <strong>konzeptionelle Blaupause</strong>.
-              </p>
-              <p style="margin:0 0 12px;font-size:12px;color:var(--text-medium);">
-                KI unterstützt durch <strong>strukturierte Voranalyse</strong>, damit Experten sich auf <strong>finale Risikobewertung & Entscheidungen</strong> konzentrieren.
+            
+            <div class="card-content">
+              <p class="denkmodell-text">
+                Dieses Projekt ist <strong>kein lauffähiges Produkt</strong>, sondern eine <strong>konzeptionelle Blaupause</strong>. 
+                KI unterstützt durch strukturierte Voranalyse, damit Experten sich auf finale Risikobewertung & Entscheidungen konzentrieren.
               </p>
               
               <!-- KI → Mensch Flow -->
@@ -349,34 +554,44 @@
                 <div class="flow-arrow">→</div>
                 <div class="flow-box">
                   <i data-lucide="user"></i>
-                  <strong>MENSCH</strong>
+                  <strong>Mensch</strong>
                   <span>Bewertet & Entscheidet</span>
                 </div>
               </div>
               
-              <!-- Framework-Hinweis -->
+              <!-- Framework Hinweis -->
               <div class="framework-box">
-                <h4><i data-lucide="package" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"></i>WIEDERVERWENDBARES FRAMEWORK</h4>
-                <p><strong>Heute:</strong> Trianel &nbsp;|&nbsp; <strong>Morgen:</strong> RWE, Eon, Vattenfall, ...</p>
+                <h4>
+                  <i data-lucide="package" style="width:16px;height:16px;"></i>
+                  Wiederverwendbares Framework
+                </h4>
+                <p>Die Methodik ist standardisiert und auf weitere Anwendungsfälle übertragbar.</p>
               </div>
             </div>
           </div>
           
         </div>
         
-        <!-- Footer mit Navigation -->
-        <div class="overview-footer">
+        <!-- ZIELBILD FOOTER -->
+        <div class="zielbild-footer">
+          <i data-lucide="check-circle-2" class="zielbild-icon"></i>
+          <div class="zielbild-content">
+            <h4 class="zielbild-title">Zielbild: KI-unterstützte Prozesse</h4>
+            <div class="zielbild-items">
+              <div class="zielbild-item"><span>→</span> KI übernimmt Vor-Screening & Strukturierung</div>
+              <div class="zielbild-item"><span>→</span> Mensch fokussiert auf kritische Fälle</div>
+              <div class="zielbild-item"><span>→</span> Automatische Audit-Dokumentation</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- NAVIGATION -->
+        <div class="screen-nav">
           <a href="screen-0-workshop-process.html" class="btn btn-secondary">
             ← Workshop-Prozess
           </a>
-          <div style="text-align:center;flex:1;">
-            <span style="font-size:12px;color:var(--text-light);">
-              <i data-lucide="check-circle" style="width:14px;height:14px;vertical-align:middle;color:#28A745;"></i>
-              <strong style="color:var(--text-dark);">Zielbild:</strong> KI-Vor-Screening → Mensch entscheidet → Automatische Audit-Dokumentation
-            </span>
-          </div>
           <a href="screen-6-form.html" class="btn btn-primary">
-            Case-Erfassung →
+            Case-Erfassung <i data-lucide="star" style="width:14px;height:14px;"></i> →
           </a>
         </div>
         

@@ -13,6 +13,62 @@
   
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  
+  <!-- Screen-spezifische Beamer-Optimierung -->
+  <style>
+    /* BEAMER-OPTIMIERUNG: Kompakte KPI-Karten */
+    @media screen and (min-width: 1920px) {
+      /* Kompaktere KPI-Karten */
+      .kpi-grid .card {
+        padding: 16px 20px;
+        min-height: auto;
+      }
+      
+      .kpi-grid .card h3 {
+        font-size: 15px;
+        margin-bottom: 8px;
+      }
+      
+      .kpi-grid .card p {
+        font-size: 13px;
+        margin-bottom: 12px;
+      }
+      
+      .kpi-grid .card ul {
+        font-size: 12px;
+        margin: 0;
+        padding-left: 16px;
+      }
+      
+      .kpi-grid .card li {
+        margin-bottom: 2px;
+      }
+      
+      .kpi-grid .icon-2xl {
+        width: 36px;
+        height: 36px;
+      }
+      
+      /* Info-Box kompakter */
+      .info-box {
+        padding: 16px 20px;
+        margin-bottom: 16px;
+      }
+      
+      .info-box ul {
+        margin: 8px 0;
+      }
+      
+      .info-box li {
+        margin-bottom: 4px;
+        font-size: 13px;
+      }
+      
+      .info-box p {
+        font-size: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="page-wrapper">
@@ -56,22 +112,26 @@
     
     <!-- MAIN CONTENT -->
     <main class="main-content">
-      <div class="page-header">
-        <div class="page-header-inner">
-          <h1 class="page-title"><i data-lucide="bar-chart-3" class="icon-with-text"></i>Strategischer KPI-Rahmen</h1>
-          <p class="page-subtitle">Diese vier Dimensionen bilden den Bewertungsrahmen für jeden Use Case</p>
-        </div>
-      </div>
       
-      <div class="container">
+      <!-- SLIDE CONTAINER -->
+      <div class="slide-container">
         
-        <!-- 4-SÄULEN KPI GRID -->
-        <div class="grid grid-4" style="gap: var(--space-6); margin-bottom: var(--space-12);">
+        <!-- SLIDE HEADER -->
+        <div class="slide-header">
+          <h1><i data-lucide="bar-chart-3" style="width:26px;height:26px;"></i>Strategischer KPI-Rahmen</h1>
+          <p>Diese vier Dimensionen bilden den Bewertungsrahmen für jeden Use Case</p>
+        </div>
+        
+        <!-- SLIDE CONTENT -->
+        <div class="slide-content">
+        
+          <!-- 4-SÄULEN KPI GRID -->
+          <div class="grid grid-4 kpi-grid" style="gap: 24px; margin-bottom: 20px;">
           
           <!-- SÄULE 1: ZEIT -->
           <div class="card" style="text-align: center; border-top: 4px solid var(--navy);">
             <div style="margin-bottom: var(--space-4);"><i data-lucide="clock" class="icon-2xl icon-info"></i></div>
-            <h3 style="color: var(--navy); margin-bottom: var(--space-4);">ZEIT</h3>
+            <h3 style="color: var(--navy); margin-bottom: var(--space-4);">Zeit</h3>
             <p style="font-size: var(--text-sm); color: var(--text-medium); margin-bottom: var(--space-4);">
               Wie viel Zeit wird aktuell aufgewendet? Wie viel könnte eingespart werden?
             </p>
@@ -88,7 +148,7 @@
           <!-- SÄULE 2: KOSTEN -->
           <div class="card" style="text-align: center; border-top: 4px solid var(--navy);">
             <div style="margin-bottom: var(--space-4);"><i data-lucide="coins" class="icon-2xl icon-info"></i></div>
-            <h3 style="color: var(--navy); margin-bottom: var(--space-4);">KOSTEN</h3>
+            <h3 style="color: var(--navy); margin-bottom: var(--space-4);">Kosten</h3>
             <p style="font-size: var(--text-sm); color: var(--text-medium); margin-bottom: var(--space-4);">
               Welche direkten und indirekten Kosten entstehen durch den aktuellen Prozess?
             </p>
@@ -105,7 +165,7 @@
           <!-- SÄULE 3: QUALITÄT -->
           <div class="card" style="text-align: center; border-top: 4px solid var(--navy);">
             <div style="margin-bottom: var(--space-4);"><i data-lucide="check-circle" class="icon-2xl icon-success"></i></div>
-            <h3 style="color: var(--navy); margin-bottom: var(--space-4);">QUALITÄT</h3>
+            <h3 style="color: var(--navy); margin-bottom: var(--space-4);">Qualität</h3>
             <p style="font-size: var(--text-sm); color: var(--text-medium); margin-bottom: var(--space-4);">
               Wie konsistent und fehlerfrei ist der aktuelle Output?
             </p>
@@ -122,7 +182,7 @@
           <!-- SÄULE 4: RISIKO -->
           <div class="card" style="text-align: center; border-top: 4px solid var(--navy);">
             <div style="margin-bottom: var(--space-4);"><i data-lucide="alert-triangle" class="icon-2xl icon-warning"></i></div>
-            <h3 style="color: var(--navy); margin-bottom: var(--space-4);">RISIKO</h3>
+            <h3 style="color: var(--navy); margin-bottom: var(--space-4);">Risiko</h3>
             <p style="font-size: var(--text-sm); color: var(--text-medium); margin-bottom: var(--space-4);">
               Welche Risiken bestehen bei Nicht-Handlung oder bei fehlerhafter Bearbeitung?
             </p>
@@ -141,7 +201,7 @@
         <!-- ABGRENZUNGS-BOX (exakt aus PDF Seite 11) -->
         <div class="info-box" style="border-left-color: var(--text-darkest);">
           <div class="info-box-icon"><i data-lucide="ban"></i></div>
-          <div class="info-box-title">ABGRENZUNG: Ein digitaler Mockup...</div>
+          <div class="info-box-title">Abgrenzung: Ein digitaler Mockup</div>
           <div class="info-box-text">
             <ul style="margin: var(--space-4) 0; padding-left: var(--space-6);">
               <li style="margin-bottom: var(--space-3);"><strong>verarbeitet keine Echtdaten</strong></li>
@@ -155,12 +215,16 @@
           </div>
         </div>
         
-        <!-- NAVIGATION -->
-        <div style="display: flex; justify-content: space-between; margin-top: var(--space-12);">
+        </div><!-- /slide-content -->
+        
+        <!-- SLIDE FOOTER -->
+        <div class="slide-footer">
           <a href="screen-1-overview.html" class="btn btn-secondary">← Zurück zur Übersicht</a>
           <a href="screen-3-governance.html" class="btn btn-primary">Weiter zu Governance →</a>
         </div>
-      </div>
+        
+      </div><!-- /slide-container -->
+      
     </main>
     
     <footer class="footer">

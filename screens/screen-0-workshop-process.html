@@ -17,6 +17,96 @@
   
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  
+  <!-- Screen-spezifische Beamer-Optimierung -->
+  <style>
+    /* BEAMER-OPTIMIERUNG: Kompakte Timeline */
+    @media screen and (min-width: 1920px) {
+      .timeline {
+        gap: 16px;
+      }
+      
+      .timeline-step {
+        gap: 20px;
+      }
+      
+      .timeline-marker {
+        width: 48px;
+      }
+      
+      .timeline-number {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+      }
+      
+      .timeline-content {
+        padding: 16px 20px;
+      }
+      
+      .timeline-title {
+        font-size: 16px;
+        margin-bottom: 4px;
+      }
+      
+      .timeline-badge {
+        font-size: 10px;
+        padding: 2px 8px;
+      }
+      
+      .phase-duration {
+        font-size: 13px;
+        margin-bottom: 12px;
+      }
+      
+      .phase-grid {
+        gap: 20px;
+      }
+      
+      .phase-section-title {
+        font-size: 12px;
+        margin-bottom: 6px;
+      }
+      
+      .phase-list {
+        font-size: 13px;
+      }
+      
+      .phase-list li {
+        padding: 2px 0;
+      }
+      
+      .box {
+        padding: 12px 16px;
+      }
+      
+      .badge-lg {
+        font-size: 13px;
+        padding: 6px 12px;
+      }
+      
+      /* Info-Box kompakter */
+      .info-box.mt-3xl {
+        margin-top: 16px !important;
+        padding: 12px 16px;
+      }
+      
+      .info-box-header {
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+      
+      .info-box-list li {
+        padding: 2px 0;
+        font-size: 13px;
+      }
+    }
+    
+    /* Timeline kompakter für alle Screens */
+    .timeline-line {
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <div class="page-wrapper">
@@ -79,15 +169,18 @@
     <!-- MAIN CONTENT -->
     <main class="main-content">
       
-      <!-- Page Header -->
-      <div class="page-header">
-        <div class="page-header-inner">
-          <h1 class="page-title"><i data-lucide="map" class="icon-with-text"></i>Workshop-Ablauf: Vom Problem zum Use-Case-Mockup</h1>
-          <p class="page-subtitle">Wo befinden wir uns gerade im Prozess?</p>
+      <!-- SLIDE CONTAINER -->
+      <div class="slide-container">
+        
+        <!-- SLIDE HEADER -->
+        <div class="slide-header">
+          <h1><i data-lucide="map" style="width:26px;height:26px;"></i>Workshop-Ablauf: Vom Problem zum Use-Case-Mockup</h1>
+          <p>Wo befinden wir uns gerade im Prozess?</p>
         </div>
-      </div>
-      
-      <div class="container">
+        
+        <!-- SLIDE CONTENT -->
+        <div class="slide-content">
+          <div class="container" style="padding: 0;">
         
         <!-- 3-PHASEN-TIMELINE -->
         <div class="timeline" role="list" aria-label="Workshop-Phasen">
@@ -100,8 +193,8 @@
             </div>
             <div class="timeline-content">
               <h2 class="timeline-title">
-                PHASE 1: PROBLEM-IDENTIFIKATION
-                <span class="timeline-badge">★ WIR SIND JETZT HIER</span>
+                Phase 1: Problem-Identifikation
+                <span class="timeline-badge">★ Aktuell</span>
               </h2>
               <p class="phase-duration">
                 <strong>Workshop, ca. 3 Stunden</strong>
@@ -109,16 +202,16 @@
               
               <div class="grid grid-2 phase-grid">
                 <div>
-                  <h3 class="phase-section-title">WAS PASSIERT:</h3>
+                  <h3 class="phase-section-title">Was passiert</h3>
                   <ul class="phase-list">
                     <li>Strukturierte Erfassung realer Probleme aus Legal, Compliance und Revision</li>
                     <li>Live-Eingabe durch gannaca-Team in standardisiertes Formular</li>
                     <li>Für alle sichtbar auf Beamer – vollständige Transparenz</li>
-                    <li>Vollständige Dokumentation OHNE Vorbewertung</li>
+                    <li>Vollständige Dokumentation ohne Vorbewertung</li>
                   </ul>
                 </div>
                 <div>
-                  <h3 class="phase-section-title">METHODE:</h3>
+                  <h3 class="phase-section-title">Methode</h3>
                   <div class="box box-highlight">
                     <p>
                       <strong>Strukturiertes Formular mit 11 Standardfragen pro Case</strong><br>
@@ -126,7 +219,7 @@
                     </p>
                   </div>
                   
-                  <h3 class="phase-section-title mt-lg">ERGEBNIS:</h3>
+                  <h3 class="phase-section-title mt-lg">Ergebnis</h3>
                   <div class="badge badge-success badge-lg">
                     <i data-lucide="clipboard-list" class="icon-with-text"></i>Liste von 15-30 dokumentierten Cases
                   </div>
@@ -143,7 +236,7 @@
             </div>
             <div class="timeline-content">
               <h2 class="timeline-title">
-                PHASE 2: KI-GESTÜTZTE ANALYSE
+                Phase 2: KI-gestützte Analyse
               </h2>
               <p class="phase-duration">
                 <strong>Nach dem Workshop (2-3 Tage später)</strong>
@@ -151,16 +244,16 @@
               
               <div class="grid grid-2 phase-grid">
                 <div>
-                  <h3 class="phase-section-title">WAS PASSIERT:</h3>
+                  <h3 class="phase-section-title">Was passiert</h3>
                   <ul class="phase-list">
                     <li>KI-basierte Bewertung aller erfassten Cases</li>
                     <li>Automatische Matrix: Nutzen × Machbarkeit</li>
                     <li>Identifikation Top-3 Cases</li>
-                    <li>Empfehlung mit "Sternchen" für finalen Case</li>
+                    <li>Empfehlung mit Sternchen für finalen Case</li>
                   </ul>
                 </div>
                 <div>
-                  <h3 class="phase-section-title">METHODE:</h3>
+                  <h3 class="phase-section-title">Methode</h3>
                   <div class="box">
                     <p>
                       <strong>Multi-Kriterien-Bewertung</strong><br>
@@ -169,7 +262,7 @@
                     </p>
                   </div>
                   
-                  <h3 class="phase-section-title mt-lg">ERGEBNIS:</h3>
+                  <h3 class="phase-section-title mt-lg">Ergebnis</h3>
                   <div class="badge badge-info badge-lg">
                     <i data-lucide="bar-chart-3" class="icon-with-text"></i>Priorisierte Shortlist mit Top-3 Empfehlungen
                   </div>
@@ -185,7 +278,7 @@
             </div>
             <div class="timeline-content">
               <h2 class="timeline-title">
-                PHASE 3: CASE-AUSARBEITUNG
+                Phase 3: Case-Ausarbeitung
               </h2>
               <p class="phase-duration">
                 <strong>Folgewoche (ca. 1 Woche später)</strong>
@@ -193,7 +286,7 @@
               
               <div class="grid grid-2 phase-grid">
                 <div>
-                  <h3 class="phase-section-title">WAS PASSIERT:</h3>
+                  <h3 class="phase-section-title">Was passiert</h3>
                   <ul class="phase-list">
                     <li>Detailliertes Mockup für den ausgewählten Case</li>
                     <li>Governance-Framework & Prozessdokumentation</li>
@@ -202,7 +295,7 @@
                   </ul>
                 </div>
                 <div>
-                  <h3 class="phase-section-title">METHODE:</h3>
+                  <h3 class="phase-section-title">Methode</h3>
                   <div class="box">
                     <p>
                       <strong>Standardisiertes Template</strong><br>
@@ -211,7 +304,7 @@
                     </p>
                   </div>
                   
-                  <h3 class="phase-section-title mt-lg">ERGEBNIS:</h3>
+                  <h3 class="phase-section-title mt-lg">Ergebnis</h3>
                   <div class="badge badge-success badge-lg">
                     <i data-lucide="target" class="icon-with-text"></i>Management-Entscheidungsvorlage + Mockup
                   </div>
@@ -226,23 +319,25 @@
         <aside class="info-box mt-3xl" role="note" aria-label="Wichtige Information">
           <h3 class="info-box-header">
             <span class="info-box-icon" aria-hidden="true"><i data-lucide="info"></i></span>
-            WICHTIG ZU VERSTEHEN:
+            Wichtig zu verstehen
           </h3>
           <ul class="info-box-list">
-            <li><strong>Dieser Workshop dient NUR der strukturierten Problem-Erfassung.</strong></li>
+            <li><strong>Dieser Workshop dient nur der strukturierten Problem-Erfassung.</strong></li>
             <li>KI-Analyse und Bewertung erfolgen erst danach – nicht live im Workshop.</li>
-            <li>Alle Eingaben werden vertraulich behandelt und NICHT in externe KI-Systeme hochgeladen.</li>
+            <li>Alle Eingaben werden vertraulich behandelt und nicht in externe KI-Systeme hochgeladen.</li>
           </ul>
         </aside>
         
-        <!-- NAVIGATION BUTTON -->
-        <nav class="nav-actions" aria-label="Seitennavigation">
-          <a href="screen-1-overview.html" class="btn btn-primary btn-lg">
-            Weiter zur Übersicht →
-          </a>
-        </nav>
+          </div><!-- /container -->
+        </div><!-- /slide-content -->
         
-      </div><!-- /container -->
+        <!-- SLIDE FOOTER -->
+        <div class="slide-footer">
+          <div></div>
+          <a href="screen-1-overview.html" class="btn btn-primary">Weiter zur Übersicht →</a>
+        </div>
+        
+      </div><!-- /slide-container -->
       
     </main>
     

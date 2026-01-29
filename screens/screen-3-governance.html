@@ -13,6 +13,54 @@
   
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  
+  <!-- Screen-spezifische Beamer-Optimierung -->
+  <style>
+    @media screen and (min-width: 1920px) {
+      /* Kompaktere Tabelle */
+      table th, table td {
+        padding: 10px 12px;
+        font-size: 13px;
+      }
+      
+      /* Kompaktere Grid-Boxen */
+      .grid-3 .box,
+      .grid-4 .box {
+        padding: 12px 16px;
+      }
+      
+      .grid-3 .box h4,
+      .grid-4 .box h4 {
+        font-size: 13px;
+        margin-bottom: 4px;
+      }
+      
+      .grid-3 .box p,
+      .grid-4 .box p {
+        font-size: 12px;
+      }
+      
+      /* Überschriften kompakter */
+      h3 {
+        font-size: 16px;
+        margin-bottom: 12px;
+      }
+      
+      p {
+        margin-bottom: 12px;
+      }
+      
+      /* Card kompakter */
+      .card {
+        padding: 16px 20px;
+        margin-bottom: 16px;
+      }
+      
+      .card h3 {
+        margin-bottom: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="page-wrapper">
@@ -56,14 +104,18 @@
     
     <!-- MAIN CONTENT -->
     <main class="main-content">
-      <div class="page-header">
-        <div class="page-header-inner">
-          <h1 class="page-title"><i data-lucide="users" class="icon-with-text"></i>Governance & Rollenverteilung</h1>
-          <p class="page-subtitle">Klare Trennung zwischen KI-Unterstützung und menschlicher Entscheidung</p>
-        </div>
-      </div>
       
-      <div class="container">
+      <!-- SLIDE CONTAINER -->
+      <div class="slide-container">
+        
+        <!-- SLIDE HEADER -->
+        <div class="slide-header">
+          <h1><i data-lucide="users" style="width:26px;height:26px;"></i>Governance & Rollenverteilung</h1>
+          <p>Klare Trennung zwischen KI-Unterstützung und menschlicher Entscheidung</p>
+        </div>
+        
+        <!-- SLIDE CONTENT -->
+        <div class="slide-content" style="overflow-y: auto;">
         
         <!-- MENSCH VS. KI TABELLE -->
         <div class="card" style="margin-bottom: var(--space-10);">
@@ -101,7 +153,7 @@
                 <tr>
                   <td><strong>Entscheidung</strong></td>
                   <td style="background: rgba(26, 58, 92, 0.05);">Vorschläge mit Begründung</td>
-                  <td><strong style="color: var(--navy);">FINALE ENTSCHEIDUNG – IMMER MENSCH!</strong></td>
+                  <td><strong style="color: var(--navy);">Finale Entscheidung liegt immer beim Menschen</strong></td>
                 </tr>
               </tbody>
             </table>
@@ -196,7 +248,7 @@
         <!-- ESKALATIONS-HINWEIS -->
         <div class="info-box" style="background: var(--off-white);">
           <div class="info-box-icon"><i data-lucide="zap"></i></div>
-          <div class="info-box-title">ESKALATIONS-LOGIK</div>
+          <div class="info-box-title">Eskalations-Logik</div>
           <div class="info-box-text">
             <p style="margin-bottom: var(--space-4);">Bei folgenden Situationen wird automatisch eskaliert:</p>
             <div style="display: flex; gap: var(--space-6); flex-wrap: wrap;">
@@ -216,12 +268,16 @@
           </div>
         </div>
         
-        <!-- NAVIGATION -->
-        <div style="display: flex; justify-content: space-between; margin-top: var(--space-12);">
+        </div><!-- /slide-content -->
+        
+        <!-- SLIDE FOOTER -->
+        <div class="slide-footer">
           <a href="screen-2-kpi.html" class="btn btn-secondary">← Zurück zu KPI-Rahmen</a>
           <a href="screen-4-process.html" class="btn btn-primary">Weiter zu Zielprozess →</a>
         </div>
-      </div>
+        
+      </div><!-- /slide-container -->
+      
     </main>
     
     <footer class="footer">

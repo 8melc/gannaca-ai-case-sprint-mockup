@@ -56,137 +56,176 @@
     
     <!-- MAIN CONTENT -->
     <main class="main-content">
-      <div class="page-header">
-        <div class="page-header-inner">
-          <h1 class="page-title"><i data-lucide="refresh-cw" class="icon-with-text"></i>KI-unterstützter Zielprozess</h1>
-          <p class="page-subtitle">Beispiel: Reisekostenabrechnung – 6-Schritt-Prozess</p>
-        </div>
-      </div>
       
-      <div class="container">
+      <!-- SLIDE CONTAINER -->
+      <div class="slide-container" style="overflow-y: auto;">
         
-        <!-- PROZESS-FLOW -->
-        <div style="max-width: 800px; margin: 0 auto;">
+        <!-- SLIDE HEADER -->
+        <div class="slide-header">
+          <h1><i data-lucide="refresh-cw" style="width:26px;height:26px;"></i>KI-unterstützter Zielprozess</h1>
+          <p>Beispiel: Reisekostenabrechnung – 6-Schritt-Prozess</p>
+        </div>
+        
+        <!-- SLIDE CONTENT -->
+        <div class="slide-content" style="overflow-y: auto;">
+        
+        <!-- ZICKZACK PROZESS-FLOW -->
+        <div class="zigzag-process-container">
           
-          <!-- SCHRITT 1 -->
-          <div class="card" style="margin-bottom: var(--space-4); border-left: 4px solid var(--navy);">
-            <div style="display: flex; gap: var(--space-6); align-items: flex-start;">
-              <div style="background: var(--navy); color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--text-xl); font-weight: bold; flex-shrink: 0;">1</div>
-              <div style="flex: 1;">
-                <h3 style="margin-bottom: var(--space-2); color: var(--navy);"><i data-lucide="inbox" class="icon-sm icon-with-text"></i>Auslöser & Ingestion</h3>
-                <p style="color: var(--text-medium); margin-bottom: var(--space-3);">Mitarbeiter reicht Reisekostenabrechnung ein (E-Mail, Portal, etc.)</p>
-                <div style="background: var(--off-white); padding: var(--space-3); border-radius: var(--border-radius-md); font-size: var(--text-sm);">
-                  <strong>KI:</strong> Automatische Dokumentenerkennung, Extraktion relevanter Daten
-                </div>
+          <!-- SCHRITT 1: LINKS -->
+          <div class="zigzag-step zigzag-step-left">
+            <div class="zigzag-step-number">1</div>
+            <div class="zigzag-step-card">
+              <div class="zigzag-step-icon">
+                <i data-lucide="inbox"></i>
               </div>
+              <h3>Auslöser & Ingestion</h3>
+              <p class="zigzag-step-description">
+                Mitarbeiter reicht Reisekostenabrechnung ein (E-Mail, Portal, etc.)
+              </p>
+              <div class="zigzag-step-detail">
+                <strong>KI:</strong> Automatische Dokumentenerkennung, Extraktion relevanter Daten
+              </div>
+            </div>
+            <div class="zigzag-arrow">
+              <i data-lucide="arrow-right"></i>
             </div>
           </div>
           
-          <!-- PFEIL -->
-          <div style="text-align: center; font-size: 24px; color: var(--text-light); margin: var(--space-2) 0;">↓</div>
-          
-          <!-- SCHRITT 2 -->
-          <div class="card" style="margin-bottom: var(--space-4); border-left: 4px solid var(--navy);">
-            <div style="display: flex; gap: var(--space-6); align-items: flex-start;">
-              <div style="background: var(--navy); color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--text-xl); font-weight: bold; flex-shrink: 0;">2</div>
-              <div style="flex: 1;">
-                <h3 style="margin-bottom: var(--space-2); color: var(--navy);"><i data-lucide="cpu" class="icon-sm icon-with-text"></i>KI-Vorprüfung</h3>
-                <p style="color: var(--text-medium); margin-bottom: var(--space-3);">Automatischer Abgleich mit Richtlinien, Plausibilitätschecks</p>
-                <div style="background: var(--off-white); padding: var(--space-3); border-radius: var(--border-radius-md); font-size: var(--text-sm);">
-                  <strong>KI:</strong> Vollständigkeitsprüfung, Kostensatz-Abgleich, Richtlinien-Check
-                </div>
+          <!-- SCHRITT 2: RECHTS -->
+          <div class="zigzag-step zigzag-step-right">
+            <div class="zigzag-step-number">2</div>
+            <div class="zigzag-step-card">
+              <div class="zigzag-step-icon">
+                <i data-lucide="cpu"></i>
               </div>
+              <h3>KI-Vorprüfung</h3>
+              <p class="zigzag-step-description">
+                Automatischer Abgleich mit Richtlinien, Plausibilitätschecks
+              </p>
+              <div class="zigzag-step-detail">
+                <strong>KI:</strong> Vollständigkeitsprüfung, Kostensatz-Abgleich, Richtlinien-Check
+              </div>
+            </div>
+            <div class="zigzag-arrow">
+              <i data-lucide="arrow-left"></i>
             </div>
           </div>
           
-          <!-- PFEIL -->
-          <div style="text-align: center; font-size: 24px; color: var(--text-light); margin: var(--space-2) 0;">↓</div>
+          <!-- PFEIL NACH UNTEN -->
+          <div class="zigzag-arrow-down">
+            <i data-lucide="arrow-down"></i>
+          </div>
           
-          <!-- SCHRITT 3 -->
-          <div class="card" style="margin-bottom: var(--space-4); border-left: 4px solid var(--navy);">
-            <div style="display: flex; gap: var(--space-6); align-items: flex-start;">
-              <div style="background: var(--navy); color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--text-xl); font-weight: bold; flex-shrink: 0;">3</div>
-              <div style="flex: 1;">
-                <h3 style="margin-bottom: var(--space-2); color: var(--navy);"><i data-lucide="bar-chart-3" class="icon-sm icon-with-text"></i>Ergebnisübersicht</h3>
-                <p style="color: var(--text-medium); margin-bottom: var(--space-3);">Dashboard mit Ampel-Status für jeden Prüfpunkt</p>
-                <div style="background: var(--off-white); padding: var(--space-3); border-radius: var(--border-radius-md); font-size: var(--text-sm);">
-                  <strong>KI:</strong> Visualisierung der Ergebnisse, Risiko-Scoring, Handlungsempfehlungen
-                </div>
+          <!-- SCHRITT 3: LINKS -->
+          <div class="zigzag-step zigzag-step-left">
+            <div class="zigzag-step-number">3</div>
+            <div class="zigzag-step-card">
+              <div class="zigzag-step-icon">
+                <i data-lucide="bar-chart-3"></i>
               </div>
+              <h3>Strukturierte Ergebnisübersicht</h3>
+              <p class="zigzag-step-description">
+                Dashboard mit markierten Positionen (Ampel-Logik)
+              </p>
+              <div class="zigzag-step-detail">
+                <strong>Ergebnis:</strong> Grün (12 Pos.) | Gelb (3 Pos.) | Rot (1 Pos.)
+              </div>
+            </div>
+            <div class="zigzag-arrow">
+              <i data-lucide="arrow-right"></i>
             </div>
           </div>
           
-          <!-- PFEIL -->
-          <div style="text-align: center; font-size: 24px; color: var(--text-light); margin: var(--space-2) 0;">↓</div>
-          
-          <!-- SCHRITT 4 - MENSCH -->
-          <div class="card" style="margin-bottom: var(--space-4); border-left: 4px solid var(--orange); background: #FEF9F5;">
-            <div style="display: flex; gap: var(--space-6); align-items: flex-start;">
-              <div style="background: var(--orange); color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--text-xl); font-weight: bold; flex-shrink: 0;">4</div>
-              <div style="flex: 1;">
-                <h3 style="margin-bottom: var(--space-2); color: var(--orange);"><i data-lucide="user" class="icon-sm icon-with-text"></i>Menschliche Bewertung</h3>
-                <p style="color: var(--text-medium); margin-bottom: var(--space-3);">Sachbearbeiter prüft kritische Fälle, entscheidet bei Ausnahmen</p>
-                <div style="background: white; padding: var(--space-3); border-radius: var(--border-radius-md); font-size: var(--text-sm); border: 1px solid var(--orange);">
-                  <strong style="color: var(--orange);"><i data-lucide="alert-triangle" class="icon-sm icon-with-text"></i>MENSCH ENTSCHEIDET:</strong> Finale Bewertung, Ausnahme-Genehmigung, Kontext-Beurteilung
-                </div>
+          <!-- SCHRITT 4: RECHTS - MENSCH -->
+          <div class="zigzag-step zigzag-step-right">
+            <div class="zigzag-step-number human-number">4</div>
+            <div class="zigzag-step-card human-step">
+              <div class="zigzag-step-icon">
+                <i data-lucide="user-check"></i>
               </div>
+              <h3>Menschliche Bewertung & Entscheidung</h3>
+              <p class="zigzag-step-description">
+                HR-Sachbearbeiter prüft gezielt und entscheidet
+              </p>
+              <div class="zigzag-step-detail">
+                <strong>Optionen:</strong> Freigeben | Nachfrage | Ablehnen | Eskalieren
+              </div>
+            </div>
+            <div class="zigzag-arrow">
+              <i data-lucide="arrow-left"></i>
             </div>
           </div>
           
-          <!-- PFEIL -->
-          <div style="text-align: center; font-size: 24px; color: var(--text-light); margin: var(--space-2) 0;">↓</div>
+          <!-- PFEIL NACH UNTEN -->
+          <div class="zigzag-arrow-down">
+            <i data-lucide="arrow-down"></i>
+          </div>
           
-          <!-- SCHRITT 5 -->
-          <div class="card" style="margin-bottom: var(--space-4); border-left: 4px solid var(--navy);">
-            <div style="display: flex; gap: var(--space-6); align-items: flex-start;">
-              <div style="background: var(--navy); color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--text-xl); font-weight: bold; flex-shrink: 0;">5</div>
-              <div style="flex: 1;">
-                <h3 style="margin-bottom: var(--space-2); color: var(--navy);"><i data-lucide="check-circle" class="icon-sm icon-with-text icon-success"></i>Governance-Freigabe</h3>
-                <p style="color: var(--text-medium); margin-bottom: var(--space-3);">Freigabe-Workflow mit digitalem Unterschriftsfeld</p>
-                <div style="background: var(--off-white); padding: var(--space-3); border-radius: var(--border-radius-md); font-size: var(--text-sm);">
-                  <strong>System:</strong> Dokumentation der Freigabe, Eskalation bei Bedarf
-                </div>
+          <!-- SCHRITT 5: LINKS -->
+          <div class="zigzag-step zigzag-step-left">
+            <div class="zigzag-step-number">5</div>
+            <div class="zigzag-step-card">
+              <div class="zigzag-step-icon">
+                <i data-lucide="shield-check"></i>
               </div>
+              <h3>Governance-Freigabe</h3>
+              <p class="zigzag-step-description">
+                Bei kritischen Fällen: Vier-Augen-Prinzip
+              </p>
+              <div class="zigzag-step-detail">
+                <strong>Regel:</strong> Schwellwert >5.000€ → Teamleiter-Freigabe erforderlich
+              </div>
+            </div>
+            <div class="zigzag-arrow">
+              <i data-lucide="arrow-right"></i>
             </div>
           </div>
           
-          <!-- PFEIL -->
-          <div style="text-align: center; font-size: 24px; color: var(--text-light); margin: var(--space-2) 0;">↓</div>
-          
-          <!-- SCHRITT 6 -->
-          <div class="card" style="margin-bottom: var(--space-4); border-left: 4px solid var(--navy);">
-            <div style="display: flex; gap: var(--space-6); align-items: flex-start;">
-              <div style="background: var(--navy); color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--text-xl); font-weight: bold; flex-shrink: 0;">6</div>
-              <div style="flex: 1;">
-                <h3 style="margin-bottom: var(--space-2); color: var(--navy);"><i data-lucide="clipboard-list" class="icon-sm icon-with-text"></i>Audit-Trail</h3>
-                <p style="color: var(--text-medium); margin-bottom: var(--space-3);">Lückenlose Dokumentation für Revision und Compliance</p>
-                <div style="background: var(--off-white); padding: var(--space-3); border-radius: var(--border-radius-md); font-size: var(--text-sm);">
-                  <strong>System:</strong> Automatische Protokollierung aller Schritte, Export für Betriebsprüfung
-                </div>
+          <!-- SCHRITT 6: RECHTS -->
+          <div class="zigzag-step zigzag-step-right">
+            <div class="zigzag-step-number">6</div>
+            <div class="zigzag-step-card">
+              <div class="zigzag-step-icon">
+                <i data-lucide="file-text"></i>
               </div>
+              <h3>Audit-Trail & Dokumentation</h3>
+              <p class="zigzag-step-description">
+                Automatische, revisionsfeste Protokollierung
+              </p>
+              <div class="zigzag-step-detail">
+                <strong>Protokoll:</strong> Wer? Was? Wann? Warum? → Vollständig nachvollziehbar
+              </div>
+            </div>
+            <div class="zigzag-arrow">
+              <i data-lucide="arrow-left"></i>
             </div>
           </div>
           
         </div>
         
         <!-- WICHTIGER HINWEIS -->
-        <div class="info-box" style="margin-top: var(--space-10);">
+        <div class="info-box" style="margin-top: var(--space-10); max-width: 1100px; margin-left: auto; margin-right: auto;">
           <div class="info-box-icon"><i data-lucide="lightbulb"></i></div>
-          <div class="info-box-title">KERNPRINZIP</div>
+          <div class="info-box-title">Kernprinzip</div>
           <div class="info-box-text">
             <p style="font-size: var(--text-lg); margin: 0;">
-              <strong>KI trifft KEINE finale Entscheidung.</strong><br>
+              <strong>KI trifft keine finale Entscheidung.</strong><br>
               KI bereitet vor, strukturiert und empfiehlt – der Mensch validiert, bewertet und entscheidet.
             </p>
           </div>
         </div>
         
-        <!-- NAVIGATION -->
-        <div style="display: flex; justify-content: space-between; margin-top: var(--space-12);">
+        </div><!-- /slide-content -->
+        
+        <!-- SLIDE FOOTER -->
+        <div class="slide-footer" style="max-width: 1100px; margin: 20px auto 0;">
           <a href="screen-3-governance.html" class="btn btn-secondary">← Zurück zu Governance</a>
           <a href="screen-5-mockup.html" class="btn btn-primary">Weiter zu Visualisierung →</a>
         </div>
-      </div>
+        
+      </div><!-- /slide-container -->
+      
     </main>
     
     <footer class="footer">

@@ -86,8 +86,8 @@ h6 {
   font-size: var(--text-sm);
   font-weight: var(--font-bold);
   color: var(--text-medium);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  text-transform: none;
+  letter-spacing: 0;
   margin-bottom: var(--space-2);
 }
 
@@ -486,8 +486,8 @@ th {
   font-weight: var(--font-bold);
   color: var(--text-dark);
   font-size: var(--text-sm);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 td {
@@ -978,35 +978,224 @@ input:focus-visible {
 }
 
 /* ============================================
-   BEAMER MODE
+   SLIDE / FOLIEN-LAYOUT SYSTEM
+   Jeder Screen = Eine Präsentationsfolie (1920×1080)
+   ============================================ */
+
+/* 
+ * KONZEPT:
+ * - Jeder Screen ist wie eine "Folie" mit klarer Bühne
+ * - Hauptcontainer füllt den sichtbaren Bereich
+ * - Teaser des nächsten Containers (40-80px) als bewusster Hinweis
+ * - Scroll-Snap für saubere Navigation zwischen Sections
+ */
+
+/* Slide Container - Wrapper für Folien-Layout */
+.slide-container {
+  min-height: calc(100vh - var(--header-height) - var(--nav-height) - 60px);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 80px 32px;
+  box-sizing: border-box;
+}
+
+/* Slide Header - Titel-Bereich (kompakt) */
+.slide-header {
+  text-align: center;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.slide-header h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-darkest);
+  margin: 0 0 6px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.slide-header p {
+  font-size: 15px;
+  color: var(--text-medium);
+  margin: 0;
+}
+
+/* Slide Content - Hauptbereich (flexibel) */
+.slide-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* Slide Footer - Navigation unten */
+.slide-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-gray);
+  flex-shrink: 0;
+}
+
+/* ============================================
+   SCROLL-SNAP FÜR MULTI-SECTION SCREENS
+   ============================================ */
+
+.snap-container {
+  scroll-snap-type: y proximity;
+  overflow-y: auto;
+  height: calc(100vh - var(--header-height) - var(--nav-height));
+  scroll-behavior: smooth;
+  scroll-padding-top: 20px;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  min-height: calc(100vh - var(--header-height) - var(--nav-height) - 100px);
+  padding: 24px 80px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Teaser-Effekt: Nächste Section leicht angeschnitten (bewusst!) */
+.snap-section.with-teaser {
+  min-height: calc(100vh - var(--header-height) - var(--nav-height) - 160px);
+  margin-bottom: 60px;
+}
+
+/* ============================================
+   BEAMER MODE (1920×1080) - Optimiert für Projektor
    ============================================ */
 
 @media screen and (min-width: 1920px) {
-  body {
-    font-size: var(--text-lg);
+  /* Container-Breite für große Screens */
+  .container {
+    max-width: 1700px;
+    padding: 0 100px;
   }
   
+  /* Main Content mit weniger Padding */
+  .main-content {
+    padding-top: calc(var(--header-height) + var(--nav-height));
+    padding-bottom: 20px;
+  }
+  
+  /* Slide Container auf Beamer - Alles sichtbar ohne Scrollen */
+  .slide-container {
+    padding: 20px 100px 24px;
+    min-height: calc(100vh - var(--header-height) - var(--nav-height) - 40px);
+    max-height: calc(100vh - var(--header-height) - var(--nav-height) - 40px);
+    overflow: hidden;
+  }
+  
+  .slide-header {
+    margin-bottom: 16px;
+  }
+  
+  .slide-header h1 {
+    font-size: 28px;
+  }
+  
+  .slide-header p {
+    font-size: 16px;
+  }
+  
+  /* Kompaktere Typografie für Beamer */
   h1 {
-    font-size: clamp(48px, 5vw, 64px);
+    font-size: 32px;
+    margin-bottom: 12px;
   }
   
   h2 {
-    font-size: clamp(32px, 3vw, 48px);
+    font-size: 22px;
+    margin-bottom: 10px;
   }
   
-  p {
-    font-size: var(--text-lg);
-    line-height: var(--line-loose);
+  h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
   }
   
+  p, li {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  
+  /* Cards kompakter für Beamer */
+  .card {
+    padding: 20px 24px;
+    min-height: auto;
+  }
+  
+  /* Kompaktere Grids */
+  .grid-2 { gap: 40px; }
+  .grid-3 { gap: 28px; }
+  .grid-4 { gap: 20px; }
+  
+  /* Buttons */
   .btn {
-    font-size: var(--text-lg);
-    padding: 16px 40px;
-    min-height: 52px;
+    font-size: 14px;
+    padding: 10px 24px;
+    min-height: 40px;
+  }
+  
+  .btn-lg {
+    font-size: 15px;
+    padding: 12px 28px;
+    min-height: 44px;
+  }
+  
+  /* Info-Boxen kompakter */
+  .info-box {
+    padding: 16px 20px;
+    margin: 16px 0;
+  }
+  
+  .info-box-title {
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  
+  .info-box-text {
+    font-size: 14px;
+  }
+  
+  /* Page Header kompakter */
+  .page-header {
+    padding: 12px 0;
+    margin-bottom: 8px;
+  }
+  
+  .page-title {
+    font-size: 22px;
+    margin-bottom: 4px;
+  }
+  
+  .page-subtitle {
+    font-size: 14px;
+  }
+  
+  /* Footer minimal */
+  .footer {
+    padding: 12px var(--container-padding);
+  }
+  
+  /* Snap-Sections für Beamer */
+  .snap-section {
+    padding: 20px 100px 32px;
+    min-height: calc(100vh - var(--header-height) - var(--nav-height) - 80px);
   }
 }
 
-/* Full-screen Mode */
+/* ============================================
+   FULLSCREEN / PRÄSENTATIONS-MODUS
+   ============================================ */
+
 .fullscreen {
   position: fixed;
   top: 0;

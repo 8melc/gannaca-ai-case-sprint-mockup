@@ -55,6 +55,22 @@
       height: 16px;
     }
     
+    /* PAGE HEADER STICKY (auch im Fokus-Modus sichtbar) */
+    .page-header-sticky {
+      position: sticky;
+      top: calc(var(--header-height) + var(--nav-height));
+      z-index: 80;
+      background: var(--white);
+      padding-top: var(--space-6);
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--border-gray);
+    }
+    
+    /* Scroll-Offset für Sections unter Sticky-Header */
+    .form-section {
+      scroll-margin-top: 150px;
+    }
+    
     /* FOKUS-MODUS NAVIGATION */
     .focus-nav {
       display: none;
@@ -150,13 +166,74 @@
     body.focus-mode-active .form-section.focus-visible {
       display: block !important;
       animation: fadeInUp 0.3s ease;
-      /* Bessere Darstellung im Fokus-Modus */
-      max-width: 800px;
+      /* BEAMER-OPTIMIERT: Section zentriert auf Folie */
+      max-width: 900px;
       margin: 0 auto;
-      padding: 32px 40px;
+      padding: 28px 36px;
       background: white;
       border-radius: 12px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      /* Teaser: Nächste Section leicht angeschnitten */
+      margin-bottom: 60px;
+    }
+    
+    /* BEAMER-MODUS: Fokus-Section füllt sichtbaren Bereich */
+    @media screen and (min-width: 1920px) {
+      body.focus-mode-active .form-section.focus-visible {
+        max-width: 1000px;
+        padding: 24px 40px;
+        min-height: calc(100vh - var(--header-height) - var(--nav-height) - 200px);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+      
+      body.focus-mode-active .form-section-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      
+      body.focus-mode-active .form-section-number {
+        width: 52px;
+        height: 52px;
+        font-size: 22px;
+      }
+      
+      body.focus-mode-active .form-label {
+        font-size: 16px;
+      }
+      
+      body.focus-mode-active .form-input,
+      body.focus-mode-active .form-textarea,
+      body.focus-mode-active .form-select {
+        font-size: 17px;
+        padding: 16px 18px;
+      }
+      
+      body.focus-mode-active .form-radio-item,
+      body.focus-mode-active .form-checkbox-item {
+        padding: 16px 20px;
+        font-size: 16px;
+      }
+      
+      /* Fokus-Navigation größer */
+      .focus-nav {
+        padding: 20px 60px;
+      }
+      
+      .focus-nav-step {
+        font-size: 20px;
+      }
+      
+      .focus-nav-dot {
+        width: 12px;
+        height: 12px;
+      }
+      
+      .focus-nav-btn {
+        padding: 14px 28px;
+        font-size: 16px;
+      }
     }
     body.focus-mode-active .focus-nav {
       display: block;
@@ -263,7 +340,7 @@
     <main class="main-content">
       
       <!-- Page Header -->
-      <div class="page-header">
+      <div class="page-header page-header-sticky">
         <div class="page-header-inner">
           <h1 class="page-title"><i data-lucide="clipboard-edit" class="icon-with-text"></i>Live-Erfassung: Ihre Cases strukturiert dokumentiert</h1>
           <p class="page-subtitle">Für alle Teilnehmer sichtbar – Eingabe durch gannaca-Team</p>
@@ -460,7 +537,7 @@
                 Risiko bei Nicht-Handlung
               </h3>
               <div class="form-group">
-                <label class="form-label form-label-required">Was passiert, wenn das Problem NICHT gelöst wird? (Skala 1-5)</label>
+                <label class="form-label form-label-required">Was passiert, wenn das Problem nicht gelöst wird? (Skala 1-5)</label>
                 <div class="form-rating-group" id="risikoGroup">
                   <label class="form-rating-item"><input type="radio" name="risiko" value="1">1</label>
                   <label class="form-rating-item"><input type="radio" name="risiko" value="2">2</label>
@@ -684,27 +761,9 @@ Tippe hier - das Feld wächst automatisch mit!"
     }
     
     function scrollToFieldSmooth(field) {
-      // Berechne Sticky-Header Offset
-      const browserChrome = 48; // Browser-Chrome Höhe
-      const header = document.querySelector('.header');
-      const banner = document.querySelector('.data-protection-banner');
-      const tabs = document.querySelector('.nav-tabs');
-      
-      let offset = browserChrome + 40; // Base + Extra Padding
-      if (header) offset += header.offsetHeight;
-      if (banner) offset += banner.offsetHeight;
-      if (tabs) offset += tabs.offsetHeight;
-      
-      // Berechne Position des Feldes
-      const rect = field.getBoundingClientRect();
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const targetY = rect.top + scrollTop - offset;
-      
-      // Smooth Scroll
-      window.scrollTo({
-        top: targetY,
-        behavior: 'smooth'
-      });
+      // Nutze scroll-margin-top auf .form-section, um Sticky-Header zu berücksichtigen
+      const section = field.closest('.form-section') || field;
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
     
     // ============================================
@@ -996,7 +1055,6 @@ Tippe hier - das Feld wächst automatisch mit!"
       gesamtaufwandField.style.backgroundColor = 'var(--color-bg-light)';
       hintField.style.display = 'none';
       
-      window.scrollTo(0, 0);
       updateUI();
     }
     
@@ -1087,7 +1145,7 @@ Tippe hier - das Feld wächst automatisch mit!"
         section.classList.remove('focus-visible');
         if (i === stepIndex) {
           section.classList.add('focus-visible');
-          section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
       
@@ -1124,10 +1182,11 @@ Tippe hier - das Feld wächst automatisch mit!"
       if (currentFocusStep < totalSteps - 1) {
         showFocusStep(currentFocusStep + 1);
       } else {
-        // Nach Schritt 11: Fokus-Modus beenden und zu Speichern-Buttons scrollen
+        // Nach Schritt 11: Fokus-Modus beenden und Footer sichtbar machen
         toggleFocusMode();
         setTimeout(() => {
-          document.querySelector('.form-actions')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          document.querySelector('.form-actions')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          document.querySelector('.footer')?.scrollIntoView({ behavior: 'smooth', block: 'end' });
         }, 300);
       }
     }

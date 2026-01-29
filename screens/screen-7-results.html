@@ -58,10 +58,34 @@
       opacity: 0;
       transition: opacity 0.2s ease;
       font-weight: var(--font-medium);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    
+    .case-edit-hint svg {
+      flex-shrink: 0;
     }
     
     .case-card:hover .case-edit-hint {
       opacity: 1;
+    }
+    
+    /* SVG Icons in Case-Karten */
+    .case-abteilung {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .case-abteilung svg {
+      flex-shrink: 0;
+      stroke: var(--text-medium);
+    }
+    
+    .case-footer span svg {
+      flex-shrink: 0;
+      stroke: var(--text-medium);
     }
     
     .case-card-header {
@@ -518,15 +542,17 @@
     <!-- MAIN CONTENT -->
     <main class="main-content">
       
-      <!-- Page Header -->
-      <div class="page-header">
-        <div class="page-header-inner">
-          <h1 class="page-title"><i data-lucide="bar-chart-3" class="icon-with-text"></i>Workshop-Ergebnis: Longlist mit <span id="caseCountTitle">0</span> Cases</h1>
-          <p class="page-subtitle">Vollständig dokumentierte Problemfälle – bereit für Bewertung & Priorisierung</p>
+      <!-- SLIDE CONTAINER (scrollbar wegen variabler Case-Anzahl) -->
+      <div class="slide-container" style="overflow-y: auto; max-height: none;">
+        
+        <!-- SLIDE HEADER -->
+        <div class="slide-header">
+          <h1><i data-lucide="bar-chart-3" style="width:26px;height:26px;"></i>Workshop-Ergebnis: Longlist mit <span id="caseCountTitle">0</span> Cases</h1>
+          <p>Vollständig dokumentierte Problemfälle – bereit für Bewertung & Priorisierung</p>
         </div>
-      </div>
-      
-      <div class="container">
+        
+        <!-- SLIDE CONTENT -->
+        <div class="slide-content">
         
         <!-- Demo-Daten Banner (nur wenn leer) -->
         <div class="demo-banner" id="demoBanner" style="display: none;">
@@ -557,7 +583,7 @@
         <!-- SUCCESS BOX (nur wenn Cases vorhanden) -->
         <div class="success-box info-box" id="successBox" style="margin-bottom: 32px; display: none;">
           <div class="info-box-icon"><i data-lucide="check-circle" class="icon-success"></i></div>
-          <div class="info-box-title" style="color: var(--color-success);">WORKSHOP ERFOLGREICH DOKUMENTIERT</div>
+          <div class="info-box-title" style="color: var(--color-success);">Workshop erfolgreich dokumentiert</div>
           <div class="info-box-text">
             <p style="margin: 0;">Alle Cases wurden strukturiert erfasst und sind bereit für die KI-gestützte Analyse. Die Priorisierungs-Matrix wird in den nächsten 2-3 Tagen erstellt.</p>
           </div>
@@ -577,7 +603,7 @@
         <!-- NEXT STEPS -->
         <div class="info-box" id="nextStepsBox" style="margin-top: 40px; display: none;">
           <div class="info-box-icon"><i data-lucide="clipboard-list"></i></div>
-          <div class="info-box-title">NÄCHSTE SCHRITTE</div>
+          <div class="info-box-title">Nächste Schritte</div>
           <div class="info-box-text">
             <p style="margin-bottom: 12px;"><strong>Diese Cases werden jetzt KI-gestützt analysiert:</strong></p>
             <ol style="margin: 0; padding-left: 24px;">
@@ -586,7 +612,7 @@
               <li style="padding: 4px 0;">Identifikation Top-3 Cases</li>
               <li style="padding: 4px 0;">Empfehlung für finalen Case</li>
             </ol>
-            <p style="margin-top: 16px; margin-bottom: 0;"><strong style="color: var(--color-accent);">ERGEBNIS folgt in 48 Stunden per E-Mail.</strong></p>
+            <p style="margin-top: 16px; margin-bottom: 0;"><strong style="color: var(--color-accent);">Ergebnis folgt in 48 Stunden per E-Mail.</strong></p>
           </div>
         </div>
         
@@ -598,13 +624,15 @@
           <button class="btn btn-tertiary" onclick="confirmClearAll()"><i data-lucide="trash-2" class="icon-sm"></i> Alle Cases löschen</button>
         </div>
         
-        <!-- NAVIGATION -->
-        <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+        </div><!-- /slide-content -->
+        
+        <!-- SLIDE FOOTER -->
+        <div class="slide-footer" style="margin-top: 24px;">
           <a href="screen-6-form.html" class="btn btn-primary">+ Neuen Case erfassen</a>
           <a href="screen-8-matrix.html" class="btn btn-secondary">Zur Priorisierungs-Matrix →</a>
         </div>
         
-      </div><!-- /container -->
+      </div><!-- /slide-container -->
       
     </main>
     
@@ -837,21 +865,56 @@
         
         html += `
           <div class="case-card" onclick="editCase(${caseItem.caseNumber})">
-            <div class="case-edit-hint">✏️ Klicken zum Bearbeiten</div>
+            <div class="case-edit-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+              </svg>
+              Klicken zum Bearbeiten
+            </div>
             <div class="case-card-header">
               <span class="case-number">CASE #${caseItem.caseNumber.toString().padStart(2, '0')}</span>
               <span class="case-timestamp">${caseItem.timestamp || ''}</span>
             </div>
             <h4 class="case-title">${caseItem.problemTitel || 'Kein Titel'}</h4>
             <div class="case-meta">
-              <span class="case-abteilung">📍 ${abteilungen}</span>
+              <span class="case-abteilung">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                ${abteilungen}
+              </span>
               ${caseItem.strategischeRelevanz ? `<span class="case-relevanz ${relevanzClass}">${caseItem.strategischeRelevanz}</span>` : ''}
             </div>
             <p class="case-problem">${problemText}</p>
             <div class="case-footer">
-              <span><i data-lucide="alert-triangle" class="icon-sm icon-warning"></i> Risiko: ${caseItem.risiko || '-'}/5</span>
-              <span><i data-lucide="calendar" class="icon-sm"></i> ${caseItem.haeufigkeit || '-'}</span>
-              <span><i data-lucide="users" class="icon-sm"></i> ${caseItem.betroffenePersonen || '-'} Pers.</span>
+              <span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                  <line x1="12" y1="9" x2="12" y2="13"></line>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+                Risiko: ${caseItem.risiko || '-'}/5
+              </span>
+              <span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                ${caseItem.haeufigkeit || '-'}
+              </span>
+              <span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                ${caseItem.betroffenePersonen || '-'} Pers.
+              </span>
             </div>
           </div>
         `;

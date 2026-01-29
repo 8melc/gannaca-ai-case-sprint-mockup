@@ -13,6 +13,36 @@
   
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  
+  <!-- Screen-spezifische Beamer-Optimierung -->
+  <style>
+    @media screen and (min-width: 1920px) {
+      /* Kompaktere Mockup-Karten */
+      .grid-3 .card {
+        padding: 16px 20px;
+        min-height: auto;
+      }
+      
+      .grid-3 .card h4 {
+        font-size: 14px;
+        margin-bottom: 6px;
+      }
+      
+      .grid-3 .card p {
+        font-size: 12px;
+      }
+      
+      /* Platzhalter-Box */
+      .grid-3 .card > div:first-child {
+        height: 120px !important;
+      }
+      
+      /* Info-Box kompakter */
+      .info-box {
+        margin-bottom: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="page-wrapper">
@@ -56,19 +86,23 @@
     
     <!-- MAIN CONTENT -->
     <main class="main-content">
-      <div class="page-header">
-        <div class="page-header-inner">
-          <h1 class="page-title"><i data-lucide="layout" class="icon-with-text"></i>Mockup-Visualisierung</h1>
-          <p class="page-subtitle">Wie könnte das Interface der Zukunft aussehen?</p>
-        </div>
-      </div>
       
-      <div class="container">
+      <!-- SLIDE CONTAINER -->
+      <div class="slide-container">
+        
+        <!-- SLIDE HEADER -->
+        <div class="slide-header">
+          <h1><i data-lucide="layout" style="width:26px;height:26px;"></i>Mockup-Visualisierung</h1>
+          <p>Wie könnte das Interface der Zukunft aussehen?</p>
+        </div>
+        
+        <!-- SLIDE CONTENT -->
+        <div class="slide-content">
         
         <!-- HINWEIS -->
         <div class="info-box" style="margin-bottom: var(--space-10);">
           <div class="info-box-icon"><i data-lucide="lightbulb"></i></div>
-          <div class="info-box-title">KONZEPTIONELLE WIREFRAMES</div>
+          <div class="info-box-title">Konzeptionelle Wireframes</div>
           <div class="info-box-text">
             <p style="margin: 0 0 var(--space-4) 0;">Die folgenden Screens zeigen, wie ein KI-unterstütztes System aussehen <strong>könnte</strong>. Dies sind konzeptionelle Wireframes, keine finalen Designs.</p>
             <p style="margin: 0 0 var(--space-2) 0;"><strong>Zweck dieser Visualisierung (laut AI Case Sprint PDF):</strong></p>
@@ -161,7 +195,7 @@
         <!-- HINWEIS ZU PHASE 3 -->
         <div class="info-box" style="background: var(--off-white); border-left-color: var(--text-medium);">
           <div class="info-box-icon"><i data-lucide="construction"></i></div>
-          <div class="info-box-title">PHASE 3: DETAILLIERTE MOCKUPS</div>
+          <div class="info-box-title">Phase 3: Detaillierte Mockups</div>
           <div class="info-box-text">
             <p style="margin: 0;">
               Detaillierte, klickbare Wireframes werden nach dem Workshop in Phase 3 erstellt – basierend auf dem im Workshop ausgewählten finalen Case.
@@ -169,12 +203,16 @@
           </div>
         </div>
         
-        <!-- NAVIGATION -->
-        <div style="display: flex; justify-content: space-between; margin-top: var(--space-12);">
+        </div><!-- /slide-content -->
+        
+        <!-- SLIDE FOOTER -->
+        <div class="slide-footer">
           <a href="screen-4-process.html" class="btn btn-secondary">← Zurück zu Zielprozess</a>
           <a href="screen-6-form.html" class="btn btn-primary">Zur Case-Erfassung <i data-lucide="star" class="icon-sm"></i> →</a>
         </div>
-      </div>
+        
+      </div><!-- /slide-container -->
+      
     </main>
     
     <footer class="footer">
