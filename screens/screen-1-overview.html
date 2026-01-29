@@ -17,11 +17,205 @@
   
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  
+  <style>
+    /* Vollbild-Layout für diese Seite */
+    .overview-layout {
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - var(--header-height) - var(--nav-height));
+      padding: 16px 24px;
+      box-sizing: border-box;
+    }
+    
+    .overview-title {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    
+    .overview-title h1 {
+      font-size: 24px;
+      margin: 0 0 4px 0;
+    }
+    
+    .overview-title p {
+      font-size: 14px;
+      color: var(--text-medium);
+      margin: 0;
+    }
+    
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      flex: 1;
+      min-height: 0;
+    }
+    
+    .overview-card {
+      background: var(--white);
+      border: 2px solid var(--border-gray);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    
+    .overview-card.highlight {
+      background: var(--off-white);
+      border-color: var(--navy);
+    }
+    
+    .overview-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-gray);
+      margin-bottom: 12px;
+    }
+    
+    .overview-card-header h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .overview-card-content {
+      flex: 1;
+      overflow: hidden;
+      font-size: 13px;
+    }
+    
+    .problem-item {
+      display: flex;
+      gap: 10px;
+      padding: 8px 10px;
+      background: var(--white);
+      border: 1px solid var(--border-gray);
+      border-left: 3px solid var(--text-darkest);
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+    
+    .problem-item.medium { border-left-color: var(--text-dark); }
+    .problem-item.low { border-left-color: var(--text-medium); }
+    
+    .problem-item h4 {
+      font-size: 12px;
+      font-weight: 700;
+      margin: 0 0 2px 0;
+      text-transform: uppercase;
+    }
+    
+    .problem-item p {
+      font-size: 12px;
+      margin: 0;
+      color: var(--text-medium);
+      line-height: 1.4;
+    }
+    
+    .engpass-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-gray);
+    }
+    
+    .engpass-tag {
+      background: var(--light-gray);
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      color: var(--text-dark);
+    }
+    
+    .ki-mensch-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 16px;
+      background: var(--white);
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+    
+    .flow-box {
+      text-align: center;
+      padding: 12px 20px;
+      min-width: 100px;
+    }
+    
+    .flow-box i {
+      width: 32px;
+      height: 32px;
+      color: var(--navy);
+    }
+    
+    .flow-box strong {
+      display: block;
+      font-size: 13px;
+      margin-top: 4px;
+      color: var(--navy);
+    }
+    
+    .flow-box span {
+      display: block;
+      font-size: 11px;
+      color: var(--text-medium);
+      margin-top: 2px;
+    }
+    
+    .flow-arrow {
+      font-size: 24px;
+      color: var(--navy);
+    }
+    
+    .framework-box {
+      background: var(--white);
+      border: 2px dashed var(--navy);
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+    }
+    
+    .framework-box h4 {
+      font-size: 12px;
+      color: var(--navy);
+      margin: 0 0 6px 0;
+    }
+    
+    .framework-box p {
+      font-size: 12px;
+      margin: 0;
+      color: var(--text-medium);
+    }
+    
+    .overview-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      margin-top: auto;
+    }
+    
+    .overview-footer .btn {
+      padding: 8px 16px;
+      font-size: 13px;
+    }
+  </style>
 </head>
 <body>
   <div class="page-wrapper">
     
-    <!-- NEUER HEADER -->
+    <!-- HEADER -->
     <header class="main-header">
       <div class="header-container">
         <div class="header-left">
@@ -76,201 +270,123 @@
       </div>
     </nav>
     
-    <!-- MAIN CONTENT -->
-    <main class="main-content">
-      
-      <!-- Page Header -->
-      <div class="page-header">
-        <div class="page-header-inner">
-          <h1 class="page-title"><i data-lucide="target" class="icon-with-text"></i>Das gannaca AI-Case Sprint Framework</h1>
-          <p class="page-subtitle">Ein standardisiertes Denkmodell für strukturierte KI-Use-Case-Entwicklung</p>
-        </div>
-      </div>
-      
-      <div class="container">
+    <!-- MAIN CONTENT - Vollbild ohne Scrollen -->
+    <main class="main-content" style="padding-bottom: 0;">
+      <div class="overview-layout">
         
-        <!-- 2-Spalten-Layout -->
-        <div class="grid grid-2" style="gap: var(--spacing-2xl); align-items: start;">
+        <!-- Titel -->
+        <div class="overview-title">
+          <h1><i data-lucide="target" style="width:24px;height:24px;vertical-align:middle;margin-right:8px;"></i>Das gannaca AI-Case Sprint Framework</h1>
+          <p>Ein standardisiertes Denkmodell für strukturierte KI-Use-Case-Entwicklung</p>
+        </div>
+        
+        <!-- 2-Spalten Grid -->
+        <div class="overview-grid">
           
-          <!-- LINKE SPALTE: Ausgangslage -->
-          <div>
-            <div class="card">
-              <div class="card-header">
-                <h3 style="display: flex; align-items: center; gap: var(--spacing-sm); margin: 0;">
-                  <i data-lucide="alert-triangle" class="icon-lg icon-warning"></i>
-                  PROBLEM-FIRST-ANALYSE
-                </h3>
-              </div>
-              
-              <p style="color: var(--color-text-medium); margin-bottom: var(--spacing-lg);">
-                <strong>Methodik:</strong> Kein Tool-Push. Ausgangspunkt ist immer ein konkreter Engpass.<br>
-                Ein typisches Beispiel aus regulierten Unternehmen:
+          <!-- LINKE KARTE: Problem-Analyse -->
+          <div class="overview-card">
+            <div class="overview-card-header">
+              <i data-lucide="alert-triangle" style="width:20px;height:20px;color:#FFC107;"></i>
+              <h3>Problem-First-Analyse</h3>
+            </div>
+            <div class="overview-card-content">
+              <p style="margin:0 0 10px;color:var(--text-medium);">
+                <strong>Methodik:</strong> Kein Tool-Push. Ausgangspunkt ist immer ein konkreter Engpass.
               </p>
               
-              <!-- Problem 1 -->
-              <div class="box" style="border-left: 4px solid var(--text-darkest); margin-bottom: var(--space-4);">
-                <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
-                  <span style="font-size: 1.5em;">■</span>
-                  <div>
-                    <h4 style="margin-bottom: var(--space-1); color: var(--text-darkest);">HOHER MANUELLER AUFWAND</h4>
-                    <p style="margin: 0; color: var(--text-dark);">
-                      Sachbearbeiter prüfen 50-200 Reisekostenabrechnungen pro Monat manuell gegen interne Richtlinien.
-                      <strong>Jede Abrechnung: 15-30 Minuten Prüfzeit.</strong>
-                    </p>
-                  </div>
+              <div class="problem-item">
+                <div>
+                  <h4>Hoher manueller Aufwand</h4>
+                  <p>50-200 Reisekostenabrechnungen/Monat manuell prüfen. <strong>15-30 Min pro Abrechnung.</strong></p>
                 </div>
               </div>
               
-              <!-- Problem 2 -->
-              <div class="box" style="border-left: 4px solid var(--text-dark); margin-bottom: var(--space-4);">
-                <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
-                  <span style="font-size: 1.5em;">▪</span>
-                  <div>
-                    <h4 style="margin-bottom: var(--space-1); color: var(--text-dark);">ÜBERSEHENS-RISIKO & INKONSISTENZ</h4>
-                    <p style="margin: 0; color: var(--text-dark);">
-                      Wissen ist bei Einzelpersonen konzentriert. Ermüdung und unterschiedliche Interpretationen führen zu Fehlern bei der Identifikation von Richtlinien-Verstößen.
-                    </p>
-                  </div>
+              <div class="problem-item medium">
+                <div>
+                  <h4>Übersehens-Risiko & Inkonsistenz</h4>
+                  <p>Wissen bei Einzelpersonen. Ermüdung führt zu Fehlern bei Richtlinien-Verstößen.</p>
                 </div>
               </div>
               
-              <!-- Problem 3 -->
-              <div class="box" style="border-left: 4px solid var(--text-medium); margin-bottom: var(--space-6);">
-                <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
-                  <span style="font-size: 1.5em;">○</span>
-                  <div>
-                    <h4 style="margin-bottom: var(--space-1); color: var(--text-medium);">DOKUMENTATIONSLÜCKEN</h4>
-                    <p style="margin: 0; color: var(--text-dark);">
-                      Audit-Trails für Betriebsprüfungen müssen oft mühsam aus E-Mails, Notizen und Freigabe-Workflows rekonstruiert werden.
-                    </p>
-                  </div>
+              <div class="problem-item low">
+                <div>
+                  <h4>Dokumentationslücken</h4>
+                  <p>Audit-Trails müssen aus E-Mails, Notizen und Workflows rekonstruiert werden.</p>
                 </div>
               </div>
               
-              <!-- Engpass-Zusammenfassung (aus PDF Seite 5) -->
-              <div style="background: var(--color-bg-light); padding: var(--spacing-md); border-radius: var(--border-radius-md);">
-                <strong style="color: var(--color-primary); display: block; margin-bottom: var(--spacing-sm);"><i data-lucide="alert-circle" class="icon-sm"></i> ENGPASS-KATEGORIEN (laut Methodik):</strong>
-                <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-sm); justify-content: center;">
-                  <span style="background: var(--color-bg-white); padding: 4px 12px; border-radius: var(--border-radius-sm); font-size: var(--font-size-sm);">Manuelle Aufwände</span>
-                  <span style="background: var(--color-bg-white); padding: 4px 12px; border-radius: var(--border-radius-sm); font-size: var(--font-size-sm);">Medienbrüche</span>
-                  <span style="background: var(--color-bg-white); padding: 4px 12px; border-radius: var(--border-radius-sm); font-size: var(--font-size-sm);">Prüf-/Dokumentationslast</span>
-                  <span style="background: var(--color-bg-white); padding: 4px 12px; border-radius: var(--border-radius-sm); font-size: var(--font-size-sm);">Risikoexposition</span>
-                  <span style="background: var(--color-bg-white); padding: 4px 12px; border-radius: var(--border-radius-sm); font-size: var(--font-size-sm);">Skalierungshemmnisse</span>
-                </div>
+              <div class="engpass-tags">
+                <span class="engpass-tag">Manuelle Aufwände</span>
+                <span class="engpass-tag">Medienbrüche</span>
+                <span class="engpass-tag">Prüflast</span>
+                <span class="engpass-tag">Risikoexposition</span>
+                <span class="engpass-tag">Skalierungshemmnisse</span>
               </div>
             </div>
           </div>
           
-          <!-- RECHTE SPALTE: Denkmodell -->
-          <div>
-            <div class="card" style="background: var(--off-white); border: 2px solid var(--navy);">
-              <div class="card-header" style="border-bottom-color: var(--navy);">
-                <h3 style="display: flex; align-items: center; gap: var(--space-2); margin: 0; color: var(--text-darkest);">
-                  <i data-lucide="lightbulb" class="icon-lg icon-info"></i>
-                  DAS DENKMODELL
-                </h3>
-              </div>
-              
-              <p style="font-size: var(--font-size-md); margin-bottom: var(--spacing-lg);">
+          <!-- RECHTE KARTE: Denkmodell -->
+          <div class="overview-card highlight">
+            <div class="overview-card-header">
+              <i data-lucide="lightbulb" style="width:20px;height:20px;color:var(--navy);"></i>
+              <h3>Das Denkmodell</h3>
+            </div>
+            <div class="overview-card-content">
+              <p style="margin:0 0 12px;">
                 Dieses Projekt ist <strong>KEIN lauffähiges Produkt</strong>, sondern eine <strong>konzeptionelle Blaupause</strong>.
               </p>
-              
-              <p style="margin-bottom: var(--spacing-xl);">
-                Es zeigt, wie KI die menschliche Expertise durch <strong>strukturierte Voranalyse</strong> unterstützt, sodass Fachexperten sich auf die <strong>finale Risikobewertung und Entscheidungsfindung</strong> konzentrieren können.
+              <p style="margin:0 0 12px;font-size:12px;color:var(--text-medium);">
+                KI unterstützt durch <strong>strukturierte Voranalyse</strong>, damit Experten sich auf <strong>finale Risikobewertung & Entscheidungen</strong> konzentrieren.
               </p>
               
-              <!-- KI → Mensch Visualisierung -->
-              <div style="display: flex; align-items: center; justify-content: center; gap: var(--spacing-xl); margin-bottom: var(--spacing-xl);">
-                <div style="text-align: center; padding: var(--spacing-lg); background: var(--color-bg-white); border-radius: var(--border-radius-md); box-shadow: var(--shadow-sm); min-width: 140px;">
-                  <div style="margin-bottom: var(--spacing-sm);"><i data-lucide="cpu" class="icon-2xl icon-info"></i></div>
-                  <div style="font-weight: var(--font-weight-bold); color: var(--color-primary);">KI</div>
-                  <div style="font-size: var(--font-size-sm); color: var(--color-text-medium); margin-top: var(--spacing-xs);">Strukturiert<br>& Markiert</div>
+              <!-- KI → Mensch Flow -->
+              <div class="ki-mensch-flow">
+                <div class="flow-box">
+                  <i data-lucide="cpu"></i>
+                  <strong>KI</strong>
+                  <span>Strukturiert & Markiert</span>
                 </div>
-                
-                <div style="font-size: 2em; color: var(--color-accent);">→</div>
-                
-                <div style="text-align: center; padding: var(--spacing-lg); background: var(--color-bg-white); border-radius: var(--border-radius-md); box-shadow: var(--shadow-sm); min-width: 140px;">
-                  <div style="margin-bottom: var(--spacing-sm);"><i data-lucide="user" class="icon-2xl icon-info"></i></div>
-                  <div style="font-weight: var(--font-weight-bold); color: var(--color-primary);">MENSCH</div>
-                  <div style="font-size: var(--font-size-sm); color: var(--color-text-medium); margin-top: var(--spacing-xs);">Bewertet &<br>Entscheidet</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-box">
+                  <i data-lucide="user"></i>
+                  <strong>MENSCH</strong>
+                  <span>Bewertet & Entscheidet</span>
                 </div>
               </div>
               
               <!-- Framework-Hinweis -->
-              <div style="background: var(--color-bg-white); border: 2px dashed var(--color-accent); border-radius: var(--border-radius-md); padding: var(--spacing-lg); text-align: center;">
-                <h4 style="color: var(--color-accent); margin-bottom: var(--spacing-sm);">
-                  <i data-lucide="package" class="icon-sm icon-with-text"></i>WIEDERVERWENDBARES FRAMEWORK
-                </h4>
-                <p style="margin-bottom: var(--spacing-sm);">
-                  <strong>Heute angewendet für:</strong> Trianel
-                </p>
-                <p style="margin: 0; color: var(--color-text-medium);">
-                  <strong>Morgen einsetzbar für:</strong> RWE, Eon, Vattenfall, ...
-                </p>
-                <p style="margin-top: var(--spacing-md); font-size: var(--font-size-sm); color: var(--color-text-medium);">
-                  Die Methode bleibt gleich, nur die Cases ändern sich.
-                </p>
+              <div class="framework-box">
+                <h4><i data-lucide="package" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"></i>WIEDERVERWENDBARES FRAMEWORK</h4>
+                <p><strong>Heute:</strong> Trianel &nbsp;|&nbsp; <strong>Morgen:</strong> RWE, Eon, Vattenfall, ...</p>
               </div>
             </div>
           </div>
           
-        </div><!-- /grid -->
-        
-        <!-- ZIELBILD BOX -->
-        <div class="success-box info-box" style="margin-top: var(--spacing-2xl);">
-          <div class="info-box-icon"><i data-lucide="check-circle" class="icon-success"></i></div>
-          <div class="info-box-title" style="color: var(--color-success);">ZIELBILD: KI-UNTERSTÜTZTE PROZESSE</div>
-          <div class="info-box-text">
-            <p style="font-size: var(--font-size-md); margin-bottom: var(--spacing-md);">
-              <strong>Statt manueller Komplett-Prüfung:</strong>
-            </p>
-            <div style="display: flex; gap: var(--spacing-xl); flex-wrap: wrap;">
-              <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
-                <span style="color: var(--color-success); font-size: 1.2em;">→</span>
-                <span>KI übernimmt Vor-Screening & Strukturierung</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
-                <span style="color: var(--color-success); font-size: 1.2em;">→</span>
-                <span>Mensch fokussiert sich auf kritische Fälle & Entscheidungen</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
-                <span style="color: var(--color-success); font-size: 1.2em;">→</span>
-                <span>Lückenlose Dokumentation für Audits automatisch generiert</span>
-              </div>
-            </div>
-            <p style="margin-top: var(--spacing-lg); margin-bottom: 0; font-weight: var(--font-weight-semibold); color: var(--color-success);">
-              ERGEBNIS: Höhere Qualität, weniger Zeit, bessere Compliance
-            </p>
-          </div>
         </div>
         
-        <!-- NAVIGATION BUTTONS -->
-        <div style="display: flex; justify-content: space-between; margin-top: var(--spacing-2xl);">
+        <!-- Footer mit Navigation -->
+        <div class="overview-footer">
           <a href="screen-0-workshop-process.html" class="btn btn-secondary">
-            ← Zurück zum Workshop-Prozess
+            ← Workshop-Prozess
           </a>
-          <a href="screen-6-form.html" class="btn btn-primary btn-lg">
-            Zur Case-Erfassung <i data-lucide="star" class="icon-sm"></i> →
+          <div style="text-align:center;flex:1;">
+            <span style="font-size:12px;color:var(--text-light);">
+              <i data-lucide="check-circle" style="width:14px;height:14px;vertical-align:middle;color:#28A745;"></i>
+              <strong style="color:var(--text-dark);">Zielbild:</strong> KI-Vor-Screening → Mensch entscheidet → Automatische Audit-Dokumentation
+            </span>
+          </div>
+          <a href="screen-6-form.html" class="btn btn-primary">
+            Case-Erfassung →
           </a>
         </div>
         
-      </div><!-- /container -->
-      
+      </div>
     </main>
     
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="footer-inner">
-        <span>© 2026 gannaca AI-Case Sprint Framework</span>
-        <span>Konzeptioneller Mockup – Keine Produktivdaten</span>
-      </div>
-    </footer>
-    
-  </div><!-- /page-wrapper -->
+  </div>
   
   <!-- Active Tab Highlighting -->
   <script>
-    // Markiere aktuellen Tab als "active"
     const currentPage = window.location.pathname.split('/').pop();
     document.querySelectorAll('.nav-tab').forEach(tab => {
       tab.classList.remove('active');

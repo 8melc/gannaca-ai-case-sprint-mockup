@@ -406,67 +406,46 @@ input[type="radio"] {
    FORM PROGRESS BAR
    ============================================ */
 
-/* Progress Bar - FIXED unter Navigation */
-.form-progress-fixed {
-  position: fixed;
-  top: calc(var(--header-height) + var(--nav-height));
-  left: 0;
-  right: 0;
-  z-index: 500;
+/* Progress Bar - Normal (scrollt mit Seite) */
+.form-progress {
+  margin-bottom: var(--space-6);
+  padding: 16px 20px;
   background: white;
-  border-bottom: 1px solid #E8E8EA;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  padding: 10px 40px;
+  border: 1px solid #E8E8EA;
+  border-radius: 10px;
 }
 
-.form-progress-inner {
-  max-width: 1200px;
-  margin: 0 auto;
+.form-progress-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  margin-bottom: 10px;
 }
 
 .form-progress-label {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
-  color: var(--text-medium);
-  white-space: nowrap;
+  color: var(--text-dark);
 }
 
 .form-progress-count {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--navy);
-  white-space: nowrap;
 }
 
-.form-progress-bar-inline {
-  flex: 1;
-  height: 8px;
+.form-progress-bar {
+  height: 10px;
   background: #E8E8EA;
-  border-radius: 4px;
+  border-radius: 5px;
   overflow: hidden;
-  min-width: 200px;
 }
 
 .form-progress-fill {
   height: 100%;
   background: var(--navy);
-  border-radius: 4px;
+  border-radius: 5px;
   transition: width 0.3s ease;
-}
-
-/* Legacy - falls noch verwendet */
-.form-progress {
-  display: none;
-}
-
-.form-progress-bar {
-  height: 8px;
-  background: #E8E8EA;
-  border-radius: 4px;
-  overflow: hidden;
 }
 
 /* ============================================
