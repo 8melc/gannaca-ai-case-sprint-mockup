@@ -195,7 +195,7 @@
 }
 
 .header-logo {
-  height: 64px;
+  height: 88px;
   width: auto;
   flex-shrink: 0;
 }
@@ -216,7 +216,7 @@
 }
 
 .header-client-logo {
-  height: 64px;
+  height: 88px;
   width: auto;
 }
 
