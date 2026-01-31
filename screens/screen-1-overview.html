@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Übersicht | gannaca AI-Case Sprint</title>
+  <title>Übersicht | gannaca AI Case Sprint</title>
   
   <!-- Styles -->
   <link rel="stylesheet" href="../styles/variables.css">
@@ -418,7 +418,7 @@
           <div class="logo-group">
             <img src="../assets/gannaca-logo.png" alt="gannaca" class="gannaca-logo">
             <div class="title-group">
-              <h1 class="main-title">AI-Case Sprint</h1>
+              <h1 class="main-title">gannaca AI Case Sprint</h1>
               <p class="subtitle">Standardisiertes Framework für KI-Use-Case-Entwicklung</p>
             </div>
           </div>
@@ -427,11 +427,18 @@
           <img src="../assets/trianel-logo.png" alt="Trianel" class="client-logo">
           <div class="header-info">
             <span class="version-badge">04.02.2026</span>
-            <span class="header-disclaimer">Konzeptioneller Mockup – Keine Produktivdaten</span>
           </div>
         </div>
       </div>
     </header>
+    
+    <div class="terminology-mandatory">
+      DATENSCHUTZ-KONFORM – KEINE PRODUKTIVDATEN<br>
+      Dieses Mockup dient ausschließlich zur Visualisierung.<br>
+      Alle gezeigten Beispiele sind fiktiv. Keine Erfassung,<br>
+      Verarbeitung oder Speicherung von produktiven Trianel-Daten.
+    </div>
+    <!-- TERMINOLOGIE-COMPLIANT -->
     
     <!-- NAVIGATION -->
     <nav class="nav-tabs">
@@ -474,115 +481,106 @@
         <div class="screen-header">
           <h1>
             <i data-lucide="target" style="width:28px;height:28px;"></i>
-            Das gannaca AI-Case Sprint Framework
+            Das gannaca AI Case Sprint Framework
           </h1>
           <p>Ein standardisiertes Denkmodell für strukturierte KI-Use-Case-Entwicklung</p>
         </div>
         
-        <!-- 2-SPALTEN GRID -->
-        <div class="two-column-grid">
+        <!-- METHODIK-SCHRITTE (4 Schritte) -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 32px;">
           
-          <!-- LINKE SPALTE: Problem-First-Analyse -->
-          <div class="overview-card">
-            <div class="card-header">
-              <i data-lucide="alert-triangle" style="color:#FFC107;"></i>
-              <h3>Problem-First-Analyse</h3>
+          <!-- Schritt 1: Problem-First-Analyse -->
+          <div class="overview-card" style="min-height: auto; padding: 20px;">
+            <div class="card-header" style="margin-bottom: 12px; padding-bottom: 12px;">
+              <span style="background: var(--navy); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">1</span>
+              <h3 style="font-size: 14px;">Problem-First-Analyse</h3>
             </div>
-            
-            <div class="card-content">
-              <p class="card-intro">
-                <strong>Methodik:</strong> Kein Tool-Push. Ausgangspunkt ist immer ein konkreter Engpass.<br>
-                Ein typisches Beispiel aus regulierten Unternehmen:
-              </p>
-              
-              <div class="problem-list">
-                <div class="problem-item">
-                  <div>
-                    <h4>Hoher manueller Aufwand</h4>
-                    <p>Sachbearbeiter prüfen 50-200 Reisekostenabrechnungen pro Monat manuell. <strong>Jede Abrechnung: 15-30 Min Prüfzeit.</strong></p>
-                  </div>
-                </div>
-                
-                <div class="problem-item medium">
-                  <div>
-                    <h4>Übersehens-Risiko & Inkonsistenz</h4>
-                    <p>Wissen bei Einzelpersonen konzentriert. Ermüdung und unterschiedliche Interpretationen führen zu Fehlern.</p>
-                  </div>
-                </div>
-                
-                <div class="problem-item low">
-                  <div>
-                    <h4>Dokumentationslücken</h4>
-                    <p>Audit-Trails müssen oft mühsam aus E-Mails, Notizen und Freigabe-Workflows rekonstruiert werden.</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="engpass-section">
-                <div class="engpass-label">Engpass-Kategorien</div>
-                <div class="engpass-tags">
-                  <span class="engpass-tag">Manuelle Aufwände</span>
-                  <span class="engpass-tag">Medienbrüche</span>
-                  <span class="engpass-tag">Prüflast</span>
-                  <span class="engpass-tag">Risikoexposition</span>
-                  <span class="engpass-tag">Skalierungshemmnisse</span>
-                </div>
-              </div>
+            <div class="engpass-tags" style="gap: 6px;">
+              <span class="engpass-tag" style="font-size: 11px; padding: 4px 8px;">Hohe manuelle Aufwände</span>
+              <span class="engpass-tag" style="font-size: 11px; padding: 4px 8px;">Medienbrüche</span>
+              <span class="engpass-tag" style="font-size: 11px; padding: 4px 8px;">Prüf-/Dokumentationslast</span>
+              <span class="engpass-tag" style="font-size: 11px; padding: 4px 8px;">Risikoexposition</span>
+              <span class="engpass-tag" style="font-size: 11px; padding: 4px 8px;">Skalierungshemmnisse</span>
             </div>
           </div>
           
-          <!-- RECHTE SPALTE: Das Denkmodell -->
-          <div class="overview-card highlight">
-            <div class="card-header">
-              <i data-lucide="lightbulb" style="color:var(--navy);"></i>
-              <h3>Das Denkmodell</h3>
+          <!-- Schritt 2: KI-Eignungsprüfung -->
+          <div class="overview-card" style="min-height: auto; padding: 20px;">
+            <div class="card-header" style="margin-bottom: 12px; padding-bottom: 12px;">
+              <span style="background: var(--navy); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">2</span>
+              <h3 style="font-size: 14px;">KI-Eignungsprüfung</h3>
             </div>
-            
-            <div class="card-content">
-              <p class="denkmodell-text">
-                Dieses Projekt ist <strong>kein lauffähiges Produkt</strong>, sondern eine <strong>konzeptionelle Blaupause</strong>. 
-                KI unterstützt durch strukturierte Voranalyse, damit Experten sich auf finale Risikobewertung & Entscheidungen konzentrieren.
-              </p>
-              
-              <!-- KI → Mensch Flow -->
-              <div class="ki-mensch-flow">
-                <div class="flow-box">
-                  <i data-lucide="cpu"></i>
-                  <strong>KI</strong>
-                  <span>Strukturiert & Markiert</span>
-                </div>
-                <div class="flow-arrow">→</div>
-                <div class="flow-box">
-                  <i data-lucide="user"></i>
-                  <strong>Mensch</strong>
-                  <span>Bewertet & Entscheidet</span>
-                </div>
-              </div>
-              
-              <!-- Framework Hinweis -->
-              <div class="framework-box">
-                <h4>
-                  <i data-lucide="package" style="width:16px;height:16px;"></i>
-                  Wiederverwendbares Framework
-                </h4>
-                <p>Die Methodik ist standardisiert und auf weitere Anwendungsfälle übertragbar.</p>
-              </div>
+            <div class="engpass-tags" style="gap: 6px;">
+              <span class="engpass-tag" style="font-size: 11px; padding: 4px 8px;">Automatisierbarkeit</span>
+              <span class="engpass-tag" style="font-size: 11px; padding: 4px 8px;">Datenverfügbarkeit</span>
+              <span class="engpass-tag" style="font-size: 11px; padding: 4px 8px;">Regulatorische Risiken</span>
+              <span class="engpass-tag" style="font-size: 11px; padding: 4px 8px;">Explainability</span>
+              <span class="engpass-tag" style="font-size: 11px; padding: 4px 8px;">Wirtschaftlicher Hebel</span>
+            </div>
+          </div>
+          
+          <!-- Schritt 3: Value & Risk Assessment -->
+          <div class="overview-card" style="min-height: auto; padding: 20px;">
+            <div class="card-header" style="margin-bottom: 12px; padding-bottom: 12px;">
+              <span style="background: var(--navy); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">3</span>
+              <h3 style="font-size: 14px;">Value & Risk Assessment</h3>
+            </div>
+            <div class="engpass-tags" style="gap: 6px;">
+              <span class="engpass-tag" style="font-size: 11px; padding: 4px 8px;">Messbarer Nutzen</span>
+              <span class="engpass-tag" style="font-size: 11px; padding: 4px 8px;">Regulatorische Risiken</span>
+              <span class="engpass-tag" style="font-size: 11px; padding: 4px 8px;">Organisatorische Risiken</span>
+              <span class="engpass-tag" style="font-size: 11px; padding: 4px 8px;">Governance-Implikationen</span>
+            </div>
+          </div>
+          
+          <!-- Schritt 4: Prototyp-Blueprint -->
+          <div class="overview-card" style="min-height: auto; padding: 20px;">
+            <div class="card-header" style="margin-bottom: 12px; padding-bottom: 12px;">
+              <span style="background: var(--navy); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">4</span>
+              <h3 style="font-size: 14px;">Prototyp-Blueprint</h3>
+            </div>
+            <div class="engpass-tags" style="gap: 6px;">
+              <span class="engpass-tag" style="font-size: 11px; padding: 4px 8px;">Fachliches Zielbild</span>
+              <span class="engpass-tag" style="font-size: 11px; padding: 4px 8px;">KI-Architektur</span>
+              <span class="engpass-tag" style="font-size: 11px; padding: 4px 8px;">Rollen Mensch/KI</span>
+              <span class="engpass-tag" style="font-size: 11px; padding: 4px 8px;">Kontroll- & Freigabepunkte</span>
+              <span class="engpass-tag" style="font-size: 11px; padding: 4px 8px;">KPI-Logik</span>
             </div>
           </div>
           
         </div>
         
-        <!-- ZIELBILD FOOTER -->
-        <div class="zielbild-footer">
-          <i data-lucide="check-circle-2" class="zielbild-icon"></i>
-          <div class="zielbild-content">
-            <h4 class="zielbild-title">Zielbild: KI-unterstützte Prozesse</h4>
-            <div class="zielbild-items">
-              <div class="zielbild-item"><span>→</span> KI übernimmt Vor-Screening & Strukturierung</div>
-              <div class="zielbild-item"><span>→</span> Mensch fokussiert auf kritische Fälle</div>
-              <div class="zielbild-item"><span>→</span> Automatische Audit-Dokumentation</div>
+        <!-- RESULTATE ABSCHNITT -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+          
+          <!-- Resultat 1: Abschlussdokumentation -->
+          <div class="overview-card highlight" style="min-height: auto;">
+            <div class="card-header">
+              <i data-lucide="file-text" style="color:var(--navy);"></i>
+              <h3>Resultat 1: Abschlussdokumentation</h3>
+            </div>
+            <div class="card-content">
+              <p class="denkmodell-text">
+                <strong>Abschlussdokumentation mit 9 inhaltlichen Kapiteln</strong><br>
+                Strukturierte Dokumentation aller Analyseergebnisse, Bewertungen und Empfehlungen als Entscheidungsgrundlage.
+              </p>
             </div>
           </div>
+          
+          <!-- Resultat 2: Prototypischer Mockup -->
+          <div class="overview-card highlight" style="min-height: auto;">
+            <div class="card-header">
+              <i data-lucide="layout" style="color:var(--navy);"></i>
+              <h3>Resultat 2: Prototypischer Mockup</h3>
+            </div>
+            <div class="card-content">
+              <p class="denkmodell-text">
+                <strong>Visuelle Darstellung des Ziel-Use-Cases</strong><br>
+                Konzeptionelle Blaupause zur Veranschaulichung des KI-unterstützten Prozesses – keine funktionsfähige Anwendung.
+              </p>
+            </div>
+          </div>
+          
         </div>
         
         <!-- NAVIGATION -->

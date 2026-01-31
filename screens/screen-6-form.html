@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case-Erfassung | gannaca AI-Case Sprint</title>
+  <title>Case-Erfassung | gannaca AI Case Sprint</title>
   
   <!-- Styles -->
   <link rel="stylesheet" href="../styles/variables.css">
@@ -306,7 +306,7 @@
           <div class="logo-group">
             <img src="../assets/gannaca-logo.png" alt="gannaca" class="gannaca-logo">
             <div class="title-group">
-              <h1 class="main-title">AI-Case Sprint</h1>
+              <h1 class="main-title">gannaca AI Case Sprint</h1>
               <p class="subtitle">Standardisiertes Framework für KI-Use-Case-Entwicklung</p>
             </div>
           </div>
@@ -315,11 +315,18 @@
           <img src="../assets/trianel-logo.png" alt="Trianel" class="client-logo">
           <div class="header-info">
             <span class="version-badge">04.02.2026</span>
-            <span class="header-disclaimer">Konzeptioneller Mockup – Keine Produktivdaten</span>
           </div>
         </div>
       </div>
     </header>
+    
+    <div class="terminology-mandatory">
+      DATENSCHUTZ-KONFORM – KEINE PRODUKTIVDATEN<br>
+      Dieses Mockup dient ausschließlich zur Visualisierung.<br>
+      Alle gezeigten Beispiele sind fiktiv. Keine Erfassung,<br>
+      Verarbeitung oder Speicherung von produktiven Trianel-Daten.
+    </div>
+    <!-- TERMINOLOGIE-COMPLIANT -->
     
     <!-- NAVIGATION -->
     <nav class="nav-tabs">
@@ -330,7 +337,7 @@
         <a href="screen-3-governance.html" class="nav-tab"><span class="nav-tab-number">3</span> Governance</a>
         <a href="screen-4-process.html" class="nav-tab"><span class="nav-tab-number">4</span> Zielprozess</a>
         <a href="screen-5-mockup.html" class="nav-tab"><span class="nav-tab-number">5</span> Visualisierung</a>
-        <a href="screen-6-form.html" class="nav-tab active"><span class="nav-tab-number">6</span> Case-Erfassung <i data-lucide="star" class="icon-sm"></i></a>
+        <a href="screen-6-form.html" class="nav-tab active"><span class="nav-tab-number">6</span> Case-Erfassung</a>
         <a href="screen-7-results.html" class="nav-tab"><span class="nav-tab-number">7</span> Ergebnis</a>
         <a href="screen-8-matrix.html" class="nav-tab"><span class="nav-tab-number">8</span> Matrix</a>
       </div>
@@ -342,23 +349,13 @@
       <!-- Page Header -->
       <div class="page-header page-header-sticky">
         <div class="page-header-inner">
-          <h1 class="page-title"><i data-lucide="clipboard-edit" class="icon-with-text"></i>Live-Erfassung: Ihre Cases strukturiert dokumentiert</h1>
-          <p class="page-subtitle">Für alle Teilnehmer sichtbar – Eingabe durch gannaca-Team</p>
+          <h1 class="page-title"><i data-lucide="clipboard-edit" class="icon-with-text"></i>Live-Erfassung: Eure Cases strukturiert dokumentiert</h1>
+          <p class="page-subtitle">Für alle sichtbar – Eingabe durch gannaca-Team</p>
         </div>
       </div>
       
       <div class="container">
         
-        <!-- Progress Bar (normal, scrollt mit) -->
-        <div class="form-progress">
-          <div class="form-progress-header">
-            <span class="form-progress-label">Erfasste Cases</span>
-            <span class="form-progress-count" id="progressCount">0 von ~20 (Ziel)</span>
-          </div>
-          <div class="form-progress-bar">
-            <div class="form-progress-fill" id="progressFill" style="width: 0%;"></div>
-          </div>
-        </div>
         
         <!-- Form Container -->
         <div class="form-container">
@@ -369,7 +366,7 @@
             <div class="form-disclaimer-content">
               <div class="form-disclaimer-title" style="font-size: 13px;">So funktioniert's:</div>
               <p style="font-size: 12px; color: #777; margin: 0; line-height: 1.5;">
-                Live-Dokumentation Ihrer Cases nach den 11 Standardfragen. 
+                Live-Dokumentation eurer Cases nach den 11 Standardfragen. 
                 Keine Bewertung jetzt – KI-Priorisierung erfolgt nach dem Workshop.
               </p>
             </div>
@@ -405,16 +402,16 @@
           <!-- FORMULAR -->
           <form id="caseForm">
             
-            <!-- FELD 1: Problem-Titel -->
+            <!-- FELD 1: Beschreibung der Ausgangslage -->
+            <!-- Hinweis für Moderatorin (nicht sichtbar im UI): Nicht für Plenum sichtbar -->
             <div class="form-section">
               <h3 class="form-section-title">
                 <span class="form-section-number">1</span>
-                Problem-Titel
+                Beschreibung der Ausgangslage
               </h3>
               <div class="form-group">
-                <label class="form-label form-label-required">Kurzer, prägnanter Titel (5-10 Wörter)</label>
-                <input type="text" class="form-input" id="problemTitel" placeholder="z.B. Manuelle Prüfung von Vertragsänderungen zeitaufwendig" maxlength="100" required>
-                <span class="form-hint">Beschreiben Sie das Problem in einem Satz.</span>
+                <label class="form-label form-label-required">Beschreibt in einem Satz, worum es geht.</label>
+                <input type="text" class="form-input" id="ausgangslage" placeholder="z.B. Anzahl der Vertragsänderungen steigt, Bearbeitungszeit pro Fall erhöht sich" maxlength="120" required>
               </div>
             </div>
             
@@ -425,39 +422,48 @@
                 Betroffene Abteilung(en)
               </h3>
               <div class="form-group">
-                <label class="form-label form-label-required">Welche Abteilungen sind betroffen?</label>
+                <label class="form-label form-label-required">Welche Abteilungen sind beteiligt oder betroffen?</label>
                 <div class="form-checkbox-group" id="abteilungen">
-                  <label class="form-checkbox-item"><input type="checkbox" class="form-checkbox" name="abteilung" value="Legal"><span class="form-checkbox-label">Legal</span></label>
+                  <label class="form-checkbox-item"><input type="checkbox" class="form-checkbox" name="abteilung" value="Legal & Insurance"><span class="form-checkbox-label">Legal & Insurance</span></label>
                   <label class="form-checkbox-item"><input type="checkbox" class="form-checkbox" name="abteilung" value="Compliance"><span class="form-checkbox-label">Compliance</span></label>
                   <label class="form-checkbox-item"><input type="checkbox" class="form-checkbox" name="abteilung" value="Revision"><span class="form-checkbox-label">Revision</span></label>
-                  <label class="form-checkbox-item"><input type="checkbox" class="form-checkbox" name="abteilung" value="IT"><span class="form-checkbox-label">IT</span></label>
-                  <label class="form-checkbox-item"><input type="checkbox" class="form-checkbox" name="abteilung" value="HR"><span class="form-checkbox-label">HR</span></label>
+                  <label class="form-checkbox-item"><input type="checkbox" class="form-checkbox" name="abteilung" value="IT & Consulting"><span class="form-checkbox-label">IT & Consulting</span></label>
+                  <label class="form-checkbox-item"><input type="checkbox" class="form-checkbox" name="abteilung" value="Human Resources"><span class="form-checkbox-label">Human Resources</span></label>
                   <label class="form-checkbox-item"><input type="checkbox" class="form-checkbox" name="abteilung" value="Finance"><span class="form-checkbox-label">Finance</span></label>
+                  <label class="form-checkbox-item"><input type="checkbox" class="form-checkbox" name="abteilung" value="Procurement"><span class="form-checkbox-label">Procurement</span></label>
+                  <label class="form-checkbox-item"><input type="checkbox" class="form-checkbox" name="abteilung" value="Risk Management"><span class="form-checkbox-label">Risk Management</span></label>
+                  <label class="form-checkbox-item"><input type="checkbox" class="form-checkbox" name="abteilung" value="Portfolio Management"><span class="form-checkbox-label">Portfolio Management</span></label>
+                  <label class="form-checkbox-item"><input type="checkbox" class="form-checkbox" name="abteilung" value="Sales & Vertrieb"><span class="form-checkbox-label">Sales & Vertrieb</span></label>
+                  <label class="form-checkbox-item"><input type="checkbox" class="form-checkbox" name="abteilung" value="Market Analysis"><span class="form-checkbox-label">Market Analysis</span></label>
+                  <label class="form-checkbox-item"><input type="checkbox" class="form-checkbox" name="abteilung" value="Weitere" id="abteilungWeitereCheckbox" onchange="toggleWeitereAbteilung()"><span class="form-checkbox-label">Weitere Abteilung:</span></label>
+                </div>
+                <div id="weitereAbteilungContainer" style="display: none; margin-top: var(--spacing-md);">
+                  <input type="text" class="form-input" id="abteilungWeitere" placeholder="z.B. Projektentwicklung, Trading Floor">
                 </div>
               </div>
             </div>
             
-            <!-- FELD 3: Ausgangslage / Ist-Zustand -->
+            <!-- FELD 3: Was ist die Lage? -->
             <div class="form-section">
               <h3 class="form-section-title">
                 <span class="form-section-number">3</span>
-                Ausgangslage / Ist-Zustand
+                Was ist die Lage?
               </h3>
               <div class="form-group">
-                <label class="form-label form-label-required">Wie läuft der Prozess aktuell? Was sind die einzelnen Schritte?</label>
-                <textarea class="form-textarea" id="ausgangslage" rows="4" placeholder="Beschreiben Sie den aktuellen Ablauf Schritt für Schritt..." required></textarea>
+                <label class="form-label form-label-required">Was passiert aktuell? Beschreibt die Situation sachlich.</label>
+                <textarea class="form-textarea" id="lage" rows="4" placeholder="z.B. Fallzahlen steigen seit 2023, Bearbeitungszeit pro Fall hat sich verdoppelt, Team arbeitet regelmäßig über" required></textarea>
               </div>
             </div>
             
-            <!-- FELD 4: Konkretes Problem / Engpass -->
+            <!-- FELD 4: Prozessablauf -->
             <div class="form-section">
               <h3 class="form-section-title">
                 <span class="form-section-number">4</span>
-                Konkretes Problem / Engpass
+                Prozessablauf
               </h3>
               <div class="form-group">
-                <label class="form-label form-label-required">Was genau ist das Problem? Wo liegt der Flaschenhals?</label>
-                <textarea class="form-textarea" id="problem" rows="3" placeholder="z.B. Hoher Zeitaufwand, Fehleranfälligkeit, mangelnde Dokumentation..." required></textarea>
+                <label class="form-label form-label-required">Beschreibt die einzelnen Schritte in der Reihenfolge, wie sie aktuell ablaufen.</label>
+                <textarea class="form-textarea" id="prozessablauf" rows="3" placeholder="Schritt 1: Vertragsentwurf kommt rein → Schritt 2: Prüfung Rechtslage → Schritt 3: Freigabe durch Senior → Schritt 4: ..." required></textarea>
               </div>
             </div>
             
@@ -468,16 +474,19 @@
                 Häufigkeit / Volumen
               </h3>
               <div class="form-group">
-                <label class="form-label form-label-required">Wie oft tritt das Problem auf?</label>
+                <label class="form-label form-label-required">Wie oft kommt dieser Fall vor?</label>
                 <div class="form-radio-group" id="haeufigkeit">
                   <label class="form-radio-item"><input type="radio" class="form-radio" name="haeufigkeit" value="Täglich"><span class="form-radio-label">Täglich</span></label>
                   <label class="form-radio-item"><input type="radio" class="form-radio" name="haeufigkeit" value="Wöchentlich"><span class="form-radio-label">Wöchentlich</span></label>
                   <label class="form-radio-item"><input type="radio" class="form-radio" name="haeufigkeit" value="Monatlich"><span class="form-radio-label">Monatlich</span></label>
                   <label class="form-radio-item"><input type="radio" class="form-radio" name="haeufigkeit" value="Quartalsweise"><span class="form-radio-label">Quartalsweise</span></label>
+                  <label class="form-radio-item"><input type="radio" class="form-radio" name="haeufigkeit" value="Jährlich"><span class="form-radio-label">Jährlich</span></label>
+                  <label class="form-radio-item"><input type="radio" class="form-radio" name="haeufigkeit" value="Unregelmäßig"><span class="form-radio-label">Unregelmäßig</span></label>
+                  <label class="form-radio-item"><input type="radio" class="form-radio" name="haeufigkeit" value="Unbestimmt"><span class="form-radio-label">Unbestimmt</span></label>
                 </div>
                 <div class="form-inline-group" style="margin-top: var(--spacing-lg);">
                   <span class="form-inline-label">Anzahl Vorgänge pro Zeiteinheit:</span>
-                  <input type="number" class="form-input form-input-small" id="anzahlVorgaenge" placeholder="z.B. 50" min="1">
+                  <input type="number" class="form-input form-input-small" id="anzahlVorgaenge" placeholder="z.B. 50 (optional, falls bekannt)" min="1">
                 </div>
               </div>
             </div>
@@ -489,10 +498,22 @@
                 Betroffene Personen & Zeitaufwand
               </h3>
               <div class="form-group">
-                <div class="grid grid-3" style="gap: var(--spacing-xl);">
+                <label class="form-label form-label-required" style="margin-bottom: var(--space-4);">Wie viele Personen sind beteiligt und wie viel Zeit wird pro Fall benötigt?</label>
+                <div class="grid grid-4" style="gap: var(--spacing-xl);">
                   <div>
                     <label class="form-label form-label-required">Anzahl betroffener Mitarbeiter</label>
                     <input type="number" class="form-input" id="betroffenePersonen" placeholder="z.B. 3" min="1">
+                  </div>
+                  <div>
+                    <label class="form-label form-label-required">Qualifizierungsgrad</label>
+                    <select class="form-select" id="qualifizierungsgrad">
+                      <option value="">Bitte wählen...</option>
+                      <option value="Junior">Junior</option>
+                      <option value="Medior">Medior</option>
+                      <option value="Senior">Senior</option>
+                      <option value="Spezialist">Spezialist</option>
+                      <option value="Fachanwalt">Fachanwalt</option>
+                    </select>
                   </div>
                   <div>
                     <label class="form-label form-label-required">Zeitaufwand pro Fall</label>
@@ -521,7 +542,7 @@
                 Strategische Relevanz
               </h3>
               <div class="form-group">
-                <label class="form-label form-label-required">Erste Einschätzung durch Teilnehmer</label>
+                <label class="form-label form-label-required">Erste Einschätzung durch euch – wie wichtig ist das Thema?</label>
                 <div class="form-radio-group" id="relevanz">
                   <label class="form-radio-item" style="flex: 1; justify-content: center;"><input type="radio" class="form-radio" name="relevanz" value="Hoch"><span class="form-radio-label">■ Hoch</span></label>
                   <label class="form-radio-item" style="flex: 1; justify-content: center;"><input type="radio" class="form-radio" name="relevanz" value="Mittel"><span class="form-radio-label">▪ Mittel</span></label>
@@ -537,7 +558,7 @@
                 Risiko bei Nicht-Handlung
               </h3>
               <div class="form-group">
-                <label class="form-label form-label-required">Was passiert, wenn das Problem nicht gelöst wird? (Skala 1-5)</label>
+                <label class="form-label form-label-required">Was passiert, wenn sich nichts ändert?</label>
                 <div class="form-rating-group" id="risikoGroup">
                   <label class="form-rating-item"><input type="radio" name="risiko" value="1">1</label>
                   <label class="form-rating-item"><input type="radio" name="risiko" value="2">2</label>
@@ -552,7 +573,7 @@
                     class="form-textarea" 
                     id="risikoBegruendung" 
                     rows="3"
-                    placeholder="z.B.: Betriebsprüfung: Fehler nicht nachzuvollziehen. Compliance-Risiko. Reputationsschaden bei Kunden. Audit-Findings, Bußgelder..."
+                    placeholder="z.B.: Betriebsprüfung: Fehler nicht nachzuvollziehen. Compliance-Risiko. Reputationsschaden. Audit-Findings. Bußgelder..."
                   ></textarea>
                 </div>
               </div>
@@ -565,14 +586,15 @@
                 Vorhandene Lösungsansätze
               </h3>
               <div class="form-group">
-                <label class="form-label">Gibt es bereits Tools, Workarounds oder Teilautomatisierungen?</label>
+                <label class="form-label">Gibt es bereits etwas, das teilweise hilft oder den Ablauf erleichtert?</label>
                 <div class="form-radio-group">
                   <label class="form-radio-item"><input type="radio" class="form-radio" name="vorhandeneLoesung" value="yes"><span class="form-radio-label">Ja</span></label>
                   <label class="form-radio-item"><input type="radio" class="form-radio" name="vorhandeneLoesung" value="no"><span class="form-radio-label">Nein</span></label>
+                  <label class="form-radio-item"><input type="radio" class="form-radio" name="vorhandeneLoesung" value="unclear"><span class="form-radio-label">Unklar</span></label>
                 </div>
                 <div style="margin-top: var(--spacing-lg);">
                   <label class="form-label">Falls ja, bitte beschreiben:</label>
-                  <input type="text" class="form-input" id="vorhandeneLösungBeschreibung" placeholder="z.B. Excel-Makro, SharePoint-Workflow...">
+                  <input type="text" class="form-input" id="vorhandeneLösungBeschreibung" placeholder="z.B. Excel-Makro, SharePoint-Workflow, Jurion-Abfrage...">
                 </div>
               </div>
             </div>
@@ -591,35 +613,36 @@
                   <label class="form-radio-item"><input type="radio" class="form-radio" name="datenVerfuegbarkeit" value="paper"><span class="form-radio-label"><i data-lucide="file-text" class="icon-sm icon-muted"></i> Überwiegend Papier</span></label>
                   <label class="form-radio-item"><input type="radio" class="form-radio" name="datenVerfuegbarkeit" value="unclear"><span class="form-radio-label">❓ Unklar</span></label>
                 </div>
+                <div style="margin-top: var(--spacing-lg);">
+                  <label class="form-label">Welche Daten konkret? (optional)</label>
+                  <input type="text" class="form-input" id="datenDetails" placeholder="z.B. Verträge in DMS, E-Mails, Gutachten, Aktennotizen...">
+                </div>
               </div>
             </div>
             
-            <!-- FELD 11: KI-Potenzial -->
+            <!-- FELD 11: Welche Art von Unterstützung wäre hilfreich? (Optional) -->
             <div class="form-section" style="background: var(--color-bg-light);">
               <h3 class="form-section-title">
                 <span class="form-section-number">11</span>
-                KI-Potenzial (Optional)
+                Welche Art von Unterstützung wäre hilfreich?
               </h3>
               <div class="form-group">
-                <label class="form-label">
-                  Wo könnte KI theoretisch unterstützen?
-                </label>
+                <label class="form-label">Beschreibt, was den Ablauf erleichtern würde – ganz ohne technische Vorkenntnisse.</label>
                 <textarea 
                   class="form-textarea" 
-                  id="kiPotenzial" 
+                  id="vorstellung" 
                   rows="5"
-                  placeholder="z.B. KI könnte automatisch:
-• Belege-Vollständigkeit prüfen
-• Kostensätze abgleichen
-• Richtlinien-Regeln prüfen
-• Abweichungen flaggen
-• Textanalyse durchführen
-• Kategorisierung vornehmen
+                  placeholder="z.B.:
+• Automatische Vollständigkeitsprüfung
+• Abgleich mit Richtlinien
+• Abweichungen markieren
+• Textanalyse
+• Kategorisierung
 
-Tippe hier - das Feld wächst automatisch mit!"
+Das Feld wächst automatisch beim Tippen!"
                   style="background: var(--color-bg-white); min-height: 150px;"
                 ></textarea>
-                <span class="form-hint"><i data-lucide="info" class="icon-sm icon-info"></i> Keine Bewertung erforderlich. Dient nur der späteren Analyse. Das Feld wächst automatisch beim Tippen!</span>
+                <span class="form-hint"><i data-lucide="info" class="icon-sm icon-info"></i> Optional. Keine Bewertung erforderlich. Dient nur der späteren Analyse.</span>
               </div>
             </div>
             
@@ -656,8 +679,7 @@ Tippe hier - das Feld wächst automatisch mit!"
     <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-inner">
-        <span>© 2026 gannaca AI-Case Sprint Framework</span>
-        <span>Konzeptioneller Mockup – Keine Produktivdaten</span>
+        <span>© 2026 gannaca AI Case Sprint</span>
       </div>
     </footer>
     
@@ -897,6 +919,7 @@ Tippe hier - das Feld wächst automatisch mit!"
       // Multiplikator basierend auf Häufigkeit (auf Jahresbasis)
       let multiplier = 1;
       let haeufigkeitLabel = '';
+      let canCalculate = true;
       switch(haeufigkeit) {
         case 'Täglich':
           multiplier = 250; // Arbeitstage
@@ -914,6 +937,24 @@ Tippe hier - das Feld wächst automatisch mit!"
           multiplier = 4;
           haeufigkeitLabel = '×4';
           break;
+        case 'Jährlich':
+          multiplier = 1;
+          haeufigkeitLabel = '×1';
+          break;
+        case 'Unregelmäßig':
+        case 'Unbestimmt':
+          canCalculate = false;
+          break;
+      }
+      
+      // Bei Unregelmäßig/Unbestimmt keine Berechnung möglich
+      if (!canCalculate) {
+        gesamtaufwandField.value = 'Keine Berechnung möglich';
+        gesamtaufwandField.style.backgroundColor = '#F0F0F0';
+        hintField.style.display = 'none';
+        formelField.innerHTML = '<i data-lucide="info" class="icon-sm"></i> Häufigkeit zu unbestimmt für Berechnung';
+        lucide.createIcons();
+        return;
       }
       
       // Berechnung: Vorgänge × Multiplikator × Zeit × Personen
@@ -954,10 +995,6 @@ Tippe hier - das Feld wächst automatisch mit!"
       
       // Case-Nummer
       document.getElementById('caseNumber').textContent = '#' + nextNumber.toString().padStart(2, '0');
-      
-      // Fortschritt
-      document.getElementById('progressCount').textContent = `${cases.length} von ~20 (Ziel)`;
-      document.getElementById('progressFill').style.width = `${(cases.length / 20) * 100}%`;
     }
     
     // Zeit aktualisieren
@@ -968,15 +1005,25 @@ Tippe hier - das Feld wächst automatisch mit!"
     
     // Formular-Daten sammeln
     function collectFormData() {
+      // Abteilungen sammeln (inkl. Freifeld falls ausgefüllt)
+      const abteilungen = Array.from(document.querySelectorAll('input[name="abteilung"]:checked'))
+        .map(cb => cb.value)
+        .filter(val => val !== 'Weitere'); // "Weitere" selbst nicht als Wert
+      const weitereAbteilung = document.getElementById('abteilungWeitere')?.value;
+      if (weitereAbteilung) {
+        abteilungen.push(weitereAbteilung);
+      }
+      
       const data = {
         erfasstVon: 'Melissa Conrads', // Statisch - kein Dropdown nötig
-        problemTitel: document.getElementById('problemTitel').value,
-        abteilungen: Array.from(document.querySelectorAll('input[name="abteilung"]:checked')).map(cb => cb.value),
         ausgangslage: document.getElementById('ausgangslage').value,
-        problem: document.getElementById('problem').value,
+        abteilungen: abteilungen,
+        lage: document.getElementById('lage').value,
+        prozessablauf: document.getElementById('prozessablauf').value,
         haeufigkeit: document.querySelector('input[name="haeufigkeit"]:checked')?.value || '',
         anzahlVorgaenge: document.getElementById('anzahlVorgaenge').value,
         betroffenePersonen: document.getElementById('betroffenePersonen').value,
+        qualifizierungsgrad: document.getElementById('qualifizierungsgrad').value,
         zeitaufwandWert: document.getElementById('zeitaufwandWert').value,
         zeitaufwandEinheit: document.getElementById('zeitaufwandEinheit').value,
         gesamtaufwandJahr: document.getElementById('gesamtaufwand').value, // Berechneter Wert
@@ -986,30 +1033,31 @@ Tippe hier - das Feld wächst automatisch mit!"
         vorhandeneLoesung: document.querySelector('input[name="vorhandeneLoesung"]:checked')?.value || '',
         vorhandeneLösungBeschreibung: document.getElementById('vorhandeneLösungBeschreibung').value,
         datenVerfuegbarkeit: document.querySelector('input[name="datenVerfuegbarkeit"]:checked')?.value || '',
-        kiPotenzial: document.getElementById('kiPotenzial').value
+        datenDetails: document.getElementById('datenDetails')?.value || '',
+        vorstellung: document.getElementById('vorstellung').value
       };
       return data;
     }
     
     // Validierung
     function validateForm() {
-      const titel = document.getElementById('problemTitel').value.trim();
       const ausgangslage = document.getElementById('ausgangslage').value.trim();
-      const problem = document.getElementById('problem').value.trim();
+      const lage = document.getElementById('lage').value.trim();
+      const prozessablauf = document.getElementById('prozessablauf').value.trim();
       
-      if (!titel) {
-        toastWarning('Pflichtfeld fehlt', 'Bitte geben Sie einen Problem-Titel ein.');
-        document.getElementById('problemTitel').focus();
-        return false;
-      }
       if (!ausgangslage) {
-        toastWarning('Pflichtfeld fehlt', 'Bitte beschreiben Sie die Ausgangslage.');
+        toastWarning('Pflichtfeld fehlt', 'Bitte beschreibe die Ausgangslage.');
         document.getElementById('ausgangslage').focus();
         return false;
       }
-      if (!problem) {
-        toastWarning('Pflichtfeld fehlt', 'Bitte beschreiben Sie das konkrete Problem.');
-        document.getElementById('problem').focus();
+      if (!lage) {
+        toastWarning('Pflichtfeld fehlt', 'Bitte beschreibe die Lage.');
+        document.getElementById('lage').focus();
+        return false;
+      }
+      if (!prozessablauf) {
+        toastWarning('Pflichtfeld fehlt', 'Bitte beschreibe den Prozessablauf.');
+        document.getElementById('prozessablauf').focus();
         return false;
       }
       return true;
@@ -1055,6 +1103,12 @@ Tippe hier - das Feld wächst automatisch mit!"
       gesamtaufwandField.style.backgroundColor = 'var(--color-bg-light)';
       hintField.style.display = 'none';
       
+      // Weitere Abteilung Freifeld zurücksetzen
+      const weitereContainer = document.getElementById('weitereAbteilungContainer');
+      if (weitereContainer) {
+        weitereContainer.style.display = 'none';
+      }
+      
       updateUI();
     }
     
@@ -1073,6 +1127,18 @@ Tippe hier - das Feld wächst automatisch mit!"
     // Modal schließen
     function closeModal() {
       document.getElementById('successModal').style.display = 'none';
+    }
+    
+    // Weitere Abteilung Freifeld ein-/ausblenden
+    function toggleWeitereAbteilung() {
+      const checkbox = document.getElementById('abteilungWeitereCheckbox');
+      const container = document.getElementById('weitereAbteilungContainer');
+      if (checkbox && container) {
+        container.style.display = checkbox.checked ? 'block' : 'none';
+        if (!checkbox.checked) {
+          document.getElementById('abteilungWeitere').value = '';
+        }
+      }
     }
   </script>
   
