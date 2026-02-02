@@ -131,7 +131,19 @@ function loadDemoData() {
       vorhandeneLoesung: 'no',
       vorhandeneLösungBeschreibung: '',
       datenVerfuegbarkeit: 'partial',
-      kiPotenzial: 'Automatische Erkennung kritischer Klauseln, Risiko-Scoring'
+      kiPotenzial: 'Automatische Erkennung kritischer Klauseln, Risiko-Scoring',
+      // GOVERNANCE TRIGGER
+      entscheidungswirkung: 'ja',
+      kritisRelevanz: 'unklar',
+      personenbezogen: 'nein',
+      besondereKategorien: 'nein',
+      automationsgrad: 'entscheidungsunterstuetzend',
+      // BEWERTUNG (von Prüfinstanz)
+      bewertungNutzen: 'hoch',
+      bewertungUmsetzbarkeit: 'hoch',
+      pruefstatus: 'pruefbedarf',
+      prueffelder: ['KRITIS', 'Audit'],
+      entscheidungsstatus: 'go'
     },
     {
       caseNumber: 2,
@@ -153,7 +165,19 @@ function loadDemoData() {
       vorhandeneLoesung: 'yes',
       vorhandeneLösungBeschreibung: 'Excel-Liste für Tracking',
       datenVerfuegbarkeit: 'full_digital',
-      kiPotenzial: 'Automatische Vollständigkeitsprüfung, Plausibilitätscheck'
+      kiPotenzial: 'Automatische Vollständigkeitsprüfung, Plausibilitätscheck',
+      // GOVERNANCE TRIGGER
+      entscheidungswirkung: 'nein',
+      kritisRelevanz: 'nein',
+      personenbezogen: 'ja',
+      besondereKategorien: 'nein',
+      automationsgrad: 'teilautomatisiert',
+      // BEWERTUNG (von Prüfinstanz)
+      bewertungNutzen: 'mittel',
+      bewertungUmsetzbarkeit: 'hoch',
+      pruefstatus: 'kein-pruefbedarf',
+      prueffelder: ['DSGVO'],
+      entscheidungsstatus: 'go'
     },
     {
       caseNumber: 3,
@@ -175,10 +199,22 @@ function loadDemoData() {
       vorhandeneLoesung: 'no',
       vorhandeneLösungBeschreibung: '',
       datenVerfuegbarkeit: 'partial',
-      kiPotenzial: 'Automatische Datenkonsolidierung, Report-Generierung'
+      kiPotenzial: 'Automatische Datenkonsolidierung, Report-Generierung',
+      // GOVERNANCE TRIGGER
+      entscheidungswirkung: 'ja',
+      kritisRelevanz: 'ja',
+      personenbezogen: 'unklar',
+      besondereKategorien: 'nein',
+      automationsgrad: 'entscheidungsunterstuetzend',
+      // BEWERTUNG (von Prüfinstanz)
+      bewertungNutzen: 'hoch',
+      bewertungUmsetzbarkeit: 'mittel',
+      pruefstatus: 'pruefbedarf',
+      prueffelder: ['KRITIS', 'AI Act', 'Audit'],
+      entscheidungsstatus: 'go-auflagen'
     }
   ];
-  
+
   localStorage.setItem(STORAGE_KEY, JSON.stringify(demoCases));
   return demoCases.length;
 }

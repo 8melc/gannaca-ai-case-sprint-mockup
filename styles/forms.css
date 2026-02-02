@@ -117,9 +117,30 @@
 }
 
 .form-label-required::after {
-  content: '*';
+  content: ' *';
   color: var(--orange);
-  margin-left: var(--space-1);
+  font-weight: var(--font-bold);
+  font-size: 1.2em;
+}
+
+/* Pflichtfeld-Hinweis am Formular-Anfang */
+.form-required-hint {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-medium);
+  margin-bottom: var(--space-6);
+  padding: var(--space-3) var(--space-4);
+  background: var(--off-white);
+  border-radius: var(--border-radius-md);
+  border-left: 3px solid var(--orange);
+}
+
+.form-required-hint span {
+  color: var(--orange);
+  font-weight: var(--font-bold);
+  font-size: 1.2em;
 }
 
 .form-hint {
