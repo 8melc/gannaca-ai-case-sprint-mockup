@@ -419,12 +419,22 @@ h3 i[data-lucide] {
 .nav-tab:hover {
   color: var(--text-dark);
   text-decoration: none;
+  background: rgba(26, 58, 92, 0.04);
+}
+
+/* Beamer-Modus: Reduzierte Hover-Effekte */
+@media screen and (min-width: 1920px) {
+  .nav-tab:hover {
+    background: rgba(26, 58, 92, 0.06);
+  }
 }
 
 .nav-tab.active {
   color: var(--text-dark);
   font-weight: var(--font-semibold);
   border-bottom-color: var(--text-dark);
+  background: rgba(26, 58, 92, 0.08);
+  border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
 }
 
 .nav-tab-number {
@@ -444,6 +454,34 @@ h3 i[data-lucide] {
 .nav-tab.active .nav-tab-number {
   background: var(--text-dark);
   color: var(--white);
+}
+
+/* OPTIONALE SCREENS - Dezente Kennzeichnung */
+.nav-tab.nav-tab-optional {
+  opacity: 0.6;
+  font-style: italic;
+}
+
+.nav-tab.nav-tab-optional::after {
+  content: '○';
+  font-size: 8px;
+  margin-left: 4px;
+  color: var(--text-light);
+  font-style: normal;
+}
+
+.nav-tab.nav-tab-optional:hover {
+  opacity: 0.85;
+}
+
+.nav-tab.nav-tab-optional.active {
+  opacity: 1;
+  font-style: normal;
+}
+
+.nav-tab.nav-tab-optional .nav-tab-number {
+  background: var(--light-gray);
+  border: 1px dashed var(--text-light);
 }
 
 /* Header Navigation (alternative) */

@@ -536,11 +536,12 @@
       <div class="nav-tabs-inner">
         <a href="screen-0-workshop-process.html" class="nav-tab"><span class="nav-tab-number">0</span> Workshop-Prozess</a>
         <a href="screen-1-overview.html" class="nav-tab"><span class="nav-tab-number">1</span> Übersicht</a>
-        <a href="screen-2-kpi.html" class="nav-tab"><span class="nav-tab-number">2</span> KPI-Rahmen</a>
+        <a href="screen-2-kpi.html" class="nav-tab nav-tab-optional"><span class="nav-tab-number">2</span> KPI-Rahmen</a>
         <a href="screen-3-governance.html" class="nav-tab"><span class="nav-tab-number">3</span> Governance</a>
-        <a href="screen-4-process.html" class="nav-tab"><span class="nav-tab-number">4</span> Zielprozess</a>
-        <a href="screen-5-mockup.html" class="nav-tab"><span class="nav-tab-number">5</span> Visualisierung</a>
+        <a href="screen-4-process.html" class="nav-tab nav-tab-optional"><span class="nav-tab-number">4</span> Zielprozess</a>
+        <a href="screen-5-mockup.html" class="nav-tab nav-tab-optional"><span class="nav-tab-number">5</span> Visualisierung</a>
         <a href="screen-6-form.html" class="nav-tab"><span class="nav-tab-number">6</span> Case-Erfassung <i data-lucide="star" class="icon-sm"></i></a>
+        <a href="screen-6b-bewertung.html" class="nav-tab"><span class="nav-tab-number">6b</span> Bewertung</a>
         <a href="screen-7-results.html" class="nav-tab active"><span class="nav-tab-number">7</span> Ergebnis</a>
         <a href="screen-8-matrix.html" class="nav-tab"><span class="nav-tab-number">8</span> Matrix</a>
       </div>
@@ -554,8 +555,10 @@
         
         <!-- SLIDE HEADER -->
         <div class="slide-header">
-          <h1><i data-lucide="bar-chart-3" style="width:26px;height:26px;"></i>Workshop-Ergebnis: Longlist mit <span id="caseCountTitle">0</span> Cases</h1>
-          <p>Vollständig dokumentierte Problemfälle – bereit für Bewertung & Priorisierung</p>
+          <h1><i data-lucide="bar-chart-3" style="width:26px;height:26px;"></i>Workshop-Ergebnis: Longlist
+            <span id="caseCountBadge" class="case-count-badge" style="display: inline-flex; align-items: center; justify-content: center; background: var(--navy); color: white; font-size: 20px; font-weight: 700; padding: 4px 16px; border-radius: 20px; margin-left: 12px; min-width: 48px;"><span id="caseCountTitle">0</span> Cases</span>
+          </h1>
+          <p>Dokumentierte Problemfälle – bereit für Bewertung & Priorisierung</p>
         </div>
         
         <!-- SLIDE CONTENT -->
@@ -563,7 +566,7 @@
         
         <!-- Demo-Daten Banner (nur wenn leer) -->
         <div class="demo-banner" id="demoBanner" style="display: none;">
-          <p><i data-lucide="lightbulb" class="icon-sm icon-info"></i> <strong>Keine Cases vorhanden.</strong> Möchten Sie Demo-Daten laden, um die Ansicht zu testen?</p>
+          <p><strong>Keine Cases vorhanden.</strong> Möchten Sie Demo-Daten laden, um die Ansicht zu testen?</p>
           <button class="btn btn-primary" onclick="loadDemo()">Demo-Daten laden</button>
         </div>
         
@@ -587,13 +590,10 @@
           </div>
         </div>
         
-        <!-- SUCCESS BOX (nur wenn Cases vorhanden) -->
-        <div class="success-box info-box" id="successBox" style="margin-bottom: 32px; display: none;">
-          <div class="info-box-icon"><i data-lucide="check-circle" class="icon-success"></i></div>
-          <div class="info-box-title" style="color: var(--color-success);">Workshop erfolgreich dokumentiert</div>
-          <div class="info-box-text">
-            <p style="margin: 0;">Alle Cases wurden strukturiert erfasst und sind bereit für die KI-gestützte Analyse. Die Priorisierungs-Matrix wird im Anschluss erstellt.</p>
-          </div>
+        <!-- STATUS-BOX (nur wenn Cases vorhanden) -->
+        <div class="box" id="successBox" style="margin-bottom: 32px; display: none; background: var(--off-white); border: 1px solid var(--border-gray); padding: var(--space-6); border-radius: var(--border-radius-lg);">
+          <h3 style="font-size: var(--text-base); font-weight: var(--font-semibold); color: var(--text-darkest); margin-bottom: var(--space-3);">Status: Erfassung abgeschlossen</h3>
+          <p style="margin: 0; color: var(--text-medium);">Alle Cases wurden strukturiert erfasst und sind bereit für die KI-gestützte Analyse. Die Priorisierungs-Matrix wird im Anschluss erstellt.</p>
         </div>
         
         <!-- CASES GRID -->
@@ -603,32 +603,44 @@
         <div class="empty-state" id="emptyState" style="display: none;">
           <div class="empty-state-icon"><i data-lucide="clipboard-list" class="icon-2xl icon-muted"></i></div>
           <h3>Noch keine Cases erfasst</h3>
-          <p>Starten Sie mit der Case-Erfassung im Workshop.</p>
-          <a href="screen-6-form.html" class="btn btn-primary btn-lg">Zur Case-Erfassung →</a>
-        </div>
-        
-        <!-- NEXT STEPS -->
-        <div class="info-box" id="nextStepsBox" style="margin-top: 40px; display: none;">
-          <div class="info-box-icon"><i data-lucide="clipboard-list"></i></div>
-          <div class="info-box-title">Nächste Schritte</div>
-          <div class="info-box-text">
-            <p style="margin-bottom: 12px;"><strong>Diese Cases werden jetzt KI-gestützt analysiert:</strong></p>
-            <ol style="margin: 0; padding-left: 24px;">
-              <li style="padding: 4px 0;">Nutzen-Risiko-Bewertung (automatisiert)</li>
-              <li style="padding: 4px 0;">Machbarkeits-Einschätzung</li>
-              <li style="padding: 4px 0;">Identifikation Top-3 Cases</li>
-              <li style="padding: 4px 0;">Empfehlung für finalen Case</li>
-            </ol>
-            <p style="margin-top: 16px; margin-bottom: 0;"><strong style="color: var(--color-accent);">Ergebnis folgt per E-Mail.</strong></p>
+          <p>Noch keine Cases erfasst.<br>
+          <span style="color: var(--text-light); font-size: 14px;">Tab „Case-Erfassung" → ersten Case dokumentieren.</span></p>
+          <div style="display: flex; gap: 12px; justify-content: center; margin-top: 16px;">
+            <a href="screen-6-form.html" class="btn btn-primary btn-lg"><i data-lucide="plus" class="icon-sm"></i> Ersten Case erfassen</a>
+            <button class="btn btn-secondary" onclick="loadDemo()"><i data-lucide="database" class="icon-sm"></i> Demo-Daten laden</button>
           </div>
         </div>
         
+        <!-- NÄCHSTE SCHRITTE -->
+        <div class="box" id="nextStepsBox" style="margin-top: 40px; display: none; background: var(--off-white); border: 1px solid var(--border-gray); padding: var(--space-6); border-radius: var(--border-radius-lg);">
+          <h3 style="font-size: var(--text-base); font-weight: var(--font-semibold); color: var(--text-darkest); margin-bottom: var(--space-4);">Nächste Schritte</h3>
+          <p style="margin-bottom: 12px; color: var(--text-medium);"><strong>KI-Analyse (Phase 2):</strong></p>
+          <ol style="margin: 0; padding-left: 24px; color: var(--text-medium);">
+            <li style="padding: 4px 0;">Nutzen-Risiko-Bewertung (automatisiert)</li>
+            <li style="padding: 4px 0;">Machbarkeits-Einschätzung</li>
+            <li style="padding: 4px 0;">Identifikation Top-3 Cases</li>
+            <li style="padding: 4px 0;">Empfehlung für finalen Case</li>
+          </ol>
+          <p style="margin-top: 16px; margin-bottom: 0;"><strong style="color: var(--navy);">Ergebnis folgt per E-Mail.</strong></p>
+        </div>
+        
         <!-- EXPORT BAR -->
-        <div class="export-bar" id="exportBar" style="display: none;">
-          <span style="color: var(--color-text-medium); margin-right: 16px;">Export-Optionen:</span>
-          <button class="btn btn-secondary" onclick="exportAsJSON()"><i data-lucide="file-text" class="icon-sm"></i> Als JSON speichern</button>
-          <button class="btn btn-secondary" onclick="window.print()">🖨️ Drucken / PDF</button>
-          <button class="btn btn-tertiary" onclick="confirmClearAll()"><i data-lucide="trash-2" class="icon-sm"></i> Alle Cases löschen</button>
+        <div class="export-bar" id="exportBar" style="display: none; flex-direction: column; gap: 16px;">
+          <!-- PRIMÄRE AKTION: Export für Evaluator -->
+          <div style="display: flex; align-items: center; gap: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border-gray);">
+            <button class="btn btn-primary btn-lg" onclick="exportForEvaluator()" style="display: flex; align-items: center; gap: 8px;">
+              <i data-lucide="sparkles" class="icon-sm"></i>
+              Export für AI Case Evaluator
+            </button>
+            <span style="color: var(--text-medium); font-size: 14px;">→ Daten für KI-gestützte Bewertung exportieren</span>
+          </div>
+          <!-- SEKUNDÄRE OPTIONEN -->
+          <div style="display: flex; justify-content: center; gap: 12px;">
+            <span style="color: var(--text-light); font-size: 13px; margin-right: 8px;">Weitere Optionen:</span>
+            <button class="btn btn-secondary btn-sm" onclick="exportAsJSON()"><i data-lucide="file-text" class="icon-sm"></i> JSON-Backup</button>
+            <button class="btn btn-secondary btn-sm" onclick="window.print()"><i data-lucide="printer" class="icon-sm"></i> Drucken</button>
+            <button class="btn btn-tertiary btn-sm" onclick="confirmClearAll()"><i data-lucide="trash-2" class="icon-sm"></i> Alle löschen</button>
+          </div>
         </div>
         
         </div><!-- /slide-content -->
@@ -955,6 +967,78 @@
       a.download = `gannaca-cases-${new Date().toISOString().split('T')[0]}.json`;
       a.click();
       URL.revokeObjectURL(url);
+    }
+
+    // ============================================
+    // EXPORT FÜR AI CASE EVALUATOR
+    // Strukturiert die Daten für KI-Bewertung
+    // ============================================
+    function exportForEvaluator() {
+      const cases = getAllCases();
+
+      if (cases.length === 0) {
+        toastWarning('Keine Daten', 'Es sind keine Cases zum Exportieren vorhanden.');
+        return;
+      }
+
+      // Cases für Evaluator formatieren
+      const evaluatorData = {
+        meta: {
+          exportDate: new Date().toISOString(),
+          source: 'gannaca AI Case Sprint Framework',
+          version: '1.0',
+          totalCases: cases.length
+        },
+        cases: cases.map(c => ({
+          // PFLICHTFELDER für Evaluator
+          caseId: c.caseNumber,
+          problemTitel: c.problemTitel || '',
+          abteilungen: c.abteilungen || [],
+          ausgangslage: c.ausgangslage || '',
+          problem: c.problem || '',
+          haeufigkeit: c.haeufigkeit || '',
+          volumen: c.anzahlVorgaenge || '',
+          zeitaufwand: {
+            wert: c.zeitaufwandWert || '',
+            einheit: c.zeitaufwandEinheit || 'minutes'
+          },
+          betroffenePersonen: c.betroffenePersonen || '',
+          risiko: c.risiko || '',
+          datenVerfuegbarkeit: c.datenVerfuegbarkeit || '',
+
+          // GOVERNANCE-TRIGGER
+          governanceTrigger: {
+            entscheidungswirkung: c.governanceTrigger?.entscheidungswirkung || 'nein',
+            kritisRelevanz: c.governanceTrigger?.kritisRelevanz || 'nein',
+            personenbezogen: c.governanceTrigger?.personenbezogen || 'nein',
+            automationsgrad: c.governanceTrigger?.automationsgrad || 'nein'
+          },
+
+          // OPTIONALE FELDER
+          optional: {
+            tools: c.tools || [],
+            strategischeRelevanz: c.strategischeRelevanz || '',
+            kiPotenzial: c.kiPotenzial || '',
+            risikoBegruendung: c.risikoBegruendung || ''
+          }
+        }))
+      };
+
+      // JSON erstellen und downloaden
+      const jsonString = JSON.stringify(evaluatorData, null, 2);
+      const blob = new Blob([jsonString], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `evaluator-input-${new Date().toISOString().split('T')[0]}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+
+      // Erfolgsmeldung mit Hinweis
+      toastSuccess(
+        'Export erfolgreich',
+        `${cases.length} Case(s) für AI Case Evaluator exportiert. Datei kann jetzt im Evaluator importiert werden.`
+      );
     }
     
     // ============================================
