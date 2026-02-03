@@ -16,57 +16,293 @@
   
   <!-- Screen-spezifische Beamer-Optimierung -->
   <style>
-    /* BEAMER-OPTIMIERUNG: Kompakte KPI-Karten */
-    @media screen and (min-width: 1920px) {
-      /* Kompaktere KPI-Karten */
-      .kpi-grid .card {
-        padding: 16px 20px;
-        min-height: auto;
-      }
-      
-      .kpi-grid .card h3 {
-        font-size: 15px;
-        margin-bottom: 8px;
-      }
-      
-      .kpi-grid .card p {
-        font-size: 13px;
-        margin-bottom: 12px;
-      }
-      
-      .kpi-grid .card ul {
-        font-size: 12px;
-        margin: 0;
-        padding-left: 16px;
-      }
-      
-      .kpi-grid .card li {
-        margin-bottom: 2px;
-      }
-      
-      .kpi-grid .icon-2xl {
-        width: 36px;
-        height: 36px;
-      }
-      
-      /* Info-Box kompakter */
-      .info-box {
-        padding: 16px 20px;
-        margin-bottom: 16px;
-      }
-      
-      .info-box ul {
-        margin: 8px 0;
-      }
-      
-      .info-box li {
-        margin-bottom: 4px;
-        font-size: 13px;
-      }
-      
-      .info-box p {
-        font-size: 12px;
-      }
+    /* ============================================
+       BEAMER-OPTIMIERT: ZWEI-FOLIEN-STRUKTUR
+       Folie 1: KPI-Rahmen
+       Folie 2: Abgrenzung
+       ============================================ */
+
+    /* === FOLIE 1: KPI-RAHMEN === */
+    .slide-kpi {
+      width: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 48px 80px 40px;
+      box-sizing: border-box;
+      min-height: calc(100vh - var(--header-height) - var(--nav-height));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Screen Header - BEAMER-GROSS */
+    .screen-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .screen-header h1 {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--text-darkest);
+      margin: 0 0 12px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .screen-header h1 i {
+      width: 36px;
+      height: 36px;
+    }
+
+    .screen-header p {
+      font-size: 20px;
+      color: var(--text-medium);
+      margin: 0;
+    }
+
+    /* KPI-Grid Karten */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .kpi-grid .card {
+      padding: 28px;
+      background: var(--white);
+      border: 2px solid var(--border-gray);
+      border-radius: 12px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .kpi-grid .card:hover {
+      border-color: var(--navy);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+
+    .kpi-grid .card h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--navy);
+    }
+
+    .kpi-grid .card p {
+      font-size: 17px;
+      line-height: 1.5;
+      margin-bottom: 18px;
+      color: var(--text-medium);
+    }
+
+    .kpi-grid .card div[style*="background: var(--off-white)"] {
+      padding: 18px 16px !important;
+      background: var(--off-white) !important;
+      border-radius: 8px;
+      margin-top: auto;
+    }
+
+    .kpi-grid .card strong {
+      font-size: 16px;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 12px;
+      color: var(--text-darkest);
+    }
+
+    .kpi-grid .card ul {
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0;
+      padding-left: 20px;
+      text-align: left;
+    }
+
+    .kpi-grid .card li {
+      margin-bottom: 8px;
+      padding: 4px 0;
+      color: var(--text-dark);
+    }
+
+    .kpi-grid i {
+      width: 36px !important;
+      height: 36px !important;
+      margin-bottom: 16px;
+    }
+
+    /* === FOLIE 2: ABGRENZUNG === */
+    .slide-abgrenzung {
+      width: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 32px 80px 24px;
+      box-sizing: border-box;
+      min-height: calc(100vh - var(--header-height) - var(--nav-height));
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide-abgrenzung .screen-nav {
+      margin-top: auto;
+      padding-top: 16px;
+    }
+
+    .abgrenzung-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .abgrenzung-header h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 0 0 8px 0;
+    }
+
+    .abgrenzung-header p {
+      font-size: 18px;
+      color: var(--text-medium);
+      margin: 0;
+    }
+
+    .box {
+      background: var(--off-white);
+      border: 2px solid var(--border-gray);
+      padding: 24px 28px;
+      border-radius: 12px;
+      flex: 1;
+    }
+
+    .box h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--text-darkest);
+    }
+
+    .box ul {
+      margin: 16px 0;
+      padding-left: 24px;
+      color: var(--text-medium);
+      list-style: none;
+    }
+
+    .box li {
+      margin-bottom: 12px;
+      padding: 8px 0 8px 22px;
+      font-size: 17px;
+      position: relative;
+      color: var(--text-dark);
+    }
+
+    .box li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .box li strong {
+      color: var(--text-darkest);
+    }
+
+    .box p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-top: 18px;
+      color: var(--text-medium);
+    }
+
+    /* === SLIDE NAVIGATOR === */
+    .slide-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 24px;
+    }
+
+    .slide-nav-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 8px;
+      background: transparent;
+      border: none;
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: color 0.2s ease;
+      text-decoration: none;
+    }
+
+    .slide-nav-btn:hover {
+      color: var(--orange);
+    }
+
+    .slide-nav-btn i {
+      width: 28px;
+      height: 28px;
+      animation: bounce-down 2s infinite;
+    }
+
+    @keyframes bounce-down {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    /* Slide Indicator */
+    .slide-indicator {
+      position: fixed;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 100;
+    }
+
+    .slide-indicator-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--border-gray);
+      border: 2px solid var(--border-gray);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .slide-indicator-dot:hover {
+      border-color: var(--navy);
+    }
+
+    .slide-indicator-dot.active {
+      background: var(--navy);
+      border-color: var(--navy);
+    }
+
+    /* Footer Navigation */
+    .screen-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-gray);
+    }
+
+    .screen-nav .btn {
+      font-size: 16px;
+      padding: 14px 28px;
     }
   </style>
 </head>
@@ -80,7 +316,7 @@
           <div class="logo-group">
             <img src="../assets/gannaca-logo.png" alt="gannaca" class="gannaca-logo">
             <div class="title-group">
-              <h1 class="main-title">gannaca AI Case Sprint</h1>
+              <h1 class="main-title">AI Case Sprint</h1>
               <p class="subtitle">Standardisiertes Framework für KI-Use-Case-Entwicklung</p>
             </div>
           </div>
@@ -109,139 +345,150 @@
         <a href="screen-1-overview.html" class="nav-tab"><span class="nav-tab-number">1</span> Übersicht</a>
         <a href="screen-2-kpi.html" class="nav-tab nav-tab-optional active"><span class="nav-tab-number">2</span> KPI-Rahmen</a>
         <a href="screen-3-governance.html" class="nav-tab"><span class="nav-tab-number">3</span> Governance</a>
-        <a href="screen-4-success-story.html" class="nav-tab"><span class="nav-tab-number">4</span> Success Story <i data-lucide="sparkles" class="icon-sm"></i></a>
+        <a href="screen-4-case-beispiel.html" class="nav-tab"><span class="nav-tab-number">4</span> Case-Beispiel</a>
+        <a href="screen-5-tool-mockup.html" class="nav-tab"><span class="nav-tab-number">5</span> Mockup-Beispiel</a>
         <a href="screen-6-form.html" class="nav-tab"><span class="nav-tab-number">6</span> Case-Erfassung <i data-lucide="star" class="icon-sm"></i></a>
-        <a href="screen-6b-bewertung.html" class="nav-tab"><span class="nav-tab-number">6b</span> Bewertung</a>
         <a href="screen-7-results.html" class="nav-tab"><span class="nav-tab-number">7</span> Ergebnis</a>
-        <a href="screen-8-matrix.html" class="nav-tab"><span class="nav-tab-number">8</span> Matrix</a>
       </div>
     </nav>
     
     <!-- MAIN CONTENT -->
     <main class="main-content">
-      
-      <!-- SLIDE CONTAINER -->
-      <div class="slide-container">
-        
-        <!-- SLIDE HEADER -->
-        <div class="slide-header">
-          <h1><i data-lucide="bar-chart-3" style="width:26px;height:26px;"></i>Strategischer KPI-Rahmen</h1>
+
+      <!-- ========== FOLIE 1: KPI-RAHMEN ========== -->
+      <div class="slide-kpi" id="slide-kpi">
+
+        <!-- SCREEN HEADER -->
+        <div class="screen-header">
+          <h1>
+            <i data-lucide="bar-chart-3"></i>
+            Strategischer KPI-Rahmen
+          </h1>
           <p>Diese vier Dimensionen bilden den Bewertungsrahmen für jeden Use Case</p>
-          <p>Value & Risk Assessment</p>
         </div>
-        
-        <!-- SLIDE CONTENT -->
-        <div class="slide-content">
-        
-          <!-- 4-SÄULEN KPI GRID -->
-          <div class="grid grid-4 kpi-grid" style="gap: 24px; margin-bottom: 20px;">
-          
+
+        <!-- 4-SÄULEN KPI GRID -->
+        <div class="kpi-grid">
+
           <!-- SÄULE 1: ZEIT -->
-          <div class="card" style="text-align: center; border-top: 4px solid var(--navy);">
-            <div style="margin-bottom: var(--space-4);"><i data-lucide="clock" class="icon-2xl icon-info"></i></div>
-            <h3 style="color: var(--navy); margin-bottom: var(--space-4);">Zeit</h3>
-            <p style="font-size: var(--text-sm); color: var(--text-medium); margin-bottom: var(--space-4);">
-              Wie viel Zeit wird aktuell aufgewendet? Wie viel könnte eingespart werden?
-            </p>
+          <div class="card">
+            <i data-lucide="clock"></i>
+            <h3>Zeit</h3>
+            <p>Wie viel Zeit wird aktuell aufgewendet? Wie viel könnte eingespart werden?</p>
             <div style="background: var(--off-white); padding: var(--space-4); border-radius: var(--border-radius-md);">
-              <strong style="display: block; margin-bottom: var(--space-2);">Beispiel-Metriken:</strong>
-              <ul style="text-align: left; font-size: var(--text-sm); margin: 0; padding-left: var(--space-4);">
+              <strong>Beispiel-Metriken:</strong>
+              <ul>
                 <li>Stunden pro Vorgang</li>
                 <li>Durchlaufzeit (Tage)</li>
                 <li>Wartezeit (Stunden)</li>
               </ul>
             </div>
           </div>
-          
+
           <!-- SÄULE 2: KOSTEN -->
-          <div class="card" style="text-align: center; border-top: 4px solid var(--navy);">
-            <div style="margin-bottom: var(--space-4);"><i data-lucide="coins" class="icon-2xl icon-info"></i></div>
-            <h3 style="color: var(--navy); margin-bottom: var(--space-4);">Kosten</h3>
-            <p style="font-size: var(--text-sm); color: var(--text-medium); margin-bottom: var(--space-4);">
-              Welche direkten und indirekten Kosten entstehen durch den aktuellen Prozess?
-            </p>
+          <div class="card">
+            <i data-lucide="coins"></i>
+            <h3>Kosten</h3>
+            <p>Welche direkten und indirekten Kosten entstehen durch den aktuellen Prozess?</p>
             <div style="background: var(--off-white); padding: var(--space-4); border-radius: var(--border-radius-md);">
-              <strong style="display: block; margin-bottom: var(--space-2);">Beispiel-Metriken:</strong>
-              <ul style="text-align: left; font-size: var(--text-sm); margin: 0; padding-left: var(--space-4);">
+              <strong>Beispiel-Metriken:</strong>
+              <ul>
                 <li>Personalkosten/Jahr</li>
                 <li>Externe Beratung</li>
                 <li>Opportunitätskosten</li>
               </ul>
             </div>
           </div>
-          
+
           <!-- SÄULE 3: QUALITÄT -->
-          <div class="card" style="text-align: center; border-top: 4px solid var(--navy);">
-            <div style="margin-bottom: var(--space-4);"><i data-lucide="check-circle" class="icon-2xl icon-success"></i></div>
-            <h3 style="color: var(--navy); margin-bottom: var(--space-4);">Qualität</h3>
-            <p style="font-size: var(--text-sm); color: var(--text-medium); margin-bottom: var(--space-4);">
-              Wie konsistent und fehlerfrei ist der aktuelle Output?
-            </p>
+          <div class="card">
+            <i data-lucide="check-circle"></i>
+            <h3>Qualität</h3>
+            <p>Wie konsistent und fehlerfrei ist der aktuelle Output?</p>
             <div style="background: var(--off-white); padding: var(--space-4); border-radius: var(--border-radius-md);">
-              <strong style="display: block; margin-bottom: var(--space-2);">Beispiel-Metriken:</strong>
-              <ul style="text-align: left; font-size: var(--text-sm); margin: 0; padding-left: var(--space-4);">
+              <strong>Beispiel-Metriken:</strong>
+              <ul>
                 <li>Fehlerquote (%)</li>
                 <li>Nacharbeits-Quote</li>
                 <li>Konsistenz-Score</li>
               </ul>
             </div>
           </div>
-          
+
           <!-- SÄULE 4: RISIKO -->
-          <div class="card" style="text-align: center; border-top: 4px solid var(--navy);">
-            <div style="margin-bottom: var(--space-4);"><i data-lucide="alert-triangle" class="icon-2xl icon-warning"></i></div>
-            <h3 style="color: var(--navy); margin-bottom: var(--space-4);">Risiko</h3>
-            <p style="font-size: var(--text-sm); color: var(--text-medium); margin-bottom: var(--space-4);">
-              Welche Risiken bestehen bei Nicht-Handlung oder bei fehlerhafter Bearbeitung?
-            </p>
+          <div class="card">
+            <i data-lucide="alert-triangle"></i>
+            <h3>Risiko</h3>
+            <p>Welche Risiken bestehen bei Nicht-Handlung oder bei fehlerhafter Bearbeitung?</p>
             <div style="background: var(--off-white); padding: var(--space-4); border-radius: var(--border-radius-md);">
-              <strong style="display: block; margin-bottom: var(--space-2);">Beispiel-Metriken:</strong>
-              <ul style="text-align: left; font-size: var(--text-sm); margin: 0; padding-left: var(--space-4);">
+              <strong>Beispiel-Metriken:</strong>
+              <ul>
                 <li>Compliance-Verstöße</li>
                 <li>Audit-Findings</li>
                 <li>Reputationsrisiko</li>
               </ul>
             </div>
           </div>
-          
+
         </div>
-        
-        <!-- ABGRENZUNG (exakt aus PDF Seite 11) -->
-        <div class="box" style="background: var(--off-white); border: 1px solid var(--border-gray); padding: var(--space-6); border-radius: var(--border-radius-lg);">
-          <h3 style="font-size: var(--text-base); font-weight: var(--font-semibold); color: var(--text-darkest); margin-bottom: var(--space-4);">Abgrenzung: Ein digitaler Mockup</h3>
-          <ul style="margin: var(--space-4) 0; padding-left: var(--space-6); color: var(--text-medium);">
-            <li style="margin-bottom: var(--space-3);"><strong>verarbeitet keine Echtdaten</strong></li>
-            <li style="margin-bottom: var(--space-3);"><strong>führt keine Berechnungen, Entscheidungen oder Automatisierungen aus</strong></li>
-            <li style="margin-bottom: var(--space-3);"><strong>besitzt keine Anbindung an IT-Systeme</strong></li>
-            <li style="margin-bottom: var(--space-3);"><strong>entfaltet keine operative, rechtliche oder technische Wirkung</strong></li>
-          </ul>
-          <p style="margin-top: var(--space-6); font-size: var(--text-sm); color: var(--text-medium);">
-            Der digitale Mockup ist kein Bestandteil einer Produktivlösung und keine Grundlage für eine unmittelbare technische Umsetzung. Er ersetzt weder ein Pflichtenheft noch eine technische Spezifikation. Sein alleiniger Zweck ist die visuelle Unterstützung von Entscheidungs- und Abstimmungsprozessen auf Management- und Fachebene.
-          </p>
+
+        <!-- SLIDE NAVIGATOR: Weiter zu Abgrenzung -->
+        <div class="slide-nav">
+          <a href="#slide-abgrenzung" class="slide-nav-btn" id="nav-to-abgrenzung">
+            <span>Weiter zu Abgrenzung</span>
+            <i data-lucide="chevron-down"></i>
+          </a>
         </div>
-        
-        </div><!-- /slide-content -->
-        
-        <!-- SLIDE FOOTER -->
-        <div class="slide-footer">
-          <a href="screen-1-overview.html" class="btn btn-secondary">← Zurück zur Übersicht</a>
-          <a href="screen-3-governance.html" class="btn btn-primary">Weiter zu Governance →</a>
-        </div>
-        
-      </div><!-- /slide-container -->
-      
-    </main>
-    
-    <footer class="footer">
-      <div class="footer-inner">
-        <span>© 2026 gannaca AI Case Sprint</span>
+
       </div>
-    </footer>
+      <!-- Ende FOLIE 1 -->
+
+      <!-- ========== FOLIE 2: ABGRENZUNG ========== -->
+      <div class="slide-abgrenzung" id="slide-abgrenzung">
+
+        <!-- ABGRENZUNG HEADER -->
+        <div class="abgrenzung-header">
+          <h2>Abgrenzung: Ein digitaler Mockup</h2>
+          <p>Wichtige Klarstellungen zu diesem Prototyp</p>
+        </div>
+
+        <!-- ABGRENZUNG BOX -->
+        <div class="box" role="note" aria-label="Abgrenzung">
+          <h3>Abgrenzung: Ein digitaler Mockup</h3>
+          <ul>
+            <li><strong>verarbeitet keine Echtdaten</strong></li>
+            <li><strong>führt keine Berechnungen, Entscheidungen oder Automatisierungen aus</strong></li>
+            <li><strong>besitzt keine Anbindung an IT-Systeme</strong></li>
+            <li><strong>entfaltet keine operative, rechtliche oder technische Wirkung</strong></li>
+          </ul>
+          <p>Der digitale Mockup ist kein Bestandteil einer Produktivlösung und keine Grundlage für eine unmittelbare technische Umsetzung. Er ersetzt weder ein Pflichtenheft noch eine technische Spezifikation. Sein alleiniger Zweck ist die visuelle Unterstützung von Entscheidungs- und Abstimmungsprozessen auf Management- und Fachebene.</p>
+        </div>
+
+        <!-- NAVIGATION -->
+        <div class="screen-nav">
+          <a href="screen-1-overview.html" class="btn btn-secondary">
+            ← Zurück zur Übersicht
+          </a>
+          <a href="screen-3-governance.html" class="btn btn-primary">
+            Weiter zu Governance →
+          </a>
+        </div>
+
+      </div>
+      <!-- Ende FOLIE 2 -->
+
+    </main>
+
+    <!-- SLIDE INDIKATOR (rechts fixiert) -->
+    <div class="slide-indicator">
+      <div class="slide-indicator-dot active" data-slide="slide-kpi"></div>
+      <div class="slide-indicator-dot" data-slide="slide-abgrenzung"></div>
+    </div>
+
   </div><!-- /page-wrapper -->
-  
+
   <!-- Active Tab Highlighting -->
   <script>
-    // Markiere aktuellen Tab als "active"
     const currentPage = window.location.pathname.split('/').pop();
     document.querySelectorAll('.nav-tab').forEach(tab => {
       tab.classList.remove('active');
@@ -250,8 +497,70 @@
       }
     });
   </script>
-  
+
   <!-- Initialize Lucide Icons -->
   <script>lucide.createIcons();</script>
+
+  <!-- SLIDE NAVIGATION SCRIPT -->
+  <script>
+    (function() {
+      const slides = ['slide-kpi', 'slide-abgrenzung'];
+      let currentSlide = 0;
+
+      function scrollToSlide(index) {
+        if (index < 0 || index >= slides.length) return;
+        currentSlide = index;
+        const element = document.getElementById(slides[index]);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          updateIndicator();
+        }
+      }
+
+      function updateIndicator() {
+        document.querySelectorAll('.slide-indicator-dot').forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentSlide);
+        });
+      }
+
+      document.addEventListener('keydown', function(e) {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown') {
+          e.preventDefault();
+          scrollToSlide(currentSlide + 1);
+        } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
+          e.preventDefault();
+          scrollToSlide(currentSlide - 1);
+        }
+      });
+
+      document.getElementById('nav-to-abgrenzung')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        scrollToSlide(1);
+      });
+
+      document.querySelectorAll('.slide-indicator-dot').forEach((dot, index) => {
+        dot.addEventListener('click', () => scrollToSlide(index));
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+            const index = slides.indexOf(entry.target.id);
+            if (index !== -1) {
+              currentSlide = index;
+              updateIndicator();
+            }
+          }
+        });
+      }, { threshold: 0.5 });
+
+      slides.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    })();
+  </script>
 </body>
 </html>

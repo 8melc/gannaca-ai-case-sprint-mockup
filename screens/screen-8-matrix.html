@@ -16,43 +16,305 @@
   
   <!-- Screen-spezifische Beamer-Optimierung -->
   <style>
+    /* Slide Container - Beamer-Optimiert */
+    .slide-container {
+      max-width: 1500px;
+      margin: 0 auto !important;
+      padding: 48px 80px 40px !important;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
     @media screen and (min-width: 1920px) {
-      /* Kompaktere Matrix */
-      .card {
-        padding: 20px 24px;
-        margin-bottom: 16px;
-      }
-      
-      .card h3 {
-        font-size: 16px;
+      /* Slide Header Optimierung */
+      .slide-header h1 {
+        font-size: 40px;
+        line-height: 1.3;
         margin-bottom: 12px;
       }
-      
-      /* Matrix-Visualisierung kompakter */
+
+      .slide-header p {
+        font-size: 20px;
+        line-height: 1.4;
+      }
+
+      .slide-header i {
+        width: 36px !important;
+        height: 36px !important;
+      }
+
+      /* Verwendungshinweis Box */
+      .box {
+        padding: 24px 28px !important;
+        margin-bottom: 24px !important;
+        border-radius: 8px;
+      }
+
+      .box h3 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: var(--text-darkest);
+      }
+
+      .box p {
+        font-size: 15px;
+        line-height: 1.5;
+        color: var(--text-medium);
+        margin: 0;
+      }
+
+      /* Prüfstatus-Legende */
+      div[style*="background: var(--off-white); border: 1px solid var(--border-gray); border-radius"] {
+        padding: 20px 24px !important;
+        margin-bottom: 28px !important;
+      }
+
+      div[style*="background: var(--off-white); border: 1px solid var(--border-gray); border-radius"] i {
+        width: 24px !important;
+        height: 24px !important;
+      }
+
+      div[style*="background: var(--off-white); border: 1px solid var(--border-gray); border-radius"] strong {
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      div[style*="background: var(--off-white); border: 1px solid var(--border-gray); border-radius"] span {
+        font-size: 15px;
+      }
+
+      /* Matrix Container */
+      .card {
+        padding: 28px 28px;
+        margin-bottom: 24px;
+        border-radius: 8px;
+      }
+
+      .card h3 {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 24px;
+        color: var(--navy);
+      }
+
+      .card h4 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+
+      /* Matrix-Visualisierung mit großeren Zellen (60-80px) */
       .card > div[style*="height: 420px"] {
-        height: 320px !important;
+        height: 520px !important;
+        min-height: 520px !important;
       }
-      
-      /* Top-3 Empfehlungen kompakter */
-      .grid-3 .card {
-        padding: 16px 20px;
-        min-height: auto;
+
+      .card > div[style*="height: 420px"] > div[style*="grid-template-columns"] {
+        gap: 4px !important;
       }
-      
-      .grid-3 .card h4 {
+
+      .card > div[style*="height: 420px"] > div[style*="grid-template-columns"] > div {
+        min-height: 260px !important;
+        padding: 20px !important;
+      }
+
+      /* Matrix Labels - größer und besser sichtbar */
+      .card > div[style*="height: 420px"] > div[style*="position: absolute; left: -45px"] {
+        font-size: 16px !important;
+        font-weight: 700;
+        left: -70px !important;
+      }
+
+      .card > div[style*="height: 420px"] > div[style*="position: absolute; bottom: -35px"] {
+        font-size: 16px !important;
+        font-weight: 700;
+        bottom: -45px !important;
+      }
+
+      .card > div[style*="height: 420px"] i {
+        width: 18px !important;
+        height: 18px !important;
+      }
+
+      /* Matrix-Quadrant Text */
+      .card > div[style*="height: 420px"] span[style*="font-size: var(--text-xs)"] {
+        font-size: 14px !important;
+        font-weight: 600;
+      }
+
+      /* Matrix Punkte - großer */
+      .card > div[style*="height: 420px"] div[style*="width: 44px; height: 44px"] {
+        width: 72px !important;
+        height: 72px !important;
+        font-size: 18px !important;
+        border-width: 5px !important;
+      }
+
+      /* Legend - größere Boxen */
+      .card > div[style*="display: flex; gap"] {
+        margin-top: 24px;
+        gap: 32px;
+      }
+
+      .card > div[style*="display: flex; gap"] > div {
+        gap: 12px;
+      }
+
+      .card > div[style*="display: flex; gap"] div[style*="width: 20px; height: 20px"] {
+        width: 28px !important;
+        height: 28px !important;
+        min-width: 28px;
+      }
+
+      .card > div[style*="display: flex; gap"] span {
+        font-size: 15px;
+        line-height: 1.4;
+      }
+
+      /* Bewertungskriterien */
+      .card > div[style*="margin-top: var(--space-8); padding"] {
+        margin-top: 28px !important;
+        padding: 24px !important;
+        border-radius: 8px;
+      }
+
+      .card > div[style*="margin-top: var(--space-8); padding"] h4 {
+        font-size: 16px;
+        margin-bottom: 18px;
+      }
+
+      .card > div[style*="margin-top: var(--space-8); padding"] i {
+        width: 24px !important;
+        height: 24px !important;
+        margin-right: 8px;
+      }
+
+      .card > div[style*="margin-top: var(--space-8); padding"] strong {
         font-size: 14px;
-        margin-bottom: 8px;
+        font-weight: 600;
       }
-      
+
+      .card > div[style*="margin-top: var(--space-8); padding"] span {
+        font-size: 13px;
+      }
+
+      /* Top-3 Empfehlungen Grid */
+      .grid-3 {
+        gap: 28px !important;
+      }
+
+      .grid-3 .card {
+        padding: 24px 28px;
+        min-height: auto;
+        border-radius: 8px;
+      }
+
+      .grid-3 .card h3 {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 18px;
+      }
+
+      .grid-3 .card h4 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+
       .grid-3 .card p {
-        font-size: 12px;
-        margin-bottom: 8px;
+        font-size: 15px;
+        line-height: 1.5;
+        margin-bottom: 16px;
+        color: var(--text-medium);
       }
-      
-      /* Info-Box kompakter */
-      .info-box {
-        padding: 16px 20px;
-        margin-top: 16px;
+
+      .grid-3 .card > div[style*="display: flex; align-items: center"] {
+        gap: 14px;
+        margin-bottom: 16px;
+      }
+
+      .grid-3 .card > div[style*="display: flex; align-items: center"] > div {
+        width: 52px !important;
+        height: 52px !important;
+        font-size: 18px !important;
+        border-width: 4px !important;
+      }
+
+      .grid-3 .card > div[style*="display: flex; align-items: center"] span {
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      .grid-3 .card > div[style*="background: var(--off-white); padding"] {
+        padding: 16px !important;
+        border-radius: 6px;
+      }
+
+      .grid-3 .card > div[style*="background: var(--off-white); padding"] > div {
+        font-size: 15px;
+        margin-bottom: 8px;
+        padding: 4px 0;
+      }
+
+      .grid-3 .card > div[style*="background: var(--off-white); padding"] strong {
+        font-weight: 600;
+      }
+
+      /* Nächste Schritte Box */
+      div[style*="background: var(--off-white); border: 1px solid var(--border-gray); padding: var(--space-6); border-radius: var(--border-radius-lg)"] {
+        padding: 24px 28px !important;
+        margin-top: 28px;
+      }
+
+      div[style*="background: var(--off-white); border: 1px solid var(--border-gray); padding: var(--space-6); border-radius: var(--border-radius-lg)"] h3 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: var(--text-darkest);
+      }
+
+      div[style*="background: var(--off-white); border: 1px solid var(--border-gray); padding: var(--space-6); border-radius: var(--border-radius-lg)"] p {
+        font-size: 15px;
+        line-height: 1.5;
+        margin: 0;
+        color: var(--text-medium);
+      }
+
+      /* Horizontal Legend Flex */
+      div[style*="display: flex; gap: var(--space-8); margin-top"] {
+        gap: 32px !important;
+      }
+
+      div[style*="display: flex; gap: var(--space-8); margin-top"] > div {
+        gap: 12px !important;
+      }
+
+      /* Grid-5 Bewertungskriterien */
+      .grid-5 > div {
+        padding: 16px;
+      }
+
+      .grid-5 strong {
+        font-size: 14px;
+        font-weight: 600;
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .grid-5 span {
+        font-size: 13px;
+      }
+
+      /* Top-3 Überschrift */
+      h3[style*="margin-bottom: var(--space-6)"] {
+        font-size: 22px;
+        font-weight: 600;
+      }
+
+      h3[style*="margin-bottom: var(--space-6)"] i {
+        width: 28px !important;
+        height: 28px !important;
       }
     }
   </style>
@@ -67,7 +329,7 @@
           <div class="logo-group">
             <img src="../assets/gannaca-logo.png" alt="gannaca" class="gannaca-logo">
             <div class="title-group">
-              <h1 class="main-title">gannaca AI Case Sprint</h1>
+              <h1 class="main-title">AI Case Sprint</h1>
               <p class="subtitle">Standardisiertes Framework für KI-Use-Case-Entwicklung</p>
             </div>
           </div>
@@ -96,7 +358,8 @@
         <a href="screen-1-overview.html" class="nav-tab"><span class="nav-tab-number">1</span> Übersicht</a>
         <a href="screen-2-kpi.html" class="nav-tab nav-tab-optional"><span class="nav-tab-number">2</span> KPI-Rahmen</a>
         <a href="screen-3-governance.html" class="nav-tab"><span class="nav-tab-number">3</span> Governance</a>
-        <a href="screen-4-success-story.html" class="nav-tab"><span class="nav-tab-number">4</span> Success Story <i data-lucide="sparkles" class="icon-sm"></i></a>
+        <a href="screen-4-case-beispiel.html" class="nav-tab"><span class="nav-tab-number">4</span> Case-Beispiel</a>
+        <a href="screen-5-tool-mockup.html" class="nav-tab"><span class="nav-tab-number">5</span> Mockup-Beispiel</a>
         <a href="screen-6-form.html" class="nav-tab"><span class="nav-tab-number">6</span> Case-Erfassung <i data-lucide="star" class="icon-sm"></i></a>
         <a href="screen-6b-bewertung.html" class="nav-tab"><span class="nav-tab-number">6b</span> Bewertung</a>
         <a href="screen-7-results.html" class="nav-tab"><span class="nav-tab-number">7</span> Ergebnis</a>

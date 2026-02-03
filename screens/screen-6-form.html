@@ -55,7 +55,7 @@
       height: 16px;
     }
 
-    /* PAGE HEADER STICKY (auch im Fokus-Modus sichtbar) */
+    /* PAGE HEADER STICKY (Normal-Modus) */
     .page-header-sticky {
       position: sticky;
       top: calc(var(--header-height) + var(--nav-height));
@@ -66,13 +66,13 @@
       border-bottom: 1px solid var(--border-gray);
     }
 
-    /* Scroll-Offset für Sections unter Sticky-Header */
+    /* Scroll-Offset für Sections (Normal-Modus) */
     .form-section {
       scroll-margin-top: 150px;
     }
 
     /* ============================================
-       FOKUS-MODUS NAVIGATION - OPTIMIERT
+       FOKUS-MODUS NAVIGATION - KOMPAKT
        ============================================ */
     .focus-nav {
       display: none;
@@ -81,65 +81,66 @@
       left: 0;
       right: 0;
       background: white;
-      border-top: 3px solid var(--navy);
-      padding: 20px 40px;
+      border-top: 2px solid var(--navy);
+      padding: 10px 20px;   /* KOMPAKT */
       z-index: 1000;
-      box-shadow: 0 -8px 32px rgba(0,0,0,0.12);
+      box-shadow: 0 -2px 12px rgba(0,0,0,0.06);
     }
     .focus-nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
+      max-width: 100%;
+      margin: 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 24px;
+      gap: 16px;
     }
 
     /* PROGRESS SECTION - LINKS */
     .focus-nav-progress {
       display: flex;
-      flex-direction: column;
-      gap: 8px;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
       flex: 1;
     }
 
-    /* FRAGE X VON 11 - GROSS UND KLAR */
+    /* FRAGE X VON 11 - KOMPAKT */
     .focus-nav-step {
-      font-size: 14px;
+      font-size: 11px;
       font-weight: 600;
       color: var(--text-medium);
       letter-spacing: 0.5px;
       text-transform: uppercase;
     }
     .focus-nav-step-number {
-      font-size: 28px;
+      font-size: 20px;
       font-weight: 700;
       color: var(--navy);
-      display: block;
-      line-height: 1.2;
+      display: inline;
+      line-height: 1;
     }
 
-    /* FRAGEN-TITEL ANZEIGE */
+    /* FRAGEN-TITEL ANZEIGE - KOMPAKT */
     .focus-nav-title {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 500;
       color: var(--text-dark);
-      margin-top: 4px;
-      max-width: 400px;
+      margin: 0;
+      max-width: 300px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
-    /* DOTS MIT TOOLTIPS */
+    /* DOTS MIT TOOLTIPS - KOMPAKT */
     .focus-nav-dots {
       display: flex;
-      gap: 8px;
-      margin-top: 12px;
+      gap: 6px;
+      margin: 0;
     }
     .focus-nav-dot {
-      width: 28px;
-      height: 28px;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
       background: var(--light-gray);
       border: 2px solid var(--border-gray);
@@ -148,7 +149,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       color: var(--text-light);
       position: relative;
@@ -207,23 +208,23 @@
       visibility: visible;
     }
 
-    /* BUTTONS - RECHTS */
+    /* BUTTONS - RECHTS - KOMPAKT */
     .focus-nav-buttons {
       display: flex;
-      gap: 12px;
+      gap: 8px;
       align-items: center;
     }
     .focus-nav-btn {
-      padding: 14px 28px;
-      border-radius: 10px;
-      font-size: 15px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 13px;
       font-weight: 600;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 6px;
       transition: all 0.2s ease;
-      min-width: 140px;
+      min-width: 100px;
       justify-content: center;
     }
     .focus-nav-btn-prev {
@@ -260,16 +261,16 @@
       height: 18px;
     }
 
-    /* AUTO-SAVE INDIKATOR */
+    /* AUTO-SAVE INDIKATOR - KOMPAKT */
     .autosave-indicator {
       display: flex;
       align-items: center;
-      gap: 6px;
-      font-size: 12px;
+      gap: 4px;
+      font-size: 11px;
       color: var(--text-light);
-      padding: 6px 12px;
+      padding: 4px 10px;
       background: var(--off-white);
-      border-radius: 20px;
+      border-radius: 16px;
     }
     .autosave-indicator.saving {
       color: var(--orange);
@@ -283,85 +284,205 @@
     }
 
     /* ============================================
-       FOKUS-MODUS AKTIV - RUHIG & KLAR
+       FOKUS-MODUS AKTIV - KOMPAKT & KLAR
        ============================================ */
     body.focus-mode-active .form-section {
       display: none !important;
     }
     body.focus-mode-active .form-section.focus-visible {
-      display: block !important;
+      display: flex !important;
+      flex-direction: column;
       animation: fadeInUp 0.25s ease-out;
-      /* BEAMER-OPTIMIERT: Maximale Ruhe */
-      max-width: 860px;
+      /* KOMPAKT: Weniger Padding, mehr Inhalt */
+      max-width: 1200px;
+      width: 100%;
       margin: 0 auto;
-      padding: 32px 40px;
+      padding: 20px 28px;
       background: white;
-      border-radius: 16px;
-      box-shadow: 0 4px 32px rgba(0,0,0,0.06);
+      border-radius: 12px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.04);
       border: 1px solid var(--border-gray);
-      margin-bottom: var(--footer-safe-area);
+      /* Flex füllt verfügbaren Platz */
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+      box-sizing: border-box;
     }
 
-    /* BEAMER-MODUS: Fokus-Section füllt sichtbaren Bereich */
+    /* STICKY: Frage-Titel bleibt immer sichtbar */
+    body.focus-mode-active .form-section-title {
+      position: sticky;
+      top: 0;
+      background: white;
+      padding: 12px 0 16px 0;
+      margin: 0 0 12px 0;
+      border-bottom: 2px solid var(--border-gray);
+      z-index: 10;
+      flex-shrink: 0;
+    }
+
+    /* SCROLL: Form-Group scrollbar machen */
+    body.focus-mode-active .form-group {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 8px;
+      margin-bottom: 0;
+      padding-bottom: 16px;
+      border-bottom: none;
+    }
+
+    /* Scrollbar-Styling */
+    body.focus-mode-active .form-group::-webkit-scrollbar {
+      width: 6px;
+    }
+    body.focus-mode-active .form-group::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 3px;
+    }
+    body.focus-mode-active .form-group::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 3px;
+    }
+    body.focus-mode-active .form-group::-webkit-scrollbar-thumb:hover {
+      background: #aaa;
+    }
+
+    /* BEAMER-OPTIMIERT: Fokus-Section für große Displays */
     @media screen and (min-width: 1920px) {
       body.focus-mode-active .form-section.focus-visible {
-        max-width: 960px;
-        padding: 36px 48px;
-        min-height: calc(100vh - var(--header-height) - var(--nav-height) - var(--focus-nav-height) - var(--footer-safe-area));
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 24px 40px;
       }
 
       body.focus-mode-active .form-section-title {
-        font-size: 26px;
-        margin-bottom: 24px;
+        font-size: 24px;
+        padding: 16px 0 20px 0;
+        margin-bottom: 16px;
+        font-weight: 700;
+        line-height: 1.3;
       }
 
       body.focus-mode-active .form-section-number {
-        width: 56px;
-        height: 56px;
-        font-size: 24px;
+        width: 60px;
+        height: 60px;
+        font-size: 26px;
+        font-weight: 700;
       }
 
+      /* Labels – größer und deutlicher */
       body.focus-mode-active .form-label {
-        font-size: 17px;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        line-height: 1.4;
       }
 
+      body.focus-mode-active .form-hint {
+        font-size: 15px;
+      }
+
+      /* Input-Felder – große Schrift für bessere Lesbarkeit */
       body.focus-mode-active .form-input,
       body.focus-mode-active .form-textarea,
       body.focus-mode-active .form-select {
         font-size: 18px;
-        padding: 16px 20px;
+        padding: 18px 24px;
+        line-height: 1.5;
       }
 
-      body.focus-mode-active .form-radio-item,
-      body.focus-mode-active .form-checkbox-item {
-        padding: 16px 24px;
-        font-size: 16px;
-      }
-
-      /* Fokus-Navigation größer */
-      .focus-nav {
-        padding: 24px 60px;
-      }
-
-      .focus-nav-step-number {
-        font-size: 32px;
-      }
-
-      .focus-nav-title {
+      body.focus-mode-active .form-input::placeholder,
+      body.focus-mode-active .form-textarea::placeholder {
         font-size: 18px;
       }
 
-      .focus-nav-dot {
-        width: 32px;
-        height: 32px;
+      /* Radio & Checkbox – größer */
+      body.focus-mode-active .form-radio-item,
+      body.focus-mode-active .form-checkbox-item {
+        padding: 18px 28px;
+        font-size: 17px;
+      }
+
+      body.focus-mode-active .form-radio-item input,
+      body.focus-mode-active .form-checkbox-item input {
+        width: 22px;
+        height: 22px;
+      }
+
+      /* Fokus-Navigation – Beamer-optimiert aber kompakt */
+      .focus-nav {
+        padding: 14px 40px;
+      }
+
+      .focus-nav-step {
         font-size: 12px;
       }
 
+      .focus-nav-step-number {
+        font-size: 24px;
+        font-weight: 700;
+      }
+
+      .focus-nav-title {
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .focus-nav-dot {
+        width: 28px;
+        height: 28px;
+        font-size: 11px;
+        font-weight: 700;
+      }
+
       .focus-nav-btn {
-        padding: 16px 32px;
+        padding: 12px 24px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .focus-nav-btn i {
+        width: 18px;
+        height: 18px;
+      }
+
+      .autosave-indicator {
+        font-size: 12px;
+      }
+
+      /* Rating-Items */
+      body.focus-mode-active .form-rating-item {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+      }
+
+      /* Bestätigungsdialog */
+      .confirm-dialog {
+        max-width: 520px;
+      }
+
+      .confirm-dialog-header h3 {
+        font-size: 22px;
+      }
+
+      .confirm-dialog-body {
+        padding: 24px 32px;
+        font-size: 16px;
+      }
+
+      .confirm-dialog-stat {
+        font-size: 15px;
+        padding: 10px 0;
+      }
+
+      .confirm-dialog-footer {
+        padding: 20px 32px;
+        gap: 12px;
+      }
+
+      .confirm-dialog-footer button {
+        padding: 14px 32px;
         font-size: 16px;
       }
     }
@@ -373,18 +494,34 @@
     body.focus-mode-active .form-disclaimer,
     body.focus-mode-active .form-progress,
     body.focus-mode-active .form-header,
-    body.focus-mode-active .form-required-hint {
+    body.focus-mode-active .form-required-hint,
+    body.focus-mode-active .page-header-sticky {
       display: none !important;
     }
     body.focus-mode-active .main-content {
-      padding-bottom: var(--focus-safe-area);
-      padding-top: calc(var(--header-height) + var(--nav-height) + 32px);
+      /* KORREKT: Padding-top muss Header + Nav berücksichtigen */
+      padding-top: calc(var(--header-height) + var(--nav-height) + 12px);
+      padding-left: 16px;
+      padding-right: 16px;
+      padding-bottom: calc(var(--focus-nav-height) + 12px);
       background: var(--off-white);
+      min-height: 100vh;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      overflow: hidden;
     }
     body.focus-mode-active .form-container {
       background: transparent;
       box-shadow: none;
+      max-width: 100%;
       padding: 0;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
     }
     body.focus-mode-active .page-header {
       display: none;
@@ -473,6 +610,23 @@
       gap: 16px;
     }
 
+    /* ============================================
+       FIX: Labels ohne Zeilenumbruch bei Frage 6
+       ============================================ */
+
+    /* Frage 6: Labels in einer Zeile halten */
+    body.focus-mode-active .grid-4 .form-label {
+      white-space: nowrap;
+      font-size: 13px;
+      line-height: 1.3;
+    }
+
+    /* Frage 6: Grid breiter machen */
+    body.focus-mode-active .grid-4 {
+      grid-template-columns: repeat(4, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
     /* Frage 7: Strategische Relevanz - horizontal/inline */
     body.focus-mode-active #relevanz.form-radio-group {
       display: flex;
@@ -494,23 +648,73 @@
       height: 52px;
     }
 
-    /* BEAMER-MODUS: Noch kompakter */
+    /* BEAMER-MODUS: Spezifische Grid-Anpassungen für große Displays */
     @media screen and (min-width: 1920px) {
+      /* Mehrspaltige Checkbox/Radio-Gruppen – optimales Layout für Beamer */
       body.focus-mode-active #abteilungen.form-checkbox-group,
       body.focus-mode-active #haeufigkeit.form-radio-group,
       body.focus-mode-active #datenVerfuegbarkeit.form-radio-group {
         grid-template-columns: 1fr 1fr;
-        gap: 12px;
+        gap: 16px;
       }
 
+      /* Höhere Kontrastabilität für Checkbox/Radio-Items */
       body.focus-mode-active .form-radio-item,
       body.focus-mode-active .form-checkbox-item {
-        padding: 14px 18px;
+        padding: 16px 24px;
+        font-size: 16px;
+        border-radius: 10px;
+        transition: all 0.2s ease;
       }
 
+      body.focus-mode-active .form-radio-item:hover,
+      body.focus-mode-active .form-checkbox-item:hover {
+        background: rgba(26, 58, 92, 0.04);
+      }
+
+      /* Rating-Items größer */
       body.focus-mode-active .form-rating-item {
-        width: 56px;
-        height: 56px;
+        width: 64px;
+        height: 64px;
+        font-size: 32px;
+        font-weight: 700;
+      }
+
+      body.focus-mode-active .form-rating-item:hover {
+        transform: scale(1.08);
+      }
+
+      /* Form-Groups Spacing */
+      body.focus-mode-active .form-group {
+        margin-bottom: 28px;
+      }
+
+      /* Hinweis-Text – lesbarer */
+      body.focus-mode-active .regel-hinweis {
+        padding: 20px 24px;
+        margin-bottom: 28px;
+        border-left-width: 5px;
+      }
+
+      body.focus-mode-active .regel-hinweis-title {
+        font-size: 16px;
+      }
+
+      body.focus-mode-active .regel-hinweis-text {
+        font-size: 15px;
+      }
+
+      /* FIX: Frage 6 - Labels in einer Zeile auf großen Displays */
+      body.focus-mode-active .grid-4 {
+        grid-template-columns: repeat(4, minmax(180px, 1fr));
+        gap: 28px;
+      }
+
+      body.focus-mode-active .grid-4 .form-label {
+        white-space: nowrap;
+        font-size: 14px;
+        margin-bottom: 12px;
+        line-height: 1.3;
       }
     }
 
@@ -646,7 +850,7 @@
           <div class="logo-group">
             <img src="../assets/gannaca-logo.png" alt="gannaca" class="gannaca-logo">
             <div class="title-group">
-              <h1 class="main-title">gannaca AI Case Sprint</h1>
+              <h1 class="main-title">AI Case Sprint</h1>
               <p class="subtitle">Standardisiertes Framework für KI-Use-Case-Entwicklung</p>
             </div>
           </div>
@@ -675,11 +879,10 @@
         <a href="screen-1-overview.html" class="nav-tab"><span class="nav-tab-number">1</span> Übersicht</a>
         <a href="screen-2-kpi.html" class="nav-tab nav-tab-optional"><span class="nav-tab-number">2</span> KPI-Rahmen</a>
         <a href="screen-3-governance.html" class="nav-tab"><span class="nav-tab-number">3</span> Governance</a>
-        <a href="screen-4-success-story.html" class="nav-tab"><span class="nav-tab-number">4</span> Success Story <i data-lucide="sparkles" class="icon-sm"></i></a>
-        <a href="screen-6-form.html" class="nav-tab active"><span class="nav-tab-number">6</span> Case-Erfassung</a>
-        <a href="screen-6b-bewertung.html" class="nav-tab"><span class="nav-tab-number">6b</span> Bewertung</a>
+        <a href="screen-4-case-beispiel.html" class="nav-tab"><span class="nav-tab-number">4</span> Case-Beispiel</a>
+        <a href="screen-5-tool-mockup.html" class="nav-tab"><span class="nav-tab-number">5</span> Mockup-Beispiel</a>
+        <a href="screen-6-form.html" class="nav-tab active"><span class="nav-tab-number">6</span> Case-Erfassung <i data-lucide="star" class="icon-sm"></i></a>
         <a href="screen-7-results.html" class="nav-tab"><span class="nav-tab-number">7</span> Ergebnis</a>
-        <a href="screen-8-matrix.html" class="nav-tab"><span class="nav-tab-number">8</span> Matrix</a>
       </div>
     </nav>
     
@@ -809,11 +1012,11 @@
               </div>
             </div>
             
-            <!-- FELD 5: Häufigkeit / Volumen -->
+            <!-- FELD 5: Häufigkeit -->
             <div class="form-section">
               <h3 class="form-section-title">
                 <span class="form-section-number">5</span>
-                Häufigkeit / Volumen
+                Häufigkeit
               </h3>
               <div class="form-group">
                 <label class="form-label form-label-required">Wie oft kommt dieser Fall vor?</label>
@@ -841,7 +1044,7 @@
               </h3>
               <div class="form-group">
                 <label class="form-label form-label-required" style="margin-bottom: var(--space-4);">Wie viele Personen sind beteiligt und wie viel Zeit wird pro Fall benötigt?</label>
-                <div class="grid grid-4" style="gap: var(--spacing-xl);">
+                <div class="grid grid-4">
                   <div>
                     <label class="form-label form-label-required">Anzahl betroffener Mitarbeiter</label>
                     <input type="number" class="form-input" id="betroffenePersonen" placeholder="z.B. 3" min="1">
@@ -1131,10 +1334,22 @@ Das Feld wächst automatisch beim Tippen!"
        JAVASCRIPT
        ============================================ -->
   <script>
+    // Edit-Modus Tracking
+    let editMode = false;
+    let editCaseNumber = null;
+
     // Beim Laden der Seite
     document.addEventListener('DOMContentLoaded', function() {
       updateUI();
       updateTime();
+
+      // Prüfen ob Edit-Modus (URL Parameter ?edit=X)
+      const urlParams = new URLSearchParams(window.location.search);
+      const editParam = urlParams.get('edit');
+      if (editParam) {
+        editCaseNumber = parseInt(editParam);
+        loadCaseForEdit(editCaseNumber);
+      }
       
       // Markiere aktuellen Tab als "active"
       const currentPage = window.location.pathname.split('/').pop();
@@ -1205,6 +1420,110 @@ Das Feld wächst automatisch beim Tippen!"
       setupSmoothScrollToField();
     });
     
+    // ============================================
+    // CASE FÜR BEARBEITUNG LADEN
+    // ============================================
+    function loadCaseForEdit(caseNumber) {
+      const cases = getAllCases();
+      const caseData = cases.find(c => c.caseNumber === caseNumber);
+
+      if (!caseData) {
+        toastError('Case nicht gefunden', `Case #${caseNumber} existiert nicht.`);
+        return;
+      }
+
+      editMode = true;
+
+      // Header aktualisieren
+      const pageTitle = document.querySelector('.page-title');
+      if (pageTitle) {
+        pageTitle.innerHTML = `<i data-lucide="edit-3" class="icon-with-text"></i>Case #${caseNumber.toString().padStart(2, '0')} bearbeiten`;
+        lucide.createIcons();
+      }
+
+      const pageSubtitle = document.querySelector('.page-subtitle');
+      if (pageSubtitle) {
+        pageSubtitle.textContent = 'Änderungen vornehmen und speichern';
+      }
+
+      // Case-Nummer anzeigen
+      const caseNumDisplay = document.getElementById('caseNumber');
+      if (caseNumDisplay) caseNumDisplay.textContent = `#${caseNumber.toString().padStart(2, '0')}`;
+
+      // Formularfelder befüllen
+      populateFormField('teilnehmer', caseData.teilnehmer);
+      populateFormField('problemTitel', caseData.problemTitel);
+      populateFormField('ausgangslage', caseData.ausgangslage);
+      populateFormField('problem', caseData.problem);
+      populateFormField('anzahlVorgaenge', caseData.anzahlVorgaenge);
+      populateFormField('zeitaufwandWert', caseData.zeitaufwandWert);
+      populateFormField('zeitaufwandEinheit', caseData.zeitaufwandEinheit);
+      populateFormField('betroffenePersonen', caseData.betroffenePersonen);
+      populateFormField('risikoBegruendung', caseData.risikoBegruendung);
+      populateFormField('vorhandeneLösungBeschreibung', caseData.vorhandeneLösungBeschreibung);
+      populateFormField('kiPotenzial', caseData.kiPotenzial);
+
+      // Radio-Buttons
+      selectRadio('haeufigkeit', caseData.haeufigkeit);
+      selectRadio('strategischeRelevanz', caseData.strategischeRelevanz);
+      selectRadio('vorhandeneLoesung', caseData.vorhandeneLoesung);
+      selectRadio('datenVerfuegbarkeit', caseData.datenVerfuegbarkeit);
+
+      // Rating (Risiko)
+      if (caseData.risiko) {
+        const risikoInput = document.querySelector(`input[name="risiko"][value="${caseData.risiko}"]`);
+        if (risikoInput) {
+          risikoInput.checked = true;
+          risikoInput.closest('.form-rating-item')?.classList.add('selected');
+        }
+      }
+
+      // Checkboxen (Abteilungen)
+      if (caseData.abteilungen && Array.isArray(caseData.abteilungen)) {
+        caseData.abteilungen.forEach(abt => {
+          const checkbox = document.querySelector(`input[name="abteilung"][value="${abt}"]`);
+          if (checkbox) {
+            checkbox.checked = true;
+            checkbox.closest('.form-checkbox-item')?.classList.add('selected');
+          }
+        });
+      }
+
+      // Governance Trigger
+      selectRadio('entscheidungswirkung', caseData.entscheidungswirkung);
+      selectRadio('kritisRelevanz', caseData.kritisRelevanz);
+      selectRadio('personenbezogen', caseData.personenbezogen);
+      selectRadio('besondereKategorien', caseData.besondereKategorien);
+      selectRadio('automationsgrad', caseData.automationsgrad);
+
+      // Auto-Expand für befüllte Textareas
+      document.querySelectorAll('textarea').forEach(ta => {
+        if (ta.value) autoExpandTextarea(ta);
+      });
+
+      // Gesamtaufwand neu berechnen
+      calculateYearlyEffort();
+
+      // Erfolgs-Toast
+      toastSuccess('Case geladen', `Case #${caseNumber.toString().padStart(2, '0')} wurde zur Bearbeitung geladen.`);
+    }
+
+    function populateFormField(id, value) {
+      const field = document.getElementById(id);
+      if (field && value !== undefined && value !== null) {
+        field.value = value;
+      }
+    }
+
+    function selectRadio(name, value) {
+      if (!value) return;
+      const radio = document.querySelector(`input[name="${name}"][value="${value}"]`);
+      if (radio) {
+        radio.checked = true;
+        radio.closest('.form-radio-item')?.classList.add('selected');
+      }
+    }
+
     // ============================================
     // SMOOTH SCROLL-TO-FIELD FUNKTION
     // Zentriert das fokussierte Feld im Viewport
@@ -1508,27 +1827,51 @@ Das Feld wächst automatisch beim Tippen!"
     // Speichern und weiter
     function saveAndNext() {
       if (!validateForm()) return;
-      
+
       const data = collectFormData();
-      const caseNum = saveCase(data);
-      
+      let caseNum;
+
+      if (editMode && editCaseNumber) {
+        // Im Edit-Modus: Case aktualisieren
+        updateCase(editCaseNumber, data);
+        caseNum = editCaseNumber;
+        document.getElementById('modalTitle').textContent = `Case #${caseNum.toString().padStart(2, '0')} aktualisiert!`;
+      } else {
+        // Neuer Case
+        caseNum = saveCase(data);
+        document.getElementById('modalTitle').textContent = `Case #${caseNum.toString().padStart(2, '0')} gespeichert!`;
+      }
+
       // Modal zeigen
-      document.getElementById('modalTitle').textContent = `Case #${(caseNum).toString().padStart(2, '0')} gespeichert!`;
       document.getElementById('successModal').style.display = 'flex';
-      
-      // Formular leeren
+
+      // Formular leeren und Edit-Modus beenden
       clearForm();
+      editMode = false;
+      editCaseNumber = null;
+      // URL Parameter entfernen
+      window.history.replaceState({}, '', window.location.pathname);
       updateUI();
     }
-    
+
     // Speichern und bleiben
     function saveAndStay() {
       if (!validateForm()) return;
-      
+
       const data = collectFormData();
-      const caseNum = saveCase(data);
-      
-      toastSuccess(`Case #${caseNum.toString().padStart(2, '0')} gespeichert`, 'Sie können nun Änderungen vornehmen oder zur Ergebnis-Übersicht wechseln.');
+      let caseNum;
+
+      if (editMode && editCaseNumber) {
+        // Im Edit-Modus: Case aktualisieren
+        updateCase(editCaseNumber, data);
+        caseNum = editCaseNumber;
+        toastSuccess(`Case #${caseNum.toString().padStart(2, '0')} aktualisiert`, 'Änderungen wurden gespeichert.');
+      } else {
+        // Neuer Case
+        caseNum = saveCase(data);
+        toastSuccess(`Case #${caseNum.toString().padStart(2, '0')} gespeichert`, 'Sie können nun Änderungen vornehmen oder zur Ergebnis-Übersicht wechseln.');
+      }
+
       updateUI();
     }
     
@@ -1661,7 +2004,7 @@ Das Feld wächst automatisch beim Tippen!"
       'Betroffene Abteilung(en)',
       'Was ist die Lage?',
       'Prozessablauf',
-      'Häufigkeit / Volumen',
+      'Häufigkeit',
       'Betroffene Personen & Zeitaufwand',
       'Strategische Relevanz',
       'Risiko bei Nicht-Handlung',
@@ -2065,7 +2408,18 @@ Das Feld wächst automatisch beim Tippen!"
 
       // Validierung überspringen wenn bewusst unvollständig
       const data = collectFormData();
-      const caseNum = saveCase(data);
+      let caseNum;
+
+      if (editMode && editCaseNumber) {
+        // Im Edit-Modus: Case aktualisieren
+        updateCase(editCaseNumber, data);
+        caseNum = editCaseNumber;
+        document.getElementById('modalTitle').textContent = `Case #${caseNum.toString().padStart(2, '0')} aktualisiert!`;
+      } else {
+        // Neuer Case
+        caseNum = saveCase(data);
+        document.getElementById('modalTitle').textContent = `Case #${caseNum.toString().padStart(2, '0')} gespeichert!`;
+      }
 
       // Entwurf löschen
       clearDraft();
@@ -2074,11 +2428,13 @@ Das Feld wächst automatisch beim Tippen!"
       toggleFocusMode();
 
       // Modal zeigen
-      document.getElementById('modalTitle').textContent = `Case #${(caseNum).toString().padStart(2, '0')} gespeichert!`;
       document.getElementById('successModal').style.display = 'flex';
 
-      // Formular leeren
+      // Formular leeren und Edit-Modus beenden
       clearForm();
+      editMode = false;
+      editCaseNumber = null;
+      window.history.replaceState({}, '', window.location.pathname);
       updateUI();
     }
 
@@ -2096,11 +2452,11 @@ Das Feld wächst automatisch beim Tippen!"
 
       if (!focusModeActive) return;
 
-      // Pfeiltasten für Navigation
-      if (e.key === 'ArrowRight' && !e.target.matches('input, textarea, select')) {
+      // Pfeiltasten für Navigation (Links/Rechts, Hoch/Runter, PageUp/PageDown)
+      if ((e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown') && !e.target.matches('input, textarea, select')) {
         e.preventDefault();
         focusNextStep();
-      } else if (e.key === 'ArrowLeft' && !e.target.matches('input, textarea, select')) {
+      } else if ((e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') && !e.target.matches('input, textarea, select')) {
         e.preventDefault();
         focusPrevStep();
       } else if (e.key === 'Escape') {

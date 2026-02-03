@@ -1265,3 +1265,18 @@ input:focus-visible {
     page-break-inside: avoid;
   }
 }
+
+/* ============================================
+   BEAMER-OPTIMIERUNG: Zentrale Breite für alle Screens
+   ============================================ */
+
+.main-content {
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.slide-container {
+  max-width: 1500px;
+  margin: 0 auto;
+}

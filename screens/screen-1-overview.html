@@ -20,111 +20,114 @@
 
   <style>
     /* ============================================
-       BEAMER-OPTIMIERTES LAYOUT (1920×1080)
-       Alles auf einen Blick, ohne Scrollen
+       BEAMER-OPTIMIERT: ZWEI-FOLIEN-STRUKTUR
+       Folie 1: Framework (erstes Sichtfeld)
+       Folie 2: Resultate (nach Scroll)
        ============================================ */
 
-    .screen-layout {
+    /* === FOLIE 1: FRAMEWORK === */
+    .slide-framework {
+      width: 100%;
+      max-width: 1500px;       /* BREITER für Lesbarkeit */
+      margin: 0 auto;
+      padding: 48px 80px 40px;
+      box-sizing: border-box;
       min-height: calc(100vh - var(--header-height) - var(--nav-height));
       display: flex;
       flex-direction: column;
-      padding: 32px 80px 24px;
-      box-sizing: border-box;
+      justify-content: center;
     }
 
-    /* SCREEN HEADER */
+    /* Screen Header - BEAMER-GROSS */
     .screen-header {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 40px;
     }
 
     .screen-header h1 {
-      font-size: 28px;
+      font-size: 40px;          /* GRÖSSER */
       font-weight: 700;
       color: var(--text-darkest);
-      margin: 0 0 8px 0;
+      margin: 0 0 12px 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 16px;
+    }
+
+    .screen-header h1 i {
+      width: 36px;
+      height: 36px;
     }
 
     .screen-header p {
-      font-size: 16px;
+      font-size: 20px;          /* GRÖSSER */
       color: var(--text-medium);
       margin: 0;
     }
 
-    /* CARDS */
-    .overview-card {
+    /* 4 Phasen Grid - BEAMER-OPTIMIERT */
+    .phases-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+
+    .phase-card {
       background: var(--white);
       border: 2px solid var(--border-gray);
       border-radius: 12px;
-      padding: 28px 32px;
+      padding: 28px;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      transition: all 0.2s ease;
     }
 
-    .overview-card:hover {
-      border-color: var(--text-light);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-    }
-
-    .overview-card.highlight {
-      background: var(--off-white);
+    .phase-card:hover {
       border-color: var(--navy);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
     }
 
-    /* CARD HEADER */
-    .card-header {
+    /* Phase Header */
+    .phase-header {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding-bottom: 16px;
+      gap: 16px;
+      padding-bottom: 18px;
       border-bottom: 1px solid var(--border-gray);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
-    .card-header h3 {
-      font-size: 16px;
-      font-weight: 700;
-      margin: 0;
-      text-transform: none;
-      letter-spacing: 0;
-      color: var(--text-darkest);
-    }
-
-    .card-header i {
-      width: 22px;
-      height: 22px;
-    }
-
-    /* PHASE NUMBER BADGE */
     .phase-number {
       background: var(--navy);
       color: white;
-      width: 28px;
-      height: 28px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 700;
-      font-size: 14px;
+      font-size: 20px;          /* GRÖSSER */
       flex-shrink: 0;
     }
 
-    /* PHASE SUBTITLE */
-    .phase-subtitle {
-      font-size: 13px;
-      color: var(--text-medium);
-      font-style: italic;
-      margin-bottom: 12px;
+    .phase-header h3 {
+      font-size: 19px;          /* GRÖSSER */
+      font-weight: 700;
+      margin: 0;
+      color: var(--text-darkest);
+      line-height: 1.3;
     }
 
-    /* PHASE LIST */
+    /* Phase Content */
+    .phase-subtitle {
+      font-size: 16px;          /* GRÖSSER */
+      color: var(--text-medium);
+      font-style: italic;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
     .phase-list {
       list-style: none;
       padding: 0;
@@ -132,9 +135,9 @@
     }
 
     .phase-list li {
-      padding: 6px 0 6px 20px;
+      padding: 7px 0 7px 22px;
       color: var(--text-dark);
-      font-size: 13px;
+      font-size: 17px;          /* GRÖSSER */
       position: relative;
       line-height: 1.5;
     }
@@ -144,79 +147,126 @@
       position: absolute;
       left: 0;
       color: var(--navy);
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       line-height: 1;
-      top: 6px;
+      top: 7px;
     }
 
-    /* ENGPASS TAGS */
-    .engpass-tags {
+    /* === FOLIE 2: RESULTATE === */
+    .slide-resultate {
+      width: 100%;
+      max-width: 1500px;       /* BREITER für Lesbarkeit */
+      margin: 0 auto;
+      padding: 32px 80px 24px;
+      box-sizing: border-box;
+      min-height: calc(100vh - var(--header-height) - var(--nav-height));
       display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
+      flex-direction: column;
     }
 
-    .engpass-tag {
-      background: var(--light-gray);
-      padding: 5px 12px;
-      border-radius: 14px;
-      font-size: 12px;
-      color: var(--text-dark);
-      font-weight: 500;
+    .slide-resultate .screen-nav {
+      margin-top: auto;
+      padding-top: 16px;
     }
 
-    /* ARROW DOWN */
-    .arrow-down {
+    /* Resultate Header */
+    .results-header {
       text-align: center;
-      margin: 24px 0;
-      font-size: 2.5rem;
-      color: var(--navy);
-      animation: bounce 2s infinite;
+      margin-bottom: 28px;
     }
 
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(8px); }
-    }
-
-    /* RESULTS SECTION */
-    .results-title {
-      text-align: center;
-      font-size: 24px;
+    .results-header h2 {
+      font-size: 36px;          /* GRÖSSER */
       font-weight: 700;
-      margin-bottom: 20px;
       color: var(--navy);
+      margin: 0 0 8px 0;
     }
 
-    /* RESULT DETAILS BOX */
+    .results-header p {
+      font-size: 18px;          /* GRÖSSER */
+      color: var(--text-medium);
+      margin: 0;
+    }
+
+    /* 2 Resultate Grid */
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .result-card {
+      background: var(--off-white);
+      border: 2px solid var(--navy);
+      border-radius: 12px;
+      padding: 28px 32px;       /* GRÖSSER */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .result-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .result-header i {
+      color: var(--navy);
+      width: 28px;
+      height: 28px;
+    }
+
+    .result-header h3 {
+      font-size: 22px;          /* GRÖSSER */
+      font-weight: 700;
+      margin: 0;
+      color: var(--text-darkest);
+    }
+
+    .result-description {
+      font-size: 17px;          /* GRÖSSER */
+      line-height: 1.6;
+      color: var(--text-medium);
+      margin-bottom: 18px;
+    }
+
+    .result-description strong {
+      color: var(--text-darkest);
+    }
+
+    /* Result Details Box */
     .result-details {
-      background: var(--light-gray);
+      background: white;
       border-radius: 10px;
-      padding: 16px 20px;
-      margin-top: 16px;
+      padding: 20px 24px;       /* GRÖSSER */
+      flex: 1;
     }
 
     .result-details h4 {
-      font-size: 12px;
+      font-size: 14px;          /* GRÖSSER */
       color: var(--navy);
-      margin: 0 0 10px 0;
+      margin: 0 0 12px 0;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .result-details ul {
       list-style: none;
       padding: 0;
       margin: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 24px;
     }
 
     .result-details li {
-      padding: 5px 0 5px 20px;
+      padding: 4px 0 4px 20px;
       color: var(--text-dark);
-      font-size: 12px;
+      font-size: 16px;          /* GRÖSSER */
       position: relative;
-      line-height: 1.4;
+      line-height: 1.5;
     }
 
     .result-details li::before {
@@ -225,75 +275,117 @@
       left: 0;
       color: var(--navy);
       font-weight: 700;
+      font-size: 15px;
     }
 
-    /* CARD CONTENT */
-    .card-content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
+    /* Single Column Details */
+    .result-details.single-col ul {
+      grid-template-columns: 1fr;
     }
 
-    .denkmodell-text {
-      font-size: 14px;
-      line-height: 1.6;
-      margin-bottom: 12px;
-      color: var(--text-medium);
-    }
-
-    .denkmodell-text strong {
-      color: var(--text-darkest);
-    }
-
-    /* NAVIGATION */
+    /* Footer Navigation */
     .screen-nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 20px;
-      padding-top: 16px;
+      margin-top: 40px;
+      padding-top: 24px;
       border-top: 1px solid var(--border-gray);
     }
 
     .screen-nav .btn {
-      padding: 10px 20px;
-      font-size: 14px;
+      font-size: 16px;
+      padding: 14px 28px;
     }
 
-    /* BEAMER OPTIMIERUNG (1920×1080) */
-    @media (min-width: 1920px) {
-      .screen-layout {
-        padding: 32px 100px 24px;
-        max-height: calc(100vh - var(--header-height) - var(--nav-height));
-      }
-
-      .screen-header {
-        margin-bottom: 24px;
-      }
-
-      .screen-header h1 {
-        font-size: 36px;
-      }
-
-      .screen-header p {
-        font-size: 17px;
-      }
-
-      .card-header h3 {
-        font-size: 18px;
-      }
-
-      .screen-nav {
-        margin-top: 16px;
-        padding-top: 12px;
-      }
+    /* === SLIDE NAVIGATOR (minimal) === */
+    .slide-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 24px;
     }
 
-    /* KLEINERE BILDSCHIRME */
-    @media (max-width: 1440px) {
-      .screen-layout {
-        padding: 24px 40px 20px;
-      }
+    .slide-nav-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 8px;
+      background: transparent;
+      border: none;
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: color 0.2s ease;
+      text-decoration: none;
+    }
+
+    .slide-nav-btn:hover {
+      color: var(--orange);
+    }
+
+    .slide-nav-btn i {
+      width: 28px;
+      height: 28px;
+      animation: bounce-down 2s infinite;
+    }
+
+    @keyframes bounce-down {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    /* Aktiver Slide-Indikator (fixiert) */
+    .slide-indicator {
+      position: fixed;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 100;
+    }
+
+    .slide-indicator-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--border-gray);
+      border: 2px solid var(--border-gray);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .slide-indicator-dot:hover {
+      border-color: var(--navy);
+    }
+
+    .slide-indicator-dot.active {
+      background: var(--navy);
+      border-color: var(--navy);
+    }
+
+    .slide-indicator-label {
+      position: absolute;
+      right: 24px;
+      background: var(--navy);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .slide-indicator-dot:hover .slide-indicator-label {
+      opacity: 1;
     }
   </style>
 </head>
@@ -307,7 +399,7 @@
           <div class="logo-group">
             <img src="../assets/gannaca-logo.png" alt="gannaca" class="gannaca-logo">
             <div class="title-group">
-              <h1 class="main-title">gannaca AI Case Sprint</h1>
+              <h1 class="main-title">AI Case Sprint</h1>
               <p class="subtitle">Standardisiertes Framework für KI-Use-Case-Entwicklung</p>
             </div>
           </div>
@@ -327,62 +419,44 @@
       Alle gezeigten Beispiele sind fiktiv. Keine Erfassung,<br>
       Verarbeitung oder Speicherung von produktiven Trianel-Daten.
     </div>
-    <!-- TERMINOLOGIE-COMPLIANT -->
 
     <!-- NAVIGATION -->
     <nav class="nav-tabs">
       <div class="nav-tabs-inner">
-        <a href="screen-0-workshop-process.html" class="nav-tab">
-          <span class="nav-tab-number">0</span> Workshop-Prozess
-        </a>
-        <a href="screen-1-overview.html" class="nav-tab active">
-          <span class="nav-tab-number">1</span> Übersicht
-        </a>
-        <a href="screen-2-kpi.html" class="nav-tab nav-tab-optional">
-          <span class="nav-tab-number">2</span> KPI-Rahmen
-        </a>
-        <a href="screen-3-governance.html" class="nav-tab">
-          <span class="nav-tab-number">3</span> Governance
-        </a>
-        <a href="screen-4-success-story.html" class="nav-tab">
-          <span class="nav-tab-number">4</span> Success Story <i data-lucide="sparkles" class="icon-sm"></i>
-        </a>
-        <a href="screen-6-form.html" class="nav-tab">
-          <span class="nav-tab-number">6</span> Case-Erfassung <i data-lucide="star" class="icon-sm"></i>
-        </a>
-        <a href="screen-6b-bewertung.html" class="nav-tab">
-          <span class="nav-tab-number">6b</span> Bewertung
-        </a>
-        <a href="screen-7-results.html" class="nav-tab">
-          <span class="nav-tab-number">7</span> Ergebnis
-        </a>
-        <a href="screen-8-matrix.html" class="nav-tab">
-          <span class="nav-tab-number">8</span> Matrix
-        </a>
+        <a href="screen-0-workshop-process.html" class="nav-tab"><span class="nav-tab-number">0</span> Workshop-Prozess</a>
+        <a href="screen-1-overview.html" class="nav-tab active"><span class="nav-tab-number">1</span> Übersicht</a>
+        <a href="screen-2-kpi.html" class="nav-tab nav-tab-optional"><span class="nav-tab-number">2</span> KPI-Rahmen</a>
+        <a href="screen-3-governance.html" class="nav-tab"><span class="nav-tab-number">3</span> Governance</a>
+        <a href="screen-4-case-beispiel.html" class="nav-tab"><span class="nav-tab-number">4</span> Case-Beispiel</a>
+        <a href="screen-5-tool-mockup.html" class="nav-tab"><span class="nav-tab-number">5</span> Mockup-Beispiel</a>
+        <a href="screen-6-form.html" class="nav-tab"><span class="nav-tab-number">6</span> Case-Erfassung <i data-lucide="star" class="icon-sm"></i></a>
+        <a href="screen-7-results.html" class="nav-tab"><span class="nav-tab-number">7</span> Ergebnis</a>
       </div>
     </nav>
 
     <!-- MAIN CONTENT -->
     <main class="main-content">
-      <div class="screen-layout">
+
+      <!-- ========== FOLIE 1: FRAMEWORK ========== -->
+      <div class="slide-framework" id="slide-framework">
 
         <!-- SCREEN HEADER -->
         <div class="screen-header">
           <h1>
-            <i data-lucide="target" style="width:28px;height:28px;"></i>
+            <i data-lucide="target"></i>
             Das gannaca AI Case Sprint Framework
           </h1>
           <p>Ein standardisiertes Denkmodell für strukturierte KI-Use-Case-Entwicklung</p>
         </div>
 
-        <!-- FRAMEWORK GRID: 4 PHASEN -->
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 0;">
+        <!-- 4 PHASEN GRID -->
+        <div class="phases-grid">
 
           <!-- Phase 1: Problem-First-Analyse -->
-          <div class="overview-card" style="padding: 20px;">
-            <div class="card-header" style="margin-bottom: 12px; padding-bottom: 12px;">
+          <div class="phase-card">
+            <div class="phase-header">
               <span class="phase-number">1</span>
-              <h3 style="font-size: 14px;">Problem-First-Analyse</h3>
+              <h3>Problem-First-Analyse</h3>
             </div>
             <p class="phase-subtitle">Kein Tool-Push. Ausgangspunkt ist ein konkreter Engpass:</p>
             <ul class="phase-list">
@@ -395,10 +469,10 @@
           </div>
 
           <!-- Phase 2: KI-Eignungsprüfung -->
-          <div class="overview-card" style="padding: 20px;">
-            <div class="card-header" style="margin-bottom: 12px; padding-bottom: 12px;">
+          <div class="phase-card">
+            <div class="phase-header">
               <span class="phase-number">2</span>
-              <h3 style="font-size: 14px;">KI-Eignungsprüfung</h3>
+              <h3>KI-Eignungsprüfung</h3>
             </div>
             <p class="phase-subtitle">Strukturierte Bewertung:</p>
             <ul class="phase-list">
@@ -411,103 +485,109 @@
           </div>
 
           <!-- Phase 3: Value & Risk Assessment -->
-          <div class="overview-card" style="padding: 20px;">
-            <div class="card-header" style="margin-bottom: 12px; padding-bottom: 12px;">
+          <div class="phase-card">
+            <div class="phase-header">
               <span class="phase-number">3</span>
-              <h3 style="font-size: 14px;">Value &amp; Risk Assessment</h3>
+              <h3>Value & Risk Assessment</h3>
             </div>
             <p class="phase-subtitle">Bewertungsdimensionen:</p>
             <ul class="phase-list">
               <li>Messbarer Nutzen (Zeit, Kosten, Qualität, Risiko)</li>
-              <li>Regulatorische &amp; organisatorische Risiken</li>
+              <li>Regulatorische & organisatorische Risiken</li>
               <li>Governance-Implikationen</li>
             </ul>
           </div>
 
           <!-- Phase 4: Prototyp-Blueprint -->
-          <div class="overview-card" style="padding: 20px;">
-            <div class="card-header" style="margin-bottom: 12px; padding-bottom: 12px;">
+          <div class="phase-card">
+            <div class="phase-header">
               <span class="phase-number">4</span>
-              <h3 style="font-size: 14px;">Prototyp-Blueprint</h3>
+              <h3>Prototyp-Blueprint</h3>
             </div>
             <p class="phase-subtitle">Blueprint-Komponenten:</p>
             <ul class="phase-list">
               <li>Fachliches Zielbild</li>
               <li>KI-Architektur (konzeptionell)</li>
               <li>Rollen Mensch/KI</li>
-              <li>Kontroll- &amp; Freigabepunkte</li>
+              <li>Kontroll- & Freigabepunkte</li>
               <li>KPI-Logik</li>
             </ul>
           </div>
 
         </div>
 
-        <!-- ARROW DOWN -->
-        <div class="arrow-down">↓</div>
+        <!-- SLIDE NAVIGATOR: Weiter zu Resultate -->
+        <div class="slide-nav">
+          <a href="#slide-resultate" class="slide-nav-btn" id="nav-to-resultate">
+            <span>Weiter zu Resultate</span>
+            <i data-lucide="chevron-down"></i>
+          </a>
+        </div>
 
-        <!-- RESULTATE ABSCHNITT -->
-        <h2 class="results-title">Resultate</h2>
+      </div>
+      <!-- Ende FOLIE 1 -->
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+      <!-- ========== FOLIE 2: RESULTATE ========== -->
+      <div class="slide-resultate" id="slide-resultate">
+
+        <!-- RESULTATE HEADER -->
+        <div class="results-header">
+          <h2>Resultate</h2>
+          <p>Die konkreten Liefergegenstände des AI Case Sprints</p>
+        </div>
+
+        <!-- 2 RESULTATE GRID -->
+        <div class="results-grid">
 
           <!-- Resultat 1: Abschlussdokumentation -->
-          <div class="overview-card highlight" style="padding: 24px;">
-            <div class="card-header">
-              <i data-lucide="file-text" style="color:var(--navy); width: 24px; height: 24px;"></i>
+          <div class="result-card">
+            <div class="result-header">
+              <i data-lucide="file-text"></i>
               <h3>Resultat 1: Abschlussdokumentation</h3>
             </div>
-            <div class="card-content">
-              <p class="denkmodell-text">
-                <strong>Abschlussdokumentation mit 9 inhaltlichen Kapiteln</strong><br>
-                Strukturierte Dokumentation aller Analyseergebnisse, Bewertungen und Empfehlungen als Entscheidungsgrundlage.
-              </p>
-
-              <div class="result-details">
-                <h4>9 Inhaltliche Kapitel:</h4>
-                <ul>
-                  <li>Management Summary</li>
-                  <li>Beschreibung des adressierten Real-Problems in Legal / Compliance / Revision</li>
-                  <li>Analyse des Ist-Prozesses (fachlich, nicht systemintern)</li>
-                  <li>Bewertung der KI-Eignung inkl. regulatorischer Einordnung</li>
-                  <li>Nutzenmodell (Zeit, Kosten, Qualität, Risiko)</li>
-                  <li>Beschreibung des Zielprozesses (Soll-Bild)</li>
-                  <li>Konzeptionelle KI-Architektur (auf Abstraktionsebene)</li>
-                  <li>KPI-Logik zur späteren Erfolgsmessung</li>
-                  <li>Klare Entscheidungsempfehlung (Go / No-Go / Bedingungen)</li>
-                </ul>
-              </div>
+            <p class="result-description">
+              <strong>Abschlussdokumentation mit 9 inhaltlichen Kapiteln</strong> –
+              Strukturierte Dokumentation aller Analyseergebnisse, Bewertungen und Empfehlungen.
+            </p>
+            <div class="result-details">
+              <h4>9 Inhaltliche Kapitel:</h4>
+              <ul>
+                <li>Management Summary</li>
+                <li>Real-Problem Beschreibung</li>
+                <li>Ist-Prozess Analyse</li>
+                <li>KI-Eignung & Regulatorik</li>
+                <li>Nutzenmodell (Zeit, Kosten, Qualität)</li>
+                <li>Soll-Bild / Zielprozess</li>
+                <li>Konzeptionelle KI-Architektur</li>
+                <li>KPI-Logik</li>
+                <li>Entscheidungsempfehlung</li>
+              </ul>
             </div>
           </div>
 
           <!-- Resultat 2: Prototypischer Mockup -->
-          <div class="overview-card highlight" style="padding: 24px;">
-            <div class="card-header">
-              <i data-lucide="layout" style="color:var(--navy); width: 24px; height: 24px;"></i>
+          <div class="result-card">
+            <div class="result-header">
+              <i data-lucide="layout"></i>
               <h3>Resultat 2: Prototypischer Mockup</h3>
             </div>
-            <div class="card-content">
-              <p class="denkmodell-text">
-                <strong>Visuelle Darstellung des Ziel-Use-Cases</strong><br>
-                Konzeptionelle Blaupause zur Veranschaulichung des KI-unterstützten Prozesses – keine funktionsfähige Anwendung.
-              </p>
-
-              <div class="result-details">
-                <h4>Charakter des Mockups:</h4>
-                <ul>
-                  <li>Nicht produktiv</li>
-                  <li>Ohne Echtdaten</li>
-                  <li>Ohne Systemanbindung</li>
-                  <li>Kein lauffähiges Softwareprodukt</li>
-                </ul>
-
-                <h4 style="margin-top: 16px;">Veranschaulichung von:</h4>
-                <ul>
-                  <li>Nutzerinteraktion</li>
-                  <li>Entscheidungslogik Mensch / KI</li>
-                  <li>Kontroll- und Freigabepunkten</li>
-                  <li>Unterstützung der internen Kommunikation und Entscheidungsfindung</li>
-                </ul>
-              </div>
+            <p class="result-description">
+              <strong>Visuelle Darstellung des Ziel-Use-Cases</strong> –
+              Konzeptionelle Blaupause zur Veranschaulichung des KI-unterstützten Prozesses.
+            </p>
+            <div class="result-details single-col">
+              <h4>Charakter des Mockups:</h4>
+              <ul>
+                <li>Nicht produktiv, ohne Echtdaten</li>
+                <li>Ohne Systemanbindung</li>
+                <li>Kein lauffähiges Softwareprodukt</li>
+              </ul>
+              <h4 style="margin-top: 16px;">Veranschaulichung von:</h4>
+              <ul>
+                <li>Nutzerinteraktion</li>
+                <li>Entscheidungslogik Mensch / KI</li>
+                <li>Kontroll- und Freigabepunkten</li>
+              </ul>
             </div>
           </div>
 
@@ -519,12 +599,20 @@
             ← Workshop-Prozess
           </a>
           <a href="screen-6-form.html" class="btn btn-primary">
-            Case-Erfassung <i data-lucide="star" style="width:14px;height:14px;"></i> →
+            Case-Erfassung <i data-lucide="star"></i> →
           </a>
         </div>
 
       </div>
+      <!-- Ende FOLIE 2 -->
+
     </main>
+
+    <!-- SLIDE INDIKATOR (rechts fixiert) -->
+    <div class="slide-indicator">
+      <div class="slide-indicator-dot active" data-slide="slide-framework"></div>
+      <div class="slide-indicator-dot" data-slide="slide-resultate"></div>
+    </div>
 
   </div>
 
@@ -541,5 +629,74 @@
 
   <!-- Initialize Lucide Icons -->
   <script>lucide.createIcons();</script>
+
+  <!-- SLIDE NAVIGATION SCRIPT -->
+  <script>
+    (function() {
+      const slides = ['slide-framework', 'slide-resultate'];
+      let currentSlide = 0;
+
+      // Smooth scroll to slide
+      function scrollToSlide(index) {
+        if (index < 0 || index >= slides.length) return;
+        currentSlide = index;
+        const element = document.getElementById(slides[index]);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          updateIndicator();
+        }
+      }
+
+      // Update indicator dots
+      function updateIndicator() {
+        document.querySelectorAll('.slide-indicator-dot').forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentSlide);
+        });
+      }
+
+      // Keyboard navigation
+      document.addEventListener('keydown', function(e) {
+        // Ignore if user is typing in an input
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown') {
+          e.preventDefault();
+          scrollToSlide(currentSlide + 1);
+        } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
+          e.preventDefault();
+          scrollToSlide(currentSlide - 1);
+        }
+      });
+
+      // Click on navigation button
+      document.getElementById('nav-to-resultate')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        scrollToSlide(1);
+      });
+
+      // Click on indicator dots
+      document.querySelectorAll('.slide-indicator-dot').forEach((dot, index) => {
+        dot.addEventListener('click', () => scrollToSlide(index));
+      });
+
+      // Update indicator on scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+            const index = slides.indexOf(entry.target.id);
+            if (index !== -1) {
+              currentSlide = index;
+              updateIndicator();
+            }
+          }
+        });
+      }, { threshold: 0.5 });
+
+      slides.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    })();
+  </script>
 </body>
 </html>

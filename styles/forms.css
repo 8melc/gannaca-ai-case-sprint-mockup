@@ -56,21 +56,21 @@
   border-radius: var(--border-radius-lg);
   padding: var(--space-10);
   margin-bottom: var(--space-8);
-  min-height: 280px; /* Größere Sections */
+  min-height: 280px;
   scroll-snap-align: start;
-  scroll-margin-top: 220px; /* Platz für Header + Banner + Tabs + Browser-Chrome */
+  scroll-margin-top: 220px;
 }
 
 .form-section-title {
   display: flex;
   align-items: center;
   gap: var(--space-4);
-  font-size: var(--text-2xl); /* Größer! */
+  font-size: var(--text-2xl);
   font-weight: var(--font-bold);
   color: var(--text-darkest);
   margin-bottom: var(--space-8);
   padding-bottom: var(--space-4);
-  border-bottom: 2px solid var(--border-gray); /* Dickere Linie */
+  border-bottom: 2px solid var(--border-gray);
 }
 
 .form-section-number {
@@ -109,7 +109,7 @@
 
 .form-label {
   display: block;
-  font-size: var(--text-lg);  /* 18px - gut lesbar auf Beamer! */
+  font-size: var(--text-lg);
   font-weight: var(--font-semibold);
   color: var(--text-dark);
   margin-bottom: var(--space-3);
@@ -161,7 +161,7 @@ input[type="email"],
 input[type="number"],
 input[type="date"] {
   width: 100%;
-  font-size: var(--text-lg);  /* 18px - gut lesbar! */
+  font-size: var(--text-lg);
   padding: 14px 16px;
   font-family: var(--font-sans);
   color: var(--text-dark);
@@ -196,7 +196,7 @@ input[type="date"]:focus {
 .form-textarea,
 textarea {
   width: 100%;
-  font-size: var(--text-lg);  /* 18px - gut lesbar! */
+  font-size: var(--text-lg);
   padding: 14px 16px;
   font-family: var(--font-sans);
   color: var(--text-dark);
@@ -204,10 +204,10 @@ textarea {
   border: 2px solid var(--border-gray);
   border-radius: var(--border-radius-md);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  resize: none;  /* Kein manuelles Resizing - Auto-Expand übernimmt! */
+  resize: none;
   min-height: 120px;
   line-height: var(--line-relaxed);
-  overflow: hidden;  /* Kein Scrollbar - Textarea wächst automatisch! */
+  overflow: hidden;
 }
 
 .form-textarea::placeholder,
@@ -256,7 +256,7 @@ select:focus {
 }
 
 /* ============================================
-   CHECKBOXES - BEAMER-OPTIMIERT (große Klickfläche)
+   CHECKBOXES - BEAMER-OPTIMIERT
    ============================================ */
 
 .form-checkbox-group,
@@ -306,7 +306,6 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
-/* Checkbox Group Labels */
 .checkbox-group label,
 .radio-group label {
   display: flex;
@@ -414,7 +413,6 @@ input[type="radio"] {
   display: none;
 }
 
-/* Rating Scale Labels */
 .rating-scale-labels {
   display: flex;
   justify-content: space-between;
@@ -427,7 +425,6 @@ input[type="radio"] {
    FORM PROGRESS BAR
    ============================================ */
 
-/* Progress Bar - Normal (scrollt mit Seite) */
 .form-progress {
   margin-bottom: var(--space-6);
   padding: 16px 20px;
@@ -498,7 +495,6 @@ input[type="radio"] {
   flex-wrap: wrap;
 }
 
-/* Button overrides for forms - kompakter für bessere Passung */
 .form-actions .btn {
   min-height: 44px;
   padding: 10px 18px;
@@ -519,7 +515,6 @@ input[type="radio"] {
    FORM NOTICE BOX (Hinweise)
    ============================================ */
 
-/* SUBTILE WICHTIG-BOX (nicht zu aufdringlich) */
 .form-notice,
 .form-disclaimer {
   background: linear-gradient(to right, #FEF8F3 0%, #FAFBFC 100%);
@@ -773,11 +768,11 @@ select.success {
   .form-label {
     font-size: var(--text-2xl);
   }
-  
+
   .form-hint {
     font-size: var(--text-base);
   }
-  
+
   .form-input,
   .form-textarea,
   .form-select,
@@ -791,12 +786,12 @@ select.success {
     padding: 16px 20px;
     min-height: 60px;
   }
-  
+
   .form-checkbox-label,
   .form-radio-label {
     font-size: var(--text-lg);
   }
-  
+
   .form-checkbox,
   .form-radio,
   input[type="checkbox"],
@@ -804,23 +799,23 @@ select.success {
     width: 28px;
     height: 28px;
   }
-  
+
   .form-rating-item {
     width: 72px;
     height: 72px;
     font-size: var(--text-2xl);
   }
-  
+
   .form-actions .btn {
     min-height: 48px;
     font-size: 15px;
     padding: 12px 20px;
   }
-  
+
   .form-section-title {
     font-size: var(--text-2xl);
   }
-  
+
   .form-section-number {
     width: 44px;
     height: 44px;
@@ -836,43 +831,43 @@ select.success {
   .form-section {
     padding: var(--space-6);
   }
-  
+
   .form-group {
     margin-bottom: var(--space-8);
     padding-bottom: var(--space-8);
   }
-  
+
   .form-actions {
     flex-direction: column;
     padding: var(--space-6);
   }
-  
+
   .form-actions-left,
   .form-actions-right {
     width: 100%;
     justify-content: center;
   }
-  
+
   .form-actions .btn {
     width: 100%;
     justify-content: center;
   }
-  
+
   .form-rating-group {
     flex-wrap: wrap;
     justify-content: center;
   }
-  
+
   .form-steps {
     flex-direction: column;
     gap: var(--space-4);
     align-items: flex-start;
   }
-  
+
   .form-steps::before {
     display: none;
   }
-  
+
   .form-step {
     flex-direction: row;
   }
@@ -888,11 +883,11 @@ select.success {
     box-shadow: none;
     page-break-inside: avoid;
   }
-  
+
   .form-actions {
     display: none;
   }
-  
+
   .form-input,
   .form-textarea,
   .form-select {

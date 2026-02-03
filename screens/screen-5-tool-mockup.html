@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mockup-Beispiel | gannaca AI Case Sprint</title>
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/components.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <style>
+    /* ============================================
+       FULLWIDTH TOOL-MOCKUP LAYOUT
+       ============================================ */
+
+    .mockup-container {
+      width: 100%;
+      max-width: 1500px;
+      padding: 48px 80px 40px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    /* Tool-Mockup Wrapper */
+    .tool-mockup {
+      background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      margin-top: 24px;
+    }
+
+    /* Tool Header */
+    .tool-header {
+      background: rgba(0,0,0,0.25);
+      padding: 20px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .tool-title {
+      color: white;
+      font-size: 22px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .tool-title i {
+      color: var(--accent-teal);
+    }
+
+    .tool-user {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.85);
+      font-size: 15px;
+    }
+
+    /* Tab Navigation */
+    .tool-tabs {
+      display: flex;
+      background: rgba(0,0,0,0.15);
+      padding: 0 32px;
+      gap: 4px;
+    }
+
+    .tool-tab {
+      padding: 14px 24px;
+      color: rgba(255,255,255,0.7);
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tool-tab:hover {
+      color: white;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .tool-tab.active {
+      color: white;
+      border-bottom-color: var(--accent-teal);
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* Tool Content Area */
+    .tool-content {
+      background: #f8fafc;
+      padding: 32px;
+      min-height: 520px;
+    }
+
+    /* Panel */
+    .tool-panel {
+      display: none;
+      width: 100%;
+    }
+
+    .tool-panel.active {
+      display: block;
+      animation: panelFadeIn 0.25s ease-out;
+    }
+
+    @keyframes panelFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* ===== DASHBOARD ===== */
+    .dashboard-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .stat-card .number {
+      font-size: 42px;
+      font-weight: 700;
+      color: #1a365d;
+      line-height: 1;
+    }
+
+    .stat-card .label {
+      font-size: 14px;
+      color: #64748b;
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    .stat-card.teal .number { color: var(--accent-teal); }
+    .stat-card.orange .number { color: #f59e0b; }
+    .stat-card.red .number { color: #ef4444; }
+
+    .dashboard-list {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .list-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 24px;
+      background: #f1f5f9;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .list-header h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1e293b;
+      margin: 0;
+    }
+
+    .list-item {
+      display: grid;
+      grid-template-columns: 36px 1fr 200px 140px;
+      gap: 20px;
+      align-items: center;
+      padding: 16px 24px;
+      border-bottom: 1px solid #f1f5f9;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .list-item:hover {
+      background: #f8fafc;
+    }
+
+    .list-item:last-child {
+      border-bottom: none;
+    }
+
+    .status-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+    }
+
+    .status-dot.green { background: #22c55e; }
+    .status-dot.yellow { background: #f59e0b; }
+    .status-dot.red { background: #ef4444; }
+
+    .list-item .id {
+      font-size: 13px;
+      color: #64748b;
+      font-family: monospace;
+    }
+
+    .list-item .name {
+      font-weight: 600;
+      color: #1e293b;
+      font-size: 16px;
+    }
+
+    .list-item .reason {
+      font-size: 15px;
+      color: #64748b;
+    }
+
+    .list-item .amount {
+      font-weight: 700;
+      color: #1e293b;
+      text-align: right;
+      font-size: 17px;
+    }
+
+    .legend {
+      display: flex;
+      gap: 24px;
+      padding: 14px 24px;
+      font-size: 13px;
+      color: #64748b;
+      background: #f8fafc;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ===== DETAIL PANEL ===== */
+    .detail-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+
+    .detail-back {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #64748b;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+
+    .detail-back:hover {
+      color: #1e293b;
+    }
+
+    .detail-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .detail-subtitle {
+      font-size: 16px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    .detail-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .detail-badge.yellow {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .positions-card {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      margin-bottom: 24px;
+    }
+
+    .positions-header {
+      display: flex;
+      justify-content: space-between;
+      padding: 18px 24px;
+      background: #f1f5f9;
+      font-weight: 600;
+      font-size: 15px;
+      color: #1e293b;
+    }
+
+    .position-row {
+      display: grid;
+      grid-template-columns: 36px 1fr 120px 120px;
+      gap: 20px;
+      align-items: center;
+      padding: 14px 24px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .position-row .desc {
+      font-size: 16px;
+      color: #1e293b;
+    }
+
+    .position-row .provider {
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    .position-row .amount {
+      font-weight: 600;
+      text-align: right;
+      font-size: 16px;
+    }
+
+    .position-warning {
+      background: #fef9c3;
+      padding: 10px 24px 10px 80px;
+      font-size: 13px;
+      color: #92400e;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .position-error {
+      background: #fee2e2;
+      padding: 10px 24px 10px 80px;
+      font-size: 13px;
+      color: #991b1b;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .position-sum {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: #f8fafc;
+      font-weight: 700;
+      font-size: 17px;
+    }
+
+    .attachments {
+      background: white;
+      border-radius: 14px;
+      padding: 20px 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .attachments h4 {
+      font-size: 14px;
+      color: #64748b;
+      margin: 0 0 14px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .attachment-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .attachment-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      background: #f1f5f9;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #475569;
+    }
+
+    /* ===== DECISION PANEL ===== */
+    .decision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .ai-recommendation {
+      background: white;
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .ai-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .ai-header i {
+      color: var(--accent-teal);
+    }
+
+    .ai-verdict {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 20px;
+      background: #fef3c7;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .ai-verdict .label {
+      font-size: 13px;
+      color: #92400e;
+    }
+
+    .ai-verdict .value {
+      font-size: 20px;
+      font-weight: 700;
+      color: #92400e;
+    }
+
+    .ai-details {
+      font-size: 15px;
+      line-height: 2;
+      color: #475569;
+    }
+
+    .ai-details .check { color: #22c55e; }
+    .ai-details .warning { color: #f59e0b; }
+    .ai-details .error { color: #ef4444; }
+
+    .ai-action {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .ai-action h4 {
+      font-size: 13px;
+      color: #64748b;
+      margin: 0 0 12px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .ai-action ul {
+      margin: 0;
+      padding-left: 20px;
+      font-size: 15px;
+      color: #475569;
+      line-height: 2;
+    }
+
+    .human-decision {
+      background: white;
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .human-decision h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1e293b;
+      margin: 0 0 24px 0;
+    }
+
+    .decision-buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .decision-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 20px 14px;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .decision-btn:hover {
+      border-color: #cbd5e1;
+      background: #f8fafc;
+    }
+
+    .decision-btn.selected {
+      border-color: var(--accent-teal);
+      background: rgba(0, 150, 136, 0.06);
+    }
+
+    .decision-btn .icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .decision-btn.green .icon { background: #dcfce7; }
+    .decision-btn.yellow .icon { background: #fef3c7; }
+    .decision-btn.red .icon { background: #fee2e2; }
+    .decision-btn.blue .icon { background: #dbeafe; }
+
+    .decision-btn .text {
+      font-size: 13px;
+      font-weight: 600;
+      color: #475569;
+    }
+
+    .comment-box label {
+      display: block;
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 10px;
+    }
+
+    .comment-box textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: 14px;
+      resize: none;
+      height: 90px;
+      font-family: inherit;
+    }
+
+    /* ===== AUDIT-TRAIL ===== */
+    .audit-timeline {
+      background: white;
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .audit-date {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1e293b;
+      padding: 10px 0;
+      margin-top: 20px;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .audit-date:first-child {
+      margin-top: 0;
+      border-top: none;
+    }
+
+    .audit-entry {
+      display: flex;
+      gap: 18px;
+      padding: 14px 0;
+    }
+
+    .audit-time {
+      font-size: 14px;
+      color: #94a3b8;
+      font-family: monospace;
+      min-width: 55px;
+    }
+
+    .audit-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .audit-icon.upload { background: #dbeafe; }
+    .audit-icon.ai { background: #d1fae5; }
+    .audit-icon.user { background: #e0e7ff; }
+    .audit-icon.email { background: #fef3c7; }
+    .audit-icon.check { background: #dcfce7; }
+    .audit-icon.payment { background: #f3e8ff; }
+
+    .audit-content {
+      flex: 1;
+    }
+
+    .audit-content .title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 4px;
+    }
+
+    .audit-content .desc {
+      font-size: 14px;
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    /* ===== EXPORT ===== */
+    .export-sections {
+      display: grid;
+      gap: 28px;
+    }
+
+    .export-card {
+      background: white;
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .export-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1e293b;
+      margin: 0 0 8px 0;
+    }
+
+    .export-card .subtitle {
+      font-size: 14px;
+      color: #64748b;
+      margin-bottom: 20px;
+    }
+
+    .export-buttons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .export-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 24px 36px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .export-btn:hover {
+      border-color: var(--accent-teal);
+      background: rgba(0, 150, 136, 0.04);
+    }
+
+    .export-btn .icon {
+      font-size: 32px;
+    }
+
+    .export-btn .label {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .export-btn .desc {
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    .report-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 24px;
+      background: #f8fafc;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .report-stat {
+      text-align: center;
+    }
+
+    .report-stat .value {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .report-stat .label {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    .report-stat.highlight .value {
+      color: var(--accent-teal);
+    }
+
+    /* Slide Footer */
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-gray);
+    }
+
+    /* Keyboard Hint */
+    .keyboard-hint {
+      position: fixed;
+      bottom: 24px;
+      right: 40px;
+      font-size: 13px;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      padding: 8px 14px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .keyboard-hint kbd {
+      background: var(--off-white);
+      border: 1px solid var(--border-gray);
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-family: monospace;
+      font-size: 12px;
+    }
+
+    /* ============================================
+       KOMPAKTE VERGLEICHS-SEKTION
+       ============================================ */
+
+    .comparison-section {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-gray);
+    }
+
+    .comparison-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-darkest);
+      margin: 0 0 16px 0;
+    }
+
+    .comparison-title i {
+      color: var(--navy);
+      width: 22px;
+      height: 22px;
+    }
+
+    /* Kompakte Tabelle */
+    .comparison-table {
+      width: 100%;
+      background: white;
+      border: 2px solid var(--border-gray);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .comparison-table-header {
+      display: grid;
+      grid-template-columns: 140px 1fr 1fr;
+      background: var(--off-white);
+      border-bottom: 2px solid var(--border-gray);
+    }
+
+    .comparison-table-header > div {
+      padding: 12px 16px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-medium);
+    }
+
+    .comparison-table-header .col-new {
+      background: rgba(26, 58, 92, 0.08);
+      color: var(--navy);
+    }
+
+    .comparison-table-row {
+      display: grid;
+      grid-template-columns: 140px 1fr 1fr;
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .comparison-table-row:last-child {
+      border-bottom: none;
+    }
+
+    .comparison-table-row > div {
+      padding: 10px 16px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+    }
+
+    .comparison-table-row .metric-label {
+      font-weight: 600;
+      color: var(--text-dark);
+      background: var(--off-white);
+    }
+
+    .comparison-table-row .val-old {
+      color: var(--text-medium);
+    }
+
+    .comparison-table-row .val-new {
+      background: rgba(26, 58, 92, 0.04);
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .comparison-table-row .val-new .improvement {
+      margin-left: 8px;
+      font-size: 11px;
+      color: #059669;
+      font-weight: 700;
+    }
+
+    /* Kernbotschaft kompakt */
+    .key-message-compact {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: var(--white);
+      border: 2px solid var(--navy);
+      border-radius: 8px;
+    }
+
+    .key-message-compact .icon {
+      font-size: 20px;
+    }
+
+    .key-message-compact .text {
+      font-size: 14px;
+      color: var(--text-dark);
+    }
+
+    .key-message-compact .text strong {
+      color: var(--navy);
+    }
+
+    /* BEAMER-OPTIMIERT: Große Schriften für Projektorpräsentationen */
+    @media screen and (min-width: 1920px) {
+      /* Header – größere Schrift */
+      .tool-header {
+        padding: 28px 48px;
+      }
+
+      .tool-title {
+        font-size: 28px;
+        font-weight: 700;
+      }
+
+      .tool-user {
+        font-size: 16px;
+      }
+
+      /* Tabs – bessere Sichtbarkeit */
+      .tool-tab {
+        padding: 16px 28px;
+        font-size: 16px;
+      }
+
+      /* Content-Bereich */
+      .tool-content {
+        padding: 44px;
+        min-height: 580px;
+      }
+
+      /* Dashboard-Statistiken */
+      .stat-card {
+        padding: 28px;
+      }
+
+      .stat-card .number {
+        font-size: 52px;
+        margin-bottom: 12px;
+      }
+
+      .stat-card .label {
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      /* Listen – erhöhte Lesbarkeit */
+      .list-header h3 {
+        font-size: 18px;
+      }
+
+      .list-header {
+        padding: 20px 28px;
+        font-size: 15px;
+      }
+
+      .list-item {
+        padding: 18px 28px;
+        grid-template-columns: 40px 1fr 220px 160px;
+        gap: 24px;
+      }
+
+      .list-item .id {
+        font-size: 14px;
+      }
+
+      .list-item .name {
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .list-item .reason {
+        font-size: 16px;
+      }
+
+      .list-item .amount {
+        font-size: 18px;
+      }
+
+      /* Legend */
+      .legend {
+        padding: 16px 28px;
+        font-size: 14px;
+      }
+
+      /* Detail-Ansicht */
+      .detail-back {
+        font-size: 15px;
+      }
+
+      .detail-title {
+        font-size: 32px;
+      }
+
+      .detail-subtitle {
+        font-size: 17px;
+      }
+
+      .detail-badge {
+        font-size: 16px;
+        padding: 12px 20px;
+      }
+
+      /* Positionen-Card */
+      .positions-header {
+        padding: 20px 28px;
+        font-size: 16px;
+      }
+
+      .position-row {
+        padding: 16px 28px;
+        grid-template-columns: 40px 1fr 140px 140px;
+        gap: 24px;
+      }
+
+      .position-row .desc {
+        font-size: 17px;
+      }
+
+      .position-row .provider {
+        font-size: 14px;
+      }
+
+      .position-row .amount {
+        font-size: 17px;
+      }
+
+      .position-warning,
+      .position-error {
+        padding: 12px 28px 12px 100px;
+        font-size: 14px;
+      }
+
+      .position-sum {
+        padding: 18px 28px;
+        font-size: 18px;
+      }
+
+      /* Anhänge */
+      .attachments h4 {
+        font-size: 16px;
+      }
+
+      .attachment-item {
+        font-size: 14px;
+        padding: 12px 16px;
+      }
+
+      /* Entscheidungs-Panel */
+      .ai-header {
+        font-size: 17px;
+      }
+
+      .ai-verdict {
+        padding: 24px;
+        font-size: 16px;
+      }
+
+      .ai-verdict .label {
+        font-size: 14px;
+      }
+
+      .ai-verdict .value {
+        font-size: 22px;
+      }
+
+      .ai-details {
+        font-size: 16px;
+      }
+
+      .ai-action h4 {
+        font-size: 14px;
+      }
+
+      .ai-action ul {
+        font-size: 16px;
+      }
+
+      .human-decision h3 {
+        font-size: 17px;
+      }
+
+      .comment-box label {
+        font-size: 14px;
+      }
+
+      .comment-box textarea {
+        font-size: 15px;
+        padding: 16px;
+        height: 100px;
+      }
+
+      .decision-btn {
+        padding: 24px 16px;
+      }
+
+      .decision-btn .icon {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+      }
+
+      .decision-btn .text {
+        font-size: 14px;
+      }
+
+      /* Audit-Trail */
+      .audit-date {
+        font-size: 16px;
+      }
+
+      .audit-time {
+        font-size: 15px;
+      }
+
+      .audit-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+      }
+
+      .audit-content .title {
+        font-size: 16px;
+      }
+
+      .audit-content .desc {
+        font-size: 15px;
+      }
+
+      /* Export-Panel */
+      .export-card h3 {
+        font-size: 18px;
+      }
+
+      .export-card .subtitle {
+        font-size: 15px;
+      }
+
+      .export-btn {
+        padding: 28px 40px;
+      }
+
+      .export-btn .icon {
+        font-size: 36px;
+      }
+
+      .export-btn .label {
+        font-size: 16px;
+      }
+
+      .export-btn .desc {
+        font-size: 13px;
+      }
+
+      /* Report-Statistiken */
+      .report-stat .value {
+        font-size: 28px;
+      }
+
+      .report-stat .label {
+        font-size: 13px;
+      }
+
+      /* Vergleich-Tabelle Beamer */
+      .comparison-title {
+        font-size: 24px;
+      }
+
+      .comparison-table-header > div,
+      .comparison-table-row > div {
+        padding: 14px 20px;
+        font-size: 16px;
+      }
+
+      .comparison-table-header > div {
+        font-size: 14px;
+      }
+
+      .key-message-compact {
+        padding: 16px 20px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- HEADER -->
+    <header class="main-header">
+      <div class="header-container">
+        <div class="header-left">
+          <div class="logo-group">
+            <img src="../assets/gannaca-logo.png" alt="gannaca" class="gannaca-logo">
+            <div class="title-group">
+              <h1 class="main-title">AI Case Sprint</h1>
+              <p class="subtitle">Standardisiertes Framework für KI-Use-Case-Entwicklung</p>
+            </div>
+          </div>
+        </div>
+        <div class="header-right">
+          <img src="../assets/trianel-logo.png" alt="Trianel" class="client-logo">
+          <div class="header-info">
+            <span class="version-badge">04.02.2026</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="terminology-mandatory">
+      DATENSCHUTZ-KONFORM – KEINE PRODUKTIVDATEN<br>
+      Dieses Mockup dient ausschließlich zur Visualisierung.<br>
+      Alle gezeigten Beispiele sind fiktiv. Keine Erfassung,<br>
+      Verarbeitung oder Speicherung von produktiven Trianel-Daten.
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="nav-tabs">
+      <div class="nav-tabs-inner">
+        <a href="screen-0-workshop-process.html" class="nav-tab"><span class="nav-tab-number">0</span> Workshop-Prozess</a>
+        <a href="screen-1-overview.html" class="nav-tab"><span class="nav-tab-number">1</span> Übersicht</a>
+        <a href="screen-2-kpi.html" class="nav-tab nav-tab-optional"><span class="nav-tab-number">2</span> KPI-Rahmen</a>
+        <a href="screen-3-governance.html" class="nav-tab"><span class="nav-tab-number">3</span> Governance</a>
+        <a href="screen-4-case-beispiel.html" class="nav-tab"><span class="nav-tab-number">4</span> Case-Beispiel</a>
+        <a href="screen-5-tool-mockup.html" class="nav-tab active"><span class="nav-tab-number">5</span> Mockup-Beispiel</a>
+        <a href="screen-6-form.html" class="nav-tab"><span class="nav-tab-number">6</span> Case-Erfassung <i data-lucide="star" class="icon-sm"></i></a>
+        <a href="screen-7-results.html" class="nav-tab"><span class="nav-tab-number">7</span> Ergebnis</a>
+      </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <div class="mockup-container">
+
+        <!-- TOOL MOCKUP -->
+        <div class="tool-mockup">
+
+          <!-- Tool Header -->
+          <div class="tool-header">
+            <div class="tool-title">
+              <i data-lucide="receipt" style="width:24px;height:24px;"></i>
+              TRIANEL REISEKOSTEN-ASSISTENT
+              <span style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: 600; margin-left: 12px;">BEISPIEL-MOCKUP</span>
+            </div>
+            <div class="tool-user">
+              <i data-lucide="user" style="width:18px;height:18px;"></i>
+              M. Schmidt (Finance)
+            </div>
+          </div>
+
+          <!-- Tool Tabs -->
+          <div class="tool-tabs">
+            <div class="tool-tab active" data-panel="dashboard">
+              <i data-lucide="layout-dashboard" style="width:18px;height:18px;"></i>
+              Dashboard
+            </div>
+            <div class="tool-tab" data-panel="detail">
+              <i data-lucide="file-text" style="width:18px;height:18px;"></i>
+              Detailansicht
+            </div>
+            <div class="tool-tab" data-panel="decision">
+              <i data-lucide="scale" style="width:18px;height:18px;"></i>
+              Entscheidung
+            </div>
+            <div class="tool-tab" data-panel="audit">
+              <i data-lucide="clipboard-list" style="width:18px;height:18px;"></i>
+              Audit-Trail
+            </div>
+            <div class="tool-tab" data-panel="export">
+              <i data-lucide="download" style="width:18px;height:18px;"></i>
+              Export
+            </div>
+          </div>
+
+          <!-- Tool Content -->
+          <div class="tool-content">
+
+            <!-- ===== DASHBOARD PANEL ===== -->
+            <div class="tool-panel active" id="panel-dashboard">
+              <div class="dashboard-stats">
+                <div class="stat-card">
+                  <div class="number">12</div>
+                  <div class="label">Offen</div>
+                </div>
+                <div class="stat-card teal">
+                  <div class="number">8</div>
+                  <div class="label">KI-geprüft</div>
+                </div>
+                <div class="stat-card orange">
+                  <div class="number">3</div>
+                  <div class="label">Zur Freigabe</div>
+                </div>
+                <div class="stat-card red">
+                  <div class="number">1</div>
+                  <div class="label">Rückfrage</div>
+                </div>
+              </div>
+
+              <div class="dashboard-list">
+                <div class="list-header">
+                  <h3>Aktuelle Vorgänge</h3>
+                  <span style="font-size: 14px; color: #64748b;">Filter: Alle <i data-lucide="chevron-down" style="width:16px;height:16px;display:inline;vertical-align:middle;"></i></span>
+                </div>
+
+                <div class="list-item" onclick="switchPanel('detail')">
+                  <div class="status-dot green"></div>
+                  <div>
+                    <div class="id">RK-2026-047</div>
+                    <div class="name">Müller, Thomas</div>
+                  </div>
+                  <div class="reason">Berlin-Reise</div>
+                  <div class="amount">248,50 €</div>
+                </div>
+
+                <div class="list-item" onclick="switchPanel('detail')">
+                  <div class="status-dot green"></div>
+                  <div>
+                    <div class="id">RK-2026-046</div>
+                    <div class="name">Weber, Sandra</div>
+                  </div>
+                  <div class="reason">Kundentermin</div>
+                  <div class="amount">89,20 €</div>
+                </div>
+
+                <div class="list-item" onclick="switchPanel('detail')" style="background: #fffbeb;">
+                  <div class="status-dot yellow"></div>
+                  <div>
+                    <div class="id">RK-2026-045</div>
+                    <div class="name">Fischer, Jan</div>
+                  </div>
+                  <div class="reason">Messe Hamburg</div>
+                  <div class="amount">1.247,00 €</div>
+                </div>
+
+                <div class="list-item" onclick="switchPanel('detail')">
+                  <div class="status-dot green"></div>
+                  <div>
+                    <div class="id">RK-2026-044</div>
+                    <div class="name">Schmidt, Lisa</div>
+                  </div>
+                  <div class="reason">Schulung Köln</div>
+                  <div class="amount">156,80 €</div>
+                </div>
+
+                <div class="list-item" onclick="switchPanel('detail')" style="background: #fef2f2;">
+                  <div class="status-dot red"></div>
+                  <div>
+                    <div class="id">RK-2026-043</div>
+                    <div class="name">Bauer, Michael</div>
+                  </div>
+                  <div class="reason">Projekttreffen</div>
+                  <div class="amount">523,40 €</div>
+                </div>
+
+                <div class="legend">
+                  <span class="legend-item"><span class="status-dot green"></span> OK</span>
+                  <span class="legend-item"><span class="status-dot yellow"></span> Prüfen</span>
+                  <span class="legend-item"><span class="status-dot red"></span> Rückfrage</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== DETAIL PANEL ===== -->
+            <div class="tool-panel" id="panel-detail">
+              <div class="detail-header">
+                <div>
+                  <div class="detail-back" onclick="switchPanel('dashboard')">
+                    <i data-lucide="arrow-left" style="width:16px;height:16px;"></i>
+                    Zurück zur Übersicht
+                  </div>
+                  <div class="detail-title">Fischer, Jan</div>
+                  <div class="detail-subtitle">Abteilung: Vertrieb | Messe Hamburg | 03.02. – 05.02.2026</div>
+                </div>
+                <div class="detail-badge yellow">
+                  <i data-lucide="alert-circle" style="width:18px;height:18px;"></i>
+                  RK-2026-045 | Prüfen
+                </div>
+              </div>
+
+              <div class="positions-card">
+                <div class="positions-header">
+                  <span>Positionen</span>
+                  <span>Gesamt</span>
+                </div>
+
+                <div class="position-row">
+                  <div class="status-dot green"></div>
+                  <div>
+                    <div class="desc">Bahnfahrt Hamburg Hin/Rück</div>
+                    <div class="provider">DB</div>
+                  </div>
+                  <div></div>
+                  <div class="amount">189,00 €</div>
+                </div>
+
+                <div class="position-row">
+                  <div class="status-dot green"></div>
+                  <div>
+                    <div class="desc">Hotel 2 Nächte</div>
+                    <div class="provider">Marriott</div>
+                  </div>
+                  <div></div>
+                  <div class="amount">298,00 €</div>
+                </div>
+
+                <div class="position-row">
+                  <div class="status-dot green"></div>
+                  <div>
+                    <div class="desc">Verpflegungspauschale 3 Tage</div>
+                    <div class="provider">—</div>
+                  </div>
+                  <div></div>
+                  <div class="amount">84,00 €</div>
+                </div>
+
+                <div class="position-row">
+                  <div class="status-dot yellow"></div>
+                  <div>
+                    <div class="desc">Taxi Flughafen → Messe</div>
+                    <div class="provider">Beleg</div>
+                  </div>
+                  <div></div>
+                  <div class="amount">47,50 €</div>
+                </div>
+                <div class="position-warning">
+                  <i data-lucide="alert-triangle" style="width:14px;height:14px;"></i>
+                  Beleg unleserlich – bitte prüfen
+                </div>
+
+                <div class="position-row">
+                  <div class="status-dot green"></div>
+                  <div>
+                    <div class="desc">Messeticket</div>
+                    <div class="provider">Rechnung</div>
+                  </div>
+                  <div></div>
+                  <div class="amount">149,00 €</div>
+                </div>
+
+                <div class="position-row">
+                  <div class="status-dot red"></div>
+                  <div>
+                    <div class="desc">Abendessen Kundeneinladung</div>
+                    <div class="provider">Beleg</div>
+                  </div>
+                  <div></div>
+                  <div class="amount">479,50 €</div>
+                </div>
+                <div class="position-error">
+                  <i data-lucide="x-circle" style="width:14px;height:14px;"></i>
+                  Über Richtlinie (max. 50€/Person)
+                </div>
+
+                <div class="position-sum">
+                  <span>SUMME</span>
+                  <span>1.247,00 €</span>
+                </div>
+              </div>
+
+              <div class="attachments">
+                <h4><i data-lucide="paperclip" style="width:16px;height:16px;"></i> Angehängte Belege (6)</h4>
+                <div class="attachment-list">
+                  <span class="attachment-item"><i data-lucide="file-text" style="width:14px;height:14px;"></i> Bahnticket.pdf</span>
+                  <span class="attachment-item"><i data-lucide="file-text" style="width:14px;height:14px;"></i> Hotel_Rechnung.pdf</span>
+                  <span class="attachment-item"><i data-lucide="image" style="width:14px;height:14px;"></i> Taxi_Beleg.jpg</span>
+                  <span class="attachment-item"><i data-lucide="file-text" style="width:14px;height:14px;"></i> Messeticket.pdf</span>
+                  <span class="attachment-item"><i data-lucide="image" style="width:14px;height:14px;"></i> Abendessen_Beleg.jpg</span>
+                  <span class="attachment-item"><i data-lucide="file-text" style="width:14px;height:14px;"></i> Reiseantrag.pdf</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== DECISION PANEL ===== -->
+            <div class="tool-panel" id="panel-decision">
+              <div class="decision-grid">
+                <div class="ai-recommendation">
+                  <div class="ai-header">
+                    <i data-lucide="bot" style="width:20px;height:20px;"></i>
+                    KI-EMPFEHLUNG
+                  </div>
+
+                  <div class="ai-verdict">
+                    <span style="font-size:28px;">🟡</span>
+                    <div>
+                      <div class="label">Empfehlung</div>
+                      <div class="value">TEILWEISE FREIGEBEN</div>
+                    </div>
+                  </div>
+
+                  <div class="ai-details">
+                    <div><span class="check">✓</span> 5 von 6 Positionen entsprechen den Richtlinien</div>
+                    <div><span class="warning">⚠️</span> 1 Position erfordert Rückfrage (Taxi-Beleg)</div>
+                    <div><span class="error">✗</span> 1 Position über Richtlinie (Abendessen)</div>
+                  </div>
+
+                  <div class="ai-action">
+                    <h4>Vorgeschlagene Aktion</h4>
+                    <ul>
+                      <li>Positionen 1-5 freigeben (767,50 €)</li>
+                      <li>Position 6 reduzieren auf 200,00 € (4 Pers. × 50€)</li>
+                      <li>Taxi-Beleg vom Mitarbeiter nachfordern</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="human-decision">
+                  <h3>IHRE ENTSCHEIDUNG</h3>
+
+                  <div class="decision-buttons">
+                    <div class="decision-btn green">
+                      <div class="icon">🟢</div>
+                      <div class="text">FREIGEBEN</div>
+                    </div>
+                    <div class="decision-btn yellow selected">
+                      <div class="icon">🟡</div>
+                      <div class="text">ANPASSEN</div>
+                    </div>
+                    <div class="decision-btn red">
+                      <div class="icon">🔴</div>
+                      <div class="text">ABLEHNEN</div>
+                    </div>
+                    <div class="decision-btn blue">
+                      <div class="icon">↗️</div>
+                      <div class="text">ESKALIEREN</div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box">
+                    <label>Kommentar (optional):</label>
+                    <textarea>KI-Vorschlag übernommen. Abendessen auf 200€ reduziert (Richtlinie). Taxi-Beleg angefordert.</textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== AUDIT PANEL ===== -->
+            <div class="tool-panel" id="panel-audit">
+              <div class="audit-timeline">
+                <div class="audit-date">05.02.2026</div>
+
+                <div class="audit-entry">
+                  <div class="audit-time">16:42</div>
+                  <div class="audit-icon upload">📤</div>
+                  <div class="audit-content">
+                    <div class="title">EINGEREICHT</div>
+                    <div class="desc">Fischer, Jan hat Reisekostenabrechnung eingereicht<br>Betrag: 1.247,00 € | 6 Positionen | 6 Belege</div>
+                  </div>
+                </div>
+
+                <div class="audit-entry">
+                  <div class="audit-time">16:43</div>
+                  <div class="audit-icon ai">🤖</div>
+                  <div class="audit-content">
+                    <div class="title">KI-PRÜFUNG ABGESCHLOSSEN</div>
+                    <div class="desc">Automatische Prüfung durchgeführt<br>Ergebnis: 5 OK | 1 Rückfrage | 1 Richtlinienverstoß<br>Empfehlung: Teilweise freigeben</div>
+                  </div>
+                </div>
+
+                <div class="audit-date">06.02.2026</div>
+
+                <div class="audit-entry">
+                  <div class="audit-time">09:15</div>
+                  <div class="audit-icon user">👤</div>
+                  <div class="audit-content">
+                    <div class="title">BEARBEITUNG BEGONNEN</div>
+                    <div class="desc">Schmidt, Maria (Finance) hat Vorgang geöffnet</div>
+                  </div>
+                </div>
+
+                <div class="audit-entry">
+                  <div class="audit-time">09:23</div>
+                  <div class="audit-icon email">📧</div>
+                  <div class="audit-content">
+                    <div class="title">RÜCKFRAGE GESENDET</div>
+                    <div class="desc">Automatische E-Mail an Fischer, Jan:<br>"Bitte Taxi-Beleg in besserer Qualität nachreichen"</div>
+                  </div>
+                </div>
+
+                <div class="audit-entry">
+                  <div class="audit-time">09:24</div>
+                  <div class="audit-icon check">✅</div>
+                  <div class="audit-content">
+                    <div class="title">TEILFREIGABE ERTEILT</div>
+                    <div class="desc">Schmidt, Maria (Finance)<br>Freigegeben: 967,50 € (5 Positionen + red. Abendessen)<br>Zurückgestellt: 47,50 € (Taxi – Beleg ausstehend)<br>Kommentar: "KI-Vorschlag übernommen"</div>
+                  </div>
+                </div>
+
+                <div class="audit-entry">
+                  <div class="audit-time">09:25</div>
+                  <div class="audit-icon payment">💳</div>
+                  <div class="audit-content">
+                    <div class="title">ZAHLUNG ANGEWIESEN</div>
+                    <div class="desc">SAP-Buchung: 967,50 € an Fischer, Jan<br>Zahlungslauf: 07.02.2026</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== EXPORT PANEL ===== -->
+            <div class="tool-panel" id="panel-export">
+              <div class="export-sections">
+                <div class="export-card">
+                  <h3>Einzelvorgang exportieren</h3>
+                  <div class="subtitle">RK-2026-045 | Fischer, Jan | 1.247,00 €</div>
+                  <div class="export-buttons">
+                    <div class="export-btn">
+                      <div class="icon">📄</div>
+                      <div class="label">PDF-Export</div>
+                      <div class="desc">Für Ablage & Revision</div>
+                    </div>
+                    <div class="export-btn">
+                      <div class="icon">📊</div>
+                      <div class="label">Excel</div>
+                      <div class="desc">Für Analyse</div>
+                    </div>
+                    <div class="export-btn">
+                      <div class="icon">🔗</div>
+                      <div class="label">SAP-Link</div>
+                      <div class="desc">Direkt zu Buchung</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="export-card">
+                  <h3>Monatsreport</h3>
+                  <div class="subtitle">Zeitraum: Januar 2026</div>
+
+                  <div class="report-stats">
+                    <div class="report-stat">
+                      <div class="value">187</div>
+                      <div class="label">Vorgänge gesamt</div>
+                    </div>
+                    <div class="report-stat highlight">
+                      <div class="value">76%</div>
+                      <div class="label">Automatisch freigegeben</div>
+                    </div>
+                    <div class="report-stat">
+                      <div class="value">47.832 €</div>
+                      <div class="label">Gesamtvolumen</div>
+                    </div>
+                    <div class="report-stat highlight">
+                      <div class="value">~85%</div>
+                      <div class="label">Zeitersparnis</div>
+                    </div>
+                  </div>
+
+                  <div class="export-buttons">
+                    <div class="export-btn">
+                      <div class="icon">📄</div>
+                      <div class="label">PDF-Report generieren</div>
+                    </div>
+                    <div class="export-btn">
+                      <div class="icon">📊</div>
+                      <div class="label">Excel-Export</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /tool-content -->
+        </div><!-- /tool-mockup -->
+
+        <!-- KOMPAKTER VERGLEICH: KEY FACTS -->
+        <div class="comparison-section">
+          <h2 class="comparison-title">
+            <i data-lucide="git-compare"></i>
+            Was ändert sich?
+          </h2>
+
+          <div class="comparison-table">
+            <div class="comparison-table-header">
+              <div>Metrik</div>
+              <div>Heute (manuell)</div>
+              <div class="col-new">Mit KI-Unterstützung</div>
+            </div>
+            <div class="comparison-table-row">
+              <div class="metric-label">Durchlaufzeit</div>
+              <div class="val-old">Ø 12 Tage</div>
+              <div class="val-new">Ø 2,3 Tage <span class="improvement">−81%</span></div>
+            </div>
+            <div class="comparison-table-row">
+              <div class="metric-label">Zeit pro Fall</div>
+              <div class="val-old">25 Min</div>
+              <div class="val-new">~4 Min <span class="improvement">−84%</span></div>
+            </div>
+            <div class="comparison-table-row">
+              <div class="metric-label">Automatisierung</div>
+              <div class="val-old">0% (100% manuell)</div>
+              <div class="val-new">76% auto-freigegeben</div>
+            </div>
+            <div class="comparison-table-row">
+              <div class="metric-label">Entscheidung</div>
+              <div class="val-old">Mensch</div>
+              <div class="val-new">Mensch (KI empfiehlt)</div>
+            </div>
+          </div>
+
+          <div class="key-message-compact">
+            <span class="icon">👤</span>
+            <span class="text"><strong>Finale Entscheidung liegt immer beim Menschen</strong> – KI unterstützt bei Vorprüfung & Empfehlung</span>
+          </div>
+        </div>
+
+        <!-- SLIDE FOOTER -->
+        <div class="slide-footer">
+          <a href="screen-4-case-beispiel.html" class="btn btn-secondary">← Zurück zum Case-Beispiel</a>
+          <a href="screen-6-form.html" class="btn btn-primary">Zur Case-Erfassung →</a>
+        </div>
+
+      </div><!-- /mockup-container -->
+    </main>
+
+    <!-- Keyboard Hint -->
+    <div class="keyboard-hint">
+      Tab-Navigation: <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> <kbd>5</kbd>
+    </div>
+
+    <footer class="footer" style="display: none;">
+      <div class="footer-inner">
+        <span>© 2026 gannaca AI Case Sprint</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function switchPanel(panelId) {
+      document.querySelectorAll('.tool-tab').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.tool-panel').forEach(panel => panel.classList.remove('active'));
+
+      document.querySelector(`.tool-tab[data-panel="${panelId}"]`).classList.add('active');
+      document.getElementById(`panel-${panelId}`).classList.add('active');
+
+      lucide.createIcons();
+    }
+
+    // Tab-Click-Events
+    document.querySelectorAll('.tool-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        switchPanel(tab.dataset.panel);
+      });
+    });
+
+    // Decision Button Toggle
+    document.querySelectorAll('.decision-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.decision-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+      });
+    });
+
+    // Keyboard Navigation (1-5 für Tabs)
+    document.addEventListener('keydown', (e) => {
+      const panels = ['dashboard', 'detail', 'decision', 'audit', 'export'];
+      const num = parseInt(e.key);
+      if (num >= 1 && num <= 5) {
+        switchPanel(panels[num - 1]);
+      }
+    });
+
+    // Initialize Icons
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

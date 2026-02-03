@@ -16,34 +16,274 @@
   
   <!-- Screen-spezifische Styles -->
   <style>
-    /* KLICKBARE PRÜFINSTANZ-BOXEN */
+    /* ============================================
+       BEAMER-OPTIMIERT: ZWEI-FOLIEN-STRUKTUR
+       Folie 1: Aufgabenverteilung & Governance-Regel
+       Folie 2: Prüfinstanzen & Prinzipien
+       ============================================ */
+
+    /* === FOLIE 1: AUFGABENVERTEILUNG === */
+    .slide-governance {
+      width: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 48px 80px 40px;
+      box-sizing: border-box;
+      min-height: calc(100vh - var(--header-height) - var(--nav-height));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Screen Header - BEAMER-GROSS */
+    .screen-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .screen-header h1 {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--text-darkest);
+      margin: 0 0 12px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .screen-header h1 i {
+      width: 36px;
+      height: 36px;
+    }
+
+    .screen-header p {
+      font-size: 20px;
+      color: var(--text-medium);
+      margin: 0;
+    }
+
+    /* Tabelle – erhöhte Schriftgröße */
+    .card {
+      background: var(--white);
+      border: 2px solid var(--border-gray);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 24px;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--navy);
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+    }
+
+    table th, table td {
+      padding: 14px 16px;
+      font-size: 17px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-gray);
+    }
+
+    table th {
+      font-size: 17px;
+      font-weight: 600;
+      background: var(--off-white);
+      color: var(--navy);
+    }
+
+    table td {
+      color: var(--text-dark);
+    }
+
+    table strong {
+      color: var(--text-darkest);
+    }
+
+    /* Governance-Regel-Box – konsistent mit Card-Design */
+    .governance-rule {
+      background: var(--white);
+      border: 2px solid var(--navy);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 24px;
+    }
+
+    .governance-rule h3 {
+      color: var(--navy);
+      margin: 0 0 8px 0;
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .governance-rule p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-dark);
+    }
+
+    .governance-rule strong {
+      background: var(--off-white);
+      border: 1px solid var(--border-gray);
+      padding: 2px 8px;
+      border-radius: 4px;
+      color: var(--navy);
+    }
+
+    /* === FOLIE 2: PRÜFINSTANZEN === */
+    .slide-pruefinstanzen {
+      width: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 32px 80px 24px;
+      box-sizing: border-box;
+      min-height: calc(100vh - var(--header-height) - var(--nav-height));
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide-pruefinstanzen .screen-nav {
+      margin-top: auto;
+      padding-top: 16px;
+    }
+
+    .pruefinstanzen-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .pruefinstanzen-header h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 0 0 8px 0;
+    }
+
+    .pruefinstanzen-header p {
+      font-size: 18px;
+      color: var(--text-medium);
+      margin: 0;
+    }
+
+    /* Grid Layout */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .grid-3 .box,
+    .grid-4 .box {
+      padding: 20px 24px;
+      background: var(--white);
+      border: 2px solid var(--border-gray);
+      border-radius: 12px;
+    }
+
+    .grid-3 .box:hover,
+    .grid-4 .box:hover {
+      border-color: var(--navy);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+
+    .grid-3 .box h4,
+    .grid-4 .box h4 {
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--navy);
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .grid-3 .box h4 i,
+    .grid-4 .box h4 i {
+      width: 20px !important;
+      height: 20px !important;
+    }
+
+    /* Prüfinstanz-Boxen */
     .pruefinstanz-box {
       cursor: pointer;
       transition: all 0.2s ease;
-      border-left: 3px solid var(--navy);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
+
     .pruefinstanz-box:hover {
-      border-color: var(--orange);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transform: translateY(-2px);
     }
+
     .pruefinstanz-box:hover h4 {
       color: var(--orange);
     }
+
     .pruefinstanz-box .doc-count {
-      font-size: 11px;
+      font-size: 14px;
       color: var(--text-light);
       display: flex;
       align-items: center;
       gap: 6px;
-      margin-top: var(--space-2);
+      margin-top: 12px;
     }
+
     .pruefinstanz-box .doc-count i {
-      width: 14px;
-      height: 14px;
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Trigger-Übersicht Boxen */
+    .trigger-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .trigger-grid > div {
+      background: var(--off-white);
+      border: 1px solid var(--border-gray);
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .trigger-grid i {
+      width: 24px !important;
+      height: 24px !important;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .trigger-grid > div > div {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+
+    /* KLICKBARE PRÜFINSTANZ-BOXEN */
+    .box-highlight {
+      padding: 12px 16px;
+      background: var(--light-blue);
+      border: 1px solid var(--navy);
+      border-radius: 8px;
     }
 
     /* MODAL-OVERLAY */
@@ -82,7 +322,7 @@
     }
     .doc-modal-header h3 {
       color: var(--navy);
-      font-size: 18px;
+      font-size: 20px;
       margin: 0;
       display: flex;
       align-items: center;
@@ -127,12 +367,12 @@
       color: var(--navy);
     }
     .doc-category-header span {
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 600;
       color: var(--text-dark);
     }
     .doc-category-count {
-      font-size: 11px;
+      font-size: 12px;
       color: var(--text-light);
       font-weight: 400;
       margin-left: auto;
@@ -143,9 +383,9 @@
       padding: 0;
     }
     .doc-list li {
-      font-size: 12px;
+      font-size: 15px;
       color: var(--text-medium);
-      padding: 6px 0;
+      padding: 8px 0;
       border-bottom: 1px solid var(--light-gray);
       display: flex;
       align-items: center;
@@ -167,7 +407,7 @@
       padding: 12px 16px;
       background: var(--off-white);
       border-radius: 8px;
-      font-size: 11px;
+      font-size: 14px;
       color: var(--text-medium);
       display: flex;
       align-items: flex-start;
@@ -181,44 +421,90 @@
       margin-top: 1px;
     }
 
-    @media screen and (min-width: 1920px) {
-      /* Kompaktere Tabelle */
-      table th, table td {
-        padding: 10px 12px;
-        font-size: 13px;
-      }
+    /* === SLIDE NAVIGATOR === */
+    .slide-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 24px;
+    }
 
-      /* Kompaktere Grid-Boxen */
-      .grid-3 .box,
-      .grid-4 .box {
-        padding: 12px 16px;
-      }
+    .slide-nav-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 8px;
+      background: transparent;
+      border: none;
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: color 0.2s ease;
+      text-decoration: none;
+    }
 
-      .grid-3 .box h4,
-      .grid-4 .box h4 {
-        font-size: 13px;
-        margin-bottom: 4px;
-      }
+    .slide-nav-btn:hover {
+      color: var(--orange);
+    }
 
-      /* Überschriften kompakter */
-      h3 {
-        font-size: 16px;
-        margin-bottom: 12px;
-      }
+    .slide-nav-btn i {
+      width: 28px;
+      height: 28px;
+      animation: bounce-down 2s infinite;
+    }
 
-      p {
-        margin-bottom: 12px;
-      }
+    @keyframes bounce-down {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
 
-      /* Card kompakter */
-      .card {
-        padding: 16px 20px;
-        margin-bottom: 16px;
-      }
+    /* Slide Indicator */
+    .slide-indicator {
+      position: fixed;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 100;
+    }
 
-      .card h3 {
-        margin-bottom: 12px;
-      }
+    .slide-indicator-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--border-gray);
+      border: 2px solid var(--border-gray);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .slide-indicator-dot:hover {
+      border-color: var(--navy);
+    }
+
+    .slide-indicator-dot.active {
+      background: var(--navy);
+      border-color: var(--navy);
+    }
+
+    /* Footer Navigation */
+    .screen-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-gray);
+    }
+
+    .screen-nav .btn {
+      font-size: 16px;
+      padding: 14px 28px;
     }
   </style>
 </head>
@@ -232,7 +518,7 @@
           <div class="logo-group">
             <img src="../assets/gannaca-logo.png" alt="gannaca" class="gannaca-logo">
             <div class="title-group">
-              <h1 class="main-title">gannaca AI Case Sprint</h1>
+              <h1 class="main-title">AI Case Sprint</h1>
               <p class="subtitle">Standardisiertes Framework für KI-Use-Case-Entwicklung</p>
             </div>
           </div>
@@ -261,39 +547,35 @@
         <a href="screen-1-overview.html" class="nav-tab"><span class="nav-tab-number">1</span> Übersicht</a>
         <a href="screen-2-kpi.html" class="nav-tab nav-tab-optional"><span class="nav-tab-number">2</span> KPI-Rahmen</a>
         <a href="screen-3-governance.html" class="nav-tab active"><span class="nav-tab-number">3</span> Governance</a>
-        <a href="screen-4-success-story.html" class="nav-tab"><span class="nav-tab-number">4</span> Success Story <i data-lucide="sparkles" class="icon-sm"></i></a>
+        <a href="screen-4-case-beispiel.html" class="nav-tab"><span class="nav-tab-number">4</span> Case-Beispiel</a>
+        <a href="screen-5-tool-mockup.html" class="nav-tab"><span class="nav-tab-number">5</span> Mockup-Beispiel</a>
         <a href="screen-6-form.html" class="nav-tab"><span class="nav-tab-number">6</span> Case-Erfassung <i data-lucide="star" class="icon-sm"></i></a>
-        <a href="screen-6b-bewertung.html" class="nav-tab"><span class="nav-tab-number">6b</span> Bewertung</a>
         <a href="screen-7-results.html" class="nav-tab"><span class="nav-tab-number">7</span> Ergebnis</a>
-        <a href="screen-8-matrix.html" class="nav-tab"><span class="nav-tab-number">8</span> Matrix</a>
       </div>
     </nav>
     
     <!-- MAIN CONTENT -->
     <main class="main-content">
-      
-      <!-- SLIDE CONTAINER -->
-      <div class="slide-container">
-        
-        <!-- SLIDE HEADER -->
-        <div class="slide-header">
-          <h1><i data-lucide="users" style="width:26px;height:26px;"></i>Governance & Rollenverteilung</h1>
+
+      <!-- SCREEN HEADER -->
+        <div class="screen-header">
+          <h1>
+            <i data-lucide="users"></i>
+            Governance & Rollenverteilung
+          </h1>
           <p>Klare Trennung zwischen KI-Unterstützung und menschlicher Entscheidung</p>
         </div>
-        
-        <!-- SLIDE CONTENT -->
-        <div class="slide-content" style="overflow-y: auto;">
-        
+
         <!-- MENSCH VS. KI TABELLE -->
-        <div class="card" style="margin-bottom: var(--space-10);">
-          <h3 style="margin-bottom: var(--space-6); color: var(--navy);">Aufgabenverteilung: Mensch vs. KI</h3>
+        <div class="card">
+          <h3>Aufgabenverteilung: Mensch vs. KI</h3>
           <div class="table-wrapper">
             <table>
               <thead>
                 <tr>
                   <th style="width: 30%;">Dimension</th>
-                  <th style="width: 35%; background: rgba(26, 58, 92, 0.1);"><i data-lucide="cpu" class="icon-sm icon-with-text"></i>KI übernimmt</th>
-                  <th style="width: 35%;"><i data-lucide="user" class="icon-sm icon-with-text"></i>Mensch entscheidet</th>
+                  <th style="width: 35%; background: rgba(26, 58, 92, 0.1);"><i data-lucide="cpu"></i> KI übernimmt</th>
+                  <th style="width: 35%;"><i data-lucide="user"></i> Mensch entscheidet</th>
                 </tr>
               </thead>
               <tbody>
@@ -326,56 +608,69 @@
             </table>
           </div>
         </div>
-        
+
         <!-- GOVERNANCE-REGEL (ZENTRAL & SICHTBAR) -->
-        <div style="background: linear-gradient(135deg, #1A3A5C 0%, #2C5282 100%); border-radius: var(--border-radius-lg); padding: 24px 28px; margin-bottom: var(--space-8); color: white;">
+        <div class="governance-rule">
           <div style="display: flex; align-items: flex-start; gap: 16px;">
-            <div style="background: rgba(255,255,255,0.15); border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-              <i data-lucide="shield-alert" style="width: 24px; height: 24px;"></i>
+            <div style="background: var(--off-white); border: 1px solid var(--border-gray); border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <i data-lucide="shield-alert" style="width: 24px; height: 24px; color: var(--navy);"></i>
             </div>
-            <div>
-              <h3 style="color: white; margin: 0 0 8px 0; font-size: 16px;">Governance-Trigger-Regel</h3>
-              <p style="margin: 0; font-size: 15px; line-height: 1.6; opacity: 0.95;">
-                <strong style="background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 4px;">Wenn ein Legal-Trigger = „Ja" oder „Unklar" → Prüfinstanz erforderlich</strong>
-              </p>
-              <p style="margin: 12px 0 0; font-size: 13px; opacity: 0.8; line-height: 1.5;">
-                Legal-Trigger umfassen: Entscheidungswirkung, KRITIS-Relevanz, personenbezogene Daten (inkl. besondere Kategorien), Automationsgrad.
-                Die Prüfinstanz bewertet anhand der hinterlegten Dokumente und trifft die finale Entscheidung.
+            <div style="flex: 1;">
+              <h3>Governance-Trigger-Regel</h3>
+              <p><strong>Wenn ein Legal-Trigger = „Ja" oder „Unklar" → Prüfinstanz erforderlich</strong></p>
+              <p style="margin: 12px 0 0; font-size: 14px; color: var(--text-medium);">
+                Legal-Trigger umfassen: Entscheidungswirkung, KRITIS-Relevanz, personenbezogene Daten (inkl. besondere Kategorien), Automationsgrad. Die Prüfinstanz bewertet anhand der hinterlegten Dokumente und trifft die finale Entscheidung.
               </p>
             </div>
           </div>
         </div>
 
         <!-- TRIGGER-ÜBERSICHT -->
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: var(--space-8);">
-          <div style="background: var(--off-white); border: 1px solid var(--border-gray); border-radius: 8px; padding: 16px; text-align: center;">
-            <i data-lucide="scale" style="width: 24px; height: 24px; color: var(--navy); margin-bottom: 8px;"></i>
-            <div style="font-weight: 600; font-size: 13px; color: var(--text-dark);">Entscheidungs-<br>wirkung</div>
+        <div class="trigger-grid">
+          <div>
+            <i data-lucide="scale"></i>
+            <div>Entscheidungs-wirkung</div>
           </div>
-          <div style="background: var(--off-white); border: 1px solid var(--border-gray); border-radius: 8px; padding: 16px; text-align: center;">
-            <i data-lucide="shield-alert" style="width: 24px; height: 24px; color: var(--navy); margin-bottom: 8px;"></i>
-            <div style="font-weight: 600; font-size: 13px; color: var(--text-dark);">KRITIS-<br>Relevanz</div>
+          <div>
+            <i data-lucide="shield-alert"></i>
+            <div>KRITIS-Relevanz</div>
           </div>
-          <div style="background: var(--off-white); border: 1px solid var(--border-gray); border-radius: 8px; padding: 16px; text-align: center;">
-            <i data-lucide="user-check" style="width: 24px; height: 24px; color: var(--navy); margin-bottom: 8px;"></i>
-            <div style="font-weight: 600; font-size: 13px; color: var(--text-dark);">Personenbez.<br>Daten</div>
+          <div>
+            <i data-lucide="user-check"></i>
+            <div>Personenbez. Daten</div>
           </div>
-          <div style="background: var(--off-white); border: 1px solid var(--border-gray); border-radius: 8px; padding: 16px; text-align: center;">
-            <i data-lucide="cpu" style="width: 24px; height: 24px; color: var(--navy); margin-bottom: 8px;"></i>
-            <div style="font-weight: 600; font-size: 13px; color: var(--text-dark);">Automations-<br>grad</div>
+          <div>
+            <i data-lucide="cpu"></i>
+            <div>Automationsgrad</div>
           </div>
         </div>
 
-        <!-- RECHTLICHE PRÜFINSTANZEN (REFERENZ) -->
-        <h3 style="margin-bottom: var(--space-4); color: var(--text-darkest);">Rechtliche Prüfinstanzen</h3>
-        <p style="color: var(--text-medium); margin-bottom: var(--space-6); font-size: var(--text-sm);">
-          Trianel agiert als Unternehmen der kritischen Infrastruktur. Für jeden Case sind folgende Prüffelder hinterlegt:
-        </p>
-        <div class="grid grid-3" style="gap: var(--space-4); margin-bottom: var(--space-10);">
+        <!-- SLIDE NAVIGATOR: Weiter zu Prüfinstanzen -->
+        <div class="slide-nav">
+          <a href="#slide-pruefinstanzen" class="slide-nav-btn" id="nav-to-pruefinstanzen">
+            <span>Weiter zu Prüfinstanzen</span>
+            <i data-lucide="chevron-down"></i>
+          </a>
+        </div>
+
+      </div>
+      <!-- Ende FOLIE 1 -->
+
+      <!-- ========== FOLIE 2: PRÜFINSTANZEN ========== -->
+      <div class="slide-pruefinstanzen" id="slide-pruefinstanzen">
+
+        <!-- PRÜFINSTANZEN HEADER -->
+        <div class="pruefinstanzen-header">
+          <h2>Rechtliche Prüfinstanzen</h2>
+          <p>Trianel agiert als Unternehmen der kritischen Infrastruktur. Für jeden Case sind folgende Prüffelder hinterlegt:</p>
+        </div>
+
+        <!-- PRÜFINSTANZEN GRID -->
+        <div class="grid-3">
 
           <div class="box pruefinstanz-box" onclick="openDocModal(1)">
-            <h4 style="color: var(--navy); margin-bottom: var(--space-2); font-size: var(--text-sm); display: flex; align-items: center; gap: 6px;">
-              <i data-lucide="building-2" class="icon-sm"></i>
+            <h4>
+              <i data-lucide="building-2"></i>
               <span>1. KRITIS & IT-Sicherheit</span>
             </h4>
             <div class="doc-count">
@@ -385,8 +680,8 @@
           </div>
 
           <div class="box pruefinstanz-box" onclick="openDocModal(2)">
-            <h4 style="color: var(--navy); margin-bottom: var(--space-2); font-size: var(--text-sm); display: flex; align-items: center; gap: 6px;">
-              <i data-lucide="lock" class="icon-sm"></i>
+            <h4>
+              <i data-lucide="lock"></i>
               <span>2. DSGVO & Datenschutz by Design</span>
             </h4>
             <div class="doc-count">
@@ -396,8 +691,8 @@
           </div>
 
           <div class="box pruefinstanz-box" onclick="openDocModal(3)">
-            <h4 style="color: var(--navy); margin-bottom: var(--space-2); font-size: var(--text-sm); display: flex; align-items: center; gap: 6px;">
-              <i data-lucide="cpu" class="icon-sm"></i>
+            <h4>
+              <i data-lucide="cpu"></i>
               <span>3. AI Act</span>
             </h4>
             <div class="doc-count">
@@ -407,8 +702,8 @@
           </div>
 
           <div class="box pruefinstanz-box" onclick="openDocModal(4)">
-            <h4 style="color: var(--navy); margin-bottom: var(--space-2); font-size: var(--text-sm); display: flex; align-items: center; gap: 6px;">
-              <i data-lucide="clipboard-list" class="icon-sm"></i>
+            <h4>
+              <i data-lucide="clipboard-list"></i>
               <span>4. Auditierbarkeit & Nachvollziehbarkeit</span>
             </h4>
             <div class="doc-count">
@@ -418,8 +713,8 @@
           </div>
 
           <div class="box pruefinstanz-box" onclick="openDocModal(5)">
-            <h4 style="color: var(--navy); margin-bottom: var(--space-2); font-size: var(--text-sm); display: flex; align-items: center; gap: 6px;">
-              <i data-lucide="scale" class="icon-sm"></i>
+            <h4>
+              <i data-lucide="scale"></i>
               <span>5. Haftungs-, Revisions- & Dokumentationspflichten</span>
             </h4>
             <div class="doc-count">
@@ -429,8 +724,8 @@
           </div>
 
           <div class="box pruefinstanz-box" onclick="openDocModal(6)">
-            <h4 style="color: var(--navy); margin-bottom: var(--space-2); font-size: var(--text-sm); display: flex; align-items: center; gap: 6px;">
-              <i data-lucide="ban" class="icon-sm"></i>
+            <h4>
+              <i data-lucide="ban"></i>
               <span>6. Vermeidung Vendor-Lock-in & Schatten-IT</span>
             </h4>
             <div class="doc-count">
@@ -440,82 +735,61 @@
           </div>
 
         </div>
-        
-        <!-- GOVERNANCE-PRINZIPIEN -->
-        <h3 style="margin-bottom: var(--space-4); color: var(--text-darkest);">Governance-Prinzipien</h3>
-        <div class="grid grid-4" style="gap: var(--space-4); margin-bottom: var(--space-10);">
 
-          <div class="box box-highlight" style="padding: var(--space-4);">
-            <h4 style="color: var(--navy); margin-bottom: 0; font-size: var(--text-sm); display: flex; align-items: center; gap: 6px;">
-              <i data-lucide="search" class="icon-sm"></i>
+        <!-- GOVERNANCE-PRINZIPIEN -->
+        <h3 style="font-size: 22px; margin-bottom: 16px; color: var(--text-darkest); margin-top: 24px;">Governance-Prinzipien</h3>
+        <div class="grid-4">
+
+          <div class="box box-highlight">
+            <h4>
+              <i data-lucide="search"></i>
               <span>Explainability</span>
             </h4>
           </div>
 
-          <div class="box box-highlight" style="padding: var(--space-4);">
-            <h4 style="color: var(--navy); margin-bottom: 0; font-size: var(--text-sm); display: flex; align-items: center; gap: 6px;">
-              <i data-lucide="user" class="icon-sm"></i>
+          <div class="box box-highlight">
+            <h4>
+              <i data-lucide="user"></i>
               <span>Human-in-the-Loop</span>
             </h4>
           </div>
 
-          <div class="box box-highlight" style="padding: var(--space-4);">
-            <h4 style="color: var(--navy); margin-bottom: 0; font-size: var(--text-sm); display: flex; align-items: center; gap: 6px;">
-              <i data-lucide="clipboard-list" class="icon-sm"></i>
+          <div class="box box-highlight">
+            <h4>
+              <i data-lucide="clipboard-list"></i>
               <span>Audit-Trail</span>
             </h4>
           </div>
 
-          <div class="box box-highlight" style="padding: var(--space-4);">
-            <h4 style="color: var(--navy); margin-bottom: 0; font-size: var(--text-sm); display: flex; align-items: center; gap: 6px;">
-              <i data-lucide="lock" class="icon-sm"></i>
+          <div class="box box-highlight">
+            <h4>
+              <i data-lucide="lock"></i>
               <span>Datenschutz by Design</span>
             </h4>
           </div>
 
         </div>
-        
-        <!-- ESKALATIONS-HINWEIS - AUSGEKLAMMERT
-        <div class="info-box" style="background: var(--off-white);">
-          <div class="info-box-icon"><i data-lucide="zap"></i></div>
-          <div class="info-box-title">Eskalations-Logik</div>
-          <div class="info-box-text">
-            <p style="margin-bottom: var(--space-4);">Bei folgenden Situationen wird automatisch eskaliert:</p>
-            <div style="display: flex; gap: var(--space-6); flex-wrap: wrap;">
-              <div style="display: flex; align-items: center; gap: var(--space-2);">
-                <span style="display: inline-block; width: 12px; height: 12px; background: var(--text-darkest); border-radius: 50%;"></span>
-                <span>Risiko-Score ≥ 4 → Teamleiter</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: var(--space-2);">
-                <span style="display: inline-block; width: 12px; height: 12px; background: var(--text-dark); border-radius: 50%;"></span>
-                <span>Compliance-Relevanz → Compliance-Beauftragter</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: var(--space-2);">
-                <span style="display: inline-block; width: 12px; height: 12px; background: var(--text-medium); border-radius: 50%;"></span>
-                <span>KI unsicher (< 70% Confidence) → Manueller Review</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        -->
-        
-        </div><!-- /slide-content -->
-        
-        <!-- SLIDE FOOTER -->
-        <div class="slide-footer">
-          <a href="screen-2-kpi.html" class="btn btn-secondary">← Zurück zu KPI-Rahmen</a>
-          <a href="screen-4-success-story.html" class="btn btn-primary">Weiter zu Success Story →</a>
-        </div>
-        
-      </div><!-- /slide-container -->
-      
-    </main>
-    
-    <footer class="footer">
-      <div class="footer-inner">
-        <span>© 2026 gannaca AI Case Sprint</span>
+
+        <!-- NAVIGATION -->
+        <div class="screen-nav">
+          <a href="screen-2-kpi.html" class="btn btn-secondary">
+            ← Zurück zu KPI-Rahmen
+          </a>
+          <a href="screen-4-case-beispiel.html" class="btn btn-primary">
+            Weiter zu Case-Beispiel →
+          </a>
+
       </div>
-    </footer>
+      <!-- Ende FOLIE 2 -->
+
+    </main>
+
+    <!-- SLIDE INDIKATOR (rechts fixiert) -->
+    <div class="slide-indicator">
+      <div class="slide-indicator-dot active" data-slide="slide-governance"></div>
+      <div class="slide-indicator-dot" data-slide="slide-pruefinstanzen"></div>
+    </div>
+
   </div><!-- /page-wrapper -->
 
   <!-- MODAL-OVERLAYS FÜR PRÜFINSTANZEN -->
@@ -535,7 +809,6 @@
 
   <!-- Active Tab Highlighting -->
   <script>
-    // Markiere aktuellen Tab als "active"
     const currentPage = window.location.pathname.split('/').pop();
     document.querySelectorAll('.nav-tab').forEach(tab => {
       tab.classList.remove('active');
@@ -543,6 +816,68 @@
         tab.classList.add('active');
       }
     });
+  </script>
+
+  <!-- SLIDE NAVIGATION SCRIPT -->
+  <script>
+    (function() {
+      const slides = ['slide-governance', 'slide-pruefinstanzen'];
+      let currentSlide = 0;
+
+      function scrollToSlide(index) {
+        if (index < 0 || index >= slides.length) return;
+        currentSlide = index;
+        const element = document.getElementById(slides[index]);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          updateIndicator();
+        }
+      }
+
+      function updateIndicator() {
+        document.querySelectorAll('.slide-indicator-dot').forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentSlide);
+        });
+      }
+
+      document.addEventListener('keydown', function(e) {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown') {
+          e.preventDefault();
+          scrollToSlide(currentSlide + 1);
+        } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
+          e.preventDefault();
+          scrollToSlide(currentSlide - 1);
+        }
+      });
+
+      document.getElementById('nav-to-pruefinstanzen')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        scrollToSlide(1);
+      });
+
+      document.querySelectorAll('.slide-indicator-dot').forEach((dot, index) => {
+        dot.addEventListener('click', () => scrollToSlide(index));
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+            const index = slides.indexOf(entry.target.id);
+            if (index !== -1) {
+              currentSlide = index;
+              updateIndicator();
+            }
+          }
+        });
+      }, { threshold: 0.5 });
+
+      slides.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    })();
   </script>
 
   <!-- DOKUMENT-DATEN (nur Titel, Kategorien, Anzahl - KEINE Inhalte) -->

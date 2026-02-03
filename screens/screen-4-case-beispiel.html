@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case-Beispiel | gannaca AI Case Sprint</title>
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/components.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <style>
+    /* ============================================
+       CLUSTER-BASIERTES LAYOUT
+       Struktur statt Zeitstrahl
+       ============================================ */
+
+    .case-layout {
+      width: 100%;
+      padding: 24px 80px 20px;
+      box-sizing: border-box;
+      min-height: calc(100vh - var(--header-height) - var(--nav-height));
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Case Header */
+    .case-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--navy);
+    }
+
+    .case-header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .case-badge {
+      background: var(--navy);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .case-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-darkest);
+      margin: 0;
+    }
+
+    .case-subtitle {
+      font-size: 14px;
+      color: var(--text-medium);
+      margin: 4px 0 0;
+    }
+
+    /* Cluster Grid - 3 Hauptcluster */
+    .cluster-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      flex: 1;
+      margin-bottom: 16px;
+    }
+
+    /* Cluster Card */
+    .cluster-card {
+      background: white;
+      border: 2px solid var(--border-gray);
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cluster-card:hover {
+      border-color: var(--navy);
+    }
+
+    /* Cluster Header */
+    .cluster-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .cluster-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--navy);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .cluster-icon i {
+      width: 22px;
+      height: 22px;
+    }
+
+    .cluster-title-group {
+      flex: 1;
+    }
+
+    .cluster-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+
+    .cluster-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-darkest);
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    /* Cluster Content - Fragen-Liste */
+    .cluster-questions {
+      flex: 1;
+    }
+
+    .cluster-question {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .cluster-question:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .question-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .question-number {
+      width: 22px;
+      height: 22px;
+      background: var(--off-white);
+      border: 1px solid var(--border-gray);
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+
+    .question-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-darkest);
+      line-height: 1.3;
+    }
+
+    .question-answer {
+      margin-left: 32px;
+      font-size: 12px;
+      color: var(--text-medium);
+      line-height: 1.5;
+      background: var(--off-white);
+      padding: 8px 12px;
+      border-radius: 6px;
+    }
+
+    .question-answer strong {
+      color: var(--text-darkest);
+      font-weight: 600;
+    }
+
+    /* Answer Chips im Cluster */
+    .answer-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-left: 32px;
+    }
+
+    .answer-chip {
+      background: rgba(0, 150, 136, 0.12);
+      color: var(--accent-teal);
+      padding: 4px 10px;
+      border-radius: 5px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .answer-chip.inactive {
+      background: var(--light-gray);
+      color: var(--text-light);
+      font-weight: 400;
+    }
+
+    /* Stats Row */
+    .stats-row {
+      display: flex;
+      gap: 8px;
+      margin-left: 32px;
+      flex-wrap: wrap;
+    }
+
+    .stat-badge {
+      background: var(--off-white);
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+    }
+
+    .stat-badge-label {
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    .stat-badge-value {
+      color: var(--text-darkest);
+      font-weight: 700;
+      margin-left: 4px;
+    }
+
+    .stat-badge-value.highlight {
+      color: var(--accent-teal);
+    }
+
+    /* Governance Card - Full Width unten */
+    .governance-row {
+      margin-top: auto;
+    }
+
+    .governance-card {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      border: 2px solid var(--navy);
+      border-radius: 12px;
+      padding: 20px 28px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .governance-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 200px;
+    }
+
+    .governance-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--navy);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .governance-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-darkest);
+    }
+
+    .governance-subtitle {
+      font-size: 11px;
+      color: var(--text-medium);
+    }
+
+    /* Governance Items */
+    .governance-items {
+      display: flex;
+      gap: 16px;
+      flex: 1;
+    }
+
+    .gov-item {
+      text-align: center;
+      padding: 8px 16px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid var(--border-gray);
+    }
+
+    .gov-item-label {
+      font-size: 10px;
+      color: var(--text-medium);
+      margin-bottom: 4px;
+    }
+
+    .gov-item-value {
+      font-size: 13px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .gov-item-value.yes {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .gov-item-value.no {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    /* Trigger Status */
+    .trigger-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #fef3c7;
+      border: 2px solid #f59e0b;
+      padding: 10px 16px;
+      border-radius: 8px;
+      margin-left: auto;
+    }
+
+    .trigger-badge-icon {
+      font-size: 20px;
+    }
+
+    .trigger-badge-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: #92400e;
+    }
+
+    /* Footer Navigation */
+    .case-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-gray);
+    }
+
+    /* Beamer-Optimierung */
+    @media screen and (min-width: 1920px) {
+      .case-layout {
+        padding: 48px 80px 40px;
+        max-width: 1500px;
+        margin: 0 auto;
+      }
+
+      .case-title {
+        font-size: 40px;
+      }
+
+      .case-subtitle {
+        font-size: 20px;
+      }
+
+      .cluster-grid {
+        gap: 24px;
+      }
+
+      .cluster-card {
+        padding: 24px 28px;
+      }
+
+      .cluster-title {
+        font-size: 22px;
+      }
+
+      .question-title {
+        font-size: 16px;
+      }
+
+      .question-answer {
+        font-size: 16px;
+      }
+
+      .cluster-icon {
+        width: 48px;
+        height: 48px;
+      }
+
+      .cluster-icon i {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    /* Kleinere Bildschirme */
+    @media (max-width: 1440px) {
+      .case-layout {
+        padding: 20px 32px 16px;
+      }
+
+      .cluster-grid {
+        gap: 16px;
+      }
+
+      .cluster-card {
+        padding: 16px 20px;
+      }
+
+      .cluster-title {
+        font-size: 15px;
+      }
+
+      .question-title {
+        font-size: 12px;
+      }
+
+      .question-answer {
+        font-size: 11px;
+        padding: 6px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- HEADER -->
+    <header class="main-header">
+      <div class="header-container">
+        <div class="header-left">
+          <div class="logo-group">
+            <img src="../assets/gannaca-logo.png" alt="gannaca" class="gannaca-logo">
+            <div class="title-group">
+              <h1 class="main-title">AI Case Sprint</h1>
+              <p class="subtitle">Standardisiertes Framework für KI-Use-Case-Entwicklung</p>
+            </div>
+          </div>
+        </div>
+        <div class="header-right">
+          <img src="../assets/trianel-logo.png" alt="Trianel" class="client-logo">
+          <div class="header-info">
+            <span class="version-badge">04.02.2026</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="terminology-mandatory">
+      DATENSCHUTZ-KONFORM – KEINE PRODUKTIVDATEN<br>
+      Dieses Mockup dient ausschließlich zur Visualisierung.<br>
+      Alle gezeigten Beispiele sind fiktiv. Keine Erfassung,<br>
+      Verarbeitung oder Speicherung von produktiven Trianel-Daten.
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="nav-tabs">
+      <div class="nav-tabs-inner">
+        <a href="screen-0-workshop-process.html" class="nav-tab"><span class="nav-tab-number">0</span> Workshop-Prozess</a>
+        <a href="screen-1-overview.html" class="nav-tab"><span class="nav-tab-number">1</span> Übersicht</a>
+        <a href="screen-2-kpi.html" class="nav-tab nav-tab-optional"><span class="nav-tab-number">2</span> KPI-Rahmen</a>
+        <a href="screen-3-governance.html" class="nav-tab"><span class="nav-tab-number">3</span> Governance</a>
+        <a href="screen-4-case-beispiel.html" class="nav-tab active"><span class="nav-tab-number">4</span> Case-Beispiel</a>
+        <a href="screen-5-tool-mockup.html" class="nav-tab"><span class="nav-tab-number">5</span> Mockup-Beispiel</a>
+        <a href="screen-6-form.html" class="nav-tab"><span class="nav-tab-number">6</span> Case-Erfassung <i data-lucide="star" class="icon-sm"></i></a>
+        <a href="screen-7-results.html" class="nav-tab"><span class="nav-tab-number">7</span> Ergebnis</a>
+      </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <div class="case-layout">
+
+        <!-- CASE HEADER -->
+        <div class="case-header">
+          <div class="case-header-left">
+            <span class="case-badge">BEISPIEL-CASE</span>
+            <div>
+              <h1 class="case-title">Reisekostenabrechnung</h1>
+              <p class="case-subtitle">Vollständig erfasster Case – So sieht eine strukturierte Erfassung aus</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 CLUSTER GRID -->
+        <div class="cluster-grid">
+
+          <!-- CLUSTER A: Problem & Kontext -->
+          <div class="cluster-card">
+            <div class="cluster-header">
+              <div class="cluster-icon">
+                <i data-lucide="file-search"></i>
+              </div>
+              <div class="cluster-title-group">
+                <div class="cluster-label">Fragen 1–4</div>
+                <h3 class="cluster-title">Problem & Kontext</h3>
+              </div>
+            </div>
+            <div class="cluster-questions">
+
+              <!-- Frage 1 -->
+              <div class="cluster-question">
+                <div class="question-header">
+                  <span class="question-number">1</span>
+                  <span class="question-title">Beschreibung der Ausgangslage</span>
+                </div>
+                <div class="question-answer">
+                  Manuelle Reisekostenabrechnung – zeitintensiver Prüfprozess mit häufigen Rückfragen
+                </div>
+              </div>
+
+              <!-- Frage 2 -->
+              <div class="cluster-question">
+                <div class="question-header">
+                  <span class="question-number">2</span>
+                  <span class="question-title">Betroffene Abteilung(en)</span>
+                </div>
+                <div class="answer-chips">
+                  <span class="answer-chip">Human Resources</span>
+                  <span class="answer-chip">Finance</span>
+                </div>
+              </div>
+
+              <!-- Frage 3 -->
+              <div class="cluster-question">
+                <div class="question-header">
+                  <span class="question-number">3</span>
+                  <span class="question-title">Was ist die Lage?</span>
+                </div>
+                <div class="question-answer">
+                  Mitarbeiter reichen per E-Mail/Papier ein. Sachbearbeiter prüfen manuell gegen Richtlinien, tragen in SAP ein.
+                </div>
+              </div>
+
+              <!-- Frage 4 -->
+              <div class="cluster-question">
+                <div class="question-header">
+                  <span class="question-number">4</span>
+                  <span class="question-title">Prozessablauf</span>
+                </div>
+                <div class="question-answer">
+                  Einreichung → Erfassung → Prüfung → Rückfrage → Korrektur → Freigabe → SAP → Auszahlung
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- CLUSTER B: Aufwand & Relevanz -->
+          <div class="cluster-card">
+            <div class="cluster-header">
+              <div class="cluster-icon">
+                <i data-lucide="bar-chart-2"></i>
+              </div>
+              <div class="cluster-title-group">
+                <div class="cluster-label">Fragen 5–8</div>
+                <h3 class="cluster-title">Aufwand & Relevanz</h3>
+              </div>
+            </div>
+            <div class="cluster-questions">
+
+              <!-- Frage 5 -->
+              <div class="cluster-question">
+                <div class="question-header">
+                  <span class="question-number">5</span>
+                  <span class="question-title">Häufigkeit</span>
+                </div>
+                <div class="stats-row">
+                  <span class="stat-badge">
+                    <span class="stat-badge-value">Wöchentlich</span>
+                  </span>
+                  <span class="stat-badge">
+                    <span class="stat-badge-label">Vorgänge:</span>
+                    <span class="stat-badge-value">~50</span>
+                  </span>
+                </div>
+              </div>
+
+              <!-- Frage 6 -->
+              <div class="cluster-question">
+                <div class="question-header">
+                  <span class="question-number">6</span>
+                  <span class="question-title">Betroffene Personen & Zeitaufwand</span>
+                </div>
+                <div class="stats-row">
+                  <span class="stat-badge">
+                    <span class="stat-badge-label">Mitarbeiter:</span>
+                    <span class="stat-badge-value">3</span>
+                  </span>
+                  <span class="stat-badge">
+                    <span class="stat-badge-label">Zeit/Fall:</span>
+                    <span class="stat-badge-value">25 Min</span>
+                  </span>
+                  <span class="stat-badge">
+                    <span class="stat-badge-label">Jahr:</span>
+                    <span class="stat-badge-value highlight">~3.250h</span>
+                  </span>
+                </div>
+              </div>
+
+              <!-- Frage 7 -->
+              <div class="cluster-question">
+                <div class="question-header">
+                  <span class="question-number">7</span>
+                  <span class="question-title">Strategische Relevanz</span>
+                </div>
+                <div class="answer-chips">
+                  <span class="answer-chip inactive">■ Hoch</span>
+                  <span class="answer-chip">▪ Mittel</span>
+                  <span class="answer-chip inactive">○ Niedrig</span>
+                </div>
+              </div>
+
+              <!-- Frage 8 -->
+              <div class="cluster-question">
+                <div class="question-header">
+                  <span class="question-number">8</span>
+                  <span class="question-title">Risiko bei Nicht-Handlung</span>
+                </div>
+                <div class="question-answer">
+                  <strong>Stufe 3/5:</strong> Mitarbeiterunzufriedenheit, Audit-Risiko, Compliance-Probleme
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- CLUSTER C: Lösungsraum -->
+          <div class="cluster-card">
+            <div class="cluster-header">
+              <div class="cluster-icon">
+                <i data-lucide="lightbulb"></i>
+              </div>
+              <div class="cluster-title-group">
+                <div class="cluster-label">Fragen 9–11</div>
+                <h3 class="cluster-title">Lösungsraum</h3>
+              </div>
+            </div>
+            <div class="cluster-questions">
+
+              <!-- Frage 9 -->
+              <div class="cluster-question">
+                <div class="question-header">
+                  <span class="question-number">9</span>
+                  <span class="question-title">Vorhandene Lösungsansätze</span>
+                </div>
+                <div class="question-answer">
+                  <strong>Ja:</strong> Excel-Vorlage (nicht konsequent genutzt), SharePoint-Liste für Status
+                </div>
+              </div>
+
+              <!-- Frage 10 -->
+              <div class="cluster-question">
+                <div class="question-header">
+                  <span class="question-number">10</span>
+                  <span class="question-title">Daten-Verfügbarkeit</span>
+                </div>
+                <div class="stats-row">
+                  <span class="stat-badge">
+                    <span class="stat-badge-value">⚠ Teilweise digital</span>
+                  </span>
+                </div>
+                <div class="question-answer" style="margin-top: 6px;">
+                  Scans (unstrukturiert), Outlook, SAP-Stammdaten, SharePoint
+                </div>
+              </div>
+
+              <!-- Frage 11 -->
+              <div class="cluster-question">
+                <div class="question-header">
+                  <span class="question-number">11</span>
+                  <span class="question-title">Gewünschte Unterstützung</span>
+                </div>
+                <div class="question-answer">
+                  • Automatische Belegerfassung<br>
+                  • Abgleich mit Reiserichtlinien<br>
+                  • Auffälligkeiten markieren<br>
+                  • Freigabe-Vorschlag
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div><!-- /cluster-grid -->
+
+        <!-- GOVERNANCE ROW -->
+        <div class="governance-row">
+          <div class="governance-card">
+            <div class="governance-header">
+              <div class="governance-icon">
+                <i data-lucide="shield-check"></i>
+              </div>
+              <div>
+                <div class="governance-title">Governance & Legal Trigger</div>
+                <div class="governance-subtitle">Bestimmt, ob formale Prüfinstanz erforderlich</div>
+              </div>
+            </div>
+            <div class="governance-items">
+              <div class="gov-item">
+                <div class="gov-item-label">Entscheidungswirkung?</div>
+                <div class="gov-item-value yes">Ja</div>
+              </div>
+              <div class="gov-item">
+                <div class="gov-item-label">KRITIS-Relevanz</div>
+                <div class="gov-item-value no">Nein</div>
+              </div>
+              <div class="gov-item">
+                <div class="gov-item-label">Personenbezogene Daten</div>
+                <div class="gov-item-value yes">Ja</div>
+              </div>
+              <div class="gov-item">
+                <div class="gov-item-label">Automationsgrad</div>
+                <div class="gov-item-value yes">Entscheidungsunterst.</div>
+              </div>
+            </div>
+            <div class="trigger-badge">
+              <span class="trigger-badge-icon">🟡</span>
+              <span class="trigger-badge-text">Prüfinstanz erforderlich</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="case-footer">
+          <a href="screen-3-governance.html" class="btn btn-secondary">
+            ← Governance
+          </a>
+          <a href="screen-5-tool-mockup.html" class="btn btn-primary">
+            Zum Tool-Mockup →
+          </a>
+        </div>
+
+      </div><!-- /case-layout -->
+    </main>
+
+  </div>
+
+  <!-- Active Tab Highlighting -->
+  <script>
+    const currentPage = window.location.pathname.split('/').pop();
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+      tab.classList.remove('active');
+      if (tab.getAttribute('href') === currentPage) {
+        tab.classList.add('active');
+      }
+    });
+  </script>
+
+  <!-- Initialize Lucide Icons -->
+  <script>lucide.createIcons();</script>
+</body>
+</html>

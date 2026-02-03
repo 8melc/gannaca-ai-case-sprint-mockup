@@ -195,22 +195,34 @@ h3 i[data-lucide] {
 .icon-muted { color: #999999; }
 
 /* ============================================
-   MAIN HEADER (Neu, ohne Fake Browser Chrome)
+   MAIN HEADER (Beamer-optimiert)
    ============================================ */
 
 .main-header {
   background: #FFFFFF;
-  border-bottom: 1px solid #DDDDDD;
-  padding: 16px 60px;
+  border-bottom: 2px solid #DDDDDD;
+  padding: 16px 80px;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 600;
+  height: 110px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* ============================================
+   TERMINOLOGY BANNER (Datenschutz-Hinweis)
+   Versteckt - nur für interne Dokumentation
+   ============================================ */
+.terminology-mandatory {
+  display: none; /* Ausgeblendet für sauberes Layout */
 }
 
 .header-container {
-  max-width: 1600px;
+  max-width: 1800px;
+  height: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -225,38 +237,39 @@ h3 i[data-lucide] {
 .logo-group {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 28px;
 }
 
-/* gannaca LOGO (GROß!) */
+/* gannaca LOGO - Beamer-optimiert */
 .gannaca-logo {
-  height: 110px;
+  height: 75px;
   width: auto;
   flex-shrink: 0;
 }
 
-/* AI-CASE SPRINT TITEL (BÜNDIG mit Logo!) */
+/* AI CASE SPRINT TITEL - Beamer-optimiert */
 .title-group {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
   justify-content: center;
 }
 
 .main-title {
   font-family: 'Inter', -apple-system, sans-serif;
-  font-size: 28px;
-  font-weight: 600;
+  font-size: 36px;
+  font-weight: 700;
   color: #1A1A1A;
   margin: 0;
   line-height: 1.2;
+  letter-spacing: -0.5px;
 }
 
 .subtitle {
   font-family: 'Inter', -apple-system, sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 400;
-  color: #999999;
+  color: #888888;
   margin: 0;
   line-height: 1.4;
 }
@@ -265,12 +278,12 @@ h3 i[data-lucide] {
 .header-right {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
   flex-shrink: 0;
 }
 
 .client-logo {
-  height: 85px;
+  height: 90px;
   width: auto;
 }
 
@@ -278,17 +291,17 @@ h3 i[data-lucide] {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 4px;
+  gap: 6px;
 }
 
 .version-badge {
-  font-size: 11px;
-  color: #666666;
-  background: #F5F5F6;
-  padding: 8px 14px;
-  border-radius: 6px;
+  font-size: 13px;
+  color: #555555;
+  background: #F0F0F2;
+  padding: 10px 18px;
+  border-radius: 8px;
   white-space: nowrap;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .header-disclaimer {
@@ -311,6 +324,7 @@ h3 i[data-lucide] {
    DATENSCHUTZ-BANNER (Orange-getönt)
    ============================================ */
 
+/* OPTIMIERT: Kompakterer Banner */
 .data-protection-banner {
   position: fixed;
   top: var(--header-height);
@@ -319,10 +333,10 @@ h3 i[data-lucide] {
   height: var(--banner-height);
   background: var(--banner-bg);
   border-bottom: 2px solid var(--banner-border);
-  z-index: 500; /* Erhöht für sichtbare Navigation */
+  z-index: 500;
   display: flex;
   align-items: center;
-  padding: var(--space-6) var(--container-padding);
+  padding: var(--space-2) var(--space-6);  /* OPTIMIERT: Weniger Padding */
 }
 
 .data-protection-banner-inner {

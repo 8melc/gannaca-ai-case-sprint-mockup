@@ -163,17 +163,17 @@
      ======================================== */
   
   --container-width: 1600px;
-  --container-padding: 80px;
-  --section-gap: 40px;
-  --column-gap: 48px;
-  --card-gap: 32px;
-  --content-padding: 32px;
+  --container-padding: 24px;  /* OPTIMIERT: Weniger Padding */
+  --section-gap: 24px;        /* OPTIMIERT: Kompaktere Sections */
+  --column-gap: 32px;         /* OPTIMIERT: Kompaktere Spalten */
+  --card-gap: 24px;           /* OPTIMIERT: Kompaktere Cards */
+  --content-padding: 24px;    /* OPTIMIERT: Weniger Content-Padding */
   
   /* Legacy layout aliases */
   --max-width: var(--container-width);
-  --header-height: 142px;
-  --banner-height: 60px;
-  --nav-height: 50px;
+  --header-height: 110px;   /* BEAMER-OPTIMIERT: Kräftigerer Header */
+  --banner-height: 40px;    /* OPTIMIERT: Kompakterer Banner */
+  --nav-height: 44px;       /* OPTIMIERT: Kompaktere Navigation */
   --sidebar-width: 280px;
 
   /* ========================================
@@ -181,10 +181,10 @@
      Verhindert, dass Content von fixierten
      Bottom-Leisten überdeckt wird
      ======================================== */
-  --footer-height: 60px;
-  --footer-safe-area: 100px;
-  --focus-nav-height: 140px;
-  --focus-safe-area: 180px;
+  --footer-height: 50px;       /* OPTIMIERT: Kompakterer Footer */
+  --footer-safe-area: 70px;    /* OPTIMIERT: Weniger Abstand */
+  --focus-nav-height: 90px;    /* KOMPAKT: Kleinere Fokus-Nav */
+  --focus-safe-area: 100px;    /* KOMPAKT: Weniger Sicherheitsabstand */
   
   /* ========================================
      BORDERS & RADIUS
